@@ -4,4 +4,10 @@ module.exports = {
     'plugin:cypress/recommended',
   ],
   rules: {},
+  
+  parserOptions: {
+    project: "tsconfig.json",
+    tsconfigRootDir: __dirname,
+    sourceType: "module",
+  },
 };

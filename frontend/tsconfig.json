@@ -6,5 +6,11 @@
   "compilerOptions": {
     "sourceMap": false,
     "types": ["node", "cypress"]
-  }
+  },
+
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "__dirname",
+    "sourceType": "module",
+  },
 }
