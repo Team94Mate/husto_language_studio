@@ -37,4 +37,4 @@ In this project our team used the following technologies:
 ![Home Page](some_link.png)
 
 ## Database structure:
-![DB_structure](some_link.png)
+![DB_structure](images/db_structure.drawio.png)
