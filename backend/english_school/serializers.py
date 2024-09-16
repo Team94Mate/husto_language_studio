@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.english_school.models import (
+from english_school.models import (
     Teacher,
     Course,
     Review,
@@ -25,7 +25,17 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class NoMillisecondsDateTimeField(serializers.DateTimeField):
+    def to_representation(self, value):
+        """Format the datetime to exclude milliseconds"""
+        if value is None:
+            return None
+        return value.strftime("%Y-%m-%dT%H:%M:%S")
+
+
 class ContactMessageSerializer(serializers.ModelSerializer):
+    submitted_at = NoMillisecondsDateTimeField()
+
     class Meta:
         model = ContactMessage
         fields = "__all__"
