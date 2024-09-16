@@ -1,6 +1,7 @@
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from django.core.files.storage import default_storage
+from django.utils import timezone
 
 from english_school.models import Teacher, Course, Review, ContactMessage
 
@@ -121,4 +122,8 @@ class ContactMessageModelTest(TestCase):
         self.assertEqual(
             self.contact_message.question,
             "How to sign up for English language lessons?",
+        )
+        self.assertIsNotNone(self.contact_message.submitted_at)
+        self.assertEqual(
+            self.contact_message.submitted_at.date(), timezone.now().date()
         )
