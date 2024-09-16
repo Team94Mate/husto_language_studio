@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from backend.english_school.models import (
+from english_school.models import (
     Teacher,
     Course,
     Review,

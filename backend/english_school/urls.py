@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from backend.english_school.views import (
+from english_school.views import (
     TeacherViewSet,
     CourseViewSet,
     ReviewViewSet,
