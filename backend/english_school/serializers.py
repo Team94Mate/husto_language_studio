@@ -34,7 +34,7 @@ class NoMillisecondsDateTimeField(serializers.DateTimeField):
 
 
 class ContactMessageSerializer(serializers.ModelSerializer):
-    submitted_at = NoMillisecondsDateTimeField()
+    submitted_at = NoMillisecondsDateTimeField(required=False)
 
     class Meta:
         model = ContactMessage
