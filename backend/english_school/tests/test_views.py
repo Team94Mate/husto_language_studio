@@ -1,10 +1,12 @@
-from io import BytesIO
+import shutil
+import tempfile
 from PIL import Image
+import io
+from django.test import override_settings
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import override_settings
 from django.core.files.storage import default_storage
 from django.contrib.auth.models import User
 
@@ -16,22 +18,26 @@ from english_school.models import (
 )
 
 
-def create_image_file(name):
-    image = Image.new("RGB", (100, 100), color="red")
-    file = BytesIO()
-    image.save(file, format="JPEG")
-    file.seek(0)
-    return SimpleUploadedFile(name, file.read(), content_type="image/jpeg")
+def create_image_file(filename, content_type="image/jpeg"):
+    image = Image.new("RGB", (100, 100), color=(255, 0, 0))
+    img_io = io.BytesIO()
+    image.save(img_io, format="JPEG")
+    img_io.name = filename
+    img_io.seek(0)
+    return SimpleUploadedFile(
+        img_io.name, img_io.read(), content_type=content_type
+    )
 
 
 class PublicTeacherViewSetTests(APITestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
-        self.photo = SimpleUploadedFile(
-            "test_photo.jpg", b"file_content", content_type="image/jpeg"
-        )
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
+        self.photo = create_image_file("test.jpg")
         self.teacher = Teacher.objects.create(
             name="Sofia",
             specialization="Master of practical classes",
@@ -59,16 +65,21 @@ class PublicTeacherViewSetTests(APITestCase):
 
 
 class PrivateTeacherViewSetTests(APITestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.user = User.objects.create_superuser(
             username="admin", password="password", email="admin@example.com"
         )
         self.client.login(username="admin", password="password")
 
-        self.photo = create_image_file("test_photo.jpg")
+        self.photo = SimpleUploadedFile(
+            "test_photo.jpg", b"file_content", content_type="image/jpeg"
+        )
         self.teacher = Teacher.objects.create(
             name="Sofia",
             specialization="Master of practical classes",
@@ -80,35 +91,32 @@ class PrivateTeacherViewSetTests(APITestCase):
         self.list_url = reverse("teachers-list")
         self.detail_url = reverse("teachers-detail", args=[self.teacher.id])
 
-    def tearDown(self):
-        if default_storage.exists(self.teacher.photo.name):
-            default_storage.delete(self.teacher.photo.name)
-
     def test_create_teacher(self):
+        new_photo = create_image_file("test_photo_2.jpg")
         data = {
             "name": "Jane Smith",
             "specialization": "English",
             "experience": 3.0,
             "teacher_level": "Junior",
             "description": "New English teacher.",
-            "photo": create_image_file(
-                "new_photo.jpg"
-            ),  # Use the function here
+            "photo": new_photo,
         }
-        response = self.client.post(self.list_url, data, format="multipart")
+        response = self.client.post(
+            self.list_url, data=data, format="multipart"
+        )
+
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data["name"], "Jane Smith")
 
     def test_update_teacher(self):
+        new_photo = create_image_file("new_photo.jpg")
         data = {
             "name": "Sofia Updated",
             "specialization": "Science",
             "experience": 6.0,
             "teacher_level": "Lead",
             "description": "Updated description.",
-            "photo": create_image_file(
-                "updated_photo.jpg"
-            ),  # Use the function here
+            "photo": new_photo,
         }
         response = self.client.put(self.detail_url, data, format="multipart")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -122,9 +130,6 @@ class PrivateTeacherViewSetTests(APITestCase):
 
 
 class PublicCourseViewSetTests(APITestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
         self.course = Course.objects.create(
             title="SoloPro",
@@ -150,9 +155,6 @@ class PublicCourseViewSetTests(APITestCase):
 
 
 class PrivateCourseViewSetTests(APITestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
         self.user = User.objects.create_superuser(
             username="admin", password="password", email="admin@example.com"
@@ -207,10 +209,13 @@ class PrivateCourseViewSetTests(APITestCase):
 
 
 class PublicReviewViewSetTests(APITestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.photo = create_image_file("test_photo.jpg")
         self.review = Review.objects.create(
             name="John Doe",
@@ -233,10 +238,13 @@ class PublicReviewViewSetTests(APITestCase):
 
 
 class PrivateReviewViewSetTests(APITestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.user = User.objects.create_superuser(
             username="admin", password="password", email="admin@example.com"
         )
