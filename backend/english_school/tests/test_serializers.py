@@ -1,5 +1,9 @@
+import shutil
+import tempfile
+from django.test import override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
+
 
 from english_school.models import Teacher, Course, Review, ContactMessage
 from english_school.serializers import (
@@ -19,15 +23,21 @@ class BaseSerializerTestCase(APITestCase):
 
 class TeacherSerializerTest(BaseSerializerTestCase):
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.photo = SimpleUploadedFile(
             "test_photo.jpg", b"file_content", content_type="image/jpeg"
         )
         self.teacher = Teacher.objects.create(
             name="John Doe",
-            specialization="Mathematics",
+            specialization="Master of practical classes",
             experience=10.5,
             teacher_level="Senior",
-            description="Experienced math teacher.",
+            description="Experienced teacher.",
             photo=self.photo,
         )
 
@@ -35,10 +45,10 @@ class TeacherSerializerTest(BaseSerializerTestCase):
         expected_data = {
             "id": self.teacher.id,
             "name": "John Doe",
-            "specialization": "Mathematics",
+            "specialization": "Master of practical classes",
             "experience": 10.5,
             "teacher_level": "Senior",
-            "description": "Experienced math teacher.",
+            "description": "Experienced teacher.",
             "photo": self.teacher.photo.url,
         }
         self.assert_serialized_equal(
@@ -49,7 +59,7 @@ class TeacherSerializerTest(BaseSerializerTestCase):
 class CourseSerializerTest(BaseSerializerTestCase):
     def setUp(self):
         self.course = Course.objects.create(
-            title="Algebra 101",
+            title="SoloPro",
             course_type="Online",
             duration="01:30:00",
             classes="Weekdays",
@@ -61,7 +71,7 @@ class CourseSerializerTest(BaseSerializerTestCase):
     def test_course_serializer(self):
         expected_data = {
             "id": self.course.id,
-            "title": "Algebra 101",
+            "title": "SoloPro",
             "course_type": "Online",
             "duration": "01:30:00",
             "classes": "Weekdays",
@@ -76,6 +86,12 @@ class CourseSerializerTest(BaseSerializerTestCase):
 
 class ReviewSerializerTest(BaseSerializerTestCase):
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.photo = SimpleUploadedFile(
             "test_photo.jpg", b"file_content", content_type="image/jpeg"
         )
