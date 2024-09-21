@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.permissions import BasePermission, IsAdminUser
+from rest_framework.permissions import BasePermission
 
 from english_school.models import (
     Teacher,
@@ -7,7 +7,7 @@ from english_school.models import (
     Review,
     ContactMessage,
 )
-from backend.english_school.serializers import (
+from english_school.serializers import (
     TeacherSerializer,
     CourseSerializer,
     ReviewSerializer,
@@ -19,8 +19,9 @@ class IsAdminOrReadOnly(BasePermission):
     """
     Custom permission to only allow admins to edit or delete objects.
     """
+
     def has_permission(self, request, view):
-        if request.method in ['GET']:
+        if request.method in ["GET"]:
             return True
         return request.user and request.user.is_staff
 
@@ -30,8 +31,9 @@ class IsAdminOrCreateAndReadOnly(BasePermission):
     Custom permission to allow all users to create and view,
     but only admins can update or delete.
     """
+
     def has_permission(self, request, view):
-        if request.method in ['GET', 'POST']:
+        if request.method in ["GET", "POST"]:
             return True
         return request.user and request.user.is_staff
 
