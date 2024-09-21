@@ -1,3 +1,5 @@
+import shutil
+import tempfile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from django.core.files.storage import default_storage
@@ -7,10 +9,13 @@ from english_school.models import Teacher, Course, Review, ContactMessage
 
 
 class TeacherModelTest(TestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.photo = SimpleUploadedFile(
             "test_photo.jpg", b"file_content", content_type="image/jpeg"
         )
@@ -22,10 +27,6 @@ class TeacherModelTest(TestCase):
             description="Uses authentic materials and resources",
             photo=self.photo,
         )
-
-    def tearDown(self):
-        if default_storage.exists(self.teacher.photo.name):
-            default_storage.delete(self.teacher.photo.name)
 
     def test_teacher_str(self):
         self.assertEqual(str(self.teacher), "Sofia")
@@ -40,8 +41,8 @@ class TeacherModelTest(TestCase):
         self.assertEqual(
             self.teacher.description, "Uses authentic materials and resources"
         )
-        self.assertTrue(
-            self.teacher.photo.name.startswith("teacher_photos/test_photo")
+        self.assertEqual(
+            self.teacher.photo.name, "teacher_photos/test_photo.jpg"
         )
 
 
@@ -74,10 +75,13 @@ class CourseModelTest(TestCase):
 
 
 class ReviewModelTest(TestCase):
-    @override_settings(
-        DEFAULT_FILE_STORAGE="django.core.files.storage.InMemoryStorage"
-    )
     def setUp(self):
+        self.temp_media = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self.temp_media))
+
+        self.override_settings = override_settings(MEDIA_ROOT=self.temp_media)
+        self.override_settings.enable()
+
         self.photo = SimpleUploadedFile(
             "test_photo.jpg", b"file_content", content_type="image/jpeg"
         )
@@ -102,8 +106,8 @@ class ReviewModelTest(TestCase):
             self.review.description,
             "I am impressed with the progress, thank you!",
         )
-        self.assertTrue(
-            self.review.photo.name.startswith("review_photos/test_photo")
+        self.assertEqual(
+            self.review.photo.name, "review_photos/test_photo.jpg"
         )
 
 
