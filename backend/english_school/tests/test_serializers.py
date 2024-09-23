@@ -35,7 +35,7 @@ class TeacherSerializerTest(BaseSerializerTestCase):
         self.teacher = Teacher.objects.create(
             name="John Doe",
             specialization="Master of practical classes",
-            experience=10.5,
+            experience_years=10.5,
             teacher_level="Senior",
             description="Experienced teacher.",
             photo=self.photo,
@@ -46,7 +46,7 @@ class TeacherSerializerTest(BaseSerializerTestCase):
             "id": self.teacher.id,
             "name": "John Doe",
             "specialization": "Master of practical classes",
-            "experience": 10.5,
+            "experience_years": 10.5,
             "teacher_level": "Senior",
             "description": "Experienced teacher.",
             "photo": self.teacher.photo.url,

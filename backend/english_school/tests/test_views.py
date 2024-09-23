@@ -41,7 +41,7 @@ class PublicTeacherViewSetTests(APITestCase):
         self.teacher = Teacher.objects.create(
             name="Sofia",
             specialization="Master of practical classes",
-            experience=5.0,
+            experience_years=5.0,
             teacher_level="C1",
             description="Uses authentic materials and resources",
             photo=self.photo,
@@ -83,7 +83,7 @@ class PrivateTeacherViewSetTests(APITestCase):
         self.teacher = Teacher.objects.create(
             name="Sofia",
             specialization="Master of practical classes",
-            experience=5.0,
+            experience_years=5.0,
             teacher_level="C1",
             description="Uses authentic materials and resources",
             photo=self.photo,
@@ -96,7 +96,7 @@ class PrivateTeacherViewSetTests(APITestCase):
         data = {
             "name": "Jane Smith",
             "specialization": "English",
-            "experience": 3.0,
+            "experience_years": 3.0,
             "teacher_level": "Junior",
             "description": "New English teacher.",
             "photo": new_photo,
@@ -113,7 +113,7 @@ class PrivateTeacherViewSetTests(APITestCase):
         data = {
             "name": "Sofia Updated",
             "specialization": "Science",
-            "experience": 6.0,
+            "experience_years": 6.0,
             "teacher_level": "Lead",
             "description": "Updated description.",
             "photo": new_photo,

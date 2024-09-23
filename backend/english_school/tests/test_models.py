@@ -22,7 +22,7 @@ class TeacherModelTest(TestCase):
         self.teacher = Teacher.objects.create(
             name="Sofia",
             specialization="Master of practical classes",
-            experience=5.0,
+            experience_years=5.0,
             teacher_level="C1",
             description="Uses authentic materials and resources",
             photo=self.photo,
@@ -36,7 +36,7 @@ class TeacherModelTest(TestCase):
         self.assertEqual(
             self.teacher.specialization, "Master of practical classes"
         )
-        self.assertEqual(self.teacher.experience, 5.0)
+        self.assertEqual(self.teacher.experience_years, 5.0)
         self.assertEqual(self.teacher.teacher_level, "C1")
         self.assertEqual(
             self.teacher.description, "Uses authentic materials and resources"
