@@ -4,7 +4,9 @@ from django.db import models
 class Teacher(models.Model):
     name = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
-    experience = models.FloatField()
+    experience_years = models.FloatField(
+        help_text="Experience in years (can be a decimal value)."
+    )
     teacher_level = models.CharField(max_length=100)
     description = models.TextField()
     photo = models.ImageField(upload_to="teacher_photos")
