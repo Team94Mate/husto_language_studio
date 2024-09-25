@@ -1,16 +1,16 @@
 services:
   husto_language_studio:
     build:
-      context: .
+      context: ./backend
     image: husto_language_studio
     env_file:
-      - .env
+      - backend/.env
     environment:
       - DOCKER_ENV=true
     ports:
       - "8001:8001"
     volumes:
-      - ./:/app
+      - ./backend:/app
       - my_media:/files/media
     command: >
       sh -c "python manage.py wait_for_db &&
@@ -24,9 +24,9 @@ services:
     image: postgres:16.0-alpine3.17
     restart: always
     env_file:
-      - .env
+      - backend/.env
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - my_db:/var/lib/postgresql/data
 
