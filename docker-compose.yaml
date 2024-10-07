@@ -3,6 +3,7 @@ services:
     build:
       context: ./backend
     image: husto_language_studio
+    container_name: husto_language_studio_app
     env_file:
       - backend/.env
     environment:
@@ -26,7 +27,7 @@ services:
     env_file:
       - backend/.env
     ports:
-      - "5435:5432"
+      - "5436:5432"
     volumes:
       - my_db:/var/lib/postgresql/data
 
