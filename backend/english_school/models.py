@@ -18,7 +18,7 @@ class Teacher(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=100)
     course_type = models.CharField(max_length=100)
-    duration = models.TimeField()
+    lesson_duration = models.DurationField()
     classes = models.CharField(max_length=100)
     number_of_classes = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=5, decimal_places=2)
