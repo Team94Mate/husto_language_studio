@@ -20,11 +20,6 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
         fields = "__all__"
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation["lesson_duration"] = datetime.timedelta(minutes=60)
-        return representation
-
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
