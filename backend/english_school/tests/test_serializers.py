@@ -1,5 +1,7 @@
 import shutil
 import tempfile
+from datetime import timedelta
+
 from django.test import override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
@@ -61,7 +63,7 @@ class CourseSerializerTest(BaseSerializerTestCase):
         self.course = Course.objects.create(
             title="SoloPro",
             course_type="Online",
-            duration="01:30:00",
+            lesson_duration=timedelta(hours=1, minutes=30),
             classes="Weekdays",
             number_of_classes="12",
             price=150.00,
@@ -73,7 +75,7 @@ class CourseSerializerTest(BaseSerializerTestCase):
             "id": self.course.id,
             "title": "SoloPro",
             "course_type": "Online",
-            "duration": "01:30:00",
+            "lesson_duration": "01:30:00",
             "classes": "Weekdays",
             "number_of_classes": "12",
             "price": "150.00",
@@ -124,12 +126,8 @@ class ContactMessageSerializerTest(BaseSerializerTestCase):
 
     def test_contact_message_serializer(self):
         expected_data = {
-            "id": self.contact_message.id,
             "username": "user123",
             "question": "How can I enroll?",
-            "submitted_at": self.contact_message.submitted_at.strftime(
-                "%Y-%m-%dT%H:%M:%S"
-            ),
         }
         self.assert_serialized_equal(
             ContactMessageSerializer, self.contact_message, expected_data

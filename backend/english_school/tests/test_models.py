@@ -51,7 +51,7 @@ class CourseModelTest(TestCase):
         self.course = Course.objects.create(
             title="SoloPro",
             course_type="Individual",
-            duration="01:00:00",
+            lesson_duration="01:00:00",
             classes="2 per week",
             number_of_classes="8 per month",
             price=280.00,
@@ -64,7 +64,7 @@ class CourseModelTest(TestCase):
     def test_course_fields(self):
         self.assertEqual(self.course.title, "SoloPro")
         self.assertEqual(self.course.course_type, "Individual")
-        self.assertEqual(self.course.duration, "01:00:00")
+        self.assertEqual(self.course.lesson_duration, "01:00:00")
         self.assertEqual(self.course.classes, "2 per week")
         self.assertEqual(self.course.number_of_classes, "8 per month")
         self.assertEqual(self.course.price, 280.00)

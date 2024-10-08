@@ -134,7 +134,7 @@ class PublicCourseViewSetTests(APITestCase):
         self.course = Course.objects.create(
             title="SoloPro",
             course_type="Individual",
-            duration="01:00:00",
+            lesson_duration="01:00:00",
             classes="2 per week",
             number_of_classes="8 per month",
             price=280.00,
@@ -164,7 +164,7 @@ class PrivateCourseViewSetTests(APITestCase):
         self.course = Course.objects.create(
             title="SoloPro",
             course_type="Individual",
-            duration="01:00:00",
+            lesson_duration="01:00:00",
             classes="2 per week",
             number_of_classes="8 per month",
             price=280.00,
@@ -177,7 +177,7 @@ class PrivateCourseViewSetTests(APITestCase):
         data = {
             "title": "New Course",
             "course_type": "Group",
-            "duration": "02:00:00",
+            "lesson_duration": "02:00:00",
             "classes": "3 per week",
             "number_of_classes": "12 per month",
             "price": 350.00,
@@ -191,7 +191,7 @@ class PrivateCourseViewSetTests(APITestCase):
         data = {
             "title": "Updated Course",
             "course_type": "Individual",
-            "duration": "03:00:00",
+            "lesson_duration": "03:00:00",
             "classes": "4 per week",
             "number_of_classes": "16 per month",
             "price": 400.00,
