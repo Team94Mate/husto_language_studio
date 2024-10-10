@@ -1,0 +1,123 @@
+@import "/src/Global";
+
+$ls: 1.5;
+
+.header {
+  background-color: $primary-color;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 84px);
+    height: 61px;
+    padding: 32px 41px 35px 43px;
+    box-sizing: content-box;
+    border: 1px solid transparent;
+
+    @include phone-style {
+      display: none;
+    }
+
+    @include laptop-style {
+      padding: 21px 37px 23px 27px;
+      height: calc(61px / 1.5);
+    }
+
+    @include tablet-style {
+      display: none;
+    }
+  }
+
+  &__icon-box {
+    width: 143px;
+    height: 61px;
+    background-color: $primary-color;
+
+    @include laptop-style {
+      width: calc(143px / 1.5);
+      height: calc(61px /1.5);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-around;
+    gap: 32px;
+    align-items: center;
+
+    @include laptop-style {
+      gap: calc(32px /1.5);
+    }
+  }
+
+  &__link {
+    font-family: 'NeueMedium', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: $white-100;
+    padding: 8px 16px 8px 16px;
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+
+    @include laptop-style {
+      font-size: calc(16px / 1.5);
+      padding: 5px 11px;
+    }
+
+    &:hover {
+      text-align: center;
+      border-radius: 24px;
+      background-color: #1D8A86;
+      color: $white-100;
+
+      @include laptop-style {
+        border-radius: 16px;
+      }
+    }
+  }
+
+  &__button {
+    width: 163px;
+    height: 48px;
+
+    @include button;
+
+    @include laptop-style {
+      width: calc(163px / 1.5);
+      height: calc(48px /1.5);
+      padding-left: 11px;
+      padding-right: 5px;
+      font-size: 11px;
+    }
+  }
+
+  &__button2 {
+    @include circle-button;
+
+    @include laptop-style {
+      width: calc(34px / 1.5);
+      height: calc(34px / 1.5);
+    }
+  }
+
+  &__button-img {
+    @include button-image;
+
+    &--rotate {
+      transform: rotate(50deg);
+    }
+  }
+
+  &__mob-button {
+    display: none;
+    @include phone-style {
+      display: block;
+    }
+  }
+}

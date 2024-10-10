@@ -1,0 +1,714 @@
+@import "/src/Global";
+$ls: 1.5;
+$ts: 50;
+
+@function add-perc($px-value) {
+  $perc-value: $px-value * ($ts / 100);
+
+  $newValue: #{$px-value + $perc-value};
+
+  @return $newValue;
+}
+
+.reviewsPage {
+  width: 100%;
+  position: relative;
+  background-color: $white-100;
+  z-index: 0;
+  padding: 72px 43px 72px 43px;
+  border-radius: 70px 70px 0 0;
+  background-color: $white-100;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 72px;
+
+  @include phone-style {
+    width: 100vw;
+    min-width: min-content;
+    padding: 32px 16px;
+    gap: 32px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  @include laptop-style {
+    padding: 72px/$ls 43px/$ls 72px/$ls 43px/$ls;
+    gap: 72px /$ls;
+    border-radius: 70px/$ls 70px/$ls 0 0;
+  }
+
+  @include tablet-style {
+    width: 100vw;
+    padding: add-perc(24px) add-perc(16px);
+    gap: add-perc(32px);
+    border-radius: add-perc(24px) add-perc(24px) 0 0;
+  }
+
+  &__title1 {
+    font-family: 'ComicSansBold', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: $primary-color;
+
+    @include laptop-style {
+      font-size: 40px / $ls;
+    }
+
+    
+    @include phone-style {
+      width: 295px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    @include tablet-style {
+      width: add-perc(295px);
+      font-size: add-perc(24px);
+    }
+  }
+
+  &__sapn {
+    width: 183px;
+    height: 84px; 
+    background-color: $primary-color;
+    border-radius: 24px;
+    color: $white-100;
+    font-family: 'NeueBold', sans-serif;;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 8px 24px;
+
+    @include laptop-style {
+      width: 183px / $ls;
+      height: 84px / $ls; 
+      font-size: 40px / $ls;
+      padding: 8px /$ls 24px/$ls;
+      border-radius: 24px/ $ls;
+    }
+
+    
+    @include phone-style {
+      font-size: 24px;
+      padding: 8px 16px;
+      border-radius: 16px;
+      line-height: 200%;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(24px);
+      padding: add-perc(8px) add-perc(16px);
+      border-radius: add-perc(16px);
+    }
+  }
+
+  &__container {
+    width: 100%;
+    position: relative;
+    
+    display: grid;
+    grid-template-columns: repeat(12, 90px);
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 42px;
+
+    @include phone-style {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0px;
+     margin-bottom: 0;
+    }
+
+    @include laptop-style {
+      grid-template-columns: repeat(12, 90px / $ls);
+      gap: 25px / $ls;
+      margin-bottom: 42px / $ls;
+    }
+  }
+
+  &__cards {
+    position: relative;
+    grid-row: 2/11;
+    display: grid;
+    grid-template-columns: repeat(12, 90px);
+    gap: 25px;
+
+    @include phone-style {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 58px;
+     }
+ 
+     @include laptop-style {
+       grid-template-columns: repeat(12, 90px / $ls);
+       gap: 25px / $ls;
+       margin-bottom: 42px / $ls;
+     }
+
+     @include tablet-style {
+      margin-bottom: add-perc(58px);
+     }
+  }
+
+  &__card {
+    position: relative;
+    width: 254px;
+    height: 336px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    
+    background-color: $primary-color;
+    border-radius: 24px 24px 0 0;
+  
+    @include laptop-style {
+      width: 254px / $ls;
+      height: 336px / $ls;
+      padding: 16px / $ls;
+      border-radius: 24px/$ls 24px/$ls 0 0;
+    }
+  
+    @include tablet-style {
+      width: add-perc(254px);
+      height: add-perc(336px);
+      padding: add-perc(16px);
+      border-radius: add-perc(24px) add-perc(24px) 0 0;
+    }
+  
+    &--1 {
+      grid-column: 2/4;
+      margin-bottom: 145px;
+  
+      @include laptop-style {
+        margin-bottom: 145px / $ls;
+      }
+  
+      @include tablet-style {
+        margin-bottom: add-perc(145px);
+      }
+    }
+  
+    &--2 {
+      position: absolute;
+      grid-column: 4/6;
+      top: 288px;
+      left: 28%;
+  
+      @include laptop-style {
+        top: 288px / $ls;
+      }
+  
+      @include tablet-style {
+        top: add-perc(288px);
+      }
+    }
+  
+    &--3 {
+      grid-column: 7/9;
+    }
+  
+    &--4 {
+      position: absolute;
+      top: 192px;
+      left: 28%;
+      grid-column: 9/11;
+  
+      @include laptop-style {
+        top: 192px / $ls;
+      }
+  
+      @include tablet-style {
+        top: add-perc(192px);
+      }
+    }
+  
+    &--5 {
+      grid-column: 2/4; 
+    }
+  
+    &--6 {
+      grid-column: 7/9;
+    }
+  
+    ::after {
+      position: absolute;
+      content: '';
+      background-color: $secondary-color;
+      width: 249px;
+      height: 36px;
+      bottom: -36px;
+      left: 3px;
+  
+      @include laptop-style {
+        width: 249px / $ls;
+        height: 36px / $ls;
+        bottom: -36px / $ls;
+        left: 3px / $ls;
+      }
+  
+      @include tablet-style {
+        width: add-perc(249px);
+        height: add-perc(36px);
+        bottom: add-perc(-36px);
+        left: add-perc(3px);
+      }
+    }
+  
+    ::before {
+      position: absolute;
+      content: '';
+      width: 249px;
+      height: 42px;
+      bottom: -42px;
+      left: 3px;
+      background: radial-gradient(circle, transparent 4px, $secondary-color 6px) 2% 107% / 24px 8px repeat-x;
+  
+      @include laptop-style {
+        width: 249px / $ls;
+        height: 42px / $ls;
+        bottom: -42px / $ls;
+        left: 3px / $ls;
+        background: radial-gradient(circle, transparent 4px / $ls, $secondary-color 6px / $ls) 2% / $ls 107% / $ls 24px / $ls 8px / $ls repeat-x;
+      }
+  
+      @include tablet-style {
+        width: add-perc(249px);
+        height: add-perc(42px);
+        bottom: add-perc(-41px);
+        left: add-perc(3px);
+        background: radial-gradient(circle, transparent add-perc(4px), $secondary-color add-perc(6px)) 2% 107% / add-perc(24px) add-perc(8px) repeat-x;
+      }
+    }
+  
+    @include phone-style {
+      position: relative;
+      left: 0;
+      top: 0;
+      margin-bottom: 0px;
+    }
+
+    &--active {
+      @include phone-style {
+        display: flex;
+      }
+    }
+
+    &--inactive {
+      @include phone-style {
+        display: none;
+      }
+    }
+  }
+  
+  &__name {
+    font-family: 'NeueBold', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 130%;
+    color: $white-100;
+  
+    @include laptop-style {
+      font-size: 16px / $ls;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(16px);
+    }
+  }
+  
+  &__age {
+    font-family: 'NeueRegular', sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: $white-100;
+  
+    @include laptop-style {
+      font-size: 14px / $ls;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(14px);
+    }
+  }
+  
+  &__box {
+    display: inline-flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  
+    @include laptop-style {
+      gap: 8px / $ls;
+      margin-bottom: 16px / $ls;
+    }
+  
+    @include tablet-style {
+      gap: add-perc(8px);
+      margin-bottom: add-perc(16px);
+    }
+  }
+  
+  &__img {
+    width: 40px;
+    height: 40px;
+  
+    @include laptop-style {
+      width: 40px / $ls;
+      height: 40px / $ls;
+    }
+  
+    @include tablet-style {
+      width: add-perc(40px);
+      height: add-perc(40px);
+    }
+  }
+  
+  &__comments {
+    display: inline-flex;
+  
+    &::before {
+      content: 'HUSTO';
+      position: absolute;
+      bottom: -37px;
+      left: 38%;
+      display: flex;
+      width: 56px;
+      height: 58px;
+      color: $primary-color;
+      background-color: $secondary-color;
+      border-radius: 35px;
+      justify-content: center;
+      align-items: center;
+  
+      font-family: 'NeueBold', sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 130%;
+      z-index: 1;
+      box-shadow: inset 0 5px 0 rgba(0, 0, 0, 0.2);
+  
+      @include laptop-style {
+        bottom: -37px / $ls;
+        width: 56px / $ls;
+        height: 58px / $ls;
+        border-radius: 35px / $ls;
+        font-size: 14px / $ls;
+        box-shadow: inset 0 5px / $ls 0 rgba(0, 0, 0, 0.2);
+      }
+  
+      @include tablet-style {
+        bottom: add-perc(-37px);
+        width: add-perc(56px);
+        height: add-perc(58px);
+        border-radius: add-perc(35px);
+        font-size: add-perc(14px);
+        box-shadow: inset 0 add-perc(5px) 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  
+  &__p {
+    font-family: 'NeueRegular', sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: $white-100;
+  
+    @include laptop-style {
+      font-size: 14px / $ls;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(14px);
+    }
+  }
+  
+  &__hash {
+    width: 14px;
+    height: 12px;
+  
+    @include laptop-style {
+      width: 14px / $ls;
+      height: 12px / $ls;
+    }
+  
+    @include tablet-style {
+      width: add-perc(14px);
+      height: add-perc(12px);
+    }
+  }
+
+  &__dots {
+    width: 100%;
+    height: 44px;
+    display: none;
+   
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    @include phone-style {
+      display: flex;
+    }
+
+    @include tablet-style {
+      height: add-perc(44px);
+      gap: add-perc(8px);
+      margin-bottom: add-perc(32px);
+    }    
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    background-color: $grey-80;
+    border-radius: 50px;
+
+    &.is-active {
+      background-color: $black-5;
+    }
+
+    @include tablet-style {
+      width: add-perc(8px);
+      height: add-perc(8px);
+    }
+  }
+  
+    // faq section
+  &__faq {
+    position: relative;
+    height: fit-content;
+    display: grid;
+    grid-template-areas: 'text question';
+    column-gap: 25px;
+
+    @include phone-style {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include laptop-style {
+      column-gap: calc(25px / $ls);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    grid-area: text;
+
+    @include phone-style {
+      display: none;
+    }
+
+    @include laptop-style {
+      gap: calc(56px / $ls);
+    }
+  }
+
+  &__title2 {
+    font-family: 'ComicSansBold', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: $primary-color;
+
+    @include phone-style {
+      font-size: 24px;
+      order: 1;
+      margin-bottom: 16px;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(24px);
+      margin-bottom: add-perc(16px);
+    }
+
+    @include laptop-style {
+      font-size: calc(40px / $ls);
+    }
+  }
+
+  &__phar1 {
+    font-family: 'NeueRegular', sans-serif;
+    font-size: 24px;
+    line-height: 130%;
+    color: $black-5;
+
+    @include phone-style {
+      font-size: 16px;
+      order: 3;
+      margin-bottom: 24px;
+    }
+
+    @include tablet-style {
+      width: 100%;
+      font-size: add-perc(16px);
+      margin-bottom: add-perc(24px);
+    }
+
+    @include laptop-style {
+      font-size: calc(24px / $ls);
+    }
+  }
+
+  &__phar2 {
+    font-family: 'NeueBold', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 130%;
+    color: $primary-color;
+
+    @include laptop-style {
+      font-size: calc(18px / $ls);
+    }
+  }
+
+  &__phar3 {
+    font-family: 'NeueMedium', sans-serif;
+    font-size: 18px;
+    line-height: 130%;
+    color: $black-5;
+
+    @include laptop-style {
+      font-size: calc(18px / $ls);
+    }
+  }
+
+  &__last-phar-box {
+    display: flex;
+    flex-direction: column;
+
+    @include phone-style {
+      order: 4;
+      gap: 4px;
+    }
+
+    @include tablet-style {
+      gap: add-perc(4px);
+    }
+
+    @include laptop-style {
+      gap: calc(4px / $ls);
+    }
+  }
+
+  &__email {
+    color: $primary-color;
+  }
+
+  &__questions {
+    width: 666px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include phone-style {
+      width: 343px;
+      order: 2;
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    @include tablet-style {
+      width: add-perc(343px);
+      margin-bottom: add-perc(24px);
+    }
+
+    @include laptop-style {
+      width: calc(666px / $ls);
+      gap: calc(16px / $ls);
+    }
+  }
+
+  &__questionContainer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 22px;
+    border-bottom: 1px solid $gray-30;
+
+    @include laptop-style {
+      padding-bottom: calc(22px / $ls);
+    }
+
+    &--open {
+      padding-bottom: 16px;
+
+      @include laptop-style {
+        padding-bottom: calc(16px / $ls);
+      }
+    }
+  }
+
+  &__questionContainer:nth-last-of-type(-n+2) {
+    padding-bottom: 16px;
+
+    @include laptop-style {
+      padding-bottom: calc(16px / $ls);
+    }
+  }
+
+  &__questionBox {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  &__question {
+    width: 252px;
+    font-family: 'NeueMedium', sans-serif;
+    font-size: 16px;
+    color: $black-5;
+
+    @include laptop-style {
+      width: calc(252px / $ls);
+      font-size: calc(16px / $ls);
+    }
+  }
+
+  &__questButton {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    @include laptop-style {
+      width: calc(20px / $ls);
+      height: calc(20px / $ls);
+    }
+  }
+
+  &__but-img {
+    width: 100%;
+    height: 100%;
+
+    &--open {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__hiddenP {
+    position: relative;
+    font-family: 'NeueMedium', sans-serif;
+    font-size: 14px;
+    color: $black-5;
+    line-height: 140%;
+    margin-top: 14px;
+
+    @include laptop-style {
+      font-size: calc(14px / $ls);
+      margin-top: calc(14px / $ls);
+    }
+  }
+}
+
+.mob { 
+  display: none;
+
+  @include phone-style {
+    display: flex;
+  }
+}
