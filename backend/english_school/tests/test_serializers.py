@@ -126,6 +126,7 @@ class ContactMessageSerializerTest(BaseSerializerTestCase):
 
     def test_contact_message_serializer(self):
         expected_data = {
+            "id": self.contact_message.id,
             "username": "user123",
             "question": "How can I enroll?",
         }
