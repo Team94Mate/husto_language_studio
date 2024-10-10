@@ -29,4 +29,4 @@ class ReviewSerializer(serializers.ModelSerializer):
 class ContactMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactMessage
-        fields = ["username", "question"]
+        fields = ["id", "username", "question"]
