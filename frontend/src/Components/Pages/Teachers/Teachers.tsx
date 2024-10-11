@@ -36,13 +36,17 @@ export const Teachers = () => {
   return (
     <div className="teachers" id="teachers">
       <div className="teachers__container">
-        <h1 className="teachers__title">
+        <h1 className="teachers__title  animation left">
           Викладачі, які допомагають досягати результатів
         </h1>
 
         <div className="teachers__phar-box">
-          <img className="teachers__img" src="images/hash(1).svg" alt="hash" />
-          <p className="teachers__par">
+          <img
+            className="teachers__img  animation left"
+            src="images/hash(1).svg"
+            alt="hash"
+          />
+          <p className="teachers__par  animation right">
             З нашими викладачами ви навчитесь англійської під
             <br />
             керівництвом справжніх професіоналів. Досвід і професійний
@@ -61,10 +65,13 @@ export const Teachers = () => {
           {teachers.map((teacher, index) => (
             <div
               className={classNames(
-                `teachers__card  teachers__card--${index}`,
+                `teachers__card  teachers__card--${index} animation`,
                 {
                   'teachers__card--active': currentTeacherIndex === index,
                   'teachers__card--inactive': currentTeacherIndex !== index,
+                  left: index === 0 || index === 3,
+                  right: index === 2 || index === 4,
+                  bottom: index === 1,
                 },
               )}
               key={teacher.name}
@@ -109,13 +116,17 @@ export const Teachers = () => {
           ))}
         </div>
         <h1
-          className="teachers__prise-title1 teachers__prise-title"
+          className="teachers__prise-title1
+           teachers__prise-title animation left"
           id="types-of-learning"
         >
           Освіта — найкраща інвестиція у твоє майбутнє
         </h1>
 
-        <div className="teachers__prise-title2 teachers__prise-title">
+        <div
+          className="teachers__prise-title2
+         teachers__prise-title animation right"
+        >
           <img
             src="images/hash(1).svg"
             alt="hashtag"
@@ -127,7 +138,7 @@ export const Teachers = () => {
           </h1>
         </div>
 
-        <div className="teachers__prise-content">
+        <div className="teachers__prise-content animation right">
           <ToggleButton />
         </div>
       </div>

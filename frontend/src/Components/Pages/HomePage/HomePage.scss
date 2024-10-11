@@ -45,6 +45,7 @@ $ts: 50;
    background-size: 100%;
 
    @include phone-style {
+     width: 100%;
      grid-template-columns: repeat(4, 73px);
      gap: 16px;
      justify-content: center;
@@ -77,6 +78,7 @@ $ts: 50;
     background-color: transparent;
     border: transparent;
     align-self: flex-start;
+    cursor: pointer;
 
     @include phone-style {
       display: block;
@@ -561,6 +563,10 @@ $ts: 50;
       height: calc(48px / $ls);
     }
 
+    @include phone-style {
+      padding-right: 4px; 
+    }
+
     @include tablet-style {
       height: add-perc(40px);
       border-radius: add-perc(24px);
@@ -612,7 +618,7 @@ $ts: 50;
   
     &--phone {
       @include phone-style {
-        border: 1px solid $white-100; 
+        border: 1px solid $white-100;
       }
   
       @include tablet-style {

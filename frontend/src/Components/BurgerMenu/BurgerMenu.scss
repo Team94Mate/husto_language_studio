@@ -13,13 +13,14 @@ $ts: 30;
   gap: 24px;
   overflow: hidden;
   z-index: 100;
+  cursor: pointer;
 
   @media  (min-width: 962px) {
-    display: none;
+    display: none !important;
   }
   
   transform: translateX(-100%);
-  transition: 2s ease-in-out;
+  transition: 1s ease-in-out;
 
   &--turnOnBurger {
     position: absolute;

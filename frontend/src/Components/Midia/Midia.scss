@@ -2,9 +2,9 @@
 
 .Midia {
   @include phone-style {
-    display: none;
+    display: none !important;
   }
-
+  display: none;
   position: fixed;
   top: 50%;
   right: 45px;

@@ -2,15 +2,15 @@
  .main {
   position: relative;
   background-color: $primary-color;
+  scroll-behavior: smooth !important;
  }
 
- @media (min-width: 900px) {
+ @media (min-width: 962px) {
   .animation {
     opacity: 0; 
-    transition: transform 1s ease, opacity 0.5s ease;
+    transition: transform 1s ease, opacity 1s ease;
    }
 
-  
   .right {
     transform: translateX(100%); 
   }

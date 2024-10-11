@@ -5,8 +5,8 @@ export const AboutSchool = () => {
     <div className="aboutSchool" id="aboutSchool">
       <div className="aboutSchool__backround">
         <div className="aboutSchool__container">
-          <div className="aboutSchool__text">
-            <h1 className="aboutSchool__title animation left">
+          <div className="aboutSchool__text animation left">
+            <h1 className="aboutSchool__title">
               <span className="aboutSchool__title-span">HUSTO</span> забезпечує
               можливість майстерно опанувати
               <br />
@@ -14,12 +14,12 @@ export const AboutSchool = () => {
             </h1>
 
             <img
-              className="aboutSchool__text-hash animation right"
+              className="aboutSchool__text-hash"
               src="images/Header-arrow2sdas(1).svg"
               alt="array"
             />
 
-            <p className="aboutSchool__phar animation right">
+            <p className="aboutSchool__phar">
               Ми використовуємо інтерактивні платформи, щоб <br />
               прокачати всі скіли Wordwall, Quizlet <br />
               Baamboozle, Kahoot, Test English
@@ -268,9 +268,11 @@ export const AboutSchool = () => {
           </div>
 
           <div className="aboutSchool__how-works">
-            <h1 className="aboutSchool__how-works-title">Як це працює:</h1>
+            <h1 className="aboutSchool__how-works-title animation left">
+              Як це працює:
+            </h1>
             <div className="aboutSchool__how-works-cards">
-              <div className="aboutSchool__how-works-card">
+              <div className="aboutSchool__how-works-card  animation left">
                 <p
                   className="aboutSchool__how-works-p 
               aboutSchool__how-works-card--1"
@@ -281,14 +283,14 @@ export const AboutSchool = () => {
 
               <div
                 className="aboutSchool__how-works-card 
-              aboutSchool__how-works-card--2"
+              aboutSchool__how-works-card--2 animation right"
               >
                 <p className="aboutSchool__how-works-p">Вибір вчителя</p>
               </div>
 
               <div
                 className="aboutSchool__how-works-card 
-              aboutSchool__how-works-card--3"
+              aboutSchool__how-works-card--3 animation left"
               >
                 <p className="aboutSchool__how-works-p">
                   {' '}
@@ -298,7 +300,7 @@ export const AboutSchool = () => {
 
               <div
                 className="aboutSchool__how-works-card
-              aboutSchool__how-works-card--4"
+              aboutSchool__how-works-card--4  animation right"
               >
                 <p className="aboutSchool__how-works-p">
                   Визначення <br /> персональної програми <br /> для навчання

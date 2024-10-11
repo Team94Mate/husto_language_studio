@@ -337,7 +337,7 @@ $ts: 50;
       right: -42px;
       bottom: 34px;
       z-index: 10;
-
+      
       background-image: url('../../../../public/images/Arrow-black.svg');
       background-position: center;
       background-size: contain;
@@ -371,6 +371,7 @@ $ts: 50;
   }
 
   &__card--2 {
+    z-index: -1;
     @include phone-style {
       margin-bottom: 40px !important;
     }

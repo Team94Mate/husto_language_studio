@@ -36,6 +36,14 @@ $card-color: #1D8A86;
   font-family: 'ComicSansRegular';
 }
 
+@function add-perc($px-value) {
+  $perc-value: $px-value * ($ts / 100);
+
+  $newValue: #{$px-value + $perc-value};
+
+  @return $newValue;
+}
+
 @mixin button {
   display: flex;
   justify-content: space-between;
@@ -83,11 +91,3 @@ $card-color: #1D8A86;
     @content;
   }
 };
-
-@function add-perc($px-value) {
-  $perc-value: $px-value * ($ts / 100);
-
-  $newValue: #{$px-value + $perc-value};
-
-  @return $newValue;
-}

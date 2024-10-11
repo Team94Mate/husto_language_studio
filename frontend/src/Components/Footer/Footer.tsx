@@ -1,5 +1,4 @@
 import '../Footer/Footer.scss';
-import { scrollToElement } from '../../helpers/useScroolToElement';
 
 export const Footer = () => {
   return (
@@ -51,46 +50,22 @@ export const Footer = () => {
 
       <nav className="footer__nav">
         <h3 className="footer__navlink-h">Навігація</h3>
-        <a
-          className="footer__navlink"
-          href="#homePage"
-          onClick={() => scrollToElement('homePage')}
-        >
+        <a className="footer__navlink" href="#homePage">
           Головна
         </a>
-        <a
-          className="footer__navlink"
-          href="#aboutSchool"
-          onClick={() => scrollToElement('aboutSchool')}
-        >
+        <a className="footer__navlink" href="#aboutSchool">
           Про нас
         </a>
-        <a
-          className="footer__navlink"
-          href="#for-who"
-          onClick={() => scrollToElement('for-who')}
-        >
+        <a className="footer__navlink" href="#for-who">
           Для кого
         </a>
-        <a
-          className="footer__navlink"
-          href="#teachers"
-          onClick={() => scrollToElement('teachers')}
-        >
+        <a className="footer__navlink" href="#teachers">
           Вчителі
         </a>
-        <a
-          className="footer__navlink"
-          href="#types-of-learning"
-          onClick={() => scrollToElement('types-of-learning')}
-        >
+        <a className="footer__navlink" href="#types-of-learning">
           Види навчання{' '}
         </a>
-        <a
-          className="footer__navlink"
-          href="#reviews"
-          onClick={() => scrollToElement('reviews')}
-        >
+        <a className="footer__navlink" href="#reviews">
           Відгуки
         </a>
       </nav>

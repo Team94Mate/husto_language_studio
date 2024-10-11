@@ -2,7 +2,6 @@ import { useContext, useEffect, useRef } from 'react';
 import './BurgerMenu.scss';
 import classNames from 'classnames';
 import { StorageContext } from '../../storage/StorageContext';
-import { scrollToElement } from '../../helpers/useScroolToElement';
 
 export const BurgerMenu = () => {
   const { pageHeight, setPageHeight } = useContext(StorageContext);
@@ -88,42 +87,54 @@ export const BurgerMenu = () => {
         <a
           className="header__link burgerMenu__link"
           href="#homePage"
-          onClick={() => scrollToElement('homePage')}
+          onClick={() => {
+            setBurger(false);
+          }}
         >
           Головна
         </a>
         <a
           className="header__link burgerMenu__link"
           href="#aboutSchool"
-          onClick={() => scrollToElement('aboutSchool')}
+          onClick={() => {
+            setBurger(false);
+          }}
         >
           Про нас
         </a>
         <a
           className="header__link burgerMenu__link"
           href="#for-who"
-          onClick={() => scrollToElement('for-who')}
+          onClick={() => {
+            setBurger(false);
+          }}
         >
           Для кого
         </a>
         <a
           className="header__link burgerMenu__link"
           href="#teachers"
-          onClick={() => scrollToElement('teachers')}
+          onClick={() => {
+            setBurger(false);
+          }}
         >
           Вчителі
         </a>
         <a
           className="header__link burgerMenu__link"
           href="#types-of-learning"
-          onClick={() => scrollToElement('types-of-learning')}
+          onClick={() => {
+            setBurger(false);
+          }}
         >
           Види навчання{' '}
         </a>
         <a
           className="header__link burgerMenu__link"
           href="#reviews"
-          onClick={() => scrollToElement('reviews')}
+          onClick={() => {
+            setBurger(false);
+          }}
         >
           Відгуки
         </a>

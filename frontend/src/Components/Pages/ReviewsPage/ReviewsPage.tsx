@@ -46,7 +46,7 @@ export const ReviewsPage = () => {
 
   return (
     <div className="reviewsPage">
-      <p className="reviewsPage__title1">
+      <p className="reviewsPage__title1 animation left">
         Як навчання з <span className="reviewsPage__sapn">HUSTO</span> змінює
         життя
       </p>
@@ -61,10 +61,12 @@ export const ReviewsPage = () => {
           {reviewsData.map((review, index) => (
             <div
               className={classNames(
-                `reviewsPage__card  reviewsPage__card--${review.id}`,
+                `reviewsPage__card  reviewsPage__card--${review.id} animation`,
                 {
                   'reviewsPage__card--active': currentReviewsIndex === index,
                   'reviewsPage__card--inactive': currentReviewsIndex !== index,
+                  left: review.id === 1 || review.id === 3 || review.id === 4,
+                  right: review.id === 2 || review.id === 5 || review.id === 6,
                 },
               )}
               key={review.id}
@@ -102,7 +104,7 @@ export const ReviewsPage = () => {
         </div>
       </div>
 
-      <div className="reviewsPage__clientForm">
+      <div className="reviewsPage__clientForm animation left">
         <div className=" ClientForm__container">
           <h1 className="ClientForm__title">
             <img className="ClientForm__hash" src="images/hash(1).svg" />
@@ -196,7 +198,7 @@ export const ReviewsPage = () => {
         </div>
       </div>
 
-      <div className="reviewsPage__faq">
+      <div className="reviewsPage__faq animation right">
         <div className="reviewsPage__questions">
           <div
             className={cn('reviewsPage__questionContainer', {

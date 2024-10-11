@@ -8,6 +8,10 @@ export const useScrollEffect = () => {
       const containerRec = container?.getBoundingClientRect();
       const isMobile = window.matchMedia('(min-width: 961px)').matches;
 
+      if (!isMobile) {
+        stickyElement.style.display = 'none';
+      }
+
       if (!stickyElement || !container || !containerRec) {
         return;
       }
@@ -16,10 +20,6 @@ export const useScrollEffect = () => {
         stickyElement.style.display = 'none';
       } else {
         stickyElement.style.display = 'block';
-      }
-
-      if (!isMobile) {
-        stickyElement.style.display = 'none';
       }
     };
 

@@ -32,7 +32,7 @@ export const ToggleButton = () => {
 
       {toggleButton === 'en' ? (
         <div className="toggleButton__content">
-          <div className="toggleButton__card">
+          <div className="toggleButton__card ">
             <h1 className="toggleButton__card-title">SoloPro</h1>
             <h1 className="toggleButton__card-subtitle">Індивідуальний</h1>
             <div className="toggleButton__card-pbox">
