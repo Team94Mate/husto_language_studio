@@ -11,9 +11,10 @@ Husto Language Studio: An English school website showcasing learning opportuniti
 In this project our team used the following technologies:
 ### Backend
 - Python
-- Django
 - Django ORM
-- DRF
+- Django
+- Django REST Framework
+- Docker
 
 ### Frontend
 - JavaScript
@@ -33,8 +34,4 @@ In this project our team used the following technologies:
   Streamlined process for users to enroll in courses
 
 ## Screenshots:
-![Login](some_link.png)
 ![Home Page](some_link.png)
-
-## Database structure:
-![DB_structure](images/db_structure.png)
