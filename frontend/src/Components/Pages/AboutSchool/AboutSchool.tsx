@@ -187,10 +187,7 @@ export const AboutSchool = () => {
               className="aboutSchool__par-box  
               aboutSchool__par-box1 animation left"
             >
-              <img
-                className="aboutSchool__open-img"
-                src="images/hash(1).svg"
-              />
+              <img className="aboutSchool__open-img" src="images/hash(1).svg" />
 
               <p className="aboutSchool__par aboutSchool__par--1">
                 Впевнено спілкуватись <br /> англійською
@@ -201,10 +198,7 @@ export const AboutSchool = () => {
               className="aboutSchool__par-box 
               aboutSchool__par-box2 animation left"
             >
-              <img
-                className="aboutSchool__open-img"
-                src="images/hash(1).svg"
-              />
+              <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--2">
                 Стати більш впевненою <br /> версією себе
               </p>
@@ -214,10 +208,7 @@ export const AboutSchool = () => {
               className="aboutSchool__par-box 
               aboutSchool__par-box3 animation left"
             >
-              <img
-                className="aboutSchool__open-img"
-                src="images/hash(1).svg"
-              />
+              <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--3">
                 Прокачаєш знання <br />
                 з індивідуальним підходом <br />
@@ -229,10 +220,7 @@ export const AboutSchool = () => {
               className="aboutSchool__par-box
                aboutSchool__par-box4 animation right"
             >
-              <img
-                className="aboutSchool__open-img"
-                src="images/hash(1).svg"
-              />
+              <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--4">
                 Подорожувати <br /> без обмежень
               </p>
@@ -242,10 +230,7 @@ export const AboutSchool = () => {
               className="aboutSchool__par-box
                aboutSchool__par-box5 animation right"
             >
-              <img
-                className="aboutSchool__open-img"
-                src="images/hash(1).svg"
-              />
+              <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--5">
                 Отримати престижну <br /> роботу
               </p>
@@ -255,10 +240,7 @@ export const AboutSchool = () => {
               className="aboutSchool__par-box
                aboutSchool__par-box6 animation right"
             >
-              <img
-                className="aboutSchool__open-img"
-                src="images/hash(1).svg"
-              />
+              <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--6">
                 Дивитись улюблені <br />
                 фільми та серіали <br />
