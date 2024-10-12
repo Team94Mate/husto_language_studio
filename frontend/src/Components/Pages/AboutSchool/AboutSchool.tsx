@@ -33,7 +33,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__card-img1"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
               <p className="aboutSchool__card-p">
                 Усі викладачі <span className="aboutSchool__span">HUSTO</span>
@@ -189,7 +189,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__open-img"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
 
               <p className="aboutSchool__par aboutSchool__par--1">
@@ -203,7 +203,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__open-img"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
               <p className="aboutSchool__par aboutSchool__par--2">
                 Стати більш впевненою <br /> версією себе
@@ -216,7 +216,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__open-img"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
               <p className="aboutSchool__par aboutSchool__par--3">
                 Прокачаєш знання <br />
@@ -231,7 +231,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__open-img"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
               <p className="aboutSchool__par aboutSchool__par--4">
                 Подорожувати <br /> без обмежень
@@ -244,7 +244,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__open-img"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
               <p className="aboutSchool__par aboutSchool__par--5">
                 Отримати престижну <br /> роботу
@@ -257,7 +257,7 @@ export const AboutSchool = () => {
             >
               <img
                 className="aboutSchool__open-img"
-                src="/images/hash(1).svg"
+                src="images/hash(1).svg"
               />
               <p className="aboutSchool__par aboutSchool__par--6">
                 Дивитись улюблені <br />

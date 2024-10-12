@@ -6,6 +6,39 @@ import classNames from 'classnames';
 export const ClientForm = () => {
   const { showForm, setShowForm } = useContext(StorageContext);
   const [isClicked, setIsClicked] = useState(false);
+  const [instagram, setInstagram] = useState('');
+  const [question, setQuestion] = useState('');
+
+  // console.log(question, instagram);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const contactMessageData = {
+      instagram,
+      question,
+    };
+
+    try {
+      const response = await fetch(`/api/contact-messages/`, {
+        method: 'Post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactMessageData),
+      });
+
+      if (response.ok) {
+        setInstagram('');
+        setQuestion('');
+        // console.log('sucsses');
+      } else {
+        // console.error('Failed to send message:', response.status);
+      }
+    } catch (error) {
+      // console.error('Error while sending the request:', error);
+    }
+  };
 
   return (
     <div
@@ -77,17 +110,19 @@ export const ClientForm = () => {
             <img className="ClientForm__logo" src="images/husto-logo-044.svg" />
           </div>
 
-          <form className="ClientForm__form">
+          <form className="ClientForm__form" onSubmit={handleSubmit}>
             <input
               className="ClientForm__input"
-              type="text"
+              type={instagram}
               placeholder="Ваш @instagram"
+              onChange={e => setInstagram(e.target.value)}
             />
             <textarea
               className="ClientForm__textarea"
+              value={question}
+              onChange={e => setQuestion(e.target.value)}
               placeholder="Питання"
               name="text"
-              id=""
             ></textarea>
 
             <a
