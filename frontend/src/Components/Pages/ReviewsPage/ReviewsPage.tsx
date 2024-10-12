@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { useContext, useRef, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
@@ -408,7 +407,8 @@ export const ReviewsPage = () => {
 
             {isClicked[6] && (
               <div className="reviewsPage__hiddenP">
-                Придбавши місячний абонемент, ви отримуєте <b>8</b> або <b>9</b>{' '}
+                Придбавши місячний абонемент, ви отримуєте
+                <b>8</b> або <b>9</b>
                 занять.
                 <br />
                 Кількість занять змінюється в залежності від кількості днів у

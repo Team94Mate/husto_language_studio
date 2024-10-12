@@ -2,14 +2,6 @@
 $ls: 1.5;
 $ts: 50;
 
-@function add-perc($px-value) {
-  $perc-value: $px-value * ($ts / 100);
-
-  $newValue: #{$px-value + $perc-value};
-
-  @return $newValue;
-}
-
 .reviewsPage {
   width: 100%;
   position: relative;
