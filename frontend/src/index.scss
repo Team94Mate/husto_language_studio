@@ -1,0 +1,17 @@
+@import "/src/Global";
+
+@import "/src/Global";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header, footer {
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}

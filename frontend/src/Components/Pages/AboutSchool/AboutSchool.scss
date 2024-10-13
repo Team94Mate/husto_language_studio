@@ -1,0 +1,1334 @@
+@import "/src/Global";
+
+$ts: 50;
+
+.aboutSchool {
+  position: relative;
+  width: 100%;
+  border-radius: 70px 70px 0 0;
+  padding: 72px 41px 72px 43px;
+  background-color: $white-100;
+  z-index: 0;
+  scroll-behavior: smooth;
+
+  @include phone-style {
+    border-radius: 24px 24px 0 0;
+    padding: 24px 16px 33px 16px;
+  }
+
+  @include laptop-style {
+    padding: 48px 27px 48px 29px;
+    border-radius: 47px 47px 0 0;
+  }
+
+  @include tablet-style {
+    padding: add-perc(24px) add-perc(16px) add-perc(24px) add-perc(16px);
+  }
+  
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 90px);
+    column-gap: 25px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    @include phone-style {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include laptop-style {
+      grid-template-columns: repeat(12, 60px);
+      column-gap: calc(25px / 1.5);
+    }
+  }
+
+  &__text {
+    height: 263px;
+    grid-column: 2/12;
+    position: relative;
+    margin-bottom: 82px;
+
+    @include phone-style {
+      width: 343px;
+      height: 304px;
+      margin-bottom: 35px;
+    }
+
+    @include laptop-style {
+      height: calc(263px / 1.5); 
+      margin-bottom: calc(82px / 1.5);
+    }
+
+    @include tablet-style {
+      width: add-perc(342px);
+      height: add-perc(304px);
+      margin-bottom: add-perc(35px);
+    }
+  }
+
+  &__title {
+    font-family: 'ComicSansBold', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: $primary-color;
+    margin-bottom: 16px;
+    background: $white-100;
+
+    @include laptop-style {
+      font-size: calc(40px / 1.5); 
+      margin-bottom: calc(16px / 1.5);
+    }
+
+    &-span {
+      @include phone-style {
+        font-family: 'NeueBold', sans-serif;
+        font-size: 24px;
+        display: inline-flex;
+      }
+
+      @include tablet-style {
+        font-size: add-perc(24px);
+      }
+    }
+
+    @include phone-style {
+      height: 178px;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    @include tablet-style {
+      height: add-perc(178px);
+      font-size: add-perc(24px);
+      margin-bottom: add-perc(8px);
+    }
+  }
+
+  &__text-hash {
+    width: 201px; 
+    height: 174px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 138px;
+    bottom: 18px;
+    transform: rotate(137.58deg);
+    z-index: -1;
+     
+    @include phone-style {
+      width: 82px;
+      height: 76px;
+      left: -8px;
+      bottom: 71px;
+      transform: rotate(141deg);
+    }
+
+    @include laptop-style {
+      width: calc(200px / 1.5); 
+      height: calc(174px / 1.5); 
+      left: calc(138px / 1.5); 
+      bottom: calc(18px / 1.5); 
+    }
+
+    @include tablet-style {
+      width: add-perc(82px);
+      height: add-perc(76px); 
+      left: add-perc( -8px);
+      bottom: add-perc( 71px);
+    }
+  }
+
+  &__phar {
+    position: absolute;
+    font-family: 'ComicSansRegular', sans-serif;
+    font-size: 32px;
+    line-height: 130%;
+    text-align: justify;
+    color: $black-5; 
+    right: 0;
+
+    @include phone-style {
+      font-size: 16px;
+      width: 252px;
+      height: 110px;
+      text-align: start;
+    }
+
+    @include laptop-style {
+      font-size: calc(32px / 1.5);
+    }
+
+    @include tablet-style{
+      font-size: add-perc(16px);
+      width: add-perc(252px);
+      height: add-perc(110px);
+    }
+  }
+
+  &__cards {
+    position: relative;
+    grid-column: 2/12;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 118px;
+
+
+    @include phone-style {
+      gap: 0;
+      margin-bottom: 56px;
+    }
+
+    @include laptop-style {
+      gap: calc(30px / 1.6);
+      margin-bottom: calc(118px / 1.5);
+    }
+
+    @include tablet-style {
+      margin-bottom: add-perc(56px);
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: inline-flex;
+    padding-top: 32px;
+    justify-content: center;
+
+    width: 355px;
+    height: 163px;
+    background-color: #F2F2F2;
+    border-radius: 24px;
+
+    @include phone-style {
+      width: 355px;
+      height: 114px;
+      padding: 16px 0;
+    }
+
+    @include laptop-style {
+      width: calc(355px / 1.5);
+      height: calc(163px / 1.5);
+      padding-top: calc(32px / 1.5);
+    }
+
+    @include tablet-style {
+      width: add-perc(355px);
+      height: add-perc(114px);
+      padding: add-perc(16px) 0;
+    }
+   
+  }
+
+  &__card:not(:nth-last-child(-n+2)) {
+    margin-bottom: 53px;
+
+    @include phone-style {
+      margin: 0;
+    }
+
+    @include laptop-style {
+      margin-bottom: calc(53px / 1.5);
+    }
+
+  }
+
+  &__card-img1 {
+    position: absolute;
+    top: -42px;
+    left: -31px;
+    width: 94px;
+    height: 84px;
+
+
+    @include phone-style {
+      width: 56px;
+      height: 56px;
+      top: -27px;
+      left: 0px;
+    }
+
+    @include laptop-style {
+      width: calc(94px / 1.5);
+      height: calc(84px / 1.5);
+      top: calc(-42px / 1.5);
+      left: calc(-31px / 1.5);
+    }
+
+    @include tablet-style {
+      width:add-perc(56px);
+      height: add-perc(56px);
+      top: add-perc(-27px);
+    }
+  }
+
+  &__card--1 {
+    @include phone-style {
+      margin-bottom: 56px !important;
+    }
+
+    @include laptop-style {
+      margin-bottom: calc(56px / 1.5) !important;
+    }
+
+    @include tablet-style {
+      margin-bottom: add-perc(56px) !important;
+    }
+
+    ::after {
+      content: 'Простір вашого розвитку';
+      width: 217px;
+      height: 50px;
+      position: absolute;
+      left: -35px;
+      bottom: -36px;
+      border-radius: 24px;
+      background: $secondary-color;
+      transform: rotate(-8deg);
+      padding: 18px;
+
+      font-family: 'NeueBold', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 130%;
+      color: $black-5;
+
+      @include phone-style {
+        width: 174px;
+        height: 32px;
+        font-size: 12px;
+        padding: 8px;
+        left: 8px;
+        bottom: -21px;
+        transform: rotate(-4deg);
+      }
+
+      @include tablet-style {
+        width:add-perc( 174px);
+        height: add-perc(32px);
+        font-size: add-perc(12px);
+        padding: add-perc(
+          8px
+        );
+        left: add-perc(8px);
+        bottom: add-perc(-21px);
+        transform: rotate(add-perc(-4deg));
+      }
+
+      @include laptop-style {
+        width: calc(217px / 1.5);
+        height: calc(50px / 1.5);
+        font-size: calc(14px / 1.5);
+        padding: calc(18px / 1.5);
+        left: calc(-35px / 1.5);
+        bottom: calc(-36px / 1.5);
+      }
+    }
+
+    ::before {
+      content: '';
+      width: 42px;
+      height: 42px;
+      position: absolute;
+      right: -42px;
+      bottom: 34px;
+      z-index: 10;
+      
+      background-image: url('../../../../public/images/Arrow-black.svg');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include phone-style {
+        background-image: url('../../../../public/images/Vector-arr-mob.svg');
+        font-size: 12px;
+        padding: 8px;
+        right: 104px;
+        bottom: -55px;
+      }
+
+      @include laptop-style {
+        width: calc(42px / 1.5);
+        height: calc(42px / 1.5);
+        right: calc(-42px / 1.5);
+        bottom: calc(34px / 1.5);
+      }
+
+      @include tablet-style {
+        width: add-perc(42px);
+        height: add-perc(42px);
+        background-image: url('../../../../public/images/Vector-arr-mob.svg');
+        font-size: add-perc(12px);
+        padding: add-perc(8px);
+        right: add-perc(104px);
+        bottom: add-perc(-55px);
+      }
+    }
+  }
+
+  &__card--2 {
+    z-index: -1;
+    @include phone-style {
+      margin-bottom: 40px !important;
+    }
+
+    @include tablet-style {
+      margin-bottom: add-perc(40px) !important;
+    }
+
+    @include laptop-style {
+      margin-bottom: calc(40px / 1.5) !important;
+    }
+
+    ::before {
+      content: '';
+      width: 48px;
+      height: 43px;
+      position: absolute;
+      right: -32px;
+      bottom: -5px;
+      z-index: 10;
+
+      background-image: url('../../../../public/images/black-arrow-2.svg');
+      background-position: center;
+      background-size: contain;
+
+
+      @include phone-style {
+        left: 95px;
+        bottom: -39px;
+        transform: rotate(89.86deg);
+      }
+
+      @include tablet-style {
+        width: add-perc(48px);
+        height: add-perc(43px);
+        left: add-perc(95px);
+        bottom: add-perc(-39px);
+      }
+
+      @include laptop-style {
+        width: calc(48px / 1.5);
+        height: calc(43px / 1.5);
+        right: calc(-32px / 1.5);
+        bottom: calc(-5px / 1.5);
+      }
+    }
+  }
+
+  &__card--3 {
+    @include phone-style {
+      margin-bottom: 51px !important;
+    }
+
+    @include tablet-style {
+      margin-bottom: add-perc(51px) !important;
+    }
+
+    @include laptop-style {
+      margin-bottom: calc(51px / 1.5) !important;
+    }
+
+    &::after {
+      content: 'Інтеграція знань у практику';
+      width: 237px;
+      height: 50px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      right: -15px;
+      top: 150px;
+      z-index: 10;
+      border-radius: 24px;
+      background: $secondary-color;
+      transform: rotate(8deg);
+      padding: 18px;
+
+      font-family: 'NeueBold', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 130%;
+      color: $black-5;
+      text-align: center;
+
+     @include phone-style {
+      width: 192px;
+      height: 32px;
+      font-size: 12px;
+      top: 98px;
+      right: 0;
+      transform: rotate(4deg);
+      padding: 9px;
+     }
+
+     @include tablet-style {
+      width: add-perc(192px);
+      height: add-perc(32px);
+      font-size: add-perc(12px);
+      top: add-perc(98px);
+      transform: rotate(add-perc(4deg));
+      padding: 9px;
+     }
+
+     @include laptop-style {
+      width: calc(237px / 1.5);
+      height: calc(50px / 1.5);
+      font-size: calc(14px / 1.5);
+      padding: calc(18px / 1.5);
+      top: calc(150px / 1.5);
+      right: calc(-15px / 1.5);
+    }
+    }
+  }
+
+  &__card--4 {
+    @include phone-style {
+     margin-bottom: 40px; 
+    }
+
+    @include tablet-style {
+     margin-bottom: add-perc(40px); 
+    }
+
+    @include laptop-style {
+      margin-bottom: calc(40px / 1.5);
+    }
+  }
+
+  &__card--5::after {
+    content: 'Гнучкий графік занять';
+    width: 198px;
+    height: 50px;
+    position: absolute;
+    right: -15px;
+    top: 140px;
+    z-index: 10;
+    border-radius: 24px;
+    background: $secondary-color;
+    transform: rotate(8deg);
+    padding: 18px;
+  
+    font-family: 'NeueBold', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 130%;
+    color: $black-5;
+    text-align: center;
+  
+    @include phone-style {
+      width: 158px;
+      height: 32px;
+      font-size: 12px;
+      padding: 9px;
+      right: 0px;
+      top: 94%;
+      transform: rotate(4deg);
+    }
+  
+    @include tablet-style {
+      width: add-perc(158px);
+      height: add-perc(32px);
+      font-size: add-perc(12px);
+      padding: add-perc(9px);
+      right: add-perc(0px);
+      transform: rotate(add-perc(4deg));
+    }
+  
+    @include laptop-style {
+      width: calc(198px / 1.5);
+      height: calc(50px / 1.5);
+      font-size: calc(14px / 1.5);
+      padding: calc(18px / 1.5);
+      right: calc(-15px / 1.5);
+      top: calc(140px / 1.5);
+    }
+  }
+  
+  &__card-type {
+    position: absolute;
+    top: 134px;
+    right: -7px;
+    width: 407px;
+    height: 25px;
+    display: inline-flex;
+    gap: 3.2px;
+    align-items: center;
+    background-color: $primary-color;
+    transform: rotate(8deg);
+  
+    @include phone-style {
+      width: 350px;
+      height: 18px;
+      top: 98px;
+      right: -8px;
+      transform: rotate(4deg);
+    }
+  
+    @include tablet-style {
+      width: add-perc(350px);
+      height: add-perc(18px);
+      top: add-perc(98px);
+      right: add-perc(-8px);
+      transform: rotate(6deg);
+    }
+  
+    @include laptop-style {
+      top: calc(134px / 1.5);
+      right: calc(-7px / 1.5);
+      width: calc(407px / 1.5);
+      height: calc(25px / 1.5);
+    }
+  
+    &2 {
+      width: 243px;
+      height: 25px;
+      position: absolute;
+      top: 128px;
+      left: 121px;
+      display: inline-flex;
+      gap: 3.2px;
+      align-items: center;
+      background-color: $primary-color;
+      transform: rotate(-16deg);
+  
+      @include phone-style {
+        width: 258px;
+        height: 18px;
+        top: 84px;
+        right: 0px;
+        transform: rotate(-10deg);
+      }
+  
+      @include tablet-style {
+        width: add-perc(258px);
+        height: add-perc(18px);
+        top: add-perc(84px);
+        right: add-perc(0px);
+        transform: rotate(-13deg);
+      }
+  
+      @include laptop-style {
+        width: calc(243px / 1.5);
+        height: calc(25px / 1.5);
+        top: calc(128px / 1.5);
+        left: calc(121px / 1.5);
+      }
+    }
+  }
+  
+  &__card-typeImg {
+    width: 20px;
+    height: 17px;
+  
+    @include phone-style {
+      width: 12px;
+      height: 12px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(12px);
+      height: add-perc(12px);
+    }
+  
+    @include laptop-style {
+      width: calc(20px / 1.5);
+      height: calc(17px / 1.5);
+    }
+  }
+  
+  &__card-typeSpan {
+    font-family: 'NeueBold', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 130%;
+    color: $white-100;
+  
+    @include phone-style {
+      font-size: 8px;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(8px);
+    }
+  
+    @include laptop-style {
+      font-size: calc(12px / 1.5);
+    }
+  }
+  
+  &__card-imgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 51px;
+    height: 51px;
+    border-radius: 25.5px;
+    background-color: $secondary-color;
+    position: absolute;
+    right: 161px;
+    bottom: 35px;
+  
+    @include phone-style {
+      width: 32px;
+      height: 32px;
+      right: 162px;
+      bottom: 30px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(32px);
+      height: add-perc(32px);
+      right: add-perc(162px);
+      bottom: add-perc(30px);
+    }
+  
+    @include laptop-style {
+      width: calc(51px / 1.5);
+      height: calc(51px / 1.5);
+      right: calc(161px / 1.5);
+      bottom: calc(35px / 1.5);
+    }
+  }
+  
+  &__card-img3 {
+    width: 33px;
+    height: 27px;
+    z-index: 10;
+  
+    @include phone-style {
+      width: 20px;
+      height: 15px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(20px);
+      height: add-perc(15px);
+    }
+  
+    @include laptop-style {
+      width: calc(33px / 1.5);
+      height: calc(27px / 1.5);
+    }
+  }
+
+  @for $i from 1 through 5 {
+    &__card--#{$i}::before {
+      content: '';
+      position: absolute;
+      width: 355px;
+      height: 163px;
+      top: 0;
+      left: 0;
+      border-radius: 24px;
+      z-index: -1;
+      background-color: $gray-03;
+  
+      @if ($i % 2 == 0) {
+        transform: rotate(8deg);
+        @include phone-style {
+          transform: rotate(4deg);
+        }
+        @include tablet-style {
+          transform: rotate(add-perc(4deg));
+        }
+      } @else {
+        transform: rotate(-8deg);
+        @include phone-style {
+          transform: rotate(-4deg);
+        }
+        @include tablet-style {
+          transform: rotate(add-perc(-4deg));
+        }
+      }
+  
+      @include phone-style {
+        width: 100%;
+        height: 114px;
+      }
+  
+      @include tablet-style {
+        height: add-perc(114px); 
+      }
+  
+      @include laptop-style {
+        width: calc(355px / 1.5);
+        height: calc(163px / 1.5);
+      }
+    }
+  }
+  
+  &__hidden {
+    width: 355px;
+    height: 163px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    border-radius: 24px;
+  
+    @include phone-style {
+      width: 342px;
+      height: 114px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(342px); 
+      height: add-perc(114px); 
+    }
+  
+    @include laptop-style {
+      width: calc(355px / 1.5);
+      height: calc(163px / 1.5);
+    }
+  }
+  
+  &__card-p {
+    font-family: 'NeueBold', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 130%;
+    color: $black-5;
+    text-align: center;
+  
+    @include phone-style {
+      font-size: 14px;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(14px); 
+    }
+  
+    @include laptop-style {
+      font-size: calc(18px / 1.5);
+    }
+  }
+  
+  &__span {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: $primary-color;
+    border-radius: 24px;
+    color: $white-100;
+    margin: 8px 0 8px 0;
+    text-align: center;
+    letter-spacing: 0;
+  
+    @include phone-style {
+      margin: 4px;
+      padding: 4px 16px;
+    }
+  
+    @include tablet-style {
+      margin: add-perc(4px); 
+      padding: add-perc(4px) add-perc(16px); 
+    }
+  
+    @include laptop-style {
+      margin: calc(8px / 1.5);
+      padding: calc(8px / 1.5) calc(16px / 1.5);
+    }
+  
+    &-spec {
+      width: fit-content;
+      display: inline-flex;
+      gap: 56px;
+    }
+  }
+  
+  &__open-for {
+    height: 516px;
+    grid-column: 2/12;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 70px;
+    background-color: $primary-color;
+    position: relative;
+    margin-bottom: 72px;
+    background-image: url('../../../../public/images/FrameNet\(1\).svg');
+    background-size: cover;
+    background-position: top;
+  
+    @include phone-style {
+      width: 343px;
+      height: 612px;
+      grid-column: 1/5;
+      border-radius: 24px;
+      padding: 24px;
+      justify-content: space-between;
+      margin: 0 32px 32px 32px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(343px); 
+      height: add-perc(612px); 
+      grid-column: 1/5;
+      border-radius: add-perc(24px); 
+      padding: add-perc(24px); 
+      justify-content: space-between;
+      margin: 0 add-perc(32px) add-perc(32px) add-perc(32px); 
+    }
+  
+    @include laptop-style {
+      height: calc(516px / 1.5);
+      margin-bottom: calc(72px / 1.5);
+    }
+  }
+  
+  &__par-box {
+    position: absolute;
+    display: flex;
+    justify-items: space-between;
+    align-items: center;
+  
+    @include phone-style {
+      position: static;
+    }
+  
+    @include tablet-style {
+      position: static; 
+    }
+  
+    @include laptop-style {
+      top: calc(0px / 1.5);
+    }
+  }
+  
+  &__par {
+    font-family: 'NeueBold', sans-serif;
+    font-size: 16px;
+    line-height: 130%;
+    color: $secondary-color;
+    font-weight: bold;
+  
+    @include phone-style {
+      font-size: 14px;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(14px); 
+    }
+  
+    @include laptop-style {
+      font-size: calc(16px / 1.5);
+    }
+  }
+  
+  &__open-img {
+    width: 48px;
+    height: 43px;
+  
+    @include phone-style {
+      width: 32px;
+      height: 32px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(32px); 
+      height: add-perc(32px); 
+    }
+  
+    @include laptop-style {
+      width: calc(48px / 1.5);
+      height: calc(43px / 1.5);
+    }
+  }
+  
+  &__par-box1 {
+    width: 250px;
+    height: 43px;
+    top: 123px;
+    left: 47px;
+    transform: rotate(-8deg);
+  
+    @include phone-style {
+      transform: rotate(8deg);
+      align-self: flex-start;
+    }
+  
+    @include tablet-style {
+      transform: rotate(add-perc(8deg)); 
+      align-self: flex-start;
+    }
+  
+    @include laptop-style {
+      width: calc(250px / 1.5);
+      height: calc(43px / 1.5);
+      top: calc(123px / 1.5);
+      left: calc(47px / 1.5);
+    }
+  }
+
+  &__par-box2 {
+    top: 237px;
+    left: 47px;
+    transform: rotate(10deg);
+    order: 4;
+  
+    @include phone-style {
+      transform: rotate(-8deg);
+      align-self: flex-end;
+    }
+  
+    @include tablet-style {
+      transform: rotate(-8deg);
+      align-self: flex-end;
+      top: add-perc(237px); 
+      left: add-perc(47px); 
+    }
+  
+    @include laptop-style {
+      top: calc(237px / 1.5);
+      left: calc(47px / 1.5);
+    }
+  }
+  
+  &__par-box3 {
+    top: 315px;
+    left: 88px;
+    transform: rotate(-8deg);
+    align-items: start;
+    order: 2;
+  
+    @include phone-style {
+      transform: rotate(-8deg);
+      align-self: flex-end;
+    }
+  
+    @include tablet-style {
+      transform: rotate(-8deg);
+      align-self: flex-end;
+      top: add-perc(315px); 
+      left: add-perc(88px); 
+    }
+  
+    @include laptop-style {
+      top: calc(315px / 1.5);
+      left: calc(88px / 1.5);
+    }
+  }
+  
+  &__par-box4 {
+    top: 108px;
+    right: 85px;
+    transform: rotate(18deg);
+    order: 3;
+  
+    @include phone-style {
+      transform: rotate(8deg);
+      align-self: flex-start;
+    }
+  
+    @include tablet-style {
+      transform: rotate(8deg);
+      align-self: flex-start;
+      top: add-perc(108px); 
+      right: add-perc(85px); 
+    }
+  
+    @include laptop-style {
+      top: calc(108px / 1.5);
+      right: calc(85px / 1.5);
+    }
+  }
+  
+  &__par-box5 {
+    top: 223px;
+    right: 60px;
+    transform: rotate(-8deg);
+    order: 5;
+  
+    @include phone-style {
+      transform: rotate(8deg);
+      align-self: flex-start;
+    }
+  
+    @include tablet-style {
+      transform: rotate(8deg);
+      align-self: flex-start;
+      top: add-perc(223px); 
+      right: add-perc(60px); 
+    }
+  
+    @include laptop-style {
+      top: calc(223px / 1.5);
+      right: calc(60px / 1.5);
+    }
+  }
+  
+  &__par-box6 {
+    top: 316px;
+    right: 44px;
+    transform: rotate(8deg);
+    align-items: start;
+    order: 6;
+  
+    @include phone-style {
+      transform: rotate(-8deg);
+      align-self: flex-end;
+    }
+  
+    @include tablet-style {
+      transform: rotate(-8deg);
+      align-self: flex-end;
+      top: add-perc(316px); 
+      right: add-perc(44px); 
+    }
+  
+    @include laptop-style {
+      top: calc(316px / 1.5);
+      right: calc(44px / 1.5);
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  &__heading {
+    font-family: 'ComicSansBold', sans-serif;
+    font-size: 56px;
+    font-weight: bold;
+    color: $white-100;
+  
+    @include phone-style {
+      font-size: 32px;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(32px); 
+    }
+  
+    @include laptop-style {
+      font-size: calc(56px / 1.5);
+    }
+  }
+  
+  &__heading2 {
+    width: 237px;
+    height: 83px;
+    grid-column: 2/11;
+    display: flex;
+    align-items: center;
+    font-size: 56px;
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-family: 'NeueBold', sans-serif;
+    font-weight: bold;
+    color: $primary-color;
+    background-color: $white-100;
+  
+    @include phone-style {
+      width: 140px;
+      height: 54px;
+      padding: 8px 16px;
+      font-size: 32px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(140px); 
+      height: add-perc(54px); 
+      padding: add-perc(8px) add-perc(16px); 
+      font-size: add-perc(32px); 
+    }
+  
+    @include laptop-style {
+      width: calc(237px / 1.5);
+      height: calc(83px / 1.5);
+      padding: calc(8px / 1.5) calc(24px / 1.5);
+      font-size: calc(56px / 1.5);
+    }
+  }
+  
+  // how-works section
+  &__how-works {
+    width: 100%;
+    height: fit-content;
+    grid-column: 2/12;
+
+    @include phone-style {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  &__how-works-title {
+    margin-bottom: 40px;
+    font-family: 'ComicSansBold', sans-serif;
+    font-size: 40px;
+    color: $primary-color;
+    font-weight: bold;
+  
+    @include phone-style {
+      font-size: 24px;
+      margin-bottom: 16px;
+      width: 343px;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(24px); 
+      margin-bottom: add-perc(16px); 
+      width: 550px;
+    }
+  
+    @include laptop-style {
+      font-size: calc(40px / 1.5);
+      margin-bottom: calc(40px / 1.5);
+    }
+  }
+  
+  &__how-works-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  
+    @include laptop-style {
+      gap: calc(25px / 1.6);
+    }
+  }
+  
+  &__how-works-card {
+    width: 550px;
+    height: 190px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-radius: 32px;
+    overflow: hidden;
+  
+    @include phone-style {
+      width: 343px;
+      height: 132px;
+    }
+  
+    @include tablet-style {
+      width: add-perc(343px); 
+      height: add-perc(132px); 
+    }
+  
+    @include laptop-style {
+      width: calc(550px / 1.5);
+      height: calc(190px / 1.5);
+    }
+  
+    &:nth-of-type(3) {
+      justify-content: flex-start;
+    }
+  
+    &:nth-of-type(4) {
+      justify-content: flex-start;
+    }
+  
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-radius: inherit;
+      background-image: url('../../../../public/images/gradient_zel.png');
+      background-size: 100% 100%;
+      background-position: center;
+      border-radius: inherit;
+      z-index: -1;
+    }
+  }
+  
+  @for $i from 1 through 4 {
+    &__how-works-card--#{$i}::after {
+      content: "0#{$i}";
+      width: 245px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+  
+      position: absolute;
+      font-family: 'NeueRegular', sans-serif;
+      color: $secondary-color;
+      font-size: 250px;
+      line-height: -5px;
+      top: 0;
+      left: 0;
+  
+      @include phone-style {
+        width: 182px;
+        height: 174px;
+        font-size: 160px;
+        top: 10px;
+      }
+  
+      @include tablet-style {
+        width: add-perc(182px); 
+        height: add-perc(174px); 
+        font-size: add-perc(160px); 
+        top: add-perc(10px); 
+      }
+  
+      @include laptop-style {
+        width: calc(245px / 1.5);
+        height: calc(300px / 1.5);
+        font-size: calc(250px / 1.5);
+      }
+  
+      @if ($i == 3) {
+        left: 50%;
+  
+        @include phone-style {
+          left: 45%;
+        }
+  
+        @include laptop-style {
+          left: 45%;
+        }
+      }
+  
+      @if ($i == 4) {
+        left: 50%;
+  
+        @include phone-style {
+          left: 45%;
+        }
+  
+        @include laptop-style {
+          left: 45%;
+        }
+      }
+    }
+  }
+  
+  &__how-works-p {
+    padding: 0 56px;
+    font-family: 'NeueBold', sans-serif;
+    font-size: 18px;
+    line-height: 130%;
+    color: $white-100;
+    font-weight: bold;
+  
+    @include phone-style {
+      width: 50%;
+      font-size: 14px;
+      padding: 0 24px;
+    }
+  
+    @include tablet-style {
+      font-size: add-perc(14px); 
+      padding: 0 add-perc(24px); 
+    }
+  
+    @include laptop-style {
+      font-size: calc(18px / 1.5);
+      padding: calc(56px / 1.5);
+    }
+  }
+}

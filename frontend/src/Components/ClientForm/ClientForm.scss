@@ -1,0 +1,402 @@
+@import 'src/Global';
+
+$ls: 1.5;
+$ts: 30;
+
+.ClientForm {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  transform: translateY(-150%);
+  transition: transform 1.5s ease-out;
+  background-color: rgba($color: #232323, $alpha: 50%);
+  z-index: 100;
+  
+  &--with-form {
+    transform: translateY(0);
+  }
+
+  &__close-button {
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: transparent;
+    color: $white-100;
+    cursor: pointer;
+
+    @include laptop-style {
+      top: 20px / $ls;
+      right: 20px / $ls;
+      font-size: 50px / $ls;
+    }
+  }
+
+  &__container {
+    width: 1125px;
+    height: 504px;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 42px 47px 56px;
+    background-image: url('../../../public/images/net.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: $primary-color;
+
+    @include laptop-style {
+      width: 1125px / $ls;
+      height: 504px / $ls;
+      border-radius: 70px / $ls;
+      padding: 32px/$ls 42px/$ls 47px/$ls 56px/$ls;
+    }
+
+    @include phone-style {
+      position: relative;
+      width: 343px;
+      height: 644px;
+      border-radius: 24px;
+      padding: 24px 24px 16px 24px;
+    }
+
+    @include tablet-style {
+      width: add-perc(343px);
+      height: add-perc(644px);
+      border-radius: 24px;
+      padding: add-perc(24px) add-perc(24px) add-perc(16px) add-perc(24px);
+    }
+  }
+
+  &__items {
+    display: inline-flex;
+    gap: 63px;
+    background: transparent;
+
+    @include phone-style {
+      flex-direction: column;
+      gap: 0px;
+    }
+
+    @include laptop-style {
+      gap: 63px / $ls;
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+  }
+
+  &__hash {
+    width: 73px;
+    height: 65px;
+    background: transparent;
+
+    @include laptop-style {
+      width: 73px /$ls;
+      height: 65px / $ls;
+    }
+
+    @include phone-style {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include tablet-style {
+      width: add-perc(40px);
+      height: add-perc(40px);
+    }
+  }
+
+  &__title {
+    width: 75%;
+    display: inline-flex;
+    gap: 0;
+    font-family: 'ComicSansBold', sans-serif;
+    font-size: 30px;
+    color: $secondary-color;
+    margin-bottom: 24px;
+    background: transparent;
+
+    @include laptop-style {
+      font-size: 30px / $ls;
+      margin-bottom: 24px /$ls;
+    }
+
+    @include phone-style {
+      font-size: 24px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(24px);
+      margin-bottom: add-perc(16px);
+    }
+  }
+
+  &__phar {
+    font-family: 'NeueMedium', sans-serif;
+    font-size: 24px;
+    line-height: 130%;
+    color: $white-100;
+    margin-bottom: 26px;
+    background: transparent;
+
+    
+    @include laptop-style {
+      font-size: 24px / $ls;
+      margin-bottom: 26px /$ls;
+    }
+
+    @include phone-style {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(18px);
+      margin-bottom: add-perc(16px);
+    }
+  }
+
+  &__midia {
+    display: inline-flex;
+    gap: 4.5px;
+    font-family: 'NeueMedium', sans-serif;
+    font-size: 24px;
+    line-height: 130%;
+    color: $white-100;
+    background: transparent;
+    margin-bottom: 16px;
+
+    @include phone-style {
+      font-size: 18px;
+    }
+
+    @include laptop-style {
+      gap: 4.5px / $ls;
+      font-size: 24px /$ls;
+      margin-bottom: 16px /$ls;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(18px);
+    }
+  }
+
+  &__midia-list {
+    display: inline-flex;
+    gap: 16px;
+    background: transparent;
+    align-items: center;
+
+    @include laptop-style {
+      gap: 16px /$ls;
+    }
+
+    @include phone-style {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+
+    @include laptop-style {
+      width: 40px /$ls;
+      height: 40px /$ls;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  &__logo {
+    width: 309px;
+    height: 145px;
+    background: transparent;
+
+    
+    @include laptop-style {
+      width: 309px /$ls;
+      height: 145px /$ls;
+    }
+
+    @include phone-style {
+      width: 173px;
+      height: 81px;
+      position: absolute;
+      bottom: 16px;
+      align-self: center;
+    }
+
+    @include tablet-style {
+      width: add-perc(173px);
+      height: add-perc(81px);
+      position: absolute;
+      bottom: add-perc(16px);
+      align-self: center;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: transparent;
+
+    @include laptop-style {
+      gap: 16px /$ls;
+    }
+
+    
+    @include phone-style {
+      gap: 0px;
+    }
+  }
+
+  &__input {
+    width: 367px;
+    height: 43px;
+    border-radius: 24px;
+    background-color: $white-100;
+    border-color: $white-100;
+    padding: 12px;
+
+    @include laptop-style {
+      width: 367px / $ls;
+      height: 43px / $ls;
+      border-radius: 24px / $ls;
+      padding: 12px / $ls;
+    }
+
+    @include phone-style {
+      width: 295px;
+      height: 40px;
+      margin-bottom: 8px;
+    }
+
+    @include tablet-style {
+      width: add-perc(295px);
+      height: add-perc(40px);
+      margin-bottom: add-perc(8px);
+    }
+
+    &::placeholder {
+      font-family: 'NeueMedium', sans-serif;
+      font-size: 16px;
+      color: $gray-30;
+
+      @include laptop-style {
+        font-size: 16px /$ls;
+      }
+      
+    }
+  }
+
+  &__textarea {
+    width: 367px;
+    height: 170px;
+    background-color: $white-100;
+    border-radius: 32px;
+    padding: 24px;
+    resize: none;
+
+    @include laptop-style {
+      width: 367px/$ls;
+      height: 170px/$ls;
+      border-radius: 32px/$ls;
+      padding: 24px/$ls;
+    }
+
+    &::placeholder {
+      font-family: 'NeueMedium', sans-serif;
+      font-size: 16px;
+      color: $gray-30;
+
+      @include laptop-style {
+        font-size: 16px /$ls;
+      }
+    }
+
+    @include phone-style {
+      width: 295px;
+      height: 170px;
+      margin-bottom: 16px;
+    }
+
+    @include tablet-style {
+      width: add-perc(295px);
+      height: add-perc(170px);
+      margin-bottom: add-perc(16px);
+    }
+  }
+
+  &__button {
+    @include button;
+
+    width: 367px;
+    height: 44px;
+    cursor: pointer;
+    justify-content: end;
+    gap: 110px;
+    padding-right: 4px;
+
+    @include laptop-style {
+      width: 367px / $ls;
+      height: 44px / $ls;
+      gap: 110px /$ls;
+      padding-right: 4px /$ls;
+      font-size: 16px /$ls;
+    }
+
+    @include phone-style {
+      width: 295px;
+      height: 40px;
+      justify-content: end;
+      gap: 90px;
+      padding-right: 4px; 
+    }
+
+    @include tablet-style {
+      width: add-perc(295px);
+      height: add-perc(40px);
+      justify-content: end;
+      gap: add-perc(90px);
+      padding-right: add-perc(4px); 
+    }
+  }
+
+  &__button2 {
+    justify-self: end;
+    @include circle-button;
+
+    @include laptop-style {
+      width: 32px / $ls;
+      height: 32px / $ls;
+      border-radius: 27px / $ls;
+    }
+  }
+
+  &__button-img {
+    @include button-image;
+
+    &--rotate {
+      transform: rotate(50deg);
+    }
+  }
+}

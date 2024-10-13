@@ -1,0 +1,16 @@
+{
+  "extends": "@mate-academy/students-ts-config",
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "sourceMap": false,
+    "types": ["node", "cypress"]
+  },
+
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "__dirname",
+    "sourceType": "module",
+  },
+}

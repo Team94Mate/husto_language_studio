@@ -1,0 +1,173 @@
+@import "/src/Global";
+$ts: 30;
+
+.burgerMenu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding: 16px 16px 8px 16px;
+  display: flex;
+  background-color: $primary-color;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+  z-index: 100;
+  cursor: pointer;
+
+  @media  (min-width: 962px) {
+    display: none !important;
+  }
+  
+  transform: translateX(-100%);
+  transition: 1s ease-in-out;
+
+  &--turnOnBurger {
+    position: absolute;
+    transform: translateX(0);
+    z-index: 100;
+
+    @include tablet-style {
+      gap: add-perc(24px);
+    }
+  }
+
+  &__back {
+    width: 100%;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+
+    @include tablet-style {
+      height: add-perc(44px);
+      gap: add-perc(3px);
+    }
+  }
+
+  &__husto {
+    width: 317px;
+    height: 98px;
+    position: relative;
+    font-family: "NeueBold", sans-serif;
+    font-size: 88px;
+    font-weight: bold;
+    color: $white-100;
+    text-align: end;
+
+    letter-spacing: -5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    
+    &::after {
+      content: "";
+      background-image: url('../../../public/images/hash(1).svg');
+      background-size: 74px 64px; 
+      background-repeat: no-repeat; 
+      width: 74px;  
+      height: 64px; 
+      position: absolute;
+      left: -7px;
+      top: 0px;
+
+      @include tablet-style {
+        background-size: add-perc(74px) add-perc(64px); 
+        width: add-perc(74px);  
+        height: add-perc(64px); 
+        left: add-perc(-7px);
+      }
+    }
+
+    @include tablet-style {
+      width: add-perc(317px);
+      height: add-perc(98px);
+      font-size: add-perc(88px);
+    }
+  }
+
+  &__arrow {
+    width: 17px;
+    height: 22px;
+
+    @include tablet-style {
+      width: add-perc(17px);
+      height: add-perc(22px);
+    }
+  }
+
+  &__back-text {
+    font-family: 'NeueRegular', sans-serif;
+    font-size: 16px;
+    color: $white-100;
+
+    @include tablet-style {
+      font-size: add-perc(16px);
+    }
+  }
+
+  &__nav  {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 26%;
+
+    @include tablet-style {
+      gap: add-perc(16px);
+    }
+  }
+
+  &__link {
+    width: 343px;
+    height: 43px;
+    text-align: center;
+
+    &:hover {
+      background-color: $primary-color;
+      border: 1px solid $white-100;
+    }
+
+    @include tablet-style {
+      width: add-perc(343px);
+      height: add-perc(43px);
+      font-size: add-perc(16px);
+    }
+  }
+
+  &__indicator {
+    width: 375px;
+    height: 34px;
+    position: absolute;
+    bottom: 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background: $primary-color;
+    cursor: ns-resize;
+
+    @include tablet-style {
+      width: add-perc(343px);
+      height: add-perc(43px);
+    }
+
+    &::after {
+      content: '';
+      width: 134px;
+      height: 5px;
+      position: absolute;
+      background-color: $white-100;
+      border-radius: 100px;
+      z-index: 100;
+      bottom: 8px;
+
+      @include tablet-style {
+        width: add-perc(134px);
+        height: add-perc(5px);
+        bottom: add-perc(8px);
+      }
+    }
+  }
+}

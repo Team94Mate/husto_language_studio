@@ -1,0 +1,93 @@
+$primary-color: #006C68;
+$secondary-color: #ADFF00;
+$grey-100: #232323;
+$grey-80: #3E4C59;
+$gray-60: #748495;
+$gray-30: #C8CFD7;
+$gray-20: #DCE0E9;
+$gray-10: #F5F7FA;
+$gray-03: #F2F2F2;
+$white-100: #FFFFFF;
+$black-5: hsl(0, 0%, 5%);
+$card-color: #1D8A86;
+
+@font-face {
+  src: url('./fonts/NeueMontreal-Bold.ttf');
+  font-family:'NeueBold';
+}
+
+@font-face {
+  src: url('./fonts/NeueMontreal-Medium.ttf');
+  font-family: 'NeueMedium';
+}
+
+@font-face {
+  src: url('./fonts/NeueMontreal-Regular.ttf');
+  font-family: 'NeueRegular';
+}
+
+@font-face {
+  src: url('./fonts/Comic_Sans_MS.ttf');
+  font-family: 'ComicSansBold';
+}
+
+@font-face {
+  src: url('./fonts/Comic_Sans_MS.ttf');
+  font-family: 'ComicSansRegular';
+}
+
+@function add-perc($px-value) {
+  $perc-value: $px-value * ($ts / 100);
+
+  $newValue: #{$px-value + $perc-value};
+
+  @return $newValue;
+}
+
+@mixin button {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 8px;
+  align-items: center;
+  border-radius: 24px;
+  font-family: 'NeueMedium', sans-serif;
+  font-size: 16px;
+  border: $white-100;
+  background-color: $white-100;
+  color: $black-5;
+}
+
+@mixin circle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 27px;
+  background-color: $primary-color;
+}
+
+@mixin button-image {
+    width: 10px;
+    height: 10px;
+    color: $white-100;
+}
+
+@mixin laptop-style {
+  @media(min-width: 962px) and (max-width: 1399px) {
+    @content;
+  }
+};
+
+@mixin phone-style {
+  @media(max-width: 961px) {
+    @content;
+  }
+};
+
+@mixin tablet-style {
+  @media (min-width: 576px) and (max-width: 961px) {
+    @content;
+  }
+};
