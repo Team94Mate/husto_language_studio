@@ -9,8 +9,6 @@ export const ClientForm = () => {
   const [instagram, setInstagram] = useState('');
   const [question, setQuestion] = useState('');
 
-  // console.log(question, instagram);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -31,7 +29,6 @@ export const ClientForm = () => {
       if (response.ok) {
         setInstagram('');
         setQuestion('');
-        // console.log('sucsses');
       } else {
         // console.error('Failed to send message:', response.status);
       }
