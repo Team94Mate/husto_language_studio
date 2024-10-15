@@ -18,13 +18,16 @@ export const ClientForm = () => {
     };
 
     try {
-      const response = await fetch(`/api/contact-messages/`, {
-        method: 'Post',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'http://0.0.0.0:8001/api/contact-messages/',
+        {
+          method: 'Post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(contactMessageData),
         },
-        body: JSON.stringify(contactMessageData),
-      });
+      );
 
       if (response.ok) {
         setInstagram('');

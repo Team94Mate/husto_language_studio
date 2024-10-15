@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
 import classNames from 'classnames';
@@ -42,6 +42,8 @@ export const ReviewsPage = () => {
       );
     }
   };
+
+  useEffect(() => {});
 
   return (
     <div className="reviewsPage">

@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { ToggleButton } from '../../ToggleButton/ToggleButton';
 import './Teachers.scss';
 import classNames from 'classnames';
@@ -9,6 +10,7 @@ export const Teachers = () => {
   const touchStartRef = useRef(0);
   const touchEndRef = useRef(0);
   const { teachers } = useContext(StorageContext);
+  // const [teachers, setTeachers] = useState([]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartRef.current = e.touches[0].clientX;
@@ -32,6 +34,33 @@ export const Teachers = () => {
       );
     }
   };
+
+  // useEffect(() => {
+  //   fetch('/api/teachers/')
+  //     .then(response => {
+  //       return response.json();
+  //     })
+  //     .then(data => setTeachers(data));
+  // }, []);
+
+  // console.log(teachers);
+
+  // useEffect(() => {
+  //   fetch('/api/teachers/')
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error(`Error fetching data: ${response.statusText}`);
+  //       }
+
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       setTeachers(data); // Update the teachers state with the fetched data
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching teachers data:', error);
+  //     });
+  // }, []);
 
   return (
     <div className="teachers" id="teachers">
