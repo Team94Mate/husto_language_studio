@@ -19,9 +19,9 @@ export const ClientForm = () => {
 
     try {
       const response = await fetch(
-        'http://0.0.0.0:8001/api/contact-messages/',
+        'http://localhost:8001/api/contact-messages/',
         {
-          method: 'Post',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -34,9 +34,11 @@ export const ClientForm = () => {
         setQuestion('');
       } else {
         // console.error('Failed to send message:', response.status);
+        // console.log('Submitting:', contactMessageData);
       }
     } catch (error) {
       // console.error('Error while sending the request:', error);
+      // console.log('Submitting:', contactMessageData);
     }
   };
 
@@ -113,7 +115,8 @@ export const ClientForm = () => {
           <form className="ClientForm__form" onSubmit={handleSubmit}>
             <input
               className="ClientForm__input"
-              type={instagram}
+              value={instagram}
+              type="text"
               placeholder="Ваш @instagram"
               onChange={e => setInstagram(e.target.value)}
             />
@@ -125,7 +128,8 @@ export const ClientForm = () => {
               name="text"
             ></textarea>
 
-            <a
+            <button
+              type="submit"
               className="ClientForm__button"
               onClick={() => setIsClicked(!isClicked)}
             >
@@ -139,7 +143,7 @@ export const ClientForm = () => {
                   src="images/Vector(6).svg"
                 />
               </span>
-            </a>
+            </button>
           </form>
         </div>
       </div>
