@@ -2,20 +2,39 @@ import { useContext, useState } from 'react';
 import './ClientForm.scss';
 import { StorageContext } from '../../storage/StorageContext';
 import classNames from 'classnames';
+// import { addMessageData } from '../../api/api';
+
+export interface ContactData {
+  username: string;
+  question: string;
+}
 
 export const ClientForm = () => {
   const { showForm, setShowForm } = useContext(StorageContext);
   const [isClicked, setIsClicked] = useState(false);
-  const [instagram, setInstagram] = useState('');
+  const [username, setUsername] = useState('');
   const [question, setQuestion] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const contactMessageData = {
-      instagram,
+    const contactMessageData: ContactData = {
+      username,
       question,
     };
+
+    // addMessageData(contactMessageData)
+    //   .then(response => {
+    //     if (response) {
+    //       console.log(response);
+    //       setUsername('');
+    //       setQuestion('');
+    //     }
+    //   })
+    //   .catch(error => {
+    //     throw error;
+    //   });
+    // });
 
     try {
       const response = await fetch(
@@ -30,7 +49,7 @@ export const ClientForm = () => {
       );
 
       if (response.ok) {
-        setInstagram('');
+        setUsername('');
         setQuestion('');
       } else {
         // console.error('Failed to send message:', response.status);
@@ -115,10 +134,10 @@ export const ClientForm = () => {
           <form className="ClientForm__form" onSubmit={handleSubmit}>
             <input
               className="ClientForm__input"
-              value={instagram}
+              value={username}
               type="text"
               placeholder="Ваш @instagram"
-              onChange={e => setInstagram(e.target.value)}
+              onChange={e => setUsername(e.target.value)}
             />
             <textarea
               className="ClientForm__textarea"

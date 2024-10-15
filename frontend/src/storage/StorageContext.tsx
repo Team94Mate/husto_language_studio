@@ -6,7 +6,7 @@ export interface Review {
   comment: string;
 }
 
-interface TeachersProp {
+export interface TeachersProp {
   name: string;
   role: string;
   exp: string;

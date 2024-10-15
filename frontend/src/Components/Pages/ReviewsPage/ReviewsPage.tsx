@@ -1,13 +1,16 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
 import classNames from 'classnames';
 import { StorageContext } from '../../../storage/StorageContext';
+import { ContactData } from '../../ClientForm/ClientForm';
 
 export const ReviewsPage = () => {
   const [isClicked, setIsClicked] = useState<Record<number, boolean>>({});
   const [clickButton, setClickButton] = useState(false);
   const { reviewsData } = useContext(StorageContext);
+  const [username, setUsername] = useState('');
+  const [question, setQuestion] = useState('');
 
   const toggleQuestion = (index: number) => {
     setIsClicked(prev => ({
@@ -43,7 +46,51 @@ export const ReviewsPage = () => {
     }
   };
 
-  useEffect(() => {});
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const contactMessageData: ContactData = {
+      username,
+      question,
+    };
+
+    // addMessageData(contactMessageData)
+    //   .then(response => {
+    //     if (response) {
+    //       console.log(response);
+    //       setUsername('');
+    //       setQuestion('');
+    //     }
+    //   })
+    //   .catch(error => {
+    //     throw error;
+    //   });
+    // });
+
+    try {
+      const response = await fetch(
+        'http://localhost:8001/api/contact-messages/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(contactMessageData),
+        },
+      );
+
+      if (response.ok) {
+        setUsername('');
+        setQuestion('');
+      } else {
+        // console.error('Failed to send message:', response.status);
+        // console.log('Submitting:', contactMessageData);
+      }
+    } catch (error) {
+      // console.error('Error while sending the request:', error);
+      // console.log('Submitting:', contactMessageData);
+    }
+  };
 
   return (
     <div className="reviewsPage">
@@ -167,7 +214,7 @@ export const ReviewsPage = () => {
               />
             </div>
 
-            <form className="ClientForm__form">
+            <form className="ClientForm__form" onSubmit={handleSubmit}>
               <input
                 className="ClientForm__input"
                 type="text"
@@ -179,7 +226,7 @@ export const ReviewsPage = () => {
                 name="text"
                 id=""
               ></textarea>
-              <a
+              <button
                 className="ClientForm__button"
                 onClick={() => setClickButton(!clickButton)}
               >
@@ -193,7 +240,7 @@ export const ReviewsPage = () => {
                     src="images/Vector(6).svg"
                   />
                 </span>
-              </a>
+              </button>
             </form>
           </div>
         </div>
