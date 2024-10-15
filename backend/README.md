@@ -17,6 +17,7 @@ cd husto_language_studio
 python -m venv venv
 venv\Scripts\activate (on Windows)
 source venv/bin/activate (on macOS)
+cd backend
 pip install -r requirements.txt
 ```
 
