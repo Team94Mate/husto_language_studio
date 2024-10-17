@@ -13,6 +13,7 @@ Husto Language Studio: An English school website showcasing learning opportuniti
 In this project our team used the following technologies:
 
 ### Backend
+You can check the [Backend README.md](backend/README.md)
 - Python
 - Django ORM
 - Django
@@ -20,6 +21,7 @@ In this project our team used the following technologies:
 - Docker
 
 ### Frontend
+You can check the [Frontend README.md](frontend/README.md)
 - JavaScript
 - React
 - Typescript
@@ -27,6 +29,7 @@ In this project our team used the following technologies:
 - Figma
 
 ### Design
+Check the [Figma Design]()
 - Figma
 - Adobe Photoshop
 
@@ -43,5 +46,9 @@ In this project our team used the following technologies:
   Streamlined process for users to enroll in courses
 
 
+## GitHub Page of the Project
+[You can check it out!](https://team94mate.github.io/husto_language_studio/)
+
+
 ## Screenshots:
-![Home Page](some_link.png)
+![Home Page](screenshots/home_page.png)
