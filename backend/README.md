@@ -4,7 +4,7 @@
 A Django RESTful API for managing courses, contact messages, and reviews for a theatre.
 
 ### Main Features:
-- **Purpose:** The Theatre API Service provides a robust backend for managing theatre operations, including course management and user feedback.
+- **Purpose:** The API provides a robust backend for managing operations, including course management and user feedback.
 - **Admin Page:** Provides a user-friendly interface for managing courses, contact messages, reviews, and teachers.
 - **Testing:** Comprehensive test suite ensuring functionality and reliability of the API.
 
