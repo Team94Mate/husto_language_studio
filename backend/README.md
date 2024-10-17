@@ -25,6 +25,7 @@ pip install -r requirements.txt
 ## Testing
 Run the following commands to execute tests and check code style (You should be in backend dir):
 ```bash
+cd backend
 python manage.py test
 flake8
  ```
