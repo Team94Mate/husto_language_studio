@@ -21,7 +21,7 @@ class Course(models.Model):
     lesson_duration = models.DurationField()
     classes = models.CharField(max_length=100)
     number_of_classes = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=9, decimal_places=2)
     trial_info = models.TextField()
 
     def __str__(self):
