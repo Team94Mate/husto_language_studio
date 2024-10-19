@@ -37,7 +37,8 @@ flake8
 ## Docker Setup and Run
 To set up and run the project using [Docker](https://www.docker.com/get-started/), follow these steps:
 
-- Use [http://localhost:8001/](http://localhost:8001/) URL to visit the service when it starts.
+- Use http://localhost:8001/api URL to check backend API basic root.
+- Use http://localhost:3000/ URL to visit the frontend service.
 
 1. **Ensure Docker is Running**:
     ```text
@@ -49,8 +50,10 @@ To set up and run the project using [Docker](https://www.docker.com/get-started/
     docker-compose up
     ```
 
-3. **Stop the Services:**
-Press **Ctrl + C** in the terminal to stop the services.
+3. **Stop the Services if needed**:
+   ```text
+   Press Ctrl + C in the terminal to stop the services.
+   ```
 
 
 ## API Endpoints
