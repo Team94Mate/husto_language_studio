@@ -29,7 +29,7 @@ You can check the [Frontend README.md](frontend/README.md)
 - Figma
 
 ### Design
-Check the [Figma Design]()
+Check the [Figma Design](https://www.figma.com/design/driXkAJFNb7fWjbvXJnsAh/Husto-language-school?node-id=0-1&t=xlzbrgMUzBRIj85F-1)
 - Figma
 - Adobe Photoshop
 
