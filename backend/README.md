@@ -37,8 +37,8 @@ flake8
 ## Docker Setup and Run
 To set up and run the project using [Docker](https://www.docker.com/get-started/), follow these steps:
 
-- Use http://localhost:8001/api URL to check backend API basic root.
-- Use http://localhost:3000/ URL to visit the frontend service.
+- Use http://localhost:8001/api URL to check **backend** API basic root.
+- Use http://localhost:3000/ URL to visit the **frontend** service.
 
 1. **Ensure Docker is Running**:
     ```text
