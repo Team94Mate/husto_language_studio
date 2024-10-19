@@ -43,22 +43,15 @@ To set up and run the project using [Docker](https://www.docker.com/get-started/
     ```text
     Make sure Docker Desktop is installed and running on your system.
     ```
-
-2. **Build the Docker Images**:
-    ```bash
-    docker-compose build
-    ```
-
-3. **Start the Services**:
+   
+2. **Start the Services**:
     ```bash
     docker-compose up
     ```
 
-4. **Stop the Services**:
-    ```bash
-    docker-compose down
-    ```
-   
+3. **Stop the Services:**
+Press **Ctrl + C** in the terminal to stop the services.
+
 
 ## API Endpoints
 
