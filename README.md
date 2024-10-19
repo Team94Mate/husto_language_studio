@@ -52,3 +52,7 @@ Check the [Figma Design]()
 
 ## Screenshots:
 ![Home Page](screenshots/home_page.png)
+
+
+## License
+This project is licensed under the [Apache License 2.0](LICENSE).
