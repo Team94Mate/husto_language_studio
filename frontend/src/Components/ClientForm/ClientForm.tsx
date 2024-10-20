@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ClientForm.scss';
 import { StorageContext } from '../../storage/StorageContext';
 import classNames from 'classnames';
-// import { addMessageData } from '../../api/api';
+import { addMessageData } from '../../api/api';
 
 export interface ContactData {
   username: string;
@@ -13,52 +13,77 @@ export const ClientForm = () => {
   const { showForm, setShowForm } = useContext(StorageContext);
   const [isClicked, setIsClicked] = useState(false);
   const [username, setUsername] = useState('');
-  const [question, setQuestion] = useState('');
+  const [quest, setQuestion] = useState('');
+  const [loading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [successMessageTE, setSuccessMessageTE] = useState(false);
+  const [errorMessageTE, setErrorMessageTE] = useState(false);
+  const [isFocusedTE, setIsFocusedTE] = useState(false);
+
+  const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    if (!value.startsWith('@')) {
+      value = '@' + value.replace('/@/g', '');
+    }
+
+    setUsername(value);
+  };
+
+  const isFormValid = () => {
+    return username.trim().length > 1;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isFormValid()) {
+      setErrorMessage(true);
+      setErrorMessageTE(true);
+
+      return;
+    }
+
+    const question = quest.trim() ? quest : 'не задали питання';
 
     const contactMessageData: ContactData = {
       username,
       question,
     };
 
-    // addMessageData(contactMessageData)
-    //   .then(response => {
-    //     if (response) {
-    //       console.log(response);
-    //       setUsername('');
-    //       setQuestion('');
-    //     }
-    //   })
-    //   .catch(error => {
-    //     throw error;
-    //   });
-    // });
+    setIsLoading(true);
+    setErrorMessage(false);
+    setSuccessMessage(false);
+    setErrorMessageTE(false);
+    setSuccessMessageTE(false);
 
-    try {
-      const response = await fetch(
-        'http://localhost:8001/api/contact-messages/',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(contactMessageData),
-        },
-      );
-
-      if (response.ok) {
-        setUsername('');
-        setQuestion('');
-      } else {
-        // console.error('Failed to send message:', response.status);
-        // console.log('Submitting:', contactMessageData);
-      }
-    } catch (error) {
-      // console.error('Error while sending the request:', error);
-      // console.log('Submitting:', contactMessageData);
-    }
+    addMessageData(contactMessageData)
+      .then(response => {
+        if (response) {
+          setUsername('');
+          setQuestion('');
+          setSuccessMessage(true);
+          setSuccessMessageTE(true);
+          setTimeout(() => {
+            setShowForm(false);
+          }, 2000);
+        }
+      })
+      .catch(error => {
+        setErrorMessage(true);
+        setErrorMessageTE(true);
+        throw error;
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setTimeout(() => {
+          setSuccessMessage(false);
+          setSuccessMessageTE(false);
+          setIsClicked(false);
+        }, 1000);
+      });
   };
 
   return (
@@ -69,7 +94,13 @@ export const ClientForm = () => {
     >
       <button
         className="ClientForm__close-button"
-        onClick={() => setShowForm(false)}
+        onClick={() => {
+          setShowForm(false);
+          setErrorMessage(false);
+          setErrorMessageTE(false);
+          setIsClicked(false);
+          setSuccessMessageTE(false);
+        }}
       >
         X
       </button>
@@ -133,24 +164,75 @@ export const ClientForm = () => {
 
           <form className="ClientForm__form" onSubmit={handleSubmit}>
             <input
-              className="ClientForm__input"
+              className={classNames('ClientForm__input', {
+                'ClientForm__input--filled': username.trim() !== '',
+                'ClientForm__input--succes': successMessage,
+                'ClientForm__input--error': errorMessage,
+                'ClientForm__input--warning': errorMessage,
+                'ClientForm__input--focus': isFocused,
+              })}
               value={username}
+              pattern="^@([A-Za-z0-9._]){1,30}$"
+              title="Ім'я в Instagram повинно починатися 
+              з @ і бути довжиною від 1 до 30 символів, 
+              включаючи літери, цифри, крапки та підкреслення."
               type="text"
               placeholder="Ваш @instagram"
-              onChange={e => setUsername(e.target.value)}
+              onChange={e => {
+                setUsername(e.target.value);
+                handleInputValue(e);
+              }}
+              disabled={loading}
+              onFocus={() => {
+                setIsFocused(true);
+                setErrorMessage(false);
+                setSuccessMessage(false);
+                setIsClicked(false);
+              }}
+              onBlur={() => {
+                setIsFocused(false);
+
+                if (!isFormValid()) {
+                  setErrorMessage(true);
+                } else {
+                  setErrorMessage(false);
+                }
+              }}
             />
             <textarea
-              className="ClientForm__textarea"
-              value={question}
+              className={classNames('ClientForm__textarea', {
+                'ClientForm__textarea--filled': quest.trim() !== '',
+                'ClientForm__textarea--succes': successMessageTE,
+                'ClientForm__textarea--error': errorMessageTE,
+                'ClientForm__textarea--focus': isFocusedTE,
+              })}
+              value={quest}
               onChange={e => setQuestion(e.target.value)}
               placeholder="Питання"
               name="text"
+              disabled={loading}
+              onFocus={() => {
+                setIsFocusedTE(true);
+                setErrorMessageTE(false);
+                setSuccessMessageTE(false);
+                setIsClicked(false);
+              }}
+              onBlur={() => {
+                if (!isFormValid()) {
+                  setErrorMessage(true);
+                }
+
+                setIsFocusedTE(false);
+              }}
             ></textarea>
 
             <button
               type="submit"
               className="ClientForm__button"
-              onClick={() => setIsClicked(!isClicked)}
+              onClick={() => {
+                setIsClicked(!isClicked);
+              }}
+              disabled={!isFormValid()}
             >
               Відправити{' '}
               <span className="ClientForm__button2">

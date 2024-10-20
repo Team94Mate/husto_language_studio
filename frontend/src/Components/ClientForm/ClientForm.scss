@@ -277,6 +277,41 @@ $ts: 30;
     border-color: $white-100;
     padding: 12px;
 
+
+    &--focus {
+      background-color: #F5F7FA;
+      outline: 1px solid #42DA75;
+    }
+
+    &--filled {
+      background-color: #F5F7FA;
+      outline: 1px solid transparent;
+    }
+
+    
+    &:invalid {
+      background-color: #FFF9EB;
+      outline: 1px solid #FFCC00;
+    }
+
+
+    &--succes {
+      background-color: #EBF9F1;
+      outline: 1px solid #42DA75;
+    }
+
+    &:disabled {
+      background-color: #DCE0E9;
+    }
+
+    &--error {
+      background-color: #FFEEE8 ;
+      outline: 1px solid #FF3B30;
+
+    }
+
+
+  
     @include laptop-style {
       width: 367px / $ls;
       height: 43px / $ls;
@@ -304,7 +339,6 @@ $ts: 30;
       @include laptop-style {
         font-size: 16px /$ls;
       }
-      
     }
   }
 
@@ -315,6 +349,36 @@ $ts: 30;
     border-radius: 32px;
     padding: 24px;
     resize: none;
+    outline: 1px solid transparent;
+
+    &--focus {
+      background-color: #F5F7FA;
+      outline: 1px solid #42DA75;
+    }
+
+    &--filled {
+      background-color: #F5F7FA;
+      outline: 1px solid transparent;
+    }
+
+    &--succes {
+      background-color: #EBF9F1;
+      outline: 1px solid #42DA75;
+    }
+
+    &:disabled {
+      background-color: #DCE0E9;
+    }
+
+    &--error {
+      background-color: #FFEEE8 ;
+      outline: 1px solid #FF3B30;
+
+    }
+
+
+    
+
 
     @include laptop-style {
       width: 367px/$ls;
@@ -396,7 +460,7 @@ $ts: 30;
     @include button-image;
 
     &--rotate {
-      transform: rotate(50deg);
+      transform: rotate(45deg);
     }
   }
 }

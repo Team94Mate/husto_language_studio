@@ -251,7 +251,7 @@ $laptop: 1.5;
       }
     }
 
-    &--0 {
+    &--1 {
       grid-column: 2/4;
       margin-bottom: 72px;
 
@@ -260,7 +260,7 @@ $laptop: 1.5;
       }
     }
 
-    &--1 {
+    &--2 {
       position: absolute;
       grid-column: 5/8;
       top: 24%; 
@@ -273,13 +273,13 @@ $laptop: 1.5;
       }
     }
 
-    &--2 {
+    &--3 {
       grid-column: 9/11;
-      transform: translateX();
+      // transform: translateX();
       top: -5%;
     }
 
-    &--3 {
+    &--4 {
       grid-column: 2/4;
       margin-bottom: 108px;
 
@@ -288,7 +288,7 @@ $laptop: 1.5;
       }
     }
 
-    &--4 {
+    &--5 {
       grid-column: 9/11;
       top: -5%;
     }

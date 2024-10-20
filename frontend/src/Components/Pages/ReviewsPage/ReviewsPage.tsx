@@ -1,16 +1,19 @@
-import { useContext, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
 import classNames from 'classnames';
-import { StorageContext } from '../../../storage/StorageContext';
 import { ContactData } from '../../ClientForm/ClientForm';
+import { addMessageData, getReviews } from '../../../api/api';
+import { Review } from '../../../storage/StorageContext';
+import { useAnimationEffect } from '../../../helpers/useAnimationEffect';
 
 export const ReviewsPage = () => {
   const [isClicked, setIsClicked] = useState<Record<number, boolean>>({});
   const [clickButton, setClickButton] = useState(false);
-  const { reviewsData } = useContext(StorageContext);
-  const [username, setUsername] = useState('');
-  const [question, setQuestion] = useState('');
+  const [reviewsData, setReviews] = useState<Review[]>([]);
+  // const { reviewsData } = useContext(StorageContext);
+
+  const sortedById = reviewsData.sort((a, b) => a.id - b.id);
 
   const toggleQuestion = (index: number) => {
     setIsClicked(prev => ({
@@ -46,51 +49,82 @@ export const ReviewsPage = () => {
     }
   };
 
+  const [username, setUsername] = useState('');
+  const [quest, setQuestion] = useState('');
+  const [loading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [successMessageTE, setSuccessMessageTE] = useState(false);
+  const [errorMessageTE, setErrorMessageTE] = useState(false);
+  const [isFocusedTE, setIsFocusedTE] = useState(false);
+
+  const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    if (!value.startsWith('@')) {
+      value = '@' + value.replace('/@/g', '');
+    }
+
+    setUsername(value);
+  };
+
+  const isFormValid = () => {
+    return username.trim().length > 1;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isFormValid()) {
+      setErrorMessage(true);
+      setErrorMessageTE(true);
+
+      return;
+    }
+
+    const question = quest.trim() ? quest : 'не задали питання';
 
     const contactMessageData: ContactData = {
       username,
       question,
     };
 
-    // addMessageData(contactMessageData)
-    //   .then(response => {
-    //     if (response) {
-    //       console.log(response);
-    //       setUsername('');
-    //       setQuestion('');
-    //     }
-    //   })
-    //   .catch(error => {
-    //     throw error;
-    //   });
-    // });
+    setIsLoading(true);
+    setErrorMessage(false);
+    setSuccessMessage(false);
+    setErrorMessageTE(false);
+    setSuccessMessageTE(false);
 
-    try {
-      const response = await fetch(
-        'http://localhost:8001/api/contact-messages/',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(contactMessageData),
-        },
-      );
-
-      if (response.ok) {
-        setUsername('');
-        setQuestion('');
-      } else {
-        // console.error('Failed to send message:', response.status);
-        // console.log('Submitting:', contactMessageData);
-      }
-    } catch (error) {
-      // console.error('Error while sending the request:', error);
-      // console.log('Submitting:', contactMessageData);
-    }
+    addMessageData(contactMessageData)
+      .then(response => {
+        if (response) {
+          setUsername('');
+          setQuestion('');
+          setSuccessMessage(true);
+          setSuccessMessageTE(true);
+        }
+      })
+      .catch(error => {
+        setErrorMessage(true);
+        setErrorMessageTE(true);
+        throw error;
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setTimeout(() => {
+          setSuccessMessage(false);
+          setSuccessMessageTE(false);
+          setClickButton(false);
+        }, 2000);
+      });
   };
+
+  useEffect(() => {
+    getReviews().then(response => setReviews(response));
+  }, []);
+
+  useAnimationEffect(sortedById);
 
   return (
     <div className="reviewsPage">
@@ -106,7 +140,7 @@ export const ReviewsPage = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {reviewsData.map((review, index) => (
+          {sortedById.map((review, index) => (
             <div
               className={classNames(
                 `reviewsPage__card  reviewsPage__card--${review.id} animation`,
@@ -122,18 +156,18 @@ export const ReviewsPage = () => {
               <div className="reviewsPage__box">
                 <img
                   className="reviewsPage__img"
-                  src={review.image}
+                  src={review.photo}
                   alt="client's photo"
                 />
                 <div className="reviewsPage__inform">
                   <div className="reviewsPage__name">{review.name}</div>
-                  <div className="reviewsPage__age">{review.age}</div>
+                  <div className="reviewsPage__age">{review.age} роки</div>
                 </div>
               </div>
 
               <div className="reviewsPage__comments">
                 <img className="reviewsPage__hash" src="images/hash(1).svg" />
-                <p className="reviewsPage__p">{review.comment}</p>
+                <p className="reviewsPage__p">{review.description}</p>
               </div>
             </div>
           ))}
@@ -153,7 +187,7 @@ export const ReviewsPage = () => {
       </div>
 
       <div className="reviewsPage__clientForm animation left">
-        <div className=" ClientForm__container">
+        <div className="ClientForm__container">
           <h1 className="ClientForm__title">
             <img className="ClientForm__hash" src="images/hash(1).svg" />
             Ваша подорож до англійської мови <br />
@@ -216,17 +250,70 @@ export const ReviewsPage = () => {
 
             <form className="ClientForm__form" onSubmit={handleSubmit}>
               <input
-                className="ClientForm__input"
+                className={classNames('ClientForm__input', {
+                  'ClientForm__input--filled': username.trim() !== '',
+                  'ClientForm__input--succes': successMessage,
+                  'ClientForm__input--error': errorMessage,
+                  'ClientForm__input--warning': errorMessage,
+                  'ClientForm__input--focus': isFocused,
+                })}
+                value={username}
+                pattern="^@([A-Za-z0-9._]){1,30}$"
+                title="Ім'я в Instagram повинно починатися 
+              з @ і бути довжиною від 1 до 30 символів, 
+              включаючи літери, цифри, крапки та підкреслення."
                 type="text"
                 placeholder="Ваш @instagram"
+                onChange={e => {
+                  setUsername(e.target.value);
+                  handleInputValue(e);
+                }}
+                disabled={loading}
+                onFocus={() => {
+                  setIsFocused(true);
+                  setErrorMessage(false);
+                  setSuccessMessage(false);
+                  setClickButton(false);
+                }}
+                onBlur={() => {
+                  setIsFocused(false);
+
+                  if (!isFormValid()) {
+                    setErrorMessage(true);
+                  } else {
+                    setErrorMessage(false);
+                  }
+                }}
               />
               <textarea
-                className="ClientForm__textarea"
+                className={classNames('ClientForm__textarea', {
+                  'ClientForm__textarea--filled': quest.trim() !== '',
+                  'ClientForm__textarea--succes': successMessageTE,
+                  'ClientForm__textarea--error': errorMessageTE,
+                  'ClientForm__textarea--focus': isFocusedTE,
+                })}
+                value={quest}
+                onChange={e => setQuestion(e.target.value)}
                 placeholder="Питання"
                 name="text"
-                id=""
+                disabled={loading}
+                onFocus={() => {
+                  setIsFocusedTE(true);
+                  setErrorMessageTE(false);
+                  setSuccessMessageTE(false);
+                }}
+                onBlur={() => {
+                  setIsFocused(false);
+                  if (!isFormValid()) {
+                    setErrorMessage(true);
+                  }
+
+                  setIsFocusedTE(false);
+                }}
               ></textarea>
+
               <button
+                type="submit"
                 className="ClientForm__button"
                 onClick={() => setClickButton(!clickButton)}
               >

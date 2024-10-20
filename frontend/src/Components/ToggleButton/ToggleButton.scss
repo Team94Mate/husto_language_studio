@@ -289,6 +289,7 @@ $laptop: 1.5;
   }
 
   &__card-inf {
+    width: 80%;
     align-self: flex-start;
     font-family: 'ComicSansBold', sans-serif;
     font-weight: 16px;
@@ -341,7 +342,7 @@ $laptop: 1.5;
     @include button-image;
 
     &--rotate {
-      transform: rotate(50deg);
+      transform: rotate(45deg);
     }
   }
 }

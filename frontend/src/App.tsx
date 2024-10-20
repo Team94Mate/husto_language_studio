@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+// eslint-disable-next-line max-len
 import { ClientForm } from './Components/ClientForm/ClientForm';
 import { StorageProvider } from './storage/StorageContext';
 import { Header } from './Components/Header';
