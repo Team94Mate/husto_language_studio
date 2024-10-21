@@ -51,6 +51,7 @@ class TeacherSerializerTest(BaseSerializerTestCase):
             "experience_years": 10.5,
             "teacher_level": "Senior",
             "description": "Experienced teacher.",
+            "description_lines": ["Experienced teacher."],
             "photo": self.teacher.photo.url,
         }
         self.assert_serialized_equal(
