@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14-alpine
 LABEL authors="comercaleuros@gmail.com"
 
 WORKDIR /app
