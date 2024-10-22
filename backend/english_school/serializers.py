@@ -1,4 +1,5 @@
 from rest_framework import serializers
+import pytz
 
 from english_school.models import (
     Teacher,
@@ -27,6 +28,7 @@ class TeacherSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_description_lines(obj):
         """Return a list of description lines"""
+
         return [
             line.strip()
             for line in obj.description.splitlines()
@@ -46,7 +48,21 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class NoMillisecondsDateTimeField(serializers.DateTimeField):
+    def to_representation(self, value):
+        """Format the datetime to exclude milliseconds
+        and convert to local timezone"""
+
+        if value is None:
+            return None
+        local_tz = pytz.timezone("Europe/Kiev")
+        value = value.astimezone(local_tz)
+        return value.strftime("%Y-%m-%dT%H:%M:%S")
+
+
 class ContactMessageSerializer(serializers.ModelSerializer):
+    submitted_at = NoMillisecondsDateTimeField(required=False)
+
     class Meta:
         model = ContactMessage
-        fields = ["id", "username", "question"]
+        fields = ["id", "username", "question", "submitted_at"]
