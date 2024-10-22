@@ -44,7 +44,7 @@ Explore the [Figma Design](https://www.figma.com/design/driXkAJFNb7fWjbvXJnsAh/H
 
 - **Course Signup**:
   Streamlined process for users to enroll in courses.
-
+---
 
 ## GitHub Page of the Project
 [You can check it out!](https://team94mate.github.io/husto_language_studio/)
