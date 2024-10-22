@@ -1,62 +1,13 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useRef } from 'react';
 import './BurgerMenu.scss';
 import classNames from 'classnames';
 import { StorageContext } from '../../storage/StorageContext';
 
 export const BurgerMenu = () => {
-  const { pageHeight, setPageHeight } = useContext(StorageContext);
-
-  const burgerMenuRef = useRef<HTMLDivElement>(null);
-
+  const { setPageHeight } = useContext(StorageContext);
   const { showBurger, setBurger } = useContext(StorageContext);
 
-  const handleOnClick = () => {
-    const page = document.querySelector('.burgerMenu') as HTMLElement;
-
-    setPageHeight(0);
-    page.style.padding = '0';
-  };
-
-  useEffect(() => {
-    const page = document.querySelector('.burgerMenu') as HTMLElement;
-    const resizeButton = document.querySelector('.burgerMenu__indicator');
-
-    const handleTouchResize = (e: TouchEvent) => {
-      setPageHeight((e.touches[0].clientY / window.innerHeight) * 100);
-
-      if (e.touches[0].clientY === 0) {
-        page.style.padding = '0';
-        page.style.display = 'none';
-        setPageHeight(100);
-      }
-    };
-
-    page.style.height = `${pageHeight}vh`;
-
-    const stopTouchResize = () => {
-      window.removeEventListener('touchmove', handleTouchResize);
-      window.removeEventListener('touchend', stopTouchResize);
-    };
-
-    const startTouchResize = () => {
-      window.addEventListener('touchmove', handleTouchResize);
-      window.addEventListener('touchend', stopTouchResize);
-    };
-
-    resizeButton?.addEventListener('touchstart', startTouchResize);
-
-    return () => {
-      window.removeEventListener('touchstart', startTouchResize);
-      window.removeEventListener('touchmove', handleTouchResize);
-      window.removeEventListener('touchend', stopTouchResize);
-    };
-  }, [pageHeight, setPageHeight]);
-
-  useEffect(() => {
-    if (burgerMenuRef.current) {
-      burgerMenuRef.current.style.height = `${pageHeight}vh`;
-    }
-  }, [pageHeight, setBurger]);
+  const burgerMenuRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -140,7 +91,7 @@ export const BurgerMenu = () => {
         </a>
       </nav>
 
-      <div className="burgerMenu__indicator" onClick={handleOnClick}></div>
+      <div className="burgerMenu__indicator"></div>
     </div>
   );
 };
