@@ -1,7 +1,7 @@
 # Backend
 
 ## Description
-A Django RESTful API for managing courses, contact messages, and reviews for a theatre.
+A Django RESTful API for managing teachers, recourses, contact messages, and reviews for a theatre.
 
 ### Main Features:
 - **Purpose:** The API provides a robust backend for managing operations, including course management and user feedback.
@@ -96,9 +96,14 @@ To set up and run the project using [Docker](https://www.docker.com/get-started/
 
 
 ## Screenshots
+### DB Structure
 ![DB Structure](screenshots/db_structure.png "Database Structure")
 
+### Django API Interface
 ![Django API Interface](screenshots/django_interface.png "Django API Interface")
+
+### Django Admin Page
 ![Django admin API Interface](screenshots/django_admin_interface.png "Django admin API Interface")
 
+### Swagger documentation
 ![Swagger documentation Interface](screenshots/swagger_documentation_interface.png "Swagger documentation interface")
