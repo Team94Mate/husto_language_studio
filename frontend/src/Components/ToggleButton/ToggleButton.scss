@@ -1,6 +1,6 @@
 @import "/src/Global";
 
-$laptop: 1.5;
+$laptop: 1.3;
 
 .toggleButton {
   display: flex;
@@ -45,7 +45,7 @@ $laptop: 1.5;
       height: 54px;
       border-radius: 24px;
 
-      font-family: 'NeueMedium', sans-serif;
+      font-family: NeueMedium, sans-serif;
       font-size: 18px;
       color: $white-100;
       background-color: $card-color;
@@ -104,7 +104,7 @@ $laptop: 1.5;
       height: 54px;
       border-radius: 24px;
 
-      font-family: 'NeueMedium', sans-serif;
+      font-family: NeueMedium, sans-serif;
       font-size: 18px;
       color: $white-100;
   
@@ -189,7 +189,7 @@ $laptop: 1.5;
   }
 
   &__card-title {
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 32px;
     color: $secondary-color;
 
@@ -205,7 +205,7 @@ $laptop: 1.5;
 
   &__card-subtitle {
     margin-bottom: 16px;
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 18px;
     line-height: 130%; 
     color: $white-100;
@@ -240,7 +240,7 @@ $laptop: 1.5;
   }
 
   &__card-p {
-    font-family: 'ComicSansRegular', sans-serif;
+    font-family: ComicSansRegular, sans-serif;
     font-size: 18px;
     line-height: 130%;
     color: $white-100;
@@ -265,7 +265,7 @@ $laptop: 1.5;
   }
 
   &__card-price {
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 32px;
     color: $secondary-color;
     margin-bottom: 16px;
@@ -291,7 +291,7 @@ $laptop: 1.5;
   &__card-inf {
     width: 80%;
     align-self: flex-start;
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-weight: 16px;
     line-height: 140%;
     color: $white-100;
@@ -333,13 +333,18 @@ $laptop: 1.5;
     @include circle-button;
 
     @include laptop-style {
-      width: calc(34px / 1.5);
-      height: calc(34px / 1.5);
+      width: 34px / $laptop;
+      height: 34px / $laptop;
     }
   }
 
   &__button-img {
     @include button-image;
+
+    @include laptop-style {
+      width: 10px / $laptop;
+      height: 10px / $laptop;
+    }
 
     &--rotate {
       transform: rotate(45deg);

@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import './HomePage.scss';
 import classNames from 'classnames';
 import { StorageContext } from '../../../storage/StorageContext';
+import { useAnimationEffect } from '../../../helpers/useAnimationEffect';
 
 export const HomePage = () => {
   const [isClicked, setIsClicked] = useState<number[]>([]);
@@ -36,6 +37,8 @@ export const HomePage = () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, [currentHash, setBurger]);
+
+  useAnimationEffect();
 
   return (
     <div className="homePage">

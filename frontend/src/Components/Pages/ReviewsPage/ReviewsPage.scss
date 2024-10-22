@@ -1,16 +1,15 @@
 @import "/src/Global";
-$ls: 1.5;
+
+$ls: 1.3;
 $ts: 50;
 
 .reviewsPage {
   width: 100%;
   position: relative;
-  background-color: $white-100;
   z-index: 0;
-  padding: 72px 43px 72px 43px;
+  padding: 72px 43px;
   border-radius: 70px 70px 0 0;
   background-color: $white-100;
-  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -27,9 +26,9 @@ $ts: 50;
   }
 
   @include laptop-style {
-    padding: 72px/$ls 43px/$ls 72px/$ls 43px/$ls;
-    gap: 72px /$ls;
-    border-radius: 70px/$ls 70px/$ls 0 0;
+    padding: 72px / $ls 43px / $ls 72px / $ls 43px / $ls;
+    gap: 72px / $ls;
+    border-radius: 70px / $ls 70px / $ls 0 0;
   }
 
   @include tablet-style {
@@ -40,7 +39,7 @@ $ts: 50;
   }
 
   &__title1 {
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-weight: bold;
     font-size: 40px;
     color: $primary-color;
@@ -68,7 +67,7 @@ $ts: 50;
     background-color: $primary-color;
     border-radius: 24px;
     color: $white-100;
-    font-family: 'NeueBold', sans-serif;;
+    font-family: NeueBold, sans-serif;
     font-size: 40px;
     font-weight: bold;
     padding: 8px 24px;
@@ -77,8 +76,8 @@ $ts: 50;
       width: 183px / $ls;
       height: 84px / $ls; 
       font-size: 40px / $ls;
-      padding: 8px /$ls 24px/$ls;
-      border-radius: 24px/ $ls;
+      padding: 8px / $ls 24px / $ls;
+      border-radius: 24px / $ls;
     }
 
     
@@ -110,7 +109,7 @@ $ts: 50;
      display: flex;
      flex-direction: column;
      align-items: center;
-     gap: 0px;
+     gap: 0;
      margin-bottom: 0;
     }
 
@@ -163,7 +162,7 @@ $ts: 50;
       width: 254px / $ls;
       height: 336px / $ls;
       padding: 16px / $ls;
-      border-radius: 24px/$ls 24px/$ls 0 0;
+      border-radius: 24px / $ls 24px / $ls 0 0;
     }
   
     @include tablet-style {
@@ -260,13 +259,18 @@ $ts: 50;
       bottom: -42px;
       left: 3px;
       background: radial-gradient(circle, transparent 4px, $secondary-color 6px) 2% 107% / 24px 8px repeat-x;
+
+      @include phone-style {
+        bottom: -40px;
+        background: radial-gradient(circle, transparent 4px, $secondary-color 6px) 2% 107% / 24px 8px repeat-x;
+      }
   
       @include laptop-style {
         width: 249px / $ls;
         height: 42px / $ls;
         bottom: -42px / $ls;
         left: 3px / $ls;
-        background: radial-gradient(circle, transparent 4px / $ls, $secondary-color 6px / $ls) 2% / $ls 107% / $ls 24px / $ls 8px / $ls repeat-x;
+        background: radial-gradient(circle, transparent 4px, #ADFF00 2px) 0% 110% / 19px 8px repeat-x;
       }
   
       @include tablet-style {
@@ -282,7 +286,7 @@ $ts: 50;
       position: relative;
       left: 0;
       top: 0;
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
 
     &--active {
@@ -299,7 +303,7 @@ $ts: 50;
   }
   
   &__name {
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 16px;
     font-weight: bold;
     line-height: 130%;
@@ -315,7 +319,7 @@ $ts: 50;
   }
   
   &__age {
-    font-family: 'NeueRegular', sans-serif;
+    font-family: NeueRegular, sans-serif;
     font-size: 14px;
     line-height: 140%;
     color: $white-100;
@@ -377,7 +381,7 @@ $ts: 50;
       justify-content: center;
       align-items: center;
   
-      font-family: 'NeueBold', sans-serif;
+      font-family: NeueBold, sans-serif;
       font-weight: bold;
       font-size: 14px;
       line-height: 130%;
@@ -405,7 +409,7 @@ $ts: 50;
   }
   
   &__p {
-    font-family: 'NeueRegular', sans-serif;
+    font-family: NeueRegular, sans-serif;
     font-size: 14px;
     line-height: 140%;
     color: $white-100;
@@ -505,7 +509,7 @@ $ts: 50;
   }
 
   &__title2 {
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-weight: bold;
     font-size: 40px;
     color: $primary-color;
@@ -527,7 +531,7 @@ $ts: 50;
   }
 
   &__phar1 {
-    font-family: 'NeueRegular', sans-serif;
+    font-family: NeueRegular, sans-serif;
     font-size: 24px;
     line-height: 130%;
     color: $black-5;
@@ -550,7 +554,7 @@ $ts: 50;
   }
 
   &__phar2 {
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 18px;
     font-weight: bold;
     line-height: 130%;
@@ -562,7 +566,7 @@ $ts: 50;
   }
 
   &__phar3 {
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 18px;
     line-height: 130%;
     color: $black-5;
@@ -652,7 +656,7 @@ $ts: 50;
 
   &__question {
     width: 252px;
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 16px;
     color: $black-5;
 
@@ -684,7 +688,7 @@ $ts: 50;
 
   &__hiddenP {
     position: relative;
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 14px;
     color: $black-5;
     line-height: 140%;

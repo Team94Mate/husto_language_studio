@@ -1,77 +1,84 @@
 @import "/src/Global";
 
-$ls: 1.5; 
+$ls: 1.3; 
 $ts: 50;
 
 .footer {
   height: 336px;
-  padding: 72px 42px;
+  
   background-color: $primary-color;
   display: flex;
   justify-content: center;
+  padding: 0;
   
-  background-image: url('../../../public/images/net.png');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-
   @include phone-style {
     height: 415px;
-    padding: 24px 16px;
     background-size: 300%;
+    padding: 0 16px;
   }
 
   @include tablet-style {
     height: add-perc(415px);
-    padding: add-perc(24px) add-perc(16px);
   }
 
   @include laptop-style {
     height: 336px / $ls;
-    padding: 72px / $ls 42px / $ls;
   }
 
   &__container {
+    width: 100%;
     height: 100%;
     position: relative;
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: repeat(12, 90px);
     column-gap: 25px;
+    padding: 72px 0;
+    justify-content: center;
+
+    background-image: url('../../../public/images/net.png');
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 
     @include phone-style {
+      height: 100%;
       display: grid;
       grid-template-columns: repeat(4, 73px);
       grid-template-rows: 98px 192px 29px;
       gap: 16px;
+      padding: 32px 0;
     }
 
     @include tablet-style {
       grid-template-columns: repeat(4, add-perc(73px));
       grid-template-rows: add-perc(98px) add-perc(192px) add-perc(29px);
       gap: add-perc(16px);
+      padding: add-perc(24px) add-perc(16px);
     }
 
     @include laptop-style {
-      grid-template-columns: repeat(12, 90px / $ls);
+      grid-template-columns: repeat(12, calc(90px / $ls));
       column-gap: 25px / $ls;
+      padding: 72px / $ls 42px / $ls;
+      background-position: unset;
+      background-size: unset;
+      background-repeat: unset;
     }
   }
 
   &__title {
     position: relative;
     grid-column: 2/8;
-    background: transparent;
     left: 27px;
-    margin-bottom: 67px;
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 40px;
     font-weight: bold;
     color: $secondary-color;
-    line-height: 1;
-    background: transparent;
     letter-spacing: 1px;
     line-height: 130%;
+    background: transparent;
 
     @include phone-style {
       font-size: 24px;
@@ -128,7 +135,7 @@ $ts: 50;
   &__email {
     grid-column: 2/6;
     grid-row: 2;
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 18px;
     color: $white-100;
     background: transparent;
@@ -157,7 +164,7 @@ $ts: 50;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 18px;
     color: $secondary-color;
     background: transparent;
@@ -213,7 +220,7 @@ $ts: 50;
   }
 
   &__p {
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 16px;
     color: $white-100;
     background: transparent;
@@ -244,7 +251,6 @@ $ts: 50;
   }
 
   &__nav {
-    width: 205px;
     grid-column: 11/12;
     display: flex;
     flex-direction: column;
@@ -258,19 +264,16 @@ $ts: 50;
     }
 
     @include tablet-style {
-      width:add-perc(205px);
       gap: add-perc(8px);
     }
 
     @include laptop-style {
-      width: 205px / $ls;
       gap: 8px / $ls;
     }
   }
 
   &__navlink {
-    width: 205px;
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 16px;
     text-decoration: none;
     color: #F5F7FA;
@@ -290,20 +293,18 @@ $ts: 50;
     }
 
     @include tablet-style {
-      width: add-perc(205px);
       font-size: add-perc(16px);
       padding-left: 0;
     }
 
     @include laptop-style {
-      width: 205px / $ls;
       font-size: 16px / $ls;
       padding-left: 8px / $ls;
     }
   }
 
   &__navlink-h {
-    font-family: 'NeueMedium', sans-serif;
+    font-family: NeueMedium, sans-serif;
     font-size: 18px;
     color: $secondary-color;
     background: transparent;

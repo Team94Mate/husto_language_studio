@@ -1,6 +1,7 @@
 @import "/src/Global";
 
 $ts: 50;
+$ls: 1.3;
 
 .aboutSchool {
   position: relative;
@@ -13,12 +14,12 @@ $ts: 50;
 
   @include phone-style {
     border-radius: 24px 24px 0 0;
-    padding: 24px 16px 33px 16px;
+    padding: 35px 16px 32px;
   }
 
   @include laptop-style {
-    padding: 48px 27px 48px 29px;
-    border-radius: 47px 47px 0 0;
+    padding: 72px / $ls 41px / $ls 72px / $ls 43px / $ls;
+    border-radius: 70px / $ls 70px / $ls 0 0;
   }
 
   @include tablet-style {
@@ -30,8 +31,6 @@ $ts: 50;
     grid-template-columns: repeat(12, 90px);
     column-gap: 25px;
     justify-content: center;
-    width: 100%;
-    height: 100%;
 
     @include phone-style {
       display: flex;
@@ -40,8 +39,8 @@ $ts: 50;
     }
 
     @include laptop-style {
-      grid-template-columns: repeat(12, 60px);
-      column-gap: calc(25px / 1.5);
+      grid-template-columns: repeat(12, 90px / $ls);
+      column-gap: 25px / $ls;
     }
   }
 
@@ -58,8 +57,8 @@ $ts: 50;
     }
 
     @include laptop-style {
-      height: calc(263px / 1.5); 
-      margin-bottom: calc(82px / 1.5);
+      height: 263px / $ls; 
+      margin-bottom:82px / $ls;
     }
 
     @include tablet-style {
@@ -70,7 +69,7 @@ $ts: 50;
   }
 
   &__title {
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-weight: bold;
     font-size: 40px;
     color: $primary-color;
@@ -78,13 +77,13 @@ $ts: 50;
     background: $white-100;
 
     @include laptop-style {
-      font-size: calc(40px / 1.5); 
-      margin-bottom: calc(16px / 1.5);
+      font-size: 40px / $ls; 
+      margin-bottom: 16px / $ls;
     }
 
     &-span {
       @include phone-style {
-        font-family: 'NeueBold', sans-serif;
+        font-family: NeueBold, sans-serif;
         font-size: 24px;
         display: inline-flex;
       }
@@ -127,10 +126,10 @@ $ts: 50;
     }
 
     @include laptop-style {
-      width: calc(200px / 1.5); 
-      height: calc(174px / 1.5); 
-      left: calc(138px / 1.5); 
-      bottom: calc(18px / 1.5); 
+      width: 200px / $ls; 
+      height: 174px / $ls; 
+      left: 138px / $ls; 
+      bottom: 18px / $ls; 
     }
 
     @include tablet-style {
@@ -143,7 +142,7 @@ $ts: 50;
 
   &__phar {
     position: absolute;
-    font-family: 'ComicSansRegular', sans-serif;
+    font-family: ComicSansRegular, sans-serif;
     font-size: 32px;
     line-height: 130%;
     text-align: justify;
@@ -158,7 +157,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      font-size: calc(32px / 1.5);
+      font-size: 32px / $ls;
     }
 
     @include tablet-style{
@@ -184,8 +183,8 @@ $ts: 50;
     }
 
     @include laptop-style {
-      gap: calc(30px / 1.6);
-      margin-bottom: calc(118px / 1.5);
+      gap: 22px;
+      margin-bottom: 118px / $ls;
     }
 
     @include tablet-style {
@@ -211,9 +210,9 @@ $ts: 50;
     }
 
     @include laptop-style {
-      width: calc(355px / 1.5);
-      height: calc(163px / 1.5);
-      padding-top: calc(32px / 1.5);
+      width: 355px / $ls;
+      height: 163px / $ls;
+      padding-top: 32px / $ls;
     }
 
     @include tablet-style {
@@ -232,7 +231,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      margin-bottom: calc(53px / 1.5);
+      margin-bottom:53px / $ls;
     }
 
   }
@@ -249,18 +248,18 @@ $ts: 50;
       width: 56px;
       height: 56px;
       top: -27px;
-      left: 0px;
+      left: 0;
     }
 
     @include laptop-style {
-      width: calc(94px / 1.5);
-      height: calc(84px / 1.5);
-      top: calc(-42px / 1.5);
-      left: calc(-31px / 1.5);
+      width: 94px / $ls;
+      height: 84px / $ls;
+      top: -42px / $ls;
+      left: -31px / $ls;
     }
 
     @include tablet-style {
-      width:add-perc(56px);
+      width: add-perc(56px);
       height: add-perc(56px);
       top: add-perc(-27px);
     }
@@ -272,7 +271,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      margin-bottom: calc(56px / 1.5) !important;
+      margin-bottom: 56px / $ls !important;
     }
 
     @include tablet-style {
@@ -291,7 +290,7 @@ $ts: 50;
       transform: rotate(-8deg);
       padding: 18px;
 
-      font-family: 'NeueBold', sans-serif;
+      font-family: NeueBold, sans-serif;
       font-size: 14px;
       font-weight: bold;
       line-height: 130%;
@@ -308,7 +307,7 @@ $ts: 50;
       }
 
       @include tablet-style {
-        width:add-perc( 174px);
+        width: add-perc( 174px);
         height: add-perc(32px);
         font-size: add-perc(12px);
         padding: add-perc(
@@ -320,12 +319,12 @@ $ts: 50;
       }
 
       @include laptop-style {
-        width: calc(217px / 1.5);
-        height: calc(50px / 1.5);
-        font-size: calc(14px / 1.5);
-        padding: calc(18px / 1.5);
-        left: calc(-35px / 1.5);
-        bottom: calc(-36px / 1.5);
+        width: 217px / $ls;
+        height: 50px / $ls;
+        font-size: 14px / $ls;
+        padding: 18px / $ls;
+        left: -35px / $ls;
+        bottom: -36px / $ls;
       }
     }
 
@@ -352,10 +351,10 @@ $ts: 50;
       }
 
       @include laptop-style {
-        width: calc(42px / 1.5);
-        height: calc(42px / 1.5);
-        right: calc(-42px / 1.5);
-        bottom: calc(34px / 1.5);
+        width: 42px / $ls;
+        height: 42px / $ls;
+        right: -42px / $ls;
+        bottom: 34px / $ls;
       }
 
       @include tablet-style {
@@ -372,6 +371,7 @@ $ts: 50;
 
   &__card--2 {
     z-index: -1;
+
     @include phone-style {
       margin-bottom: 40px !important;
     }
@@ -381,7 +381,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      margin-bottom: calc(40px / 1.5) !important;
+      margin-bottom: 40px / $ls !important;
     }
 
     ::before {
@@ -412,10 +412,10 @@ $ts: 50;
       }
 
       @include laptop-style {
-        width: calc(48px / 1.5);
-        height: calc(43px / 1.5);
-        right: calc(-32px / 1.5);
-        bottom: calc(-5px / 1.5);
+        width: 48px / $ls;
+        height: 43px / $ls;
+        right: -32px / $ls;
+        bottom: -5px / $ls;
       }
     }
   }
@@ -430,7 +430,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      margin-bottom: calc(51px / 1.5) !important;
+      margin-bottom:51px / $ls !important;
     }
 
     &::after {
@@ -448,7 +448,7 @@ $ts: 50;
       transform: rotate(8deg);
       padding: 18px;
 
-      font-family: 'NeueBold', sans-serif;
+      font-family: NeueBold, sans-serif;
       font-size: 14px;
       font-weight: bold;
       line-height: 130%;
@@ -475,12 +475,12 @@ $ts: 50;
      }
 
      @include laptop-style {
-      width: calc(237px / 1.5);
-      height: calc(50px / 1.5);
-      font-size: calc(14px / 1.5);
-      padding: calc(18px / 1.5);
-      top: calc(150px / 1.5);
-      right: calc(-15px / 1.5);
+      width: 237px / $ls;
+      height: 50px / $ls;
+      font-size: 14px / $ls;
+      padding: 18px / $ls;
+      top: 150px / $ls;
+      right: -15px / $ls;
     }
     }
   }
@@ -495,7 +495,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      margin-bottom: calc(40px / 1.5);
+      margin-bottom:40px / $ls;
     }
   }
 
@@ -512,7 +512,7 @@ $ts: 50;
     transform: rotate(8deg);
     padding: 18px;
   
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 14px;
     font-weight: bold;
     line-height: 130%;
@@ -524,8 +524,8 @@ $ts: 50;
       height: 32px;
       font-size: 12px;
       padding: 9px;
-      right: 0px;
-      top: 94%;
+      right: 0;
+      top: 84%;
       transform: rotate(4deg);
     }
   
@@ -534,17 +534,17 @@ $ts: 50;
       height: add-perc(32px);
       font-size: add-perc(12px);
       padding: add-perc(9px);
-      right: add-perc(0px);
+      right: add-perc(0);
       transform: rotate(add-perc(4deg));
     }
   
     @include laptop-style {
-      width: calc(198px / 1.5);
-      height: calc(50px / 1.5);
-      font-size: calc(14px / 1.5);
-      padding: calc(18px / 1.5);
-      right: calc(-15px / 1.5);
-      top: calc(140px / 1.5);
+      width: 198px / $ls;
+      height: 50px / $ls;
+      font-size: 14px / $ls;
+      padding: 18px / $ls;
+      right: -15px / $ls;
+      top: 140px / $ls;
     }
   }
   
@@ -577,10 +577,10 @@ $ts: 50;
     }
   
     @include laptop-style {
-      top: calc(134px / 1.5);
-      right: calc(-7px / 1.5);
-      width: calc(407px / 1.5);
-      height: calc(25px / 1.5);
+      top: 134px / $ls;
+      right: -7px / $ls;
+      width: 407px / $ls;
+      height: 25px / $ls;
     }
   
     &2 {
@@ -599,7 +599,7 @@ $ts: 50;
         width: 258px;
         height: 18px;
         top: 84px;
-        right: 0px;
+        right: 0;
         transform: rotate(-10deg);
       }
   
@@ -607,15 +607,15 @@ $ts: 50;
         width: add-perc(258px);
         height: add-perc(18px);
         top: add-perc(84px);
-        right: add-perc(0px);
+        right: add-perc(0);
         transform: rotate(-13deg);
       }
   
       @include laptop-style {
-        width: calc(243px / 1.5);
-        height: calc(25px / 1.5);
-        top: calc(128px / 1.5);
-        left: calc(121px / 1.5);
+        width: 243px / $ls;
+        height: 25px / $ls;
+        top: 128px / $ls;
+        left: 121px / $ls;
       }
     }
   }
@@ -635,13 +635,13 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(20px / 1.5);
-      height: calc(17px / 1.5);
+      width: 20px / $ls;
+      height: 17px / $ls;
     }
   }
   
   &__card-typeSpan {
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 12px;
     font-weight: bold;
     line-height: 130%;
@@ -656,7 +656,7 @@ $ts: 50;
     }
   
     @include laptop-style {
-      font-size: calc(12px / 1.5);
+      font-size:12px / $ls;
     }
   }
   
@@ -687,10 +687,10 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(51px / 1.5);
-      height: calc(51px / 1.5);
-      right: calc(161px / 1.5);
-      bottom: calc(35px / 1.5);
+      width: 51px / $ls;
+      height: 51px / $ls;
+      right: 161px / $ls;
+      bottom: 35px / $ls;
     }
   }
   
@@ -710,8 +710,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(33px / 1.5);
-      height: calc(27px / 1.5);
+      width: 33px / $ls;
+      height: 27px / $ls;
     }
   }
 
@@ -727,19 +727,24 @@ $ts: 50;
       z-index: -1;
       background-color: $gray-03;
   
-      @if ($i % 2 == 0) {
+      @if $i % 2 == 0 {
         transform: rotate(8deg);
+
         @include phone-style {
           transform: rotate(4deg);
         }
+
         @include tablet-style {
           transform: rotate(add-perc(4deg));
         }
+
       } @else {
         transform: rotate(-8deg);
+
         @include phone-style {
           transform: rotate(-4deg);
         }
+
         @include tablet-style {
           transform: rotate(add-perc(-4deg));
         }
@@ -755,8 +760,8 @@ $ts: 50;
       }
   
       @include laptop-style {
-        width: calc(355px / 1.5);
-        height: calc(163px / 1.5);
+        width:355px / $ls;
+        height:163px / $ls;
       }
     }
   }
@@ -781,13 +786,13 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(355px / 1.5);
-      height: calc(163px / 1.5);
+      width: 355px / $ls;
+      height: 163px / $ls;
     }
   }
   
   &__card-p {
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 18px;
     font-weight: bold;
     line-height: 130%;
@@ -803,7 +808,7 @@ $ts: 50;
     }
   
     @include laptop-style {
-      font-size: calc(18px / 1.5);
+      font-size:18px / $ls
     }
   }
   
@@ -813,10 +818,10 @@ $ts: 50;
     background-color: $primary-color;
     border-radius: 24px;
     color: $white-100;
-    margin: 8px 0 8px 0;
+    margin: 8px 0;
     text-align: center;
     letter-spacing: 0;
-  
+
     @include phone-style {
       margin: 4px;
       padding: 4px 16px;
@@ -825,12 +830,26 @@ $ts: 50;
     @include tablet-style {
       margin: add-perc(4px); 
       padding: add-perc(4px) add-perc(16px); 
-    }
+    } 
   
     @include laptop-style {
-      margin: calc(8px / 1.5);
-      padding: calc(8px / 1.5) calc(16px / 1.5);
+      margin: calc(8px / $ls);
+      padding: calc(8px / $ls) calc(16px / $ls);
     }
+
+    
+    &--1 {
+      padding: 4px 24px;
+
+      @include laptop-style {
+        padding: 4px / $ls 24px / $ls;
+      }
+      
+      @include phone-style {
+        padding: 4px 16px;
+      }
+    }
+  
   
     &-spec {
       width: fit-content;
@@ -861,7 +880,7 @@ $ts: 50;
       border-radius: 24px;
       padding: 24px;
       justify-content: space-between;
-      margin: 0 32px 32px 32px;
+      margin: 0 16px 32px;
     }
   
     @include tablet-style {
@@ -875,16 +894,15 @@ $ts: 50;
     }
   
     @include laptop-style {
-      height: calc(516px / 1.5);
-      margin-bottom: calc(72px / 1.5);
+      height: 516px / $ls;
+      margin-bottom: 72px / $ls
     }
   }
   
   &__par-box {
     position: absolute;
     display: flex;
-    justify-items: space-between;
-    align-items: center;
+    place-items: center;
   
     @include phone-style {
       position: static;
@@ -893,14 +911,10 @@ $ts: 50;
     @include tablet-style {
       position: static; 
     }
-  
-    @include laptop-style {
-      top: calc(0px / 1.5);
-    }
   }
   
   &__par {
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 16px;
     line-height: 130%;
     color: $secondary-color;
@@ -915,7 +929,7 @@ $ts: 50;
     }
   
     @include laptop-style {
-      font-size: calc(16px / 1.5);
+      font-size: 16px / $ls
     }
   }
   
@@ -934,8 +948,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(48px / 1.5);
-      height: calc(43px / 1.5);
+      width: 48px / $ls;
+      height: 43px / $ls;
     }
   }
   
@@ -957,10 +971,10 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(250px / 1.5);
-      height: calc(43px / 1.5);
-      top: calc(123px / 1.5);
-      left: calc(47px / 1.5);
+      width: 250px / $ls;
+      height: 43px / $ls;
+      top: 123px / $ls;
+      left:47px / $ls
     }
   }
 
@@ -983,8 +997,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      top: calc(237px / 1.5);
-      left: calc(47px / 1.5);
+      top: 237px / $ls;
+      left: 47px / $ls
     }
   }
   
@@ -1008,8 +1022,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      top: calc(315px / 1.5);
-      left: calc(88px / 1.5);
+      top: 315px / $ls;
+      left: 88px / $ls
     }
   }
   
@@ -1032,8 +1046,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      top: calc(108px / 1.5);
-      right: calc(85px / 1.5);
+      top: 108px / $ls;
+      right: 85px / $ls
     }
   }
   
@@ -1056,8 +1070,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      top: calc(223px / 1.5);
-      right: calc(60px / 1.5);
+      top: 223px / $ls;
+      right: 60px / $ls
     }
   }
   
@@ -1081,8 +1095,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      top: calc(316px / 1.5);
-      right: calc(44px / 1.5);
+      top: 316px / $ls;
+      right: 44px / $ls
     }
   }
 
@@ -1093,7 +1107,7 @@ $ts: 50;
   }
   
   &__heading {
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-size: 56px;
     font-weight: bold;
     color: $white-100;
@@ -1107,7 +1121,7 @@ $ts: 50;
     }
   
     @include laptop-style {
-      font-size: calc(56px / 1.5);
+      font-size: 56px / $ls
     }
   }
   
@@ -1120,7 +1134,7 @@ $ts: 50;
     font-size: 56px;
     padding: 8px 24px;
     border-radius: 24px;
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-weight: bold;
     color: $primary-color;
     background-color: $white-100;
@@ -1140,10 +1154,10 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(237px / 1.5);
-      height: calc(83px / 1.5);
-      padding: calc(8px / 1.5) calc(24px / 1.5);
-      font-size: calc(56px / 1.5);
+      width: 237px / $ls;
+      height: 83px / $ls;
+      padding: 8px / $ls 2px / $ls;
+      font-size: 56px / $ls;
     }
   }
   
@@ -1162,7 +1176,7 @@ $ts: 50;
   
   &__how-works-title {
     margin-bottom: 40px;
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-size: 40px;
     color: $primary-color;
     font-weight: bold;
@@ -1180,8 +1194,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      font-size: calc(40px / 1.5);
-      margin-bottom: calc(40px / 1.5);
+      font-size: 40px / $ls;
+      margin-bottom: 40px / $ls;
     }
   }
   
@@ -1190,9 +1204,13 @@ $ts: 50;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+
+    @include phone-style {
+      gap: 16px;
+    }
   
     @include laptop-style {
-      gap: calc(25px / 1.6);
+      gap: 18px;
     }
   }
   
@@ -1209,6 +1227,7 @@ $ts: 50;
     @include phone-style {
       width: 343px;
       height: 132px;
+      border-radius: 24px;
     }
   
     @include tablet-style {
@@ -1217,8 +1236,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      width: calc(550px / 1.5);
-      height: calc(190px / 1.5);
+      width:550px / $ls;
+      height:190px / $ls;
     }
   
     &:nth-of-type(3) {
@@ -1236,7 +1255,6 @@ $ts: 50;
       position: absolute;
       top: 0;
       bottom: 0;
-      border-radius: inherit;
       background-image: url('../../../../public/images/gradient_zel.png');
       background-size: 100% 100%;
       background-position: center;
@@ -1254,10 +1272,9 @@ $ts: 50;
       align-items: center;
   
       position: absolute;
-      font-family: 'NeueRegular', sans-serif;
+      font-family: NeueRegular, sans-serif;
       color: $secondary-color;
       font-size: 250px;
-      line-height: -5px;
       top: 0;
       left: 0;
   
@@ -1265,7 +1282,7 @@ $ts: 50;
         width: 182px;
         height: 174px;
         font-size: 160px;
-        top: 10px;
+        top: 17px;
       }
   
       @include tablet-style {
@@ -1276,12 +1293,12 @@ $ts: 50;
       }
   
       @include laptop-style {
-        width: calc(245px / 1.5);
-        height: calc(300px / 1.5);
-        font-size: calc(250px / 1.5);
+        width: 245px / $ls;
+        height: 300px / $ls;
+        font-size: 250px / $ls;
       }
   
-      @if ($i == 3) {
+      @if $i == 3 {
         left: 50%;
   
         @include phone-style {
@@ -1293,7 +1310,7 @@ $ts: 50;
         }
       }
   
-      @if ($i == 4) {
+      @if $i == 4 {
         left: 50%;
   
         @include phone-style {
@@ -1309,7 +1326,7 @@ $ts: 50;
   
   &__how-works-p {
     padding: 0 56px;
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 18px;
     line-height: 130%;
     color: $white-100;
@@ -1327,8 +1344,8 @@ $ts: 50;
     }
   
     @include laptop-style {
-      font-size: calc(18px / 1.5);
-      padding: calc(56px / 1.5);
+      font-size: 18px / $ls;
+      padding: 56px / $ls;
     }
   }
 }

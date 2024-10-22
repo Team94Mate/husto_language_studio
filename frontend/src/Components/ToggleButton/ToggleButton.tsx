@@ -147,7 +147,7 @@ export const ToggleButton = () => {
                   alt="hash"
                 />
                 <p className="toggleButton__card-p">
-                  Тривалість: {convTime(course.lesson_duration)}
+                  Тривалість: {convTime(course.lesson_duration)} хвилин
                 </p>
               </div>
               <div className="toggleButton__card-pbox">

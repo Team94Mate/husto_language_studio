@@ -22,6 +22,8 @@ export const Teachers = () => {
   const touchEndRef = useRef(0);
   const [teachers, setTeachers] = useState<TeacherProp[]>([]);
 
+  const sortedTeachers = teachers.sort((a, b) => a.id - b.id);
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartRef.current = e.touches[0].clientX;
   };
@@ -51,7 +53,7 @@ export const Teachers = () => {
     });
   }, []);
 
-  useAnimationEffect(teachers);
+  useAnimationEffect(sortedTeachers);
 
   return (
     <div className="teachers" id="teachers">
@@ -82,7 +84,7 @@ export const Teachers = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {teachers.map((teacher, index) => (
+          {sortedTeachers.map((teacher, index) => (
             <div
               className={classNames(
                 `teachers__card  teachers__card--${teacher.id} animation`,

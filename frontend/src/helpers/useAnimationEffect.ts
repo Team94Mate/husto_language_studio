@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useAnimationEffect = (dependency: any[] = []) => {
+export const useAnimationEffect = (dependency: unknown[] = []) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -11,7 +11,7 @@ export const useAnimationEffect = (dependency: any[] = []) => {
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0,
       },
     );
 

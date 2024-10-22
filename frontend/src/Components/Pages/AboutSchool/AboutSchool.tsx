@@ -36,7 +36,10 @@ export const AboutSchool = () => {
                 src="images/hash(1).svg"
               />
               <p className="aboutSchool__card-p">
-                Усі викладачі <span className="aboutSchool__span">HUSTO</span>
+                Усі викладачі{' '}
+                <span className="aboutSchool__span aboutSchool__span--1">
+                  HUSTO
+                </span>
                 <br />
                 мають педагогічну освіту <br />
                 та значний досвід викладання

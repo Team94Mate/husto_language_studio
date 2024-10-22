@@ -1,14 +1,14 @@
 @import "/src/Global";
 
 $ts: 20;
-$laptop: 1.5;
+$laptop: 1.3;
 
 .teachers {
   background-color: $primary-color; 
   padding: 72px 43px;
 
   @include phone-style {
-    padding: 34px 16px 32px 16px;
+    padding: 34px 16px;
   }
 
   @include laptop-style {
@@ -43,7 +43,7 @@ $laptop: 1.5;
 
   &__title {
     grid-column: 2/12;
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-weight: bold;
     font-size: 40px;
     color: $secondary-color;
@@ -77,7 +77,7 @@ $laptop: 1.5;
     @include phone-style {
       width: 343px;
       height: fit-content;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     @include tablet-style {
@@ -112,7 +112,7 @@ $laptop: 1.5;
   }
 
   &__par {
-    font-family: 'ComicSansRegular', sans-serif;
+    font-family: ComicSansRegular, sans-serif;
     font-size: 32px;
     color: $white-100;
     line-height: 130%;
@@ -230,7 +230,7 @@ $laptop: 1.5;
       justify-content: center;
       align-items: center;
 
-      font-family: 'NeueBold', sans-serif;
+      font-family: NeueBold, sans-serif;
       font-weight: bold;
       font-size: 14px;
       line-height: 130%;
@@ -275,7 +275,6 @@ $laptop: 1.5;
 
     &--3 {
       grid-column: 9/11;
-      // transform: translateX();
       top: -5%;
     }
 
@@ -354,7 +353,7 @@ $laptop: 1.5;
       background-color: $secondary-color;
       left: -16%;
       bottom: 1.5%;
-      border-radius: 8px 0px 0px 8px;
+      border-radius: 8px 0 0 8px;
 
       @include laptop-style {
         width: calc(42px / $laptop);
@@ -373,19 +372,28 @@ $laptop: 1.5;
       width: 10px;
       background: radial-gradient(circle, $primary-color 4px, transparent 4px) 0 0 / 8px 24px repeat-y;
 
+      @include phone-style {
+        top: 10px;
+        background: radial-gradient(circle, #006C68 4px, transparent 5px) 0 0 / 9px 25px repeat-y;
+      }
+
       @include laptop-style {
+        top: 10px;
         width: calc(10px / $laptop);
+        background: radial-gradient(circle, #006C68 3px, transparent 4px) 0 0 / 6px 23px repeat-y;
       }
 
       @include tablet-style {
         width: add-perc(10px); 
+        top: 26px;
+        background: radial-gradient(circle, #006C68 4px, transparent 5px) 0 0 / 10px 32px repeat-y;
       }
     }
   }
 
   &__name {
     width: 100%;
-    font-family: 'NeueBold', sans-serif;
+    font-family: NeueBold, sans-serif;
     font-weight: bold;
     font-size: 18px;
     line-height: 130%;
@@ -406,7 +414,7 @@ $laptop: 1.5;
 
   &__role {
     width: 100%;
-    font-family: 'NeueRegular', sans-serif;
+    font-family: NeueRegular, sans-serif;
     font-size: 14px;
     line-height: 140%;
     color: $white-100;
@@ -428,14 +436,14 @@ $laptop: 1.5;
     width: 180px;
     height: 25px;
     margin-right: 7px;
-    font-family: 'ComicSansRegular', sans-serif;
+    font-family: ComicSansRegular, sans-serif;
     font-size: 12px;
     color: $black-5;
     padding: 4px 11px;
     margin-bottom: 12px;
     background-color: $secondary-color;
     border-radius: 32px;
-    box-shadow: inset 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     align-self: flex-end;
 
     @include laptop-style {
@@ -475,13 +483,13 @@ $laptop: 1.5;
     margin-bottom: 18px;
     margin-right: 7px;
     padding: 4px 11px;
-    font-family: 'ComicSansRegular', sans-serif;
+    font-family: ComicSansRegular, sans-serif;
     font-size: 12px;
     color: $black-5;
     background-color: $secondary-color;
     border-radius: 32px;
     line-height: 130%;
-    box-shadow: inset 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     align-self: flex-end;
 
     @include laptop-style {
@@ -516,7 +524,7 @@ $laptop: 1.5;
 
   &__coment {
     position: relative;
-    font-family: 'NeueRegular', sans-serif;
+    font-family: NeueRegular, sans-serif;
     font-size: 16px;
     line-height: 140%;
     color: $white-100;
@@ -551,11 +559,11 @@ $laptop: 1.5;
   }
 
   &__coment:last-of-type {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   &__prise-title {
-    font-family: 'ComicSansBold', sans-serif;
+    font-family: ComicSansBold, sans-serif;
     font-weight: bold;
     font-size: 40px;
     color: $secondary-color;
@@ -611,7 +619,7 @@ $laptop: 1.5;
   }
 
   &__prise-h1 {
-    font-family: 'ComicSansRegular', sans-serif;
+    font-family: ComicSansRegular, sans-serif;
     font-size: 32px;
     color: $white-100;
     line-height: 130%;
