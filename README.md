@@ -1,9 +1,8 @@
 # Husto Language Studio
 
 
-## Description of the project:
-Husto Language Studio: An English school website showcasing learning opportunities, course offerings, and enrollment information. Designed for easy navigation and user engagement.
-
+## Description:
+Husto Language Studio is an English school website that provides information about courses, registration options, pricing, feedback, and an FAQ section.
 
 ## Discover the website!
 [Check it out!](some_link)
@@ -29,21 +28,22 @@ You can check the [Frontend README.md](frontend/README.md)
 - Figma
 
 ### Design
-Check the [Figma Design](https://www.figma.com/design/driXkAJFNb7fWjbvXJnsAh/Husto-language-school?node-id=0-1&t=xlzbrgMUzBRIj85F-1)
+Explore the [Figma Design](https://www.figma.com/design/driXkAJFNb7fWjbvXJnsAh/Husto-language-school?node-id=0-1&t=xlzbrgMUzBRIj85F-1)
 - Figma
 - Adobe Photoshop
 
 
-## Description main features:
-
-- **Simple and User-Friendly Interface**:
+## Main features:
+- **User-Friendly Interface**:
   The website features an intuitive design for easy navigation and user interaction.
+---
 
 - **Course Management**:
-  Easily browse and manage course offerings, including detailed information about each course.
+  Users can easily browse course offerings and view detailed course information.
+---
 
 - **Course Signup**:
-  Streamlined process for users to enroll in courses
+  Streamlined process for users to enroll in courses.
 
 
 ## GitHub Page of the Project
@@ -51,7 +51,12 @@ Check the [Figma Design](https://www.figma.com/design/driXkAJFNb7fWjbvXJnsAh/Hus
 
 
 ## Screenshots:
+### Home Page
 ![Home Page](screenshots/home_page.png)
+
+### Registrations
+![Registration Form - Upper Section](screenshots/upper_registration_form.png)
+![Registration Form - Main Section](screenshots/main_registration_form.png)
 
 
 ## License
