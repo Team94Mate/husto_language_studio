@@ -1,11 +1,10 @@
 import shutil
 import tempfile
 from datetime import timedelta
-
+from freezegun import freeze_time
 from django.test import override_settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.test import APITestCase
-
 
 from english_school.models import Teacher, Course, Review, ContactMessage
 from english_school.serializers import (
@@ -19,6 +18,7 @@ from english_school.serializers import (
 class BaseSerializerTestCase(APITestCase):
     def assert_serialized_equal(self, serializer, instance, expected_data):
         """Helper method to test serialization"""
+
         serializer_instance = serializer(instance)
         self.assertEqual(serializer_instance.data, expected_data)
 
@@ -119,6 +119,8 @@ class ReviewSerializerTest(BaseSerializerTestCase):
 
 
 class ContactMessageSerializerTest(BaseSerializerTestCase):
+
+    @freeze_time("2024-10-22 07:13:58")
     def setUp(self):
         self.contact_message = ContactMessage.objects.create(
             username="user123",
@@ -126,10 +128,14 @@ class ContactMessageSerializerTest(BaseSerializerTestCase):
         )
 
     def test_contact_message_serializer(self):
+        # Expected submitted_at in Kiev timezone
+        expected_submitted_at = "2024-10-22T10:13:58"
+
         expected_data = {
             "id": self.contact_message.id,
             "username": "user123",
             "question": "How can I enroll?",
+            "submitted_at": expected_submitted_at,
         }
         self.assert_serialized_equal(
             ContactMessageSerializer, self.contact_message, expected_data
