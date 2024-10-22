@@ -31,16 +31,16 @@ services:
     volumes:
       - my_db:/var/lib/postgresql/data
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    image: husto_language_studio_frontend
-    container_name: husto_language_studio_frontend_app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - husto_language_studio
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   image: husto_language_studio_frontend
+  #   container_name: husto_language_studio_frontend_app
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - husto_language_studio
 
 volumes:
   my_db:
