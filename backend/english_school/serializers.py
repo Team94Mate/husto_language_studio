@@ -1,3 +1,5 @@
+from typing import List
+
 from rest_framework import serializers
 import pytz
 
@@ -26,7 +28,7 @@ class TeacherSerializer(serializers.ModelSerializer):
         ]
 
     @staticmethod
-    def get_description_lines(obj):
+    def get_description_lines(obj) -> List[str]:
         """Return a list of description lines"""
 
         return [
