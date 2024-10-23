@@ -155,7 +155,7 @@ export const ClientForm = () => {
               </div>
             </div>
 
-            <img className="ClientForm__logo" src="/images/Header.svg" />
+            <img className="ClientForm__logo" src="images/Header.svg" />
           </div>
 
           <form className="ClientForm__form" onSubmit={handleSubmit}>
