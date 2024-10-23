@@ -1,10 +1,16 @@
 import './Header.scss';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { StorageContext } from '../../storage/StorageContext';
 import classNames from 'classnames';
 
 export const Header = () => {
   const { showForm, setShowForm } = useContext(StorageContext);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, []);
 
   return (
     <>

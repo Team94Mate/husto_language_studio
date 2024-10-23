@@ -179,7 +179,7 @@ export const AboutSchool = () => {
             </div>
           </div>
 
-          <div className="aboutSchool__open-for" id="for-who">
+          <div className="aboutSchool__open-for">
             <div className="aboutSchool__block">
               <h1 className="aboutSchool__heading">
                 Відкрий для себе <br /> нові можливості з
@@ -222,6 +222,7 @@ export const AboutSchool = () => {
             <div
               className="aboutSchool__par-box
                aboutSchool__par-box4 animation right"
+              id="for-who"
             >
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--4">

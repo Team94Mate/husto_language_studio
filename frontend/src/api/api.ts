@@ -1,8 +1,8 @@
 // eslint-disable-next-line max-len
-import { ContactData } from '../Components/ClientForm/ClientForm';
-import { TeacherProp } from '../Components/Pages/Teachers/Teachers';
 import { CursProp } from '../Components/ToggleButton/ToggleButton';
-import { Review } from '../storage/StorageContext';
+import { ContactData } from '../types/ContactData';
+import { Review } from '../types/Review';
+import { TeacherProp } from '../types/Teachers';
 import { client } from '../utils/fetchClient';
 
 export const getReviews = () => {

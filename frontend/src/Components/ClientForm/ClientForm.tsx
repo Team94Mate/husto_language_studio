@@ -3,11 +3,7 @@ import './ClientForm.scss';
 import { StorageContext } from '../../storage/StorageContext';
 import classNames from 'classnames';
 import { addMessageData } from '../../api/api';
-
-export interface ContactData {
-  username: string;
-  question: string;
-}
+import { ContactData } from '../../types/ContactData';
 
 export const ClientForm = () => {
   const { showForm, setShowForm } = useContext(StorageContext);

@@ -2,16 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
 import classNames from 'classnames';
-import { ContactData } from '../../ClientForm/ClientForm';
 import { addMessageData, getReviews } from '../../../api/api';
-import { Review } from '../../../storage/StorageContext';
-import { useAnimationEffect } from '../../../helpers/useAnimationEffect';
+import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
+import { ContactData } from '../../../types/ContactData';
+import { Review } from '../../../types/Review';
 
 export const ReviewsPage = () => {
   const [isClicked, setIsClicked] = useState<Record<number, boolean>>({});
   const [clickButton, setClickButton] = useState(false);
   const [reviewsData, setReviews] = useState<Review[]>([]);
-  // const { reviewsData } = useContext(StorageContext);
 
   const sortedById = reviewsData.sort((a, b) => a.id - b.id);
 
@@ -127,7 +126,7 @@ export const ReviewsPage = () => {
   useAnimationEffect(sortedById);
 
   return (
-    <div className="reviewsPage">
+    <div className="reviewsPage" id="reviews">
       <p className="reviewsPage__title1 animation left">
         Як навчання з <span className="reviewsPage__sapn">HUSTO</span> змінює
         життя

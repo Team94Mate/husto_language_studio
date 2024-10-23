@@ -3,18 +3,8 @@ import { ToggleButton } from '../../ToggleButton/ToggleButton';
 import './Teachers.scss';
 import classNames from 'classnames';
 import { getTeachers } from '../../../api/api';
-import { useAnimationEffect } from '../../../helpers/useAnimationEffect';
-
-export interface TeacherProp {
-  id: number;
-  name: string;
-  specialization: string;
-  experience_years: string;
-  teacher_level: string;
-  description: string;
-  description_lines: string[];
-  photo: string;
-}
+import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
+import { TeacherProp } from '../../../types/Teachers';
 
 export const Teachers = () => {
   const [currentTeacherIndex, setCurrentTeacherIndex] = useState(0);

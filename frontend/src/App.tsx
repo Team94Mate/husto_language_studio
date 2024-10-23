@@ -12,8 +12,8 @@ import { Teachers } from './Components/Pages/Teachers/Teachers';
 import { ReviewsPage } from './Components/Pages/ReviewsPage/ReviewsPage';
 import { Midia } from './Components/Midia/Midia';
 import { Footer } from './Components/Footer/Footer';
-import { useScrollEffect } from './helpers/useScrollEffect';
-import { useAnimationEffect } from './helpers/useAnimationEffect';
+import { useScrollEffect } from './hooks/useScrollEffect';
+import { useAnimationEffect } from './hooks/useAnimationEffect';
 
 export const App: React.FC = () => {
   useScrollEffect();
@@ -32,16 +32,16 @@ export const App: React.FC = () => {
 
         <main className="main">
           <Midia />
-          <section id="homePage">
+          <section>
             <HomePage />
           </section>
-          <section id="aboutSchool">
+          <section>
             <AboutSchool />
           </section>
-          <section id="teachers">
+          <section>
             <Teachers />
           </section>
-          <section id="reviews">
+          <section>
             <ReviewsPage />
           </section>
         </main>

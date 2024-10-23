@@ -1,11 +1,3 @@
-export interface Review {
-  id: number;
-  name: string;
-  age: string;
-  description: string;
-  photo: string;
-}
-
 interface Props {
   showForm: boolean;
   setShowForm: (someData: boolean) => void;
