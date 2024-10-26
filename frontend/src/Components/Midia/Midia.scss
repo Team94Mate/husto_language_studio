@@ -1,0 +1,23 @@
+@import "/src/Global";
+
+$ls: 1.6; 
+
+.Midia {
+  @include phone-style {
+    display: none !important;
+  }
+
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 95%;
+  z-index: 10;
+  transform: translateY(-50%);
+  height: 0;
+  width: 0;
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}

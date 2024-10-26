@@ -1,0 +1,324 @@
+@import "/src/Global";
+
+$ls: 1.3; 
+$ts: 50;
+
+.footer {
+  height: 336px;
+  
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  
+  @include phone-style {
+    height: 415px;
+    background-size: 300%;
+    padding: 0 16px;
+  }
+
+  @include tablet-style {
+    height: add-perc(415px);
+  }
+
+  @include laptop-style {
+    height: 336px / $ls;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(12, 90px);
+    column-gap: 25px;
+    padding: 72px 0;
+    justify-content: center;
+
+    background-image: url('../../../public/images/net.png');
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    @include phone-style {
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 73px);
+      grid-template-rows: 98px 192px 29px;
+      gap: 16px;
+      padding: 32px 0;
+    }
+
+    @include tablet-style {
+      grid-template-columns: repeat(4, add-perc(73px));
+      grid-template-rows: add-perc(98px) add-perc(192px) add-perc(29px);
+      gap: add-perc(16px);
+      padding: add-perc(24px) add-perc(16px);
+    }
+
+    @include laptop-style {
+      grid-template-columns: repeat(12, calc(90px / $ls));
+      column-gap: 25px / $ls;
+      padding: 72px / $ls 42px / $ls;
+      background-position: unset;
+      background-size: unset;
+      background-repeat: unset;
+    }
+  }
+
+  &__title {
+    position: relative;
+    grid-column: 2/8;
+    left: 27px;
+    font-family: NeueBold, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: $secondary-color;
+    letter-spacing: 1px;
+    line-height: 130%;
+    background: transparent;
+
+    @include phone-style {
+      font-size: 24px;
+      grid-column: 1/4;
+      margin: 0;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(24px);
+      grid-column: 1/5;
+    }
+
+    @include laptop-style {
+      left: 27px / $ls;
+      margin-bottom: 67px / $ls;
+      font-size: 40px / $ls;
+    }
+
+    &::after {
+      content: '';
+      width: 36px;
+      height: 31px;
+      background-image: url('../../../public/images/hash(1).svg');
+      background-position: center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -5px;
+      left: -25px;
+
+      @include phone-style {
+        width: 35px;
+        height: 40px;
+        left: -33px;
+        top: -6px;
+      }
+
+      @include tablet-style {
+        width: add-perc(35px);
+        height: add-perc(40px);
+        left: add-perc(-33px);
+        top: add-perc(-6px);
+      }
+
+      @include laptop-style {
+        width: 36px / $ls;
+        height: 31px / $ls;
+        left: -25px / $ls;
+        top: -5px / $ls;
+      }
+    }
+  }
+
+  &__email {
+    grid-column: 2/6;
+    grid-row: 2;
+    font-family: NeueMedium, sans-serif;
+    font-size: 18px;
+    color: $white-100;
+    background: transparent;
+
+    @include phone-style {
+      grid-column: 1/5;
+      grid-row: 3;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(18px);
+    }
+
+    @include laptop-style {
+      font-size: 18px / $ls;
+    }
+  }
+
+  &__span {
+    color: $secondary-color;
+    background: transparent;
+  }
+
+  &__midia {
+    grid-column: 8/10;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: NeueMedium, sans-serif;
+    font-size: 18px;
+    color: $secondary-color;
+    background: transparent;
+
+    @include phone-style {
+      grid-column: 3/5;
+      grid-row: 2;
+    }
+
+    @include tablet-style {
+      gap: add-perc(16px);
+      font-size: add-perc(18px);
+    }
+
+    @include laptop-style {
+      gap: 16px / $ls;
+      font-size: 18px / $ls;
+    }
+  }
+
+  &__midia-title {
+    background: transparent;
+  }
+  
+  &__midia-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: transparent;
+
+    @include tablet-style {
+      gap: add-perc(8px);
+    }
+
+    @include laptop-style {
+      gap: 8px / $ls;
+    }
+  }
+  
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+
+    @include laptop-style {
+      gap: 4px / $ls;
+    }
+
+    @include tablet-style {
+      gap: add-perc(4px);
+    }
+  }
+
+  &__p {
+    font-family: NeueMedium, sans-serif;
+    font-size: 16px;
+    color: $white-100;
+    background: transparent;
+
+    @include laptop-style {
+      font-size: 16px / $ls;
+    }
+
+    @include tablet-style { 
+      font-size: add-perc(16px);
+    }
+  }
+  
+  &__icon {
+    width: 15px;
+    height: 15px;
+    background: $primary-color;
+
+    @include laptop-style {
+      width: 15px / $ls;
+      height: 15px / $ls;
+    }
+
+    @include tablet-style {
+      width: add-perc(15px);
+      height: add-perc(15px);
+    }
+  }
+
+  &__nav {
+    grid-column: 11/12;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    background: transparent;
+
+    @include phone-style {
+      grid-column: 1/3;
+      grid-row: 2;
+    }
+
+    @include tablet-style {
+      gap: add-perc(8px);
+    }
+
+    @include laptop-style {
+      gap: 8px / $ls;
+    }
+  }
+
+  &__navlink {
+    font-family: NeueMedium, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: #F5F7FA;
+    line-height: 1;
+    padding-left: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    background: transparent;
+
+    &:hover {
+      border-radius: 24px;
+      background-color: #1D8A86;
+      color: #F5F7FA;
+    }
+
+    @include phone-style {
+      padding-left: 0;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(16px);
+      padding-left: 0;
+    }
+
+    @include laptop-style {
+      font-size: 16px / $ls;
+      padding-left: 8px / $ls;
+    }
+  }
+
+  &__navlink-h {
+    font-family: NeueMedium, sans-serif;
+    font-size: 18px;
+    color: $secondary-color;
+    background: transparent;
+    margin-bottom: 8px;
+
+    @include laptop-style {
+      font-size: 18px / $ls;
+      margin-bottom: 8px / $ls;
+    }
+
+    @include tablet-style {
+      font-size: add-perc(18px);
+    }
+  }
+}
+
+
