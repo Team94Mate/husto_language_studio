@@ -691,13 +691,16 @@ $ts: 50;
     font-family: NeueMedium, sans-serif;
     font-size: 14px;
     color: $black-5;
-    line-height: 140%;
     margin-top: 14px;
 
     @include laptop-style {
       font-size: calc(14px / $ls);
       margin-top: calc(14px / $ls);
     }
+  }
+
+  &__hiddenP b {
+    font-weight: normal;
   }
 }
 
