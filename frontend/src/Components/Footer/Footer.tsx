@@ -31,7 +31,7 @@ export const Footer = () => {
             rel="noreferrer"
           >
             <img className="footer__icon" src="images/Vector-footer.svg" />
-            <h3 className="footer__p"> Fecebook</h3>
+            <h3 className="footer__p"> Facebook</h3>
           </a>
           <a
             className="footer__link"

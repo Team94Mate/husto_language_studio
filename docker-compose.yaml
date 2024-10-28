@@ -1,0 +1,48 @@
+services:
+  husto_language_studio:
+    build:
+      context: ./backend
+    image: husto_language_studio
+    container_name: husto_language_studio_app
+    env_file:
+      - backend/.env
+    environment:
+      - DOCKER_ENV=true
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./backend:/app
+      - my_media:/files/media
+    command: >
+      sh -c "python manage.py wait_for_db &&
+              python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:8001"
+    depends_on:
+      - db
+
+
+  db:
+    image: postgres:16.0-alpine3.17
+    container_name: husto_language_studio_db
+    restart: always
+    env_file:
+      - backend/.env
+    ports:
+      - "5436:5432"
+    volumes:
+      - my_db:/var/lib/postgresql/data
+
+  frontend:
+    build:
+     context: ./frontend
+     dockerfile: Dockerfile
+    image: husto_language_studio_frontend
+    container_name: husto_language_studio_frontend_app
+    ports:
+     - "3000:3000"
+    depends_on:
+     - husto_language_studio
+
+volumes:
+  my_db:
+  my_media:

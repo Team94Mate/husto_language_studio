@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import './HomePage.scss';
 import classNames from 'classnames';
 import { StorageContext } from '../../../storage/StorageContext';
+import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
 
 export const HomePage = () => {
   const [isClicked, setIsClicked] = useState<number[]>([]);
@@ -37,8 +38,10 @@ export const HomePage = () => {
     };
   }, [currentHash, setBurger]);
 
+  useAnimationEffect();
+
   return (
-    <div className="homePage">
+    <div className="homePage" id="homePage">
       <button className="homePage__mob-button" onClick={handleClick}>
         <img className="homePage__mob-image" src="images/HeadericonMenu.svg" />
       </button>

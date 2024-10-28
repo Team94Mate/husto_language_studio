@@ -1,11 +1,12 @@
 @import "/src/Global";
+
 $ts: 30;
 
 .burgerMenu {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  padding: 16px 16px 8px 16px;
+  padding: 16px 16px 8px;
   display: flex;
   background-color: $primary-color;
   flex-direction: column;
@@ -49,7 +50,7 @@ $ts: 30;
     width: 317px;
     height: 98px;
     position: relative;
-    font-family: "NeueBold", sans-serif;
+    font-family: NeueBold, sans-serif;
     font-size: 88px;
     font-weight: bold;
     color: $white-100;
@@ -71,7 +72,7 @@ $ts: 30;
       height: 64px; 
       position: absolute;
       left: -7px;
-      top: 0px;
+      top: 0;
 
       @include tablet-style {
         background-size: add-perc(74px) add-perc(64px); 
@@ -99,7 +100,7 @@ $ts: 30;
   }
 
   &__back-text {
-    font-family: 'NeueRegular', sans-serif;
+    font-family: NeueRegular, sans-serif;
     font-size: 16px;
     color: $white-100;
 
@@ -141,8 +142,7 @@ $ts: 30;
     width: 375px;
     height: 34px;
     position: absolute;
-    bottom: 0px;
-    cursor: pointer;
+    bottom: 0;
     display: flex;
     justify-content: center;
     background: $primary-color;

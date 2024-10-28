@@ -7,38 +7,37 @@ $gray-30: #C8CFD7;
 $gray-20: #DCE0E9;
 $gray-10: #F5F7FA;
 $gray-03: #F2F2F2;
-$white-100: #FFFFFF;
-$black-5: hsl(0, 0%, 5%);
+$white-100: #FFF;
+$black-5: hsl(0deg, 0%, 5%);
 $card-color: #1D8A86;
 
 @font-face {
   src: url('./fonts/NeueMontreal-Bold.ttf');
-  font-family:'NeueBold';
+  font-family: NeueBold;
 }
 
 @font-face {
   src: url('./fonts/NeueMontreal-Medium.ttf');
-  font-family: 'NeueMedium';
+  font-family: NeueMedium;
 }
 
 @font-face {
   src: url('./fonts/NeueMontreal-Regular.ttf');
-  font-family: 'NeueRegular';
+  font-family: NeueRegular;
 }
 
 @font-face {
   src: url('./fonts/Comic_Sans_MS.ttf');
-  font-family: 'ComicSansBold';
+  font-family: ComicSansBold;
 }
 
 @font-face {
   src: url('./fonts/Comic_Sans_MS.ttf');
-  font-family: 'ComicSansRegular';
+  font-family: ComicSansRegular;
 }
 
 @function add-perc($px-value) {
   $perc-value: $px-value * ($ts / 100);
-
   $newValue: #{$px-value + $perc-value};
 
   @return $newValue;
@@ -51,7 +50,7 @@ $card-color: #1D8A86;
   padding-right: 8px;
   align-items: center;
   border-radius: 24px;
-  font-family: 'NeueMedium', sans-serif;
+  font-family: NeueMedium, sans-serif;
   font-size: 16px;
   border: $white-100;
   background-color: $white-100;

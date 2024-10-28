@@ -1,14 +1,18 @@
-/* eslint-disable max-len */
-import { useContext, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
 import classNames from 'classnames';
-import { StorageContext } from '../../../storage/StorageContext';
+import { addMessageData, getReviews } from '../../../api/api';
+import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
+import { ContactData } from '../../../types/ContactData';
+import { Review } from '../../../types/Review';
 
 export const ReviewsPage = () => {
   const [isClicked, setIsClicked] = useState<Record<number, boolean>>({});
   const [clickButton, setClickButton] = useState(false);
-  const { reviewsData } = useContext(StorageContext);
+  const [reviewsData, setReviews] = useState<Review[]>([]);
+
+  const sortedById = reviewsData.sort((a, b) => a.id - b.id);
 
   const toggleQuestion = (index: number) => {
     setIsClicked(prev => ({
@@ -44,8 +48,85 @@ export const ReviewsPage = () => {
     }
   };
 
+  const [username, setUsername] = useState('');
+  const [quest, setQuestion] = useState('');
+  const [loading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [successMessageTE, setSuccessMessageTE] = useState(false);
+  const [errorMessageTE, setErrorMessageTE] = useState(false);
+  const [isFocusedTE, setIsFocusedTE] = useState(false);
+
+  const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    if (!value.startsWith('@')) {
+      value = '@' + value.replace('/@/g', '');
+    }
+
+    setUsername(value);
+  };
+
+  const isFormValid = () => {
+    return username.trim().length > 1;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!isFormValid()) {
+      setErrorMessage(true);
+      setErrorMessageTE(true);
+
+      return;
+    }
+
+    const question = quest.trim() ? quest : 'не задали питання';
+
+    const contactMessageData: ContactData = {
+      username,
+      question,
+    };
+
+    setIsLoading(true);
+    setErrorMessage(false);
+    setSuccessMessage(false);
+    setErrorMessageTE(false);
+    setSuccessMessageTE(false);
+
+    addMessageData(contactMessageData)
+      .then(response => {
+        if (response) {
+          setUsername('');
+          setQuestion('');
+          setSuccessMessage(true);
+          setSuccessMessageTE(true);
+        }
+      })
+      .catch(error => {
+        setErrorMessage(true);
+        setErrorMessageTE(true);
+        throw error;
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setTimeout(() => {
+          setSuccessMessage(false);
+          setSuccessMessageTE(false);
+          setClickButton(false);
+        }, 2000);
+      });
+  };
+
+  useEffect(() => {
+    getReviews().then(response => setReviews(response));
+  }, []);
+
+  useAnimationEffect(sortedById);
+
   return (
-    <div className="reviewsPage">
+    <div className="reviewsPage" id="reviews">
       <p className="reviewsPage__title1 animation left">
         Як навчання з <span className="reviewsPage__sapn">HUSTO</span> змінює
         життя
@@ -58,7 +139,7 @@ export const ReviewsPage = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {reviewsData.map((review, index) => (
+          {sortedById.map((review, index) => (
             <div
               className={classNames(
                 `reviewsPage__card  reviewsPage__card--${review.id} animation`,
@@ -74,18 +155,18 @@ export const ReviewsPage = () => {
               <div className="reviewsPage__box">
                 <img
                   className="reviewsPage__img"
-                  src={review.image}
+                  src={review.photo}
                   alt="client's photo"
                 />
                 <div className="reviewsPage__inform">
                   <div className="reviewsPage__name">{review.name}</div>
-                  <div className="reviewsPage__age">{review.age}</div>
+                  <div className="reviewsPage__age">{review.age} роки</div>
                 </div>
               </div>
 
               <div className="reviewsPage__comments">
                 <img className="reviewsPage__hash" src="images/hash(1).svg" />
-                <p className="reviewsPage__p">{review.comment}</p>
+                <p className="reviewsPage__p">{review.description}</p>
               </div>
             </div>
           ))}
@@ -105,7 +186,7 @@ export const ReviewsPage = () => {
       </div>
 
       <div className="reviewsPage__clientForm animation left">
-        <div className=" ClientForm__container">
+        <div className="ClientForm__container">
           <h1 className="ClientForm__title">
             <img className="ClientForm__hash" src="images/hash(1).svg" />
             Ваша подорож до англійської мови <br />
@@ -166,19 +247,72 @@ export const ReviewsPage = () => {
               />
             </div>
 
-            <form className="ClientForm__form">
+            <form className="ClientForm__form" onSubmit={handleSubmit}>
               <input
-                className="ClientForm__input"
+                className={classNames('ClientForm__input', {
+                  'ClientForm__input--filled': username.trim() !== '',
+                  'ClientForm__input--succes': successMessage,
+                  'ClientForm__input--error': errorMessage,
+                  'ClientForm__input--warning': errorMessage,
+                  'ClientForm__input--focus': isFocused,
+                })}
+                value={username}
+                pattern="^@([A-Za-z0-9._]){1,30}$"
+                title="Ім'я в Instagram повинно починатися 
+              з @ і бути довжиною від 1 до 30 символів, 
+              включаючи літери, цифри, крапки та підкреслення."
                 type="text"
                 placeholder="Ваш @instagram"
+                onChange={e => {
+                  setUsername(e.target.value);
+                  handleInputValue(e);
+                }}
+                disabled={loading}
+                onFocus={() => {
+                  setIsFocused(true);
+                  setErrorMessage(false);
+                  setSuccessMessage(false);
+                  setClickButton(false);
+                }}
+                onBlur={() => {
+                  setIsFocused(false);
+
+                  if (!isFormValid()) {
+                    setErrorMessage(true);
+                  } else {
+                    setErrorMessage(false);
+                  }
+                }}
               />
               <textarea
-                className="ClientForm__textarea"
+                className={classNames('ClientForm__textarea', {
+                  'ClientForm__textarea--filled': quest.trim() !== '',
+                  'ClientForm__textarea--succes': successMessageTE,
+                  'ClientForm__textarea--error': errorMessageTE,
+                  'ClientForm__textarea--focus': isFocusedTE,
+                })}
+                value={quest}
+                onChange={e => setQuestion(e.target.value)}
                 placeholder="Питання"
                 name="text"
-                id=""
+                disabled={loading}
+                onFocus={() => {
+                  setIsFocusedTE(true);
+                  setErrorMessageTE(false);
+                  setSuccessMessageTE(false);
+                }}
+                onBlur={() => {
+                  setIsFocused(false);
+                  if (!isFormValid()) {
+                    setErrorMessage(true);
+                  }
+
+                  setIsFocusedTE(false);
+                }}
               ></textarea>
-              <a
+
+              <button
+                type="submit"
                 className="ClientForm__button"
                 onClick={() => setClickButton(!clickButton)}
               >
@@ -192,7 +326,7 @@ export const ReviewsPage = () => {
                     src="images/Vector(6).svg"
                   />
                 </span>
-              </a>
+              </button>
             </form>
           </div>
         </div>
@@ -231,7 +365,8 @@ export const ReviewsPage = () => {
                 Обирайтте, що найкраще підходить саме вам: <br />
                 Індивідуальні заняття <br />
                 Парні заняття <br />
-                Групові заняття <b>Speaking Club</b>
+                Групові заняття <br />
+                <b>Speaking Club</b>
               </div>
             )}
           </div>
@@ -408,11 +543,14 @@ export const ReviewsPage = () => {
 
             {isClicked[6] && (
               <div className="reviewsPage__hiddenP">
-                Придбавши місячний абонемент, ви отримуєте <b>8</b> або <b>9</b>{' '}
-                занять.
+                {'Придбавши місячний абонемент, ви отримуєте '}
+                <b>8</b>
+                {' або '}
+                <b>9</b>
+                {' занять.'}
                 <br />
-                Кількість занять змінюється в залежності від кількості днів у
-                конкретному місяці.
+                {'Кількість занять змінюється в залежності від '}
+                {'кількості днів у конкретному місяці.'}
               </div>
             )}
           </div>
