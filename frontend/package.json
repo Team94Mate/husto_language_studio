@@ -1,13 +1,11 @@
 {
   "name": "husto_language_studio",
   "homepage": "https://team94mate.github.io/husto_language_studio/",
-
   "version": "0.1.0",
   "keywords": [],
   "author": "Mate Academy",
   "license": "GPL-3.0",
   "dependencies": {
-    "react-slick": "^0.29.0",
     "@cypress/react18": "^2.0.0",
     "@fortawesome/fontawesome-free": "^6.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -21,13 +19,14 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "react-transition-group": "^4.4.5",
     "uikit": "^3.19.4"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@mate-academy/eslint-config-react-typescript": "latest",
-    "@mate-academy/scripts": "^1.7.9",
+    "@mate-academy/scripts": "^1.9.12",
     "@mate-academy/students-ts-config": "latest",
     "@mate-academy/stylelint-config": "latest",
     "@types/lodash.debounce": "^4.0.9",
