@@ -56,8 +56,8 @@ $tablet-st: 1.5;
     }
 
     @include tablet-style {
-      width: calc(295px * ts);
-      font-size: calc(24px * ts);
+      width: calc(295px * $tablet-st);
+      font-size: calc(24px * $tablet-st);
     }
   }
 
