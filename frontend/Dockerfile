@@ -2,9 +2,10 @@ FROM node:14-alpine
 LABEL authors="comercaleuros@gmail.com"
 
 WORKDIR /app
-COPY package.json ./
-RUN npm install
 COPY . .
 
-CMD ["npm", "start"]
+RUN npm install
+
 EXPOSE 3000
+
+CMD ["npm", "start"]
