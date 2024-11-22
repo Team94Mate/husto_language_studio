@@ -9,7 +9,6 @@ $laptop-st: 1.3;
   border-radius: 70px 70px 0 0;
   padding: 72px 41px 72px 43px;
   background-color: $white-100;
-  z-index: 0;
   scroll-behavior: smooth;
 
   @include phone-style {
@@ -271,7 +270,7 @@ $laptop-st: 1.3;
     }
 
     @include laptop-style {
-      margin-bottom: 56px / $laptop-st !important;
+      margin-bottom: calc(56px / $laptop-st) !important;
     }
 
     @include tablet-style {
@@ -321,12 +320,12 @@ $laptop-st: 1.3;
       }
 
       @include laptop-style {
-        width: 217px / $laptop-st;
-        height: 50px / $laptop-st;
-        font-size: 14px / $laptop-st;
-        padding: 18px / $laptop-st;
-        left: -35px / $laptop-st;
-        bottom: -36px / $laptop-st;
+        width: calc(217px / $laptop-st);
+        height: calc(50px / $laptop-st);
+        font-size: calc(14px / $laptop-st);
+        padding: calc(18px / $laptop-st);
+        left: calc(-35px / $laptop-st);
+        bottom: calc(-36px / $laptop-st);
       }
     }
 
@@ -353,10 +352,10 @@ $laptop-st: 1.3;
       }
 
       @include laptop-style {
-        width: 63px / $laptop-st;
-        height: 53px / $laptop-st;
-        right: -42px / $laptop-st;
-        bottom: 53px / $laptop-st;
+        width: calc(63px / $laptop-st);
+        height: calc(53px / $laptop-st);
+        right: calc(-42px / $laptop-st);
+        bottom: calc(53px / $laptop-st);
       }
 
       @include tablet-style {
@@ -581,7 +580,7 @@ $laptop-st: 1.3;
     }
   
     @include laptop-style {
-      top:calc( 134px / $laptop-st);
+      top: calc(134px / $laptop-st);
       right: calc(-7px / $laptop-st);
       width: calc(407px / $laptop-st);
       height: calc( 25px / $laptop-st);
@@ -616,10 +615,10 @@ $laptop-st: 1.3;
       }
   
       @include laptop-style {
-        width: calc( 243px / $laptop-st);
+        width: calc(243px / $laptop-st);
         height: calc(25px / $laptop-st);
-        top: calc( 128px / $laptop-st);
-        left: calc( 121px / $laptop-st);
+        top: calc(128px / $laptop-st);
+        left: calc(121px / $laptop-st);
       }
     }
   }
