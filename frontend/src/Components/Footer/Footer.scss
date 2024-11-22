@@ -1,7 +1,7 @@
 @import "/src/Global";
 
-$ls: 1.3; 
-$ts: 50;
+$laptop-st: 1.3; 
+$tablet-st: 1.5;
 
 .footer {
   height: 336px;
@@ -18,11 +18,11 @@ $ts: 50;
   }
 
   @include tablet-style {
-    height: add-perc(415px);
+    height: calc(415px * $tablet-st);
   }
 
   @include laptop-style {
-    height: 336px / $ls;
+    height: calc(336px / $laptop-st);
   }
 
   &__container {
@@ -52,16 +52,16 @@ $ts: 50;
     }
 
     @include tablet-style {
-      grid-template-columns: repeat(4, add-perc(73px));
-      grid-template-rows: add-perc(98px) add-perc(192px) add-perc(29px);
-      gap: add-perc(16px);
-      padding: add-perc(24px) add-perc(16px);
+      grid-template-columns: repeat(4, calc(73px * $tablet-st));
+      grid-template-rows: calc(98px * $tablet-st) calc(192px * $tablet-st) calc(29px * $tablet-st);
+      gap: calc(16px * $tablet-st);
+      padding: calc(24px * $tablet-st) calc(16px * $tablet-st);
     }
 
     @include laptop-style {
-      grid-template-columns: repeat(12, calc(90px / $ls));
-      column-gap: 25px / $ls;
-      padding: 72px / $ls 42px / $ls;
+      grid-template-columns: repeat(12, calc(90px / $laptop-st));
+      column-gap: calc(25px / $laptop-st);
+      padding: calc(72px / $laptop-st) calc(42px / $laptop-st);
       background-position: unset;
       background-size: unset;
       background-repeat: unset;
@@ -87,14 +87,14 @@ $ts: 50;
     }
 
     @include tablet-style {
-      font-size: add-perc(24px);
+      font-size: calc(24px * $tablet-st);
       grid-column: 1/5;
     }
 
     @include laptop-style {
-      left: 27px / $ls;
-      margin-bottom: 67px / $ls;
-      font-size: 40px / $ls;
+      left: calc(27px / $laptop-st);
+      margin-bottom:calc(67px / $laptop-st);
+      font-size: calc(40px / $laptop-st);
     }
 
     &::after {
@@ -117,17 +117,17 @@ $ts: 50;
       }
 
       @include tablet-style {
-        width: add-perc(35px);
-        height: add-perc(40px);
-        left: add-perc(-33px);
-        top: add-perc(-6px);
+        width: calc(35px * $tablet-st);
+        height: calc(40px * $tablet-st);
+        left: calc(-33px * $tablet-st);
+        top: calc(-6px) * $tablet-st;
       }
 
       @include laptop-style {
-        width: 36px / $ls;
-        height: 31px / $ls;
-        left: -25px / $ls;
-        top: -5px / $ls;
+        width: calc(36px / $laptop-st);
+        height: calc(31px / $laptop-st);
+        left: calc(-25px / $laptop-st);
+        top: calc(-5px / $laptop-st);
       }
     }
   }
@@ -146,11 +146,11 @@ $ts: 50;
     }
 
     @include tablet-style {
-      font-size: add-perc(18px);
+      font-size: calc(18px * $tablet-st);
     }
 
     @include laptop-style {
-      font-size: 18px / $ls;
+      font-size: calc(18px / $laptop-st);
     }
   }
 
@@ -175,13 +175,13 @@ $ts: 50;
     }
 
     @include tablet-style {
-      gap: add-perc(16px);
-      font-size: add-perc(18px);
+      gap: calc(16px * $tablet-st);
+      font-size: calc(18px * $tablet-st);
     }
 
     @include laptop-style {
-      gap: 16px / $ls;
-      font-size: 18px / $ls;
+      gap: calc(16px / $laptop-st);
+      font-size: calc(18px / $laptop-st);
     }
   }
 
@@ -196,11 +196,11 @@ $ts: 50;
     background: transparent;
 
     @include tablet-style {
-      gap: add-perc(8px);
+      gap: calc(8px * $tablet-st);
     }
 
     @include laptop-style {
-      gap: 8px / $ls;
+      gap: calc(8px / $laptop-st);
     }
   }
   
@@ -211,11 +211,11 @@ $ts: 50;
     background: transparent;
 
     @include laptop-style {
-      gap: 4px / $ls;
+      gap: calc(4px / $laptop-st);
     }
 
     @include tablet-style {
-      gap: add-perc(4px);
+      gap: calc(4px * $tablet-st);
     }
   }
 
@@ -226,11 +226,11 @@ $ts: 50;
     background: transparent;
 
     @include laptop-style {
-      font-size: 16px / $ls;
+      font-size: calc(16px / $laptop-st);
     }
 
     @include tablet-style { 
-      font-size: add-perc(16px);
+      font-size: calc(16px * $tablet-st);
     }
   }
   
@@ -240,13 +240,13 @@ $ts: 50;
     background: $primary-color;
 
     @include laptop-style {
-      width: 15px / $ls;
-      height: 15px / $ls;
+      width: calc(15px / $laptop-st);
+      height: calc(15px / $laptop-st);
     }
 
     @include tablet-style {
-      width: add-perc(15px);
-      height: add-perc(15px);
+      width: calc(15px * $tablet-st);
+      height: calc(15px * $tablet-st);
     }
   }
 
@@ -264,11 +264,11 @@ $ts: 50;
     }
 
     @include tablet-style {
-      gap: add-perc(8px);
+      gap: calc(8px * $tablet-st);
     }
 
     @include laptop-style {
-      gap: 8px / $ls;
+      gap: calc(8px / $laptop-st);
     }
   }
 
@@ -293,13 +293,13 @@ $ts: 50;
     }
 
     @include tablet-style {
-      font-size: add-perc(16px);
+      font-size: calc(16px) * $tablet-st;
       padding-left: 0;
     }
 
     @include laptop-style {
-      font-size: 16px / $ls;
-      padding-left: 8px / $ls;
+      font-size: calc(16px / $laptop-st );
+      padding-left: calc(8px / $laptop-st);
     }
   }
 
@@ -311,12 +311,12 @@ $ts: 50;
     margin-bottom: 8px;
 
     @include laptop-style {
-      font-size: 18px / $ls;
-      margin-bottom: 8px / $ls;
+      font-size: calc(18px / $laptop-st);
+      margin-bottom: calc(8px / $laptop-st );
     }
 
     @include tablet-style {
-      font-size: add-perc(18px);
+      font-size: calc(18px * $tablet-st);
     }
   }
 }

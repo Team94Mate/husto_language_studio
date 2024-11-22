@@ -118,6 +118,12 @@ export const AboutSchool = () => {
                     alt="ashtag"
                   />
                   <span className="aboutSchool__card-typeSpan">HUSTO</span>
+                  <img
+                    className="aboutSchool__card-typeImg"
+                    src="images/hash(1).svg"
+                    alt="ashtag"
+                  />
+                  <span className="aboutSchool__card-typeSpan">HUSTO</span>
                 </div>
                 <div className="aboutSchool__card-type2">
                   <img

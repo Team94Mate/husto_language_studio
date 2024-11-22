@@ -1,7 +1,7 @@
 @import "/src/Global";
 
-$ts: 50;
-$ls: 1.3;
+$tablet-st: 1.5;
+$laptop-st: 1.3;
 
 .aboutSchool {
   position: relative;
@@ -18,12 +18,12 @@ $ls: 1.3;
   }
 
   @include laptop-style {
-    padding: 72px / $ls 41px / $ls 72px / $ls 43px / $ls;
-    border-radius: 70px / $ls 70px / $ls 0 0;
+    padding: calc(72px / $laptop-st) calc(41px / $laptop-st) calc( 72px / $laptop-st) calc(43px / $laptop-st);
+    border-radius: calc(70px / $laptop-st) calc( 70px / $laptop-st) 0 0;
   }
 
   @include tablet-style {
-    padding: add-perc(24px) add-perc(16px) add-perc(24px) add-perc(16px);
+    padding: calc(24px * $tablet-st)  calc(16px * $tablet-st) calc(24px * $tablet-st) calc(16px * $tablet-st);
   }
   
   &__container {
@@ -39,8 +39,8 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      grid-template-columns: repeat(12, 90px / $ls);
-      column-gap: 25px / $ls;
+      grid-template-columns: repeat(12, calc(90px / $laptop-st));
+      column-gap: calc(25px / $laptop-st);
     }
   }
 
@@ -57,14 +57,14 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      height: 263px / $ls; 
-      margin-bottom:82px / $ls;
+      height: calc(263px / $laptop-st); 
+      margin-bottom: calc(82px / $laptop-st);
     }
 
     @include tablet-style {
-      width: add-perc(342px);
-      height: add-perc(304px);
-      margin-bottom: add-perc(35px);
+      width: calc(342px * $tablet-st)  ;
+      height: calc(304px * $tablet-st);
+      margin-bottom: 35px;
     }
   }
 
@@ -77,8 +77,8 @@ $ls: 1.3;
     background: $white-100;
 
     @include laptop-style {
-      font-size: 40px / $ls; 
-      margin-bottom: 16px / $ls;
+      font-size: calc(40px / $laptop-st); 
+      margin-bottom: calc(40px / $laptop-st);
     }
 
     &-span {
@@ -89,7 +89,7 @@ $ls: 1.3;
       }
 
       @include tablet-style {
-        font-size: add-perc(24px);
+        font-size: calc(24px * $tablet-st) ;
       }
     }
 
@@ -100,9 +100,9 @@ $ls: 1.3;
     }
 
     @include tablet-style {
-      height: add-perc(178px);
-      font-size: add-perc(24px);
-      margin-bottom: add-perc(8px);
+      height: calc(178px * $tablet-st);
+      font-size: calc(24px * $tablet-st) ;
+      margin-bottom: 8px;
     }
   }
 
@@ -126,17 +126,17 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      width: 200px / $ls; 
-      height: 174px / $ls; 
-      left: 138px / $ls; 
-      bottom: 18px / $ls; 
+      width: calc(200px / $laptop-st); 
+      height: calc(174px / $laptop-st); 
+      left: calc(138px / $laptop-st); 
+      bottom: calc(18px / $laptop-st); 
     }
 
     @include tablet-style {
-      width: add-perc(82px);
-      height: add-perc(76px); 
-      left: add-perc( -8px);
-      bottom: add-perc( 71px);
+      width: calc(82px * $tablet-st);
+      height: calc(76px * $tablet-st); 
+      left: calc(-8px * $tablet-st);
+      bottom: calc(71px * $tablet-st);
     }
   }
 
@@ -157,13 +157,13 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      font-size: 32px / $ls;
+      font-size: calc(32px / $laptop-st);
     }
 
     @include tablet-style{
-      font-size: add-perc(16px);
-      width: add-perc(252px);
-      height: add-perc(110px);
+      font-size: calc(16px * $tablet-st);
+      width: calc(252px * $tablet-st);
+      height: calc(110px * $tablet-st);
     }
   }
 
@@ -184,11 +184,11 @@ $ls: 1.3;
 
     @include laptop-style {
       gap: 22px;
-      margin-bottom: 118px / $ls;
+      margin-bottom: calc(118px / $laptop-st);
     }
 
     @include tablet-style {
-      margin-bottom: add-perc(56px);
+      margin-bottom: calc(56px * $tablet-st);
     }
   }
 
@@ -204,21 +204,21 @@ $ls: 1.3;
     border-radius: 24px;
 
     @include phone-style {
-      width: 355px;
+      width: 343px;
       height: 114px;
       padding: 16px 0;
     }
 
     @include laptop-style {
-      width: 355px / $ls;
-      height: 163px / $ls;
-      padding-top: 32px / $ls;
+      width: calc(355px / $laptop-st);
+      height: calc(163px / $laptop-st);
+      padding-top: calc(32px / $laptop-st);
     }
 
     @include tablet-style {
-      width: add-perc(355px);
-      height: add-perc(114px);
-      padding: add-perc(16px) 0;
+      width: calc(343px * $tablet-st);
+      height: calc(114px * $tablet-st);
+      padding: calc(16px * $tablet-st) 0;
     }
    
   }
@@ -231,7 +231,7 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      margin-bottom:53px / $ls;
+      margin-bottom: calc(53px / $laptop-st);
     }
 
   }
@@ -252,16 +252,16 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      width: 94px / $ls;
-      height: 84px / $ls;
-      top: -42px / $ls;
-      left: -31px / $ls;
+      width: calc(94px / $laptop-st) ;
+      height: calc(84px / $laptop-st);
+      top: calc(-42px / $laptop-st);
+      left: calc(-31px / $laptop-st);
     }
 
     @include tablet-style {
-      width: add-perc(56px);
-      height: add-perc(56px);
-      top: add-perc(-27px);
+      width: calc(56px * $tablet-st);
+      height: calc(56px * $tablet-st);
+      top: calc(-42px * $tablet-st);
     }
   }
 
@@ -271,11 +271,11 @@ $ls: 1.3;
     }
 
     @include laptop-style {
-      margin-bottom: 56px / $ls !important;
+      margin-bottom: 56px / $laptop-st !important;
     }
 
     @include tablet-style {
-      margin-bottom: add-perc(56px) !important;
+      margin-bottom: calc(56px * $tablet-st)  !important;
     }
 
     ::after {
@@ -311,24 +311,22 @@ $ls: 1.3;
       }
 
       @include tablet-style {
-        width: add-perc( 174px);
-        height: add-perc(32px);
-        font-size: add-perc(12px);
-        padding: add-perc(
-          8px
-        );
-        left: add-perc(8px);
-        bottom: add-perc(-21px);
-        transform: rotate(add-perc(-4deg));
+        width: calc(174px * $tablet-st);
+        height: calc(32px * $tablet-st);
+        font-size: calc(12px * $tablet-st);
+        padding: calc(8px * $tablet-st);
+        left: calc(8px * $tablet-st);
+        bottom: calc(-21px * $tablet-st);
+        transform: rotate(calc(4deg * $tablet-st));
       }
 
       @include laptop-style {
-        width: 217px / $ls;
-        height: 50px / $ls;
-        font-size: 14px / $ls;
-        padding: 18px / $ls;
-        left: -35px / $ls;
-        bottom: -36px / $ls;
+        width: 217px / $laptop-st;
+        height: 50px / $laptop-st;
+        font-size: 14px / $laptop-st;
+        padding: 18px / $laptop-st;
+        left: -35px / $laptop-st;
+        bottom: -36px / $laptop-st;
       }
     }
 
@@ -355,20 +353,20 @@ $ls: 1.3;
       }
 
       @include laptop-style {
-        width: 63px / $ls;
-        height: 53px / $ls;
-        right: -42px / $ls;
-        bottom: 53px / $ls;
+        width: 63px / $laptop-st;
+        height: 53px / $laptop-st;
+        right: -42px / $laptop-st;
+        bottom: 53px / $laptop-st;
       }
 
       @include tablet-style {
-        width: add-perc(42px);
-        height: add-perc(42px);
+        width: calc(42px * $tablet-st);
+        height: calc(42px * $tablet-st);
         background-image: url('../../../../public/images/Vector-arr-mob.svg');
-        font-size: add-perc(12px);
-        padding: add-perc(8px);
-        right: add-perc(104px);
-        bottom: add-perc(-55px);
+        font-size: calc(12px * $tablet-st);
+        padding: calc(8px * $tablet-st);
+        right: calc(104px * $tablet-st);
+        bottom: calc(-55px * $tablet-st);
       }
     }
   }
@@ -381,11 +379,11 @@ $ls: 1.3;
     }
 
     @include tablet-style {
-      margin-bottom: add-perc(40px) !important;
+      margin-bottom: calc(40px * $tablet-st) !important;
     }
 
     @include laptop-style {
-      margin-bottom: 40px / $ls !important;
+      margin-bottom: calc(40px / $laptop-st) !important;
     }
 
     ::before {
@@ -409,17 +407,17 @@ $ls: 1.3;
       }
 
       @include tablet-style {
-        width: add-perc(48px);
-        height: add-perc(43px);
-        left: add-perc(95px);
-        bottom: add-perc(-39px);
+        width: calc(48px * $tablet-st);
+        height: calc(43px * $tablet-st);
+        left: calc(95px * $tablet-st);
+        bottom: calc(-30px * $tablet-st);
       }
 
       @include laptop-style {
-        width: 48px / $ls;
-        height: 43px / $ls;
-        right: -32px / $ls;
-        bottom: 53px / $ls;
+        width: calc(48px / $laptop-st);
+        height: calc(43px / $laptop-st);
+        right: calc(-32px / $laptop-st);
+        bottom: calc(53px / $laptop-st);
       }
     }
   }
@@ -430,11 +428,11 @@ $ls: 1.3;
     }
 
     @include tablet-style {
-      margin-bottom: add-perc(51px) !important;
+      margin-bottom: calc(51px * $tablet-st) !important;
     }
 
     @include laptop-style {
-      margin-bottom:51px / $ls !important;
+      margin-bottom: calc(51px / $laptop-st) !important;
     }
 
     &::after {
@@ -458,8 +456,6 @@ $ls: 1.3;
       font-weight: bold;
       line-height: 130%;
       color: $black-5;
-      display: flex;
-      place-content: center;
 
      @include phone-style {
       width: 192px;
@@ -472,21 +468,21 @@ $ls: 1.3;
      }
 
      @include tablet-style {
-      width: add-perc(192px);
-      height: add-perc(32px);
-      font-size: add-perc(12px);
-      top: add-perc(98px);
-      transform: rotate(add-perc(4deg));
-      padding: 9px;
+      width: calc(192px * $tablet-st);
+      height: calc(32px * $tablet-st);
+      font-size: calc(12px * $tablet-st);
+      top: calc(98px * $tablet-st);
+      padding: calc(9px * $tablet-st);
+      transform: rotate(calc(4deg * $tablet-st));
      }
 
      @include laptop-style {
-      width: 237px / $ls;
-      height: 50px / $ls;
-      font-size: 14px / $ls;
-      padding: 18px / $ls;
-      top: 150px / $ls;
-      right: -15px / $ls;
+      width: calc(237px / $laptop-st);
+      height: calc(50px / $laptop-st);
+      font-size: calc(14px / $laptop-st);
+      padding: calc(18px / $laptop-st);
+      top: calc(150px / $laptop-st);
+      right: calc(-15px / $laptop-st);
     }
     }
   }
@@ -497,11 +493,11 @@ $ls: 1.3;
     }
 
     @include tablet-style {
-     margin-bottom: add-perc(40px); 
+      margin-bottom: calc(40px * $tablet-st); 
     }
 
     @include laptop-style {
-      margin-bottom:40px / $ls;
+      margin-bottom: calc(40px / $laptop-st);
     }
   }
 
@@ -538,21 +534,21 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(158px);
-      height: add-perc(32px);
-      font-size: add-perc(12px);
-      padding: add-perc(9px);
-      right: add-perc(0);
-      transform: rotate(add-perc(4deg));
+      width: calc(158px * $tablet-st);
+      height: calc(32px * $tablet-st);
+      font-size: calc(12px * $tablet-st);
+      padding: calc(9px * $tablet-st);
+      right: 0;
+      transform: rotate(calc(4deg * $tablet-st));
     }
   
     @include laptop-style {
-      width: 198px / $ls;
-      height: 50px / $ls;
-      font-size: 14px / $ls;
-      padding: 18px / $ls;
-      right: -15px / $ls;
-      top: 140px / $ls;
+      width: calc(198px / $laptop-st);
+      height: calc(50px / $laptop-st);
+      font-size: calc(14px / $laptop-st);
+      padding: calc(18px / $laptop-st);
+      right: calc(-15px / $laptop-st);
+      top: calc(140px / $laptop-st);
     }
   }
   
@@ -571,24 +567,24 @@ $ls: 1.3;
     @include phone-style {
       width: 350px;
       height: 18px;
-      top: 98px;
+      top: 96px;
       right: -8px;
       transform: rotate(4deg);
     }
   
     @include tablet-style {
-      width: add-perc(350px);
-      height: add-perc(18px);
-      top: add-perc(98px);
-      right: add-perc(-8px);
+      width: calc(350px * $tablet-st);
+      height: calc(18px * $tablet-st);
+      top: 140px;
+      right: 9px;
       transform: rotate(6deg);
     }
   
     @include laptop-style {
-      top: 134px / $ls;
-      right: -7px / $ls;
-      width: 407px / $ls;
-      height: 25px / $ls;
+      top:calc( 134px / $laptop-st);
+      right: calc(-7px / $laptop-st);
+      width: calc(407px / $laptop-st);
+      height: calc( 25px / $laptop-st);
     }
   
     &2 {
@@ -612,18 +608,18 @@ $ls: 1.3;
       }
   
       @include tablet-style {
-        width: add-perc(258px);
-        height: add-perc(18px);
-        top: add-perc(84px);
-        right: add-perc(0);
+        width: calc(300px * $tablet-st);
+        height: calc(18px * $tablet-st);
+        top: calc(84px * $tablet-st);
         transform: rotate(-13deg);
+        right: 0;
       }
   
       @include laptop-style {
-        width: 243px / $ls;
-        height: 25px / $ls;
-        top: 128px / $ls;
-        left: 121px / $ls;
+        width: calc( 243px / $laptop-st);
+        height: calc(25px / $laptop-st);
+        top: calc( 128px / $laptop-st);
+        left: calc( 121px / $laptop-st);
       }
     }
   }
@@ -638,13 +634,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(12px);
-      height: add-perc(12px);
+      width: calc(12px * $tablet-st);
+      height: calc(12px * $tablet-st);
     }
   
     @include laptop-style {
-      width: 20px / $ls;
-      height: 17px / $ls;
+      width: calc(20px / $laptop-st);
+      height: calc(17px / $laptop-st);
     }
   }
   
@@ -660,11 +656,11 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      font-size: add-perc(8px);
+      font-size: calc(8px * $tablet-st);
     }
   
     @include laptop-style {
-      font-size:12px / $ls;
+      font-size: calc(12px / $laptop-st);
     }
   }
   
@@ -688,17 +684,17 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(32px);
-      height: add-perc(32px);
-      right: add-perc(162px);
-      bottom: add-perc(30px);
+      width: calc(32px * $tablet-st);
+      height: calc(32px * $tablet-st);
+      right: calc(162px * $tablet-st);
+      bottom: calc(30px * $tablet-st);;
     }
   
     @include laptop-style {
-      width: 51px / $ls;
-      height: 51px / $ls;
-      right: 161px / $ls;
-      bottom: 35px / $ls;
+      width: calc(51px / $laptop-st);
+      height: calc(51px / $laptop-st);
+      right: calc(161px / $laptop-st);
+      bottom: calc(35px / $laptop-st);
     }
   }
   
@@ -713,13 +709,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(20px);
-      height: add-perc(15px);
+      width: calc(20px * $tablet-st);;
+      height: calc(15px * $tablet-st);;
     }
   
     @include laptop-style {
-      width: 33px / $ls;
-      height: 27px / $ls;
+      width: calc(33px / $laptop-st);
+      height: calc(27px / $laptop-st);
     }
   }
 
@@ -743,7 +739,7 @@ $ls: 1.3;
         }
 
         @include tablet-style {
-          transform: rotate(add-perc(4deg));
+          transform: rotate(calc(4deg * $tablet-st));
         }
 
       } @else {
@@ -754,7 +750,7 @@ $ls: 1.3;
         }
 
         @include tablet-style {
-          transform: rotate(add-perc(-4deg));
+          transform: rotate(calc(4deg * $tablet-st));
         }
       }
   
@@ -764,12 +760,12 @@ $ls: 1.3;
       }
   
       @include tablet-style {
-        height: add-perc(114px); 
+        height: calc(114px * $tablet-st); 
       }
   
       @include laptop-style {
-        width:355px / $ls;
-        height:163px / $ls;
+        width: calc(355px / $laptop-st);
+        height: calc(163px / $laptop-st);
       }
     }
   }
@@ -789,13 +785,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(342px); 
-      height: add-perc(114px); 
+      width: calc(342px * $tablet-st); 
+      height: calc(114px * $tablet-st); 
     }
   
     @include laptop-style {
-      width: 355px / $ls;
-      height: 163px / $ls;
+      width: calc(355px / $laptop-st);
+      height: calc(163px / $laptop-st);
     }
   }
   
@@ -812,11 +808,11 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      font-size: add-perc(14px); 
+      font-size: calc(14px * $tablet-st); 
     }
   
     @include laptop-style {
-      font-size:18px / $ls
+      font-size: calc(18px / $laptop-st);
     }
   }
   
@@ -836,13 +832,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      margin: add-perc(4px); 
-      padding: add-perc(4px) add-perc(16px); 
+      margin: calc(4px * $tablet-st); 
+      padding: calc(4px * $tablet-st) calc(16px * $tablet-st); 
     } 
   
     @include laptop-style {
-      margin: calc(8px / $ls);
-      padding: calc(8px / $ls) calc(16px / $ls);
+      margin: calc(8px / $laptop-st);
+      padding: calc(8px / $laptop-st) calc(16px / $laptop-st);
     }
 
     
@@ -850,7 +846,7 @@ $ls: 1.3;
       padding: 4px 24px;
 
       @include laptop-style {
-        padding: 4px / $ls 24px / $ls;
+        padding: calc(4px / $laptop-st) calc(24px / $laptop-st);
       }
       
       @include phone-style {
@@ -892,18 +888,18 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(343px); 
-      height: add-perc(612px); 
+      width: calc(343px * $tablet-st); 
+      height: calc(612px * $tablet-st); 
       grid-column: 1/5;
-      border-radius: add-perc(24px); 
-      padding: add-perc(24px); 
+      border-radius: calc(24px * $tablet-st); 
+      padding: calc(24px * $tablet-st); 
       justify-content: space-between;
-      margin: 0 add-perc(32px) add-perc(32px) add-perc(32px); 
+      margin: 0 calc(32px * $tablet-st) calc(32px * $tablet-st) calc(32px * $tablet-st); 
     }
   
     @include laptop-style {
-      height: 516px / $ls;
-      margin-bottom: 72px / $ls
+      height: calc(516px / $laptop-st);
+      margin-bottom: calc(72px / $laptop-st);
     }
   }
   
@@ -933,11 +929,11 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      font-size: add-perc(14px); 
+      font-size: calc(14px * $tablet-st); 
     }
   
     @include laptop-style {
-      font-size: 16px / $ls
+      font-size: calc(16px / $laptop-st);
     }
   }
   
@@ -951,13 +947,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(32px); 
-      height: add-perc(32px); 
+      width: calc(32px * $tablet-st); 
+      height: calc(32px * $tablet-st); 
     }
   
     @include laptop-style {
-      width: 48px / $ls;
-      height: 43px / $ls;
+      width: calc(48px / $laptop-st);
+      height: calc(43px / $laptop-st);
     }
   }
   
@@ -974,15 +970,15 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      transform: rotate(add-perc(8deg)); 
+      transform: rotate(calc(8deg * $tablet-st)); 
       align-self: flex-start;
     }
   
     @include laptop-style {
-      width: 250px / $ls;
-      height: 43px / $ls;
-      top: 123px / $ls;
-      left:47px / $ls
+      width: calc(250px / $laptop-st);
+      height: calc(43px / $laptop-st);
+      top: calc(123px / $laptop-st);
+      left: calc(47px / $laptop-st);
     }
   }
 
@@ -1000,13 +996,13 @@ $ls: 1.3;
     @include tablet-style {
       transform: rotate(-8deg);
       align-self: flex-end;
-      top: add-perc(237px); 
-      left: add-perc(47px); 
+      top: calc(237px * $tablet-st); 
+      left: calc(47px * $tablet-st); 
     }
   
     @include laptop-style {
-      top: 237px / $ls;
-      left: 47px / $ls
+      top: calc(237px / $laptop-st);
+      left: calc(47px / $laptop-st);
     }
   }
   
@@ -1025,13 +1021,13 @@ $ls: 1.3;
     @include tablet-style {
       transform: rotate(-8deg);
       align-self: flex-end;
-      top: add-perc(315px); 
-      left: add-perc(88px); 
+      top: calc(315px * $tablet-st); 
+      left: calc(88px * $tablet-st); 
     }
   
     @include laptop-style {
-      top: 315px / $ls;
-      left: 88px / $ls
+      top: calc(315px / $laptop-st);
+      left: calc(88px / $laptop-st);
     }
   }
   
@@ -1049,13 +1045,13 @@ $ls: 1.3;
     @include tablet-style {
       transform: rotate(8deg);
       align-self: flex-start;
-      top: add-perc(108px); 
-      right: add-perc(85px); 
+      top:  calc(108px * $tablet-st); 
+      right:  calc(85px * $tablet-st); 
     }
   
     @include laptop-style {
-      top: 108px / $ls;
-      right: 85px / $ls
+      top: calc(108px / $laptop-st);
+      right: calc(85px / $laptop-st);
     }
   }
   
@@ -1073,13 +1069,13 @@ $ls: 1.3;
     @include tablet-style {
       transform: rotate(8deg);
       align-self: flex-start;
-      top: add-perc(223px); 
-      right: add-perc(60px); 
+      top:  calc(223px * $tablet-st); 
+      right:  calc(60px * $tablet-st); 
     }
   
     @include laptop-style {
-      top: 223px / $ls;
-      right: 60px / $ls
+      top: calc(223px / $laptop-st);
+      right: calc(60px / $laptop-st);
     }
   }
   
@@ -1098,13 +1094,13 @@ $ls: 1.3;
     @include tablet-style {
       transform: rotate(-8deg);
       align-self: flex-end;
-      top: add-perc(316px); 
-      right: add-perc(44px); 
+      top: calc(316px * $tablet-st); 
+      right: calc(44px * $tablet-st); 
     }
   
     @include laptop-style {
-      top: 316px / $ls;
-      right: 44px / $ls
+      top: calc(316px / $laptop-st);
+      right: calc(44px / $laptop-st);
     }
   }
 
@@ -1125,11 +1121,11 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      font-size: add-perc(32px); 
+      font-size: calc(32px * $tablet-st); 
     }
   
     @include laptop-style {
-      font-size: 56px / $ls
+      font-size: calc(56px / $laptop-st);
     }
   }
   
@@ -1156,17 +1152,17 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(140px); 
-      height: add-perc(54px); 
-      padding: add-perc(8px) add-perc(16px); 
-      font-size: add-perc(32px); 
+      width: calc(140px * $tablet-st); 
+      height: calc(54px * $tablet-st); 
+      padding: calc(8px * $tablet-st)  calc(16px * $tablet-st); 
+      font-size: calc(32px * $tablet-st); 
     }
   
     @include laptop-style {
-      width: 237px / $ls;
-      height: 83px / $ls;
-      padding: 8px / $ls 16px / $ls;
-      font-size: 56px / $ls;
+      width: calc(237px / $laptop-st);
+      height: calc(83px / $laptop-st);
+      padding: calc(8px / $laptop-st) calc( 16px / $laptop-st);
+      font-size: calc(56px / $laptop-st);
     }
   }
   
@@ -1197,14 +1193,14 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      font-size: add-perc(24px); 
-      margin-bottom: add-perc(16px); 
+      font-size: calc(24px * $tablet-st); 
+      margin-bottom: calc(16px * $tablet-st); 
       width: 550px;
     }
   
     @include laptop-style {
-      font-size: 40px / $ls;
-      margin-bottom: 40px / $ls;
+      font-size: calc(40px / $laptop-st);
+      margin-bottom: calc(40px / $laptop-st);
     }
   }
   
@@ -1240,13 +1236,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      width: add-perc(343px); 
-      height: add-perc(132px); 
+      width:  calc(343px * $tablet-st); 
+      height:  calc(132px * $tablet-st); 
     }
   
     @include laptop-style {
-      width:550px / $ls;
-      height:190px / $ls;
+      width: calc(550px / $laptop-st);
+      height: calc(190px / $laptop-st);
     }
   
     &:nth-of-type(3) {
@@ -1295,16 +1291,16 @@ $ls: 1.3;
       }
   
       @include tablet-style {
-        width: add-perc(182px); 
-        height: add-perc(174px); 
-        font-size: add-perc(160px); 
-        top: add-perc(10px); 
+        width: calc(182px * $tablet-st); 
+        height: calc(174px * $tablet-st); 
+        font-size: calc(160px * $tablet-st); 
+        top: calc(10px * $tablet-st); 
       }
   
       @include laptop-style {
-        width: 245px / $ls;
-        height: 300px / $ls;
-        font-size: 250px / $ls;
+        width: calc(245px / $laptop-st);
+        height: calc(300px / $laptop-st);
+        font-size: calc(250px / $laptop-st);
       }
   
       @if $i == 3 {
@@ -1348,13 +1344,13 @@ $ls: 1.3;
     }
   
     @include tablet-style {
-      font-size: add-perc(14px); 
-      padding: 0 add-perc(24px); 
+      font-size: calc(14px * $tablet-st); 
+      padding: 0 calc(24px * $tablet-st); 
     }
   
     @include laptop-style {
-      font-size: 18px / $ls;
-      padding: 56px / $ls;
+      font-size: calc(18px / $laptop-st);
+      padding: calc(56px / $laptop-st);
     }
   }
 }
