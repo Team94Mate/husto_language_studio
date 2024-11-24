@@ -4,7 +4,7 @@ LABEL authors="comercaleuros@gmail.com"
 WORKDIR /app
 COPY . .
 
-RUN npm run build
+RUN npm install
 
 EXPOSE 3000
 
