@@ -1,6 +1,6 @@
 @import "/src/Global";
 
-$ls: 1.3;
+$laptop-st: 1.3;
 
 .header {
   background-color: $primary-color;
@@ -21,7 +21,7 @@ $ls: 1.3;
 
     @include laptop-style {
       padding: 21px 37px 23px 27px;
-      height: 61px / $ls;
+      height: calc(61px / $laptop-st);
     }
 
     @include tablet-style {
@@ -35,8 +35,8 @@ $ls: 1.3;
     background-color: $primary-color;
 
     @include laptop-style {
-      width: 143px / $ls;
-      height: 61px / $ls;
+      width: calc(143px / $laptop-st);
+      height: calc(61px / $laptop-st);
     }
   }
 
@@ -52,7 +52,7 @@ $ls: 1.3;
     align-items: center;
 
     @include laptop-style {
-      gap: 32px / $ls;
+      gap: calc(32px / $laptop-st);
     }
   }
 
@@ -66,7 +66,7 @@ $ls: 1.3;
     letter-spacing: 1px;
 
     @include laptop-style {
-      font-size: 16px / $ls;
+      font-size: calc(16px / $laptop-st);
       padding: 5px 11px;
     }
 
@@ -89,8 +89,8 @@ $ls: 1.3;
     @include button;
 
     @include laptop-style {
-      width: 163px / $ls;
-      height: 48px / $ls;
+      width: calc(163px / $laptop-st);
+      height: calc(48px / $laptop-st);
       padding-left: 11px;
       padding-right: 5px;
       font-size: 11px;
@@ -101,8 +101,8 @@ $ls: 1.3;
     @include circle-button;
 
     @include laptop-style {
-      width: 34px / $ls;
-      height: 34px / $ls;
+      width: calc(34px / $laptop-st);
+      height: calc(34px / $laptop-st);
     }
   }
 
@@ -110,8 +110,8 @@ $ls: 1.3;
     @include button-image;
 
     @include laptop-style {
-      width: 10px / $ls;
-      height: 10px / $ls;
+      width: calc(10px / $laptop-st);
+      height: calc(10px / $laptop-st);
     }
 
     &--rotate {

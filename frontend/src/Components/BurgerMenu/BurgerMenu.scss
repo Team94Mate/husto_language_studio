@@ -1,6 +1,6 @@
 @import "/src/Global";
 
-$ts: 30;
+$tablet-st: 1.3;
 
 .burgerMenu {
   position: fixed;
@@ -29,7 +29,7 @@ $ts: 30;
     z-index: 100;
 
     @include tablet-style {
-      gap: add-perc(24px);
+      gap: calc(24px * $tablet-st);
     }
   }
 
@@ -41,8 +41,8 @@ $ts: 30;
     gap: 3px;
 
     @include tablet-style {
-      height: add-perc(44px);
-      gap: add-perc(3px);
+      height: calc(44px * $tablet-st);
+      gap: calc(3px) * $tablet-st;
     }
   }
 
@@ -75,17 +75,17 @@ $ts: 30;
       top: 0;
 
       @include tablet-style {
-        background-size: add-perc(74px) add-perc(64px); 
-        width: add-perc(74px);  
-        height: add-perc(64px); 
-        left: add-perc(-7px);
+        background-size: calc(74px * $tablet-st) calc(64px * $tablet-st); 
+        width: calc(74px * $tablet-st);  
+        height: calc(64px * $tablet-st); 
+        left: calc(-7px * $tablet-st);
       }
     }
 
     @include tablet-style {
-      width: add-perc(317px);
-      height: add-perc(98px);
-      font-size: add-perc(88px);
+      width: calc(317px * $tablet-st);
+      height: calc(98px * $tablet-st);
+      font-size: calc(88px * $tablet-st);
     }
   }
 
@@ -94,8 +94,8 @@ $ts: 30;
     height: 22px;
 
     @include tablet-style {
-      width: add-perc(17px);
-      height: add-perc(22px);
+      width: calc(17px * $tablet-st);
+      height: calc(22px * $tablet-st);
     }
   }
 
@@ -105,7 +105,7 @@ $ts: 30;
     color: $white-100;
 
     @include tablet-style {
-      font-size: add-perc(16px);
+      font-size: calc(16px * $tablet-st);
     }
   }
 
@@ -117,7 +117,7 @@ $ts: 30;
     margin-bottom: 26%;
 
     @include tablet-style {
-      gap: add-perc(16px);
+      gap: calc(16px * $tablet-st);
     }
   }
 
@@ -132,9 +132,9 @@ $ts: 30;
     }
 
     @include tablet-style {
-      width: add-perc(343px);
-      height: add-perc(43px);
-      font-size: add-perc(16px);
+      width: calc(343px * $tablet-st);
+      height: calc(43px * $tablet-st);
+      font-size: calc(16px * $tablet-st);
     }
   }
 
@@ -149,8 +149,8 @@ $ts: 30;
     cursor: ns-resize;
 
     @include tablet-style {
-      width: add-perc(343px);
-      height: add-perc(43px);
+      width: calc(343px * $tablet-st);
+      height: calc(43px * $tablet-st);
     }
 
     &::after {
@@ -164,9 +164,9 @@ $ts: 30;
       bottom: 8px;
 
       @include tablet-style {
-        width: add-perc(134px);
-        height: add-perc(5px);
-        bottom: add-perc(8px);
+        width: calc(134px * $tablet-st);
+        height: calc(5px) * $tablet-st;
+        bottom: calc(8px) * $tablet-st;
       }
     }
   }

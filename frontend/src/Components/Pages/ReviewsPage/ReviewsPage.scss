@@ -1,7 +1,7 @@
 @import "/src/Global";
 
-$ls: 1.3;
-$ts: 50;
+$laptop-st: 1.3;
+$tablet-st: 1.5;
 
 .reviewsPage {
   width: 100%;
@@ -26,16 +26,16 @@ $ts: 50;
   }
 
   @include laptop-style {
-    padding: 72px / $ls 43px / $ls 72px / $ls 43px / $ls;
-    gap: 72px / $ls;
-    border-radius: 70px / $ls 70px / $ls 0 0;
+    padding: calc(72px / $laptop-st) calc(43px / $laptop-st) calc(72px / $laptop-st) calc(43px / $laptop-st);
+    gap: calc(72px / $laptop-st);
+    border-radius: calc(70px / $laptop-st) calc(70px / $laptop-st) 0 0;
   }
 
   @include tablet-style {
     width: 100vw;
-    padding: add-perc(24px) add-perc(16px);
-    gap: add-perc(32px);
-    border-radius: add-perc(24px) add-perc(24px) 0 0;
+    padding: calc(24px * $tablet-st) calc(16px * $tablet-st);
+    gap: calc(32px * $tablet-st);
+    border-radius: calc(24px * $tablet-st) calc(24px * $tablet-st) 0 0;
   }
 
   &__title1 {
@@ -45,7 +45,7 @@ $ts: 50;
     color: $primary-color;
 
     @include laptop-style {
-      font-size: 40px / $ls;
+      font-size: calc(40px / $laptop-st);
     }
 
     
@@ -56,8 +56,8 @@ $ts: 50;
     }
 
     @include tablet-style {
-      width: add-perc(295px);
-      font-size: add-perc(24px);
+      width: calc(295px * $tablet-st);
+      font-size: calc(24px * $tablet-st);
     }
   }
 
@@ -73,11 +73,11 @@ $ts: 50;
     padding: 8px 24px;
 
     @include laptop-style {
-      width: 183px / $ls;
-      height: 84px / $ls; 
-      font-size: 40px / $ls;
-      padding: 8px / $ls 24px / $ls;
-      border-radius: 24px / $ls;
+      width: calc(183px / $laptop-st);
+      height: calc(84px / $laptop-st); 
+      font-size: calc(40px / $laptop-st);
+      padding: calc(8px / $laptop-st) calc(24px / $laptop-st);
+      border-radius: calc(24px / $laptop-st);
     }
 
     
@@ -89,9 +89,9 @@ $ts: 50;
     }
 
     @include tablet-style {
-      font-size: add-perc(24px);
-      padding: add-perc(8px) add-perc(16px);
-      border-radius: add-perc(16px);
+      font-size: calc(24px * $tablet-st);
+      padding: calc(8px * $tablet-st) calc(16px * $tablet-st);
+      border-radius: calc(16px * $tablet-st);
     }
   }
 
@@ -114,9 +114,9 @@ $ts: 50;
     }
 
     @include laptop-style {
-      grid-template-columns: repeat(12, 90px / $ls);
-      gap: 25px / $ls;
-      margin-bottom: 42px / $ls;
+      grid-template-columns: repeat(12, calc(90px / $laptop-st));
+      gap: calc( 25px / $laptop-st);
+      margin-bottom: calc(42px / $laptop-st);
     }
   }
 
@@ -135,13 +135,13 @@ $ts: 50;
      }
  
      @include laptop-style {
-       grid-template-columns: repeat(12, 90px / $ls);
-       gap: 25px / $ls;
-       margin-bottom: 42px / $ls;
+       grid-template-columns: repeat(12, calc(90px / $laptop-st));
+       gap: calc(25px / $laptop-st);
+       margin-bottom: calc(42px / $laptop-st);
      }
 
      @include tablet-style {
-      margin-bottom: add-perc(58px);
+      margin-bottom: calc(58px * $tablet-st);
      }
   }
 
@@ -159,17 +159,17 @@ $ts: 50;
     border-radius: 24px 24px 0 0;
   
     @include laptop-style {
-      width: 254px / $ls;
-      height: 336px / $ls;
-      padding: 16px / $ls;
-      border-radius: 24px / $ls 24px / $ls 0 0;
+      width: calc(254px / $laptop-st);
+      height: calc(336px / $laptop-st);
+      padding: calc(16px / $laptop-st);
+      border-radius: calc(24px / $laptop-st) calc(24px / $laptop-st) 0 0;
     }
   
     @include tablet-style {
-      width: add-perc(254px);
-      height: add-perc(336px);
-      padding: add-perc(16px);
-      border-radius: add-perc(24px) add-perc(24px) 0 0;
+      width: calc(254px * $tablet-st);
+      height: calc(336px * $tablet-st);
+      padding: calc(16px * $tablet-st);
+      border-radius: calc(24px * $tablet-st) calc(24px * $tablet-st) 0 0;
     }
   
     &--1 {
@@ -177,11 +177,11 @@ $ts: 50;
       margin-bottom: 145px;
   
       @include laptop-style {
-        margin-bottom: 145px / $ls;
+        margin-bottom: calc(145px / $laptop-st);
       }
   
       @include tablet-style {
-        margin-bottom: add-perc(145px);
+        margin-bottom: calc(145px * $tablet-st);
       }
     }
   
@@ -192,11 +192,11 @@ $ts: 50;
       left: 28%;
   
       @include laptop-style {
-        top: 288px / $ls;
+        top: calc(288px / $laptop-st);
       }
   
       @include tablet-style {
-        top: add-perc(288px);
+        top: calc(288px * $tablet-st);
       }
     }
   
@@ -211,11 +211,11 @@ $ts: 50;
       grid-column: 9/11;
   
       @include laptop-style {
-        top: 192px / $ls;
+        top: calc(192px / $laptop-st);
       }
   
       @include tablet-style {
-        top: add-perc(192px);
+        top: calc(192px * $tablet-st);
       }
     }
   
@@ -237,17 +237,17 @@ $ts: 50;
       left: 3px;
   
       @include laptop-style {
-        width: 249px / $ls;
-        height: 36px / $ls;
-        bottom: -36px / $ls;
-        left: 3px / $ls;
+        width: calc(249px / $laptop-st);
+        height: calc( 36px / $laptop-st);
+        bottom: calc(-36px / $laptop-st);
+        left: calc(3px / $laptop-st);
       }
   
       @include tablet-style {
-        width: add-perc(249px);
-        height: add-perc(36px);
-        bottom: add-perc(-36px);
-        left: add-perc(3px);
+        width: calc(249px * $tablet-st);
+        height: calc(36px * $tablet-st);
+        bottom: calc(-36px * $tablet-st);
+        left: calc(3px * $tablet-st);
       }
     }
   
@@ -266,19 +266,19 @@ $ts: 50;
       }
   
       @include laptop-style {
-        width: 249px / $ls;
-        height: 42px / $ls;
-        bottom: -42px / $ls;
-        left: 3px / $ls;
+        width: calc(249px / $laptop-st);
+        height: calc(42px / $laptop-st);
+        bottom: calc(-42px / $laptop-st);
+        left: calc(3px / $laptop-st);
         background: radial-gradient(circle, transparent 4px, #ADFF00 2px) 0% 110% / 19px 8px repeat-x;
       }
   
       @include tablet-style {
-        width: add-perc(249px);
-        height: add-perc(42px);
-        bottom: add-perc(-41px);
-        left: add-perc(3px);
-        background: radial-gradient(circle, transparent add-perc(4px), $secondary-color add-perc(6px)) 2% 107% / add-perc(24px) add-perc(8px) repeat-x;
+        width: calc(249px * $tablet-st);
+        height: calc(42px * $tablet-st);
+        bottom: calc(-41px * $tablet-st);
+        left: calc(3px * $tablet-st);
+        background: radial-gradient(circle, transparent calc(4px * $tablet-st), $secondary-color calc(6px * $tablet-st)) 2% 107% / calc(24px * $tablet-st) calc(8px * $tablet-st) repeat-x;
       }
     }
   
@@ -310,11 +310,11 @@ $ts: 50;
     color: $white-100;
   
     @include laptop-style {
-      font-size: 16px / $ls;
+      font-size: calc(16px / $laptop-st);
     }
   
     @include tablet-style {
-      font-size: add-perc(16px);
+      font-size: calc(16px * $tablet-st);
     }
   }
   
@@ -325,11 +325,11 @@ $ts: 50;
     color: $white-100;
   
     @include laptop-style {
-      font-size: 14px / $ls;
+      font-size: calc(14px / $laptop-st);
     }
   
     @include tablet-style {
-      font-size: add-perc(14px);
+      font-size: calc(14px * $tablet-st);
     }
   }
   
@@ -339,13 +339,13 @@ $ts: 50;
     margin-bottom: 16px;
   
     @include laptop-style {
-      gap: 8px / $ls;
-      margin-bottom: 16px / $ls;
+      gap: calc(8px / $laptop-st);
+      margin-bottom: calc(16px / $laptop-st);
     }
   
     @include tablet-style {
-      gap: add-perc(8px);
-      margin-bottom: add-perc(16px);
+      gap: calc(8px * $tablet-st);
+      margin-bottom: calc(16px * $tablet-st);
     }
   }
   
@@ -354,13 +354,13 @@ $ts: 50;
     height: 40px;
   
     @include laptop-style {
-      width: 40px / $ls;
-      height: 40px / $ls;
+      width: calc(40px / $laptop-st);
+      height: calc(40px / $laptop-st);
     }
   
     @include tablet-style {
-      width: add-perc(40px);
-      height: add-perc(40px);
+      width: calc(40px * $tablet-st);
+      height: calc(40px * $tablet-st);
     }
   }
   
@@ -389,21 +389,21 @@ $ts: 50;
       box-shadow: inset 0 5px 0 rgba(0, 0, 0, 0.2);
   
       @include laptop-style {
-        bottom: -37px / $ls;
-        width: 56px / $ls;
-        height: 58px / $ls;
-        border-radius: 35px / $ls;
-        font-size: 14px / $ls;
-        box-shadow: inset 0 5px / $ls 0 rgba(0, 0, 0, 0.2);
+        bottom: calc( -37px / $laptop-st);
+        width: calc(56px / $laptop-st);
+        height: calc(58px / $laptop-st);
+        border-radius: calc(35px / $laptop-st);
+        font-size: calc( 14px / $laptop-st);
+        box-shadow: inset 0 calc(5px / $laptop-st) 0 rgba(0, 0, 0, 0.2);
       }
   
       @include tablet-style {
-        bottom: add-perc(-37px);
-        width: add-perc(56px);
-        height: add-perc(58px);
-        border-radius: add-perc(35px);
-        font-size: add-perc(14px);
-        box-shadow: inset 0 add-perc(5px) 0 rgba(0, 0, 0, 0.2);
+        bottom: calc(-37px * $tablet-st);
+        width: calc(56px * $tablet-st);
+        height: calc(58px * $tablet-st);
+        border-radius: calc(35px * $tablet-st);
+        font-size: calc(14px * $tablet-st);
+        box-shadow: inset 0 calc(5px * $tablet-st) 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
@@ -415,11 +415,11 @@ $ts: 50;
     color: $white-100;
   
     @include laptop-style {
-      font-size: 14px / $ls;
+      font-size: calc(14px / $laptop-st);
     }
   
     @include tablet-style {
-      font-size: add-perc(14px);
+      font-size: calc(14px * $tablet-st);
     }
   }
   
@@ -428,13 +428,13 @@ $ts: 50;
     height: 12px;
   
     @include laptop-style {
-      width: 14px / $ls;
-      height: 12px / $ls;
+      width: calc(14px / $laptop-st);
+      height: calc(12px / $laptop-st);
     }
   
     @include tablet-style {
-      width: add-perc(14px);
-      height: add-perc(12px);
+      width: calc(14px * $tablet-st);
+      height: calc(12px * $tablet-st);
     }
   }
 
@@ -453,9 +453,9 @@ $ts: 50;
     }
 
     @include tablet-style {
-      height: add-perc(44px);
-      gap: add-perc(8px);
-      margin-bottom: add-perc(32px);
+      height: calc(44px * $tablet-st);
+      gap: calc(8px * $tablet-st);
+      margin-bottom: calc(32px * $tablet-st);
     }    
   }
 
@@ -470,8 +470,8 @@ $ts: 50;
     }
 
     @include tablet-style {
-      width: add-perc(8px);
-      height: add-perc(8px);
+      width: calc(8px);
+      height: calc(8px);
     }
   }
   
@@ -489,7 +489,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      column-gap: calc(25px / $ls);
+      column-gap: calc(25px / $laptop-st);
     }
   }
 
@@ -504,7 +504,7 @@ $ts: 50;
     }
 
     @include laptop-style {
-      gap: calc(56px / $ls);
+      gap: calc(56px / $laptop-st);
     }
   }
 
@@ -521,12 +521,12 @@ $ts: 50;
     }
 
     @include tablet-style {
-      font-size: add-perc(24px);
-      margin-bottom: add-perc(16px);
+      font-size: calc(24px * $tablet-st);
+      margin-bottom: calc(16px * $tablet-st);
     }
 
     @include laptop-style {
-      font-size: calc(40px / $ls);
+      font-size: calc(40px / $laptop-st);
     }
   }
 
@@ -544,12 +544,12 @@ $ts: 50;
 
     @include tablet-style {
       width: 100%;
-      font-size: add-perc(16px);
-      margin-bottom: add-perc(24px);
+      font-size: calc(16px * $tablet-st);
+      margin-bottom: calc(24px * $tablet-st);
     }
 
     @include laptop-style {
-      font-size: calc(24px / $ls);
+      font-size: calc(24px / $laptop-st);
     }
   }
 
@@ -561,7 +561,7 @@ $ts: 50;
     color: $primary-color;
 
     @include laptop-style {
-      font-size: calc(18px / $ls);
+      font-size: calc(18px / $laptop-st);
     }
   }
 
@@ -572,7 +572,7 @@ $ts: 50;
     color: $black-5;
 
     @include laptop-style {
-      font-size: calc(18px / $ls);
+      font-size: calc(18px / $laptop-st);
     }
   }
 
@@ -586,11 +586,11 @@ $ts: 50;
     }
 
     @include tablet-style {
-      gap: add-perc(4px);
+      gap: calc(4px * $tablet-st);
     }
 
     @include laptop-style {
-      gap: calc(4px / $ls);
+      gap: calc(4px / $laptop-st);
     }
   }
 
@@ -612,13 +612,13 @@ $ts: 50;
     }
 
     @include tablet-style {
-      width: add-perc(343px);
-      margin-bottom: add-perc(24px);
+      width: calc(343px * $tablet-st);
+      margin-bottom: calc(24px * $tablet-st);
     }
 
     @include laptop-style {
-      width: calc(666px / $ls);
-      gap: calc(16px / $ls);
+      width: calc(666px / $laptop-st);
+      gap: calc(16px / $laptop-st);
     }
   }
 
@@ -629,14 +629,14 @@ $ts: 50;
     border-bottom: 1px solid $gray-30;
 
     @include laptop-style {
-      padding-bottom: calc(22px / $ls);
+      padding-bottom: calc(22px / $laptop-st);
     }
 
     &--open {
       padding-bottom: 16px;
 
       @include laptop-style {
-        padding-bottom: calc(16px / $ls);
+        padding-bottom: calc(16px / $laptop-st);
       }
     }
   }
@@ -645,7 +645,7 @@ $ts: 50;
     padding-bottom: 16px;
 
     @include laptop-style {
-      padding-bottom: calc(16px / $ls);
+      padding-bottom: calc(16px / $laptop-st);
     }
   }
 
@@ -661,8 +661,8 @@ $ts: 50;
     color: $black-5;
 
     @include laptop-style {
-      width: calc(252px / $ls);
-      font-size: calc(16px / $ls);
+      width: calc(252px / $laptop-st);
+      font-size: calc(16px / $laptop-st);
     }
   }
 
@@ -672,8 +672,8 @@ $ts: 50;
     cursor: pointer;
 
     @include laptop-style {
-      width: calc(20px / $ls);
-      height: calc(20px / $ls);
+      width: calc(20px / $laptop-st);
+      height: calc(20px / $laptop-st);
     }
   }
 
@@ -694,8 +694,8 @@ $ts: 50;
     margin-top: 14px;
 
     @include laptop-style {
-      font-size: calc(14px / $ls);
-      margin-top: calc(14px / $ls);
+      font-size: calc(14px / $laptop-st);
+      margin-top: calc(14px / $laptop-st);
     }
   }
 

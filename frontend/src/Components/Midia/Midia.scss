@@ -1,7 +1,5 @@
 @import "/src/Global";
-
-$ls: 1.6; 
-
+ 
 .Midia {
   @include phone-style {
     display: none !important;
