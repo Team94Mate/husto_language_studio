@@ -164,7 +164,10 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://husto-language-studio-frontend.onrender.com",
+]
 
 # Deploying settings
 SECURE_HSTS_SECONDS = 31536000
