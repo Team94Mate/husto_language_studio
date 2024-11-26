@@ -30,7 +30,11 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your_fallback_secret_key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "husto-language-studio.onrender.com",
+]
 
 # Application definition
 
