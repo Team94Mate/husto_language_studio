@@ -1,4 +1,4 @@
-const BASE_URL = 'https://husto-language-studio.onrender.com/';
+const BASE_URL = 'https://husto-language-studio.onrender.com/api/';
 
 function wait(delay: number) {
   return new Promise(resolve => {
