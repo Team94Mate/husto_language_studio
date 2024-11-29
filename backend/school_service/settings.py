@@ -172,7 +172,12 @@ SPECTACULAR_SETTINGS = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://husto-language-studio-frontend.onrender.com",
-    "https://husto-language-studio.onrender.com"
+    "https://husto-language-studio.onrender.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://husto-language-studio.onrender.com",
+    "https://husto-language-studio-frontend.onrender.com",
 ]
 
 # Deploying settings
