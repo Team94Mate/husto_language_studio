@@ -67,19 +67,19 @@ $card-color: #1D8A86;
 }
 
 @mixin laptop-style {
-  @media(min-width: 962px) and (max-width: 1399px) {
+  @media screen and (min-width: 962px) and (max-width: 1399px) {
     @content;
   }
 };
 
-@mixin phone-style {
-  @media(max-width: 961px) {
+@mixin  phone-style {
+  @media screen and (max-width: 961px) {
     @content;
   }
 };
 
 @mixin tablet-style {
-  @media (min-width: 576px) and (max-width: 961px) {
+  @media screen and (min-width: 576px) and (max-width: 961px) {
     @content;
   }
 };

@@ -54,6 +54,7 @@ $tablet-st: 1.2;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: $primary-color;
+    box-sizing: border-box;
 
     @include laptop-style {
       width: calc(1125px / $laptop-st);
