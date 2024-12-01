@@ -36,7 +36,7 @@ $tablet-st: 1.5;
    display: grid;
    grid-template-columns: repeat(12, 90px);
    gap: 25px;
-   place-content: center;
+   justify-content: center;
 
    background-image: url('../../../../public/images/FrameNet\(1\).svg');
    background-position: top center;
@@ -47,7 +47,6 @@ $tablet-st: 1.5;
      width: 100%;
      grid-template-columns: repeat(4, 73px);
      gap: 16px;
-     place-content: center;
      background-position: top left;
      background-size: 234%;
      margin: 0;
