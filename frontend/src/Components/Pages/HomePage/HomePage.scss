@@ -44,8 +44,8 @@ $tablet-st: 1.5;
    background-size: 100%;
 
    @include phone-style {
-     width: 100%;
-     grid-template-columns: repeat(4, 73px);
+     width: 375px;
+     grid-template-columns: repeat(4, 20%);
      gap: 16px;
      background-position: top left;
      background-size: 234%;
@@ -60,6 +60,7 @@ $tablet-st: 1.5;
    }
 
    @include tablet-style {
+      width: 100%;
       grid-template-columns: repeat(4, calc(73px * $tablet-st));
       gap: calc(16px * $tablet-st);
       justify-content: center;
