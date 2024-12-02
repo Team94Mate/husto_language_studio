@@ -9,7 +9,7 @@ $tablet-st: 1.5;
   justify-content: center;
 
   @include phone-style {
-    height: 472px;
+    height: 440px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,8 +28,13 @@ $tablet-st: 1.5;
    width: 100%;
    height: 725px;
    margin: 0 42px 0 43px;
+   place-content: center;
   
    background-color: $primary-color;
+
+   @supports (-webkit-touch-callout: none) {
+    place-content: unset;
+  }
 
    display: grid;
    grid-template-columns: repeat(12, 90px);
@@ -46,7 +51,8 @@ $tablet-st: 1.5;
      gap: 16px;
      background-position: top left;
      background-size: 234%;
-     margin: auto;
+     height: 100%;
+     margin: 0;
      padding: 16px 16px 0;
    }
 
