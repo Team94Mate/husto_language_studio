@@ -12,7 +12,6 @@ $tablet-st: 1.5;
     height: 440px;
     display: flex;
     flex-direction: column;
-    padding: 16px 16px 0;
     align-items: center;
   }
 
@@ -44,12 +43,13 @@ $tablet-st: 1.5;
    background-size: 100%;
 
    @include phone-style {
-     width: 375px;
+     width: 100%;
      grid-template-columns: repeat(4, 20%);
      gap: 16px;
      background-position: top left;
      background-size: 234%;
      margin: 0;
+    padding: 16px 16px 0;
    }
 
    @include laptop-style {
