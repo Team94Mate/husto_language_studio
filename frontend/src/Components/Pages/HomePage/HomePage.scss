@@ -32,10 +32,6 @@ $tablet-st: 1.5;
   
    background-color: $primary-color;
 
-   @supports (-webkit-touch-callout: none) {
-    place-content: unset;
-  }
-
    display: grid;
    grid-template-columns: repeat(12, 90px);
    gap: 25px;
@@ -52,9 +48,14 @@ $tablet-st: 1.5;
      background-position: top left;
      background-size: 234%;
      height: 100%;
-     margin: 0 auto;
+     margin: 0;
      padding: 16px 16px 0;
-     justify-content: center;
+
+     @supports (-webkit-touch-callout: none) {
+      place-content: unset;
+      left: 50%;
+      transform: translate(-50%);
+    }
    }
 
    @include laptop-style {
