@@ -115,7 +115,7 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
         """Create a new contact message and send an email"""
         # Use the current time as default if 'submitted_at' is not provided
         current_time = datetime.now(pytz.timezone("Europe/Kiev")).strftime(
-            "%Y-%m-%dT%H:%M:%S"
+            "%Y-%m-%d %H:%M:%S"
         )
         username = request.data.get("username")
         question = request.data.get("question")
