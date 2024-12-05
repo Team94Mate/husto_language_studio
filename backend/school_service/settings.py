@@ -195,6 +195,7 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = "husto_messages@ukr.net"
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "Celery <naincygupta100@gmail.com>"
+EMAIL_RECEIVER = "comercaleuros@gmail.com"
 
 
 # Deploying settings
