@@ -39,7 +39,6 @@ $tablet-st: 1.5;
   
   &__container {
    position: relative;
-   width: calc(100% - 32px);
    height: 725px;
    background-color: $primary-color;
 
@@ -116,6 +115,7 @@ $tablet-st: 1.5;
     grid-column: 1/6;
     background: transparent;
     letter-spacing: 2px;
+    text-wrap: nowrap;
 
     @include phone-style {
       grid-column: 1/5;
@@ -174,7 +174,7 @@ $tablet-st: 1.5;
   }
 
   &__husto {
-    text-align: center;
+    position: relative;
     font-family: NeueBold, sans-serif;
     font-size: 300px;
     font-weight: bold;
@@ -211,6 +211,41 @@ $tablet-st: 1.5;
       left: calc(14px * $tablet-st); 
       top: calc(21px * $tablet-st);
     }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 254px;
+      height: 220px;
+      top: 35%;
+      left: 91%;
+      transform: rotate(-19deg);
+    
+      background-image: url('../../../../public/images/Header-aroow1(new).svg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+
+      @include phone-style {
+        width: 45px;
+        height: 39px;
+        transform: rotate(-18deg);
+        top: 56%;
+        left: 82%
+      }
+    
+      @include laptop-style {
+        width: calc(254px / $laptop-st);
+        height: calc(220px / $laptop-st);
+      }
+    
+      @include tablet-style {
+        width: calc(45px * $tablet-st);
+        height: calc(39px * $tablet-st);
+        transform: rotate(-18deg);
+      }
+    }
   }
   
   &__hash {
@@ -244,47 +279,6 @@ $tablet-st: 1.5;
       left: calc(-12px * $tablet-st);
       top: calc(24px * $tablet-st);
     }
-  }
-  
-  &__box-arrow1 {
-    width: 254px;
-    height: 220px;
-    grid-column: 9 / 12;
-    position: absolute;
-    top: 33%;
-    left: 42%;
-    transform: rotate(-19deg);
-  
-    background-image: url('../../../../public/images/Header-aroow1(new).svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  
-    @include phone-style {
-      width: 45px;
-      height: 39px;
-      grid-column: 4 / 5;
-      transform: rotate(-18deg);
-      top: 80px;
-    }
-  
-    @include laptop-style {
-      width: calc(254px / $laptop-st);
-      height: calc(220px / $laptop-st);
-    }
-  
-    @include tablet-style {
-      width: calc(45px * $tablet-st);
-      height: calc(39px * $tablet-st);
-      grid-column: 4 / 5;
-      transform: rotate(-18deg);
-      top: calc(80px * $tablet-st);
-      // left: calc(33px * $tablet-st);
-    }
-  }
-  
-  &__big-arrow1 {
-    background: transparent;
   }
   
   &__box-arrow2 {

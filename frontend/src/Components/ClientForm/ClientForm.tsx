@@ -103,8 +103,7 @@ export const ClientForm = () => {
       <div className="ClientForm__container">
         <h1 className="ClientForm__title">
           <img className="ClientForm__hash" src="images/hash(1).svg" />
-          Ваша подорож до англійської мови <br />
-          починається тут
+          Ваша подорож до англійської мови починається тут
         </h1>
         <div className="ClientForm__items">
           <div className="ClientForm__features">

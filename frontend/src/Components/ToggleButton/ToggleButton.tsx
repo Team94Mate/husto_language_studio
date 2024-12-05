@@ -1,9 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import './ToggleButton.scss';
 import { StorageContext } from '../../storage/StorageContext';
 import cn from 'classnames';
 import classNames from 'classnames';
 import { getCourses } from '../../api/api';
+import { useSwipe } from '../../utils/useSwipe';
 
 export interface CursProp {
   id: number;
@@ -48,6 +49,16 @@ export const ToggleButton = () => {
     getCourses().then(setCurses);
   }, []);
 
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+
+  const {
+    handleTouchStart: touchStart,
+    handleTouchMove: touchMove,
+    handleTouchEnd: touchEnd,
+    currentCardIndex: dotIndex,
+    handleDotClick: dotClick,
+  } = useSwipe({ ref: sliderRef });
+
   return (
     <div className="toggleButton">
       <div className="toggleButton__buttons">
@@ -70,7 +81,13 @@ export const ToggleButton = () => {
       </div>
 
       {toggleButton === 'en' ? (
-        <div className="toggleButton__content">
+        <div
+          className="toggleButton__content"
+          onTouchStart={touchStart}
+          onTouchMove={touchMove}
+          onTouchEnd={touchEnd}
+          ref={sliderRef}
+        >
           {enCourses.map(cours => (
             <div className="toggleButton__card" key={cours.price}>
               <h1 className="toggleButton__card-title">{cours.title}</h1>
@@ -133,7 +150,13 @@ export const ToggleButton = () => {
           ))}
         </div>
       ) : (
-        <div className="toggleButton__content">
+        <div
+          className="toggleButton__content"
+          onTouchStart={touchStart}
+          onTouchMove={touchMove}
+          onTouchEnd={touchEnd}
+          ref={sliderRef}
+        >
           {uaCourses.map(course => (
             <div className="toggleButton__card" key={course.price}>
               <h1 className="toggleButton__card-title">{course.title} </h1>
@@ -198,6 +221,18 @@ export const ToggleButton = () => {
           ))}
         </div>
       )}
+
+      <div className="toggleButton__dots toggleButton__dots--hw">
+        {[...Array(3)].map((_, index) => (
+          <div
+            key={index}
+            className={classNames('toggleButton__dot', {
+              'is-active': dotIndex === index,
+            })}
+            onClick={() => dotClick(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

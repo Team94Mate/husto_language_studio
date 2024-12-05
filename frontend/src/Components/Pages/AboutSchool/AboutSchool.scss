@@ -13,7 +13,7 @@ $laptop-st: 1.3;
 
   @include phone-style {
     border-radius: 24px 24px 0 0;
-    padding: 35px 16px 32px;
+    padding: 35px 16px 16px;
   }
 
   @include laptop-style {
@@ -22,7 +22,7 @@ $laptop-st: 1.3;
   }
 
   @include tablet-style {
-    padding: calc(24px * $tablet-st)  calc(16px * $tablet-st) calc(24px * $tablet-st) calc(16px * $tablet-st);
+    padding: calc(24px * $tablet-st)  calc(16px * $tablet-st) calc(16px * $tablet-st);
   }
   
   &__container {
@@ -52,7 +52,7 @@ $laptop-st: 1.3;
     @include phone-style {
       width: 343px;
       height: 304px;
-      margin-bottom: 35px;
+      margin-bottom: 0px;
     }
 
     @include laptop-style {
@@ -63,7 +63,7 @@ $laptop-st: 1.3;
     @include tablet-style {
       width: calc(342px * $tablet-st)  ;
       height: calc(304px * $tablet-st);
-      margin-bottom: 35px;
+      margin-bottom: calc(8px * $tablet-st);
     }
   }
 
@@ -169,6 +169,7 @@ $laptop-st: 1.3;
     }
   }
 
+
   &__cards {
     position: relative;
     grid-column: 2/12;
@@ -177,11 +178,19 @@ $laptop-st: 1.3;
     gap: 30px;
     justify-content: center;
     margin-bottom: 118px;
-
+   
 
     @include phone-style {
-      gap: 0;
-      margin-bottom: 56px;
+      width: 343px;
+      height: 169px;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-bottom: 0;
+      overflow-x: hidden;
+      justify-content: flex-start;
+      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch;
     }
 
     @include laptop-style {
@@ -190,7 +199,11 @@ $laptop-st: 1.3;
     }
 
     @include tablet-style {
-      margin-bottom: calc(56px * $tablet-st);
+      width: calc(343px * $tablet-st);
+      height: 273px;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
     }
   }
 
@@ -205,11 +218,13 @@ $laptop-st: 1.3;
     height: 163px;
     background-color: #F2F2F2;
     border-radius: 24px;
-
+    flex: 0 0 auto; 
+  
     @include phone-style {
       width: 343px;
       height: 114px;
       padding: 16px 0;
+      scroll-snap-align: start;
     }
 
     @include laptop-style {
@@ -236,7 +251,6 @@ $laptop-st: 1.3;
     @include laptop-style {
       margin-bottom: calc(53px / $laptop-st);
     }
-
   }
 
   &__card-img1 {
@@ -270,17 +284,6 @@ $laptop-st: 1.3;
 
   &__card--1 {
     z-index: 10;
-    @include phone-style {
-      margin-bottom: 56px !important;
-    }
-
-    @include laptop-style {
-      margin-bottom: calc(56px / $laptop-st) !important;
-    }
-
-    @include tablet-style {
-      margin-bottom: calc(56px * $tablet-st)  !important;
-    }
 
     ::after {
       content: 'Простір вашого розвитку';
@@ -349,11 +352,7 @@ $laptop-st: 1.3;
       background-repeat: no-repeat;
 
       @include phone-style {
-        background-image: url('../../../../public/images/Vector-arr-mob.svg');
-        font-size: 12px;
-        padding: 8px;
-        right: 104px;
-        bottom: -55px;
+        display: none;
       }
 
       @include laptop-style {
@@ -377,14 +376,7 @@ $laptop-st: 1.3;
 
   &__card--2 {
     z-index: 9;
-    @include phone-style {
-      margin-bottom: 40px !important;
-    }
-
-    @include tablet-style {
-      margin-bottom: calc(40px * $tablet-st) !important;
-    }
-
+   
     @include laptop-style {
       margin-bottom: calc(40px / $laptop-st) !important;
     }
@@ -404,16 +396,7 @@ $laptop-st: 1.3;
 
 
       @include phone-style {
-        left: 95px;
-        bottom: -39px;
-        transform: rotate(89.86deg);
-      }
-
-      @include tablet-style {
-        width: calc(48px * $tablet-st);
-        height: calc(43px * $tablet-st);
-        left: calc(95px * $tablet-st);
-        bottom: calc(-39px * $tablet-st);
+        display: none;
       }
 
       @include laptop-style {
@@ -426,14 +409,6 @@ $laptop-st: 1.3;
   }
 
   &__card--3 {
-    @include phone-style {
-      margin-bottom: 51px !important;
-    }
-
-    @include tablet-style {
-      margin-bottom: calc(51px * $tablet-st) !important;
-    }
-
     @include laptop-style {
       margin-bottom: calc(51px / $laptop-st) !important;
     }
@@ -491,14 +466,6 @@ $laptop-st: 1.3;
   }
 
   &__card--4 {
-    @include phone-style {
-     margin-bottom: 40px; 
-    }
-
-    @include tablet-style {
-      margin-bottom: calc(40px * $tablet-st); 
-    }
-
     @include laptop-style {
       margin-bottom: calc(40px / $laptop-st);
     }
@@ -819,6 +786,51 @@ $laptop-st: 1.3;
       font-size: calc(18px / $laptop-st);
     }
   }
+
+  &__dots {
+    width: 100%;
+    height: 44px;
+    display: none;
+   
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+
+
+    @include phone-style {
+      display: flex; 
+      height: 44px;
+      margin-bottom: 24px;
+
+      &--hw {
+        margin-bottom: 0;
+      }
+    }
+
+    @include tablet-style {
+      height: calc(44px * $tablet-st);
+      gap: calc(8px * $tablet-st);
+      margin-bottom: calc(24px * $tablet-st);
+    }
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    background-color: $gray-30;
+    border-radius: 50px;
+
+    &.is-active {
+      background-color: $black-5;
+    }
+
+    @include tablet-style {
+      width: calc(8px * $tablet-st);
+      height: calc(8px * $tablet-st);
+    }
+  }
   
   &__span {
     display: inline-block;
@@ -888,7 +900,7 @@ $laptop-st: 1.3;
       border-radius: 24px;
       padding: 24px;
       justify-content: space-between;
-      margin: 0 16px 32px;
+      margin: 0 16px 24px;
     }
   
     @include tablet-style {
@@ -1215,7 +1227,25 @@ $laptop-st: 1.3;
     gap: 25px;
 
     @include phone-style {
+      width: 343px;
+      flex-wrap: nowrap;
+      flex-direction: row;
       gap: 16px;
+      overflow-x: hidden;
+      justify-content: flex-start;
+      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 8px;
+    }
+
+    @include tablet-style {
+      width: calc(343px * $tablet-st); 
+      flex-wrap: nowrap;
+      flex-direction: row;
+      overflow-x: hidden;
+      justify-content: flex-start;
+      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch;
     }
   
     @include laptop-style {
@@ -1233,11 +1263,13 @@ $laptop-st: 1.3;
     border-radius: 32px;
     overflow: hidden;
     z-index: 10;
+    scroll-snap-align: start;
   
     @include phone-style {
       width: 343px;
       height: 132px;
       border-radius: 24px;
+      flex: 0 0 auto;
     }
   
     @include tablet-style {
