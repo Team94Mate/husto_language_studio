@@ -1,10 +1,8 @@
-# my_app/tasks.py
-from django.contrib.auth import get_user_model
 from celery import shared_task
 from django.core.mail import send_mail
 from school_service import (
     settings,
-)  # Adjust the import according to your project structure
+)
 
 
 @shared_task(bind=True)
