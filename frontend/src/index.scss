@@ -13,3 +13,8 @@
 html {
   scroll-behavior: smooth !important;
 }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

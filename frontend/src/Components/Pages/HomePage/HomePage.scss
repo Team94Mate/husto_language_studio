@@ -8,12 +8,13 @@ $tablet-st: 1.5;
   display: flex;
   justify-content: center;
 
+
   @include phone-style {
-    height: 440px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 16px 16px 0;
     align-items: center;
+    justify-content: start;
   }
 
   @include tablet-style {
@@ -22,34 +23,44 @@ $tablet-st: 1.5;
     flex-direction: column;
     align-items: center;
     height: calc(440px * $tablet-st);
-    padding: calc(16px * $tablet-st) calc(16px * $tablet-st) 0 calc(16px * $tablet-st);
+  }
+
+  &__wrapper {
+    height: 100%;
+
+    @include phone-style {
+      height: 354px;
+    }
+
+    @include tablet-style {
+      height: calc(354px * 1.5);
+    }
   }
   
   &__container {
    position: relative;
-   width: 100%;
+   width: calc(100% - 32px);
    height: 725px;
-   margin: 0 42px 0 43px;
-  
    background-color: $primary-color;
 
    display: grid;
    grid-template-columns: repeat(12, 90px);
    gap: 25px;
-   place-content: center;
 
    background-image: url('../../../../public/images/FrameNet\(1\).svg');
    background-position: top center;
    background-repeat: no-repeat;
    background-size: 100%;
 
+  
+
    @include phone-style {
      width: 100%;
      grid-template-columns: repeat(4, 73px);
      gap: 16px;
-     justify-content: center;
      background-position: top left;
      background-size: 234%;
+     height: 100%;
      margin: 0;
    }
 
@@ -61,12 +72,14 @@ $tablet-st: 1.5;
    }
 
    @include tablet-style {
+      width: 100%;
       grid-template-columns: repeat(4, calc(73px * $tablet-st));
       gap: calc(16px * $tablet-st);
       justify-content: center;
       background-position: top left;
       background-size: 293%;
       margin: 0;
+      padding: calc(16px * $tablet-st) calc(16px * $tablet-st) 0 calc(16px * $tablet-st);
    }
   }
 
@@ -79,15 +92,17 @@ $tablet-st: 1.5;
     cursor: pointer;
 
     @include phone-style {
-      display: block;
+      display: grid;
       width: 32px;
       height: 32px;
+      margin: 16px 0 16px 16px;
     }
 
     @include tablet-style {
       display: block;
       width: calc(32px * $tablet-st);
       height: calc(32px * $tablet-st);
+      margin: calc(16px * $tablet-st) 0 calc(16px * $tablet-st) calc(16px * $tablet-st);
     }
   }
 
@@ -106,7 +121,7 @@ $tablet-st: 1.5;
       grid-column: 1/5;
       font-size: 16px;
       left: 0;
-      top: 24px;
+      top: 8px;
       letter-spacing: 1;
     }
 
@@ -119,7 +134,7 @@ $tablet-st: 1.5;
       grid-column: 1/5;
       font-size: calc(16px * $tablet-st);
       left: 0;
-      top: calc(24px * $tablet-st);
+      top: calc(8px * $tablet-st);
       letter-spacing: 1;
     }
   }
@@ -141,7 +156,7 @@ $tablet-st: 1.5;
       grid-column: 1 / 5;
       letter-spacing: 0;
       font-size: 17px;
-      top: 132px;
+      top: 116px;
       text-align: end;
     }
 
@@ -153,7 +168,7 @@ $tablet-st: 1.5;
       grid-column: 1 / 5;
       letter-spacing: 0;
       font-size: calc(17px * $tablet-st);
-      top: calc(132px * $tablet-st);
+      top: calc(116px * $tablet-st);
       text-align: end;
     }
   }
@@ -173,10 +188,15 @@ $tablet-st: 1.5;
     z-index: 2;
   
     @include phone-style {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 345px;
+      height: 105px;
       grid-column: 1 / 5;
       font-size: 88px;
-      left: 51px;
-      top: 27px;
+      left: 14px;
+      top: 21px;
     }
   
     @include laptop-style {
@@ -184,10 +204,12 @@ $tablet-st: 1.5;
     }
   
     @include tablet-style {
+      width: calc(345px * $tablet-st); 
+      height: calc(105px * $tablet-st); 
       grid-column: 1 / 5;
       font-size: calc(88px * $tablet-st); 
-      left: calc(51px * $tablet-st); 
-      top: calc(27px * $tablet-st);
+      left: calc(14px * $tablet-st); 
+      top: calc(21px * $tablet-st);
     }
   }
   
@@ -207,7 +229,7 @@ $tablet-st: 1.5;
       height: 78px;
       grid-column: 1 / 3;
       left: -12px;
-      top: 42px;
+      top: 24px;
     }
   
     @include laptop-style {
@@ -220,7 +242,7 @@ $tablet-st: 1.5;
       height: calc(78px * $tablet-st); 
       grid-column: 1 / 3;
       left: calc(-12px * $tablet-st);
-      top: calc(42px * $tablet-st);
+      top: calc(24px * $tablet-st);
     }
   }
   
@@ -243,8 +265,7 @@ $tablet-st: 1.5;
       height: 39px;
       grid-column: 4 / 5;
       transform: rotate(-18deg);
-      top: 97px;
-      left: 33px;
+      top: 80px;
     }
   
     @include laptop-style {
@@ -257,8 +278,8 @@ $tablet-st: 1.5;
       height: calc(39px * $tablet-st);
       grid-column: 4 / 5;
       transform: rotate(-18deg);
-      top: calc(97px * $tablet-st);
-      left: calc(33px * $tablet-st);
+      top: calc(80px * $tablet-st);
+      // left: calc(33px * $tablet-st);
     }
   }
   
@@ -283,7 +304,7 @@ $tablet-st: 1.5;
       width: 52px;
       height: 36px;
       grid-column: 1 / 3;
-      top: 116px;
+      top: 97px;
       left: 32px;
     }
   
@@ -296,7 +317,7 @@ $tablet-st: 1.5;
       width: calc(52px * $tablet-st);
       height: calc(36px * $tablet-st);
       grid-column: 1 / 3;
-      top: 175px;;
+      top: calc(97px * $tablet-st);
       left: calc(32px * $tablet-st);
     }
   }
@@ -466,7 +487,7 @@ $tablet-st: 1.5;
     @include phone-style {
       font-size: 16px;
       grid-column: 1 / 5;
-      top: 161px;
+      top: 145px;
       letter-spacing: 0;
     }
   
@@ -477,7 +498,7 @@ $tablet-st: 1.5;
     @include tablet-style {
       font-size: calc(16px * $tablet-st);
       grid-column: 1 / 5;
-      top: calc(161px * $tablet-st);     
+      top: calc(145px * $tablet-st);     
       letter-spacing: 0; 
     }
   }
@@ -501,7 +522,7 @@ $tablet-st: 1.5;
         width: 343px;
         height: 40px;
         left: 0;
-        top: 304px;
+        top: 288px;
         background: $primary-color;
         color: $white-100;
         border: 1px solid $white-100;
@@ -510,7 +531,7 @@ $tablet-st: 1.5;
       @include tablet-style {
         grid-column: 1 / 5;
         width: calc(343px * $tablet-st);
-        top: calc(304px * $tablet-st);
+        top: calc(288px * $tablet-st);
         left: 50%;
         transform: translate(-50%);
       }
@@ -543,13 +564,13 @@ $tablet-st: 1.5;
         width: 343px;
         height: 40px;
         left: 0;
-        top: 248px;
+        top: 232px;
         grid-column: 1 / 5;
       }
   
       @include tablet-style {
         width: calc(343px * $tablet-st);
-        top: calc(248px * $tablet-st);
+        top: calc(232px * $tablet-st);
         grid-column: 1 / 5;
         left: 50%;
         transform: translate(-50%);

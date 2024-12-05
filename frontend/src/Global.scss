@@ -13,27 +13,27 @@ $card-color: #1D8A86;
 
 @font-face {
   src: url('./fonts/NeueMontreal-Bold.ttf');
-  font-family: NeueBold;
+  font-family: 'NeueBold';
 }
 
 @font-face {
   src: url('./fonts/NeueMontreal-Medium.ttf');
-  font-family: NeueMedium;
+  font-family: 'NeueMedium';
 }
 
 @font-face {
   src: url('./fonts/NeueMontreal-Regular.ttf');
-  font-family: NeueRegular;
+  font-family: 'NeueRegular';
 }
 
 @font-face {
   src: url('./fonts/Comic_Sans_MS.ttf');
-  font-family: ComicSansBold;
+  font-family: 'ComicSansBold';
 }
 
 @font-face {
   src: url('./fonts/Comic_Sans_MS.ttf');
-  font-family: ComicSansRegular;
+  font-family: 'ComicSansRegular';
 }
 
 @mixin button {
@@ -67,19 +67,19 @@ $card-color: #1D8A86;
 }
 
 @mixin laptop-style {
-  @media(min-width: 962px) and (max-width: 1399px) {
+  @media screen and (min-width: 962px) and (max-width: 1399px) {
     @content;
   }
 };
 
-@mixin phone-style {
-  @media(max-width: 961px) {
+@mixin  phone-style {
+  @media screen and (max-width: 961px) {
     @content;
   }
 };
 
 @mixin tablet-style {
-  @media (min-width: 576px) and (max-width: 961px) {
+  @media screen and (min-width: 576px) and (max-width: 961px) {
     @content;
   }
 };

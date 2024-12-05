@@ -5,7 +5,7 @@
 Husto Language Studio is an English school website that provides information about courses, registration options, pricing, feedback, and an FAQ section.
 
 ## Discover the website!
-[Check it out!](some_link)
+[Check it out!](https://husto-language-studio-frontend.onrender.com/)
 
 
 ## Technologies used:
