@@ -189,8 +189,7 @@ export const ReviewsPage = () => {
         <div className="ClientForm__container">
           <h1 className="ClientForm__title">
             <img className="ClientForm__hash" src="images/hash(1).svg" />
-            Ваша подорож до англійської мови <br />
-            починається тут
+            Ваша подорож до англійської мови починається тут
           </h1>
           <div className="ClientForm__items">
             <div className="ClientForm__features">
@@ -544,13 +543,8 @@ export const ReviewsPage = () => {
             {isClicked[6] && (
               <div className="reviewsPage__hiddenP">
                 {'Придбавши місячний абонемент, ви отримуєте '}
-                <b>8</b>
-                {' або '}
-                <b>9</b>
-                {' занять.'}
                 <br />
-                {'Кількість занять змінюється в залежності від '}
-                {'кількості днів у конкретному місяці.'}
+                {' 8 занять.'}
               </div>
             )}
           </div>

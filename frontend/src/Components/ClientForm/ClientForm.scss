@@ -131,6 +131,7 @@ $tablet-st: 1.2;
     color: $secondary-color;
     margin-bottom: 24px;
     background: transparent;
+    
 
     @include laptop-style {
       font-size: calc(30px / $laptop-st);

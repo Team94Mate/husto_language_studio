@@ -12,7 +12,7 @@ $tablet-st: 1.5;
   padding: 0;
   
   @include phone-style {
-    height: 415px;
+    height: 394px;
     background-size: 300%;
     padding: 0 16px;
   }
@@ -43,12 +43,12 @@ $tablet-st: 1.5;
 
 
     @include phone-style {
-      height: 100%;
       display: grid;
+      place-content: center;
       grid-template-columns: repeat(4, 73px);
       grid-template-rows: 98px 192px 29px;
       gap: 16px;
-      padding: 32px 0;
+      padding: 0;
     }
 
     @include tablet-style {
@@ -255,12 +255,12 @@ $tablet-st: 1.5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
     background: transparent;
 
     @include phone-style {
       grid-column: 1/3;
       grid-row: 2;
+      gap: 8px;
     }
 
     @include tablet-style {
@@ -281,7 +281,7 @@ $tablet-st: 1.5;
     padding-left: 8px;
     transition: background-color 0.3s, color 0.3s;
     background: transparent;
-
+    
     &:hover {
       border-radius: 24px;
       background-color: #1D8A86;

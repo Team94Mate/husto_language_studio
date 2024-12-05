@@ -1,6 +1,29 @@
+// import { useEffect, useRef, useState } from 'react';
 import './AboutSchool.scss';
+import classNames from 'classnames';
+import { useSwipe } from '../../../utils/useSwipe';
+import { useRef } from 'react';
 
 export const AboutSchool = () => {
+  const firstSliderRef = useRef<HTMLDivElement | null>(null);
+  const secondSliderRef = useRef<HTMLDivElement | null>(null);
+
+  const {
+    currentCardIndex: firstIndex,
+    handleTouchStart: firstTouchStart,
+    handleTouchMove: firstTouchMove,
+    handleTouchEnd: firstTouchEnd,
+    handleDotClick: firstDotClick,
+  } = useSwipe({ ref: firstSliderRef });
+
+  const {
+    currentCardIndex: secondIndex,
+    handleTouchStart: secondTouchStart,
+    handleTouchMove: secondTouchMove,
+    handleTouchEnd: secondTouchEnd,
+    handleDotClick: secondDotClick,
+  } = useSwipe({ ref: secondSliderRef });
+
   return (
     <div className="aboutSchool" id="aboutSchool">
       <div className="aboutSchool__backround">
@@ -26,7 +49,13 @@ export const AboutSchool = () => {
             </p>
           </div>
 
-          <div className="aboutSchool__cards">
+          <div
+            className="aboutSchool__cards"
+            onTouchStart={firstTouchStart}
+            onTouchMove={firstTouchMove}
+            onTouchEnd={firstTouchEnd}
+            ref={firstSliderRef}
+          >
             <div
               className="aboutSchool__card 
               aboutSchool__card--1 animation left"
@@ -185,6 +214,18 @@ export const AboutSchool = () => {
             </div>
           </div>
 
+          <div className="aboutSchool__dots">
+            {[...Array(5)].map((_, index) => (
+              <div
+                key={index}
+                className={classNames('aboutSchool__dot', {
+                  'is-active': firstIndex === index,
+                })}
+                onClick={() => firstDotClick(index)}
+              />
+            ))}
+          </div>
+
           <div className="aboutSchool__open-for">
             <div className="aboutSchool__block">
               <h1 className="aboutSchool__heading">
@@ -263,7 +304,13 @@ export const AboutSchool = () => {
             <h1 className="aboutSchool__how-works-title animation left">
               Як це працює:
             </h1>
-            <div className="aboutSchool__how-works-cards">
+            <div
+              className="aboutSchool__how-works-cards"
+              onTouchStart={secondTouchStart}
+              onTouchMove={secondTouchMove}
+              onTouchEnd={secondTouchEnd}
+              ref={secondSliderRef}
+            >
               <div className="aboutSchool__how-works-card  animation left">
                 <p
                   className="aboutSchool__how-works-p 
@@ -298,6 +345,18 @@ export const AboutSchool = () => {
                   Визначення <br /> персональної програми <br /> для навчання
                 </p>
               </div>
+            </div>
+
+            <div className="aboutSchool__dots aboutSchool__dots--hw">
+              {[...Array(4)].map((_, index) => (
+                <div
+                  key={index}
+                  className={classNames('aboutSchool__dot', {
+                    'is-active': secondIndex === index,
+                  })}
+                  onClick={() => secondDotClick(index)}
+                />
+              ))}
             </div>
           </div>
         </div>
