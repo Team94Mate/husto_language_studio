@@ -8,11 +8,11 @@ from school_service import (
 MESSAGE = """\
 Hello there!
 
-You have received a new question submission
+You have received a new question submission:
 
-Question submitted at: {submitted_at}
 User: {username}
 Question: {question}
+Time: {submitted_at}
 
 
 Happy teaching,
