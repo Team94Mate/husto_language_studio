@@ -112,10 +112,15 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """Create a new contact message and send an email"""
+        username = request.data.get("username")
+        question = request.data.get("question")
+        submitted_at = request.data.get("submitted_at")
+
+        send_mail_func(
+            username=username, question=question, submitted_at=submitted_at
+        )
+
         response = super().create(request, *args, **kwargs)
-
-        send_mail_func()
-
         return response
 
 
