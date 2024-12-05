@@ -2,6 +2,8 @@ from rest_framework import viewsets
 from rest_framework.permissions import BasePermission
 from drf_spectacular.utils import extend_schema
 from rest_framework.response import Response
+from django.http import HttpResponse
+
 
 from english_school.models import (
     Teacher,
@@ -15,6 +17,7 @@ from english_school.serializers import (
     ReviewSerializer,
     ContactMessageSerializer,
 )
+from english_school.tasks import send_mail_func
 
 
 class IsAdminOrReadOnly(BasePermission):
@@ -106,3 +109,21 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+    def create(self, request, *args, **kwargs):
+        """Create a new contact message and send an email"""
+        username = request.data.get("username")
+        question = request.data.get("question")
+        submitted_at = request.data.get("submitted_at")
+
+        send_mail_func(
+            username=username, question=question, submitted_at=submitted_at
+        )
+
+        response = super().create(request, *args, **kwargs)
+        return response
+
+
+def send_mail_to_all(request):
+    send_mail_func()
+    return HttpResponse("Sent Email Successfully...Check your mail please")

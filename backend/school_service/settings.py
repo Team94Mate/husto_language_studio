@@ -180,6 +180,23 @@ CSRF_TRUSTED_ORIGINS = [
     "https://husto-language-studio-frontend.onrender.com",
 ]
 
+# Email Celery settings
+CELERY_BROKER_URL = "amqp://guest@localhost:5672//"
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_SERIALIZER = "json"
+CELERY_TIMEZONE = "Asia/Kolkata"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.ukr.net"
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "husto_messages@ukr.net"
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = "Celery <naincygupta100@gmail.com>"
+
+
 # Deploying settings
 
 SECURE_HSTS_SECONDS = 31536000
