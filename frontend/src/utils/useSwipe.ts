@@ -8,7 +8,7 @@ type SwipeOptions = {
 export const useSwipe = (options?: SwipeOptions) => {
   const { ref: externalRef, onSwipeEnd } = options || {};
   const internalRef = useRef<HTMLDivElement | null>(null);
-  const sliderRef = externalRef || internalRef; // Use provided ref or create one internally
+  const sliderRef = externalRef || internalRef;
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   let startX = 0;
@@ -30,7 +30,7 @@ export const useSwipe = (options?: SwipeOptions) => {
     }
   };
 
-  const SWIPE_THRESHOLD = 50; // pixel
+  const SWIPE_THRESHOLD = 50;
 
   const handleTouchEnd = () => {
     if (sliderRef.current) {
@@ -39,17 +39,13 @@ export const useSwipe = (options?: SwipeOptions) => {
 
       const movedDistance = slider.scrollLeft - scrollLeft;
 
-      // Only change index if swipe distance exceeds threshold
       const newIndex =
         Math.abs(movedDistance) > SWIPE_THRESHOLD
           ? Math.round(slider.scrollLeft / cardWidth)
           : currentCardIndex;
 
-      // const newIndex = Math.round(slider.scrollLeft / cardWidth);
-
       slider.scrollTo({
         left: newIndex * cardWidth,
-        behavior: 'smooth',
       });
 
       setCurrentCardIndex(newIndex);
@@ -67,7 +63,6 @@ export const useSwipe = (options?: SwipeOptions) => {
 
       sliderRef.current.scrollTo({
         left: index * cardWidth,
-        behavior: 'smooth',
       });
 
       setCurrentCardIndex(index);
