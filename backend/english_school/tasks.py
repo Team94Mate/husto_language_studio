@@ -5,25 +5,33 @@ from school_service import (
 )
 
 
+MESSAGE = """\
+Hello there!
+
+You have received a new question submission:
+
+User: {username}
+Question: {question}
+Time: {submitted_at}
+
+
+Happy teaching,
+The English School System
+"""
+
+
 @shared_task(bind=True)
 def send_mail_func(self, username, question, submitted_at):
-    mail_subject = f"You have a new message from {username}"
-    message = (
-        f"Hello there!\n\n"
-        f"You have received a new question submission:\n"
-        f"Question Submitted At: {submitted_at}\n"
-        f"User: {username}\n"
-        f"Question: {question}\n\n"
-        f"Happy learning,\n"
-        f"The English School System"
+    mail_subject = f"You have a new message from: {username}"
+    message = MESSAGE.format(
+        submitted_at=submitted_at, username=username, question=question
     )
-    to_email = "comercaleuros@gmail.com"
 
     send_mail(
         subject=mail_subject,
         message=message,
         from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[to_email],
+        recipient_list=[settings.EMAIL_RECEIVER],
         fail_silently=False,
     )
     return "Email Sent"

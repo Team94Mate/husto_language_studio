@@ -3,7 +3,8 @@ from rest_framework.permissions import BasePermission
 from drf_spectacular.utils import extend_schema
 from rest_framework.response import Response
 from django.http import HttpResponse
-
+from datetime import datetime
+import pytz
 
 from english_school.models import (
     Teacher,
@@ -112,9 +113,13 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """Create a new contact message and send an email"""
+        # Use the current time as default if 'submitted_at' is not provided
+        current_time = datetime.now(pytz.timezone("Europe/Kiev")).strftime(
+            "%Y-%m-%d %H:%M:%S"
+        )
         username = request.data.get("username")
         question = request.data.get("question")
-        submitted_at = request.data.get("submitted_at")
+        submitted_at = request.data.get("submitted_at", current_time)
 
         send_mail_func(
             username=username, question=question, submitted_at=submitted_at
