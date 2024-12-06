@@ -47,8 +47,6 @@ $tablet-st: 1.5;
    background-position: top center;
    background-repeat: no-repeat;
    background-size: 100%;
-   z-index: 1000;
-
 
    display: grid;
    grid-template-columns: repeat(12, 90px);
@@ -71,7 +69,6 @@ $tablet-st: 1.5;
    }
 
    @include tablet-style {
-      width: 100%;
       gap: 0;
       background-position: top left;
       background-size: 293%;
@@ -280,6 +277,7 @@ $tablet-st: 1.5;
     width: 244px;
     height: 216px;
     grid-column: 2 / 4;
+
   
     position: absolute;
     top: 18%;
@@ -289,8 +287,8 @@ $tablet-st: 1.5;
   
     @include phone-style {
       width: 89px;
-      height: 78px;
-      left: -12px;
+      height: 58px;
+      left: 11px;
       top: 24px;
     }
   

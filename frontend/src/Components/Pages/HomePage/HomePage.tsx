@@ -72,7 +72,7 @@ export const HomePage = () => {
             <img
               className="homePage__hash"
               alt="hashtag icon"
-              src="images/hash(1).svg"
+              src="images/CutedHeader.png"
             />
           </div>
 
