@@ -68,11 +68,13 @@ export const HomePage = () => {
 
           <p className="homePage__advanced animation right">Advanced</p>
           <h1 className="homePage__husto animation top">HUSTO</h1>
-          <img
-            className="homePage__hash animation left"
-            alt="hashtag icon"
-            src="images/hash(1).svg"
-          />
+          <div className="homePage__hash-box animation left">
+            <img
+              className="homePage__hash"
+              alt="hashtag icon"
+              src="images/hash(1).svg"
+            />
+          </div>
 
           <div className="homePage__box-arrow1 animation right"></div>
           <div className="homePage__box-arrow2 animation left"></div>

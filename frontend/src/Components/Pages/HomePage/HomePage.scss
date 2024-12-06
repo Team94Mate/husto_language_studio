@@ -144,6 +144,7 @@ $tablet-st: 1.5;
     font-family: NeueBold, sans-serif;
     color: $secondary-color;
     background: transparent;
+    letter-spacing: 2px;
 
     @include phone-style {
       letter-spacing: 0;
@@ -218,8 +219,8 @@ $tablet-st: 1.5;
         width: 45px;
         height: 39px;
         transform: rotate(-18deg);
-        top: 56%;
-        left: 82%
+        top: 54%;
+        left: 84%;
       }
     
       @include laptop-style {
@@ -234,15 +235,15 @@ $tablet-st: 1.5;
       }
     }
   }
-  
-  &__hash {
+
+  &__hash-box {
     width: 244px;
     height: 216px;
     grid-column: 2 / 4;
   
     position: absolute;
-    top: 17%;
-    left: -16%;
+    top: 18%;
+    left: -28%;
     background: transparent;
     z-index: 3;
   
@@ -271,11 +272,10 @@ $tablet-st: 1.5;
     height: 220px;
     position: absolute;
     top: 49%;
-    left: 0%;
+    left: -4%;
     grid-column: 4 / 7;
   
-    background-size: cover;
-    background-image: url('../../../../public/images/Header-arrow2.svg');
+    background-image: url('../../../../public/images/Header-arrow2\(1\).svg');
     background-position: center;
     background-repeat: no-repeat;
   
@@ -283,12 +283,14 @@ $tablet-st: 1.5;
       width: 52px;
       height: 36px;
       top: 97px;
-      left: 32px;
+      left: 29px;
+      background-size: cover;
     }
   
     @include laptop-style {
       width: calc(254px / $laptop-st);
       height: calc(220px / $laptop-st);
+      background-size: cover;
     }
   
     @include tablet-style {
