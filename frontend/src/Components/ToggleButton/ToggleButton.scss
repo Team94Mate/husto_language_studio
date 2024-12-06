@@ -162,6 +162,7 @@ $tablet-st: 1.5;
       flex-wrap: nowrap;
       scroll-snap-type: x mandatory; 
       -webkit-overflow-scrolling: touch;
+      margin-bottom: 8px;
     }
 
     @include laptop-style {
@@ -386,7 +387,7 @@ $tablet-st: 1.5;
     @include tablet-style {
       height: calc(44px * $tablet-st);
       gap: calc(8px * $tablet-st);
-      margin-bottom: calc(32px * $tablet-st);
+      margin-bottom: 0;
     }
   }
 

@@ -66,16 +66,16 @@ $tablet-st: 1.2;
     @include phone-style {
       position: relative;
       width: 343px;
-      height: 644px;
+      height: 532px;
       border-radius: 24px;
-      padding: 24px 24px 16px;
+      padding: 12px 24px 16px;
     }
 
     @include tablet-style {
       width: calc(343px * $tablet-st);
-      height: calc(644px * $tablet-st);
+      height: calc(532px * $tablet-st);
       border-radius: calc(24px * $tablet-st);
-      padding: calc(24px * $tablet-st) calc(24px * $tablet-st) calc(16px * $tablet-st) calc(24px * $tablet-st);
+      padding: calc(12px * $tablet-st) calc(24px * $tablet-st) calc(16px * $tablet-st) calc(24px * $tablet-st);
     }
   }
 
@@ -139,6 +139,7 @@ $tablet-st: 1.2;
     }
 
     @include phone-style {
+      height: 99px;
       font-size: 24px;
       width: 100%;
       margin-bottom: 16px;
@@ -244,19 +245,7 @@ $tablet-st: 1.2;
     }
 
     @include phone-style {
-      width: 173px;
-      height: 81px;
-      position: absolute;
-      bottom: 16px;
-      align-self: center;
-    }
-
-    @include tablet-style {
-      width: calc(173px * $tablet-st);
-      height: calc(81px * $tablet-st);
-      position: absolute;
-      bottom: calc(16px * $tablet-st);
-      align-self: center;
+      display: none;
     }
   }
 
