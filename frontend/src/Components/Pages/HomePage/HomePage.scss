@@ -151,11 +151,8 @@ $tablet-st: 1.5;
     z-index: 2;
   
     @include phone-style {
-      width: 274px;
+      width: 275px;
       height: 105px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       grid-column: 1 / 5;
       font-size: 88px;
       left: 48px;
