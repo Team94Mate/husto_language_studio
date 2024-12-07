@@ -17,7 +17,6 @@ $tablet-st: 1.5;
   }
 
   @include tablet-style {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,26 +52,27 @@ $tablet-st: 1.5;
    gap: 25px;
 
    @include phone-style {
-    display: flex;
+    grid-template-columns: repeat(4, 73px);
+    gap: 16px;
     background-position: top left;
     background-size: 234%;
     height: 100%;
     margin: 0;
-    gap: 0;
    }
 
    @include laptop-style {
       height: calc(725px / $laptop-st);
       grid-template-columns: repeat(12, calc(90px / $laptop-st));
       gap: calc(25px / $laptop-st);
-      margin: 0 calc(42px / $laptop-st) 0 calc(43px / $laptop-st);
    }
 
    @include tablet-style {
-      gap: 0;
-      background-position: top left;
-      background-size: 293%;
-      margin: 0;
+    width: 100%;
+    grid-template-columns: repeat(4, calc(73px * $tablet-st));
+    gap: calc(16px * $tablet-st);
+    background-position: top left;
+    background-size: 293%;
+    margin: 0;
    }
   }
 
@@ -112,6 +112,7 @@ $tablet-st: 1.5;
     text-wrap: nowrap;
 
     @include phone-style {
+      grid-column: 1/5;
       font-size: 16px;
       left: 0;
       top: 8px;
@@ -123,6 +124,7 @@ $tablet-st: 1.5;
     }
 
     @include tablet-style {
+      grid-column: 1/5;
       font-size: calc(16px * $tablet-st);
       left: 0;
       top: calc(8px * $tablet-st);
@@ -130,71 +132,50 @@ $tablet-st: 1.5;
     }
   }
 
-  &__h1 {
-    grid-column: 5/13;
-    width: 100%;
-    text-align: end;
-    position: absolute;
-    bottom: 27%;
-    font-size: 48px;
-    font-weight: bold;
-    font-family: NeueBold, sans-serif;
-    color: $secondary-color;
-    background: transparent;
-    letter-spacing: 2px;
-
-    @include phone-style {
-      letter-spacing: 0;
-      font-size: 17px;
-      top: 116px;
-      text-align: end;
-    }
-
-    @include laptop-style {
-      font-size: calc(48px / $laptop-st);
-    }
-
-    @include tablet-style {
-      font-size: calc(17px * $tablet-st);
-      top: 172px;
-      text-align: end;
-    }
-  }
-
   &__husto {
+    height: 360px;
+    width: 1125px;
     position: relative;
     font-family: NeueBold, sans-serif;
     font-size: 300px;
     font-weight: bold;
-    grid-column: 3 / 11;
-    top: 12.5%;
-    left: -3%;
+    grid-column: 3 / 12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 130px;
+    right: 115px;
     color: $white-100;
     letter-spacing: -0.05em;
     background: transparent;
     z-index: 2;
   
     @include phone-style {
+      width: fit-content;
+      height: 105px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 345px;
-      height: 105px;
+      grid-column: 1 / 5;
       font-size: 88px;
-      left: 14px;
+      left: 48px;
       top: 21px;
     }
   
     @include laptop-style {
+      width: calc(1125px / $laptop-st);
+      height: calc(360px / $laptop-st);
       font-size: calc(300px / $laptop-st);
+      left: -81px;
+      top: calc(130px / $laptop-st);
     }
   
     @include tablet-style {
-      width: calc(345px * $tablet-st); 
+      grid-column: 1 / 5;
       height: calc(105px * $tablet-st); 
       font-size: calc(88px * $tablet-st); 
-      left: calc(14px * $tablet-st); 
-      top: calc(21px * $tablet-st);
+      left: 75px;
+      top: 32.5px;
     }
 
     &::before {
@@ -202,8 +183,8 @@ $tablet-st: 1.5;
       content: '';
       width: 254px;
       height: 220px;
-      top: 22%;
-      left: 94%;
+      top: 35%;
+      left: 83%;
       transform: rotate(-19deg);
     
       background-image: url('../../../../public/images/Header-aroow1(new).svg');
@@ -216,8 +197,8 @@ $tablet-st: 1.5;
         width: 45px;
         height: 39px;
         transform: rotate(-18deg);
-        top: 54%;
-        left: 84%;
+        top: 55%;
+        left: 91%;
       }
     
       @include laptop-style {
@@ -239,8 +220,8 @@ $tablet-st: 1.5;
       width: 254px;
       height: 220px;
       position: absolute;
-      top: 37%;
-      left: 15%;
+      top: 63%;
+      left: 20%;
       grid-column: 4 / 7;
       z-index: -1;
     
@@ -253,7 +234,7 @@ $tablet-st: 1.5;
         width: 52px;
         height: 36px;
         top: 77px;
-        left: 15px;
+        left: -20px;
         z-index: -1;
         background-size: cover;
       }
@@ -262,14 +243,48 @@ $tablet-st: 1.5;
         width: calc(254px / $laptop-st);
         height: calc(220px / $laptop-st);
         background-size: cover;
+        top: 63%;
+        left: 17%;
       }
     
       @include tablet-style {
         width: calc(52px * $tablet-st);
         height: calc(36px * $tablet-st);
         top: 115px;
-        left: 23px;
+        left: -31px;
       }
+    }
+  }
+
+  &__h1 {
+    grid-column: 5/13;
+    width: 100%;
+    text-align: end;
+    position: absolute;
+    bottom: 27%;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: NeueBold, sans-serif;
+    color: $secondary-color;
+    background: transparent;
+    letter-spacing: 2px;
+
+    @include phone-style {
+      grid-column: 1 / 5;
+      letter-spacing: 0;
+      font-size: 17px;
+      top: 115px;
+      text-align: end;
+    }
+
+    @include laptop-style {
+      font-size: calc(48px / $laptop-st);
+    }
+
+    @include tablet-style {
+      font-size: calc(17px * $tablet-st);
+      top: 172px;
+      text-align: end;
     }
   }
 
@@ -278,30 +293,52 @@ $tablet-st: 1.5;
     height: 216px;
     grid-column: 2 / 4;
 
-  
     position: absolute;
-    top: 18%;
-    left: -28%;
+    top: 17%;
+    left: -25%;
     background: transparent;
     z-index: 3;
-  
+
     @include phone-style {
+      grid-column: 1 / 3;
       width: 89px;
       height: 58px;
-      left: 11px;
-      top: 24px;
+      left: 2px;
+      top: 35px
     }
   
     @include laptop-style {
       width: calc(244px / $laptop-st);
       height: calc(244px / $laptop-st);
+      top: 15%;
+      left: -28%;
+      letter-spacing: 0;
     }
   
     @include tablet-style {
+      grid-column: 1 / 3;
       width: calc(89px * $tablet-st);   
       height: calc(78px * $tablet-st); 
-      top: 34px;
-      left: -19px;
+      top: 52px;
+      left: 6px;
+    }
+  }
+
+  &__hash {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-image: url('../../../../public/images/hash\(1\).svg');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+
+    @include phone-style {
+      background-image: url('../../../../public/images/CutedHeader.png');
+      background-position: inherit;
+      background-size: 58%;
+      background-repeat: no-repeat;
     }
   }
   
@@ -468,8 +505,9 @@ $tablet-st: 1.5;
     color: $white-100;
   
     @include phone-style {
+      grid-column: 1 / 5;
       font-size: 16px;
-      top: 145px;
+      top: 146px;
       letter-spacing: 0;
     }
   
@@ -478,6 +516,7 @@ $tablet-st: 1.5;
     }
   
     @include tablet-style {
+      grid-column: 1 / 5;
       font-size: calc(16px * $tablet-st);
       top: 225.5px;   
       letter-spacing: 0; 
@@ -499,6 +538,7 @@ $tablet-st: 1.5;
       @include button;
   
       @include phone-style {
+        grid-column: 1 / 5;
         width: 343px;
         height: 40px;
         left: 0;
@@ -509,6 +549,7 @@ $tablet-st: 1.5;
       }
   
       @include tablet-style {
+        grid-column: 1 / 5;
         width: calc(343px * $tablet-st);
         top: 460px;
         left: 50%;
@@ -547,6 +588,7 @@ $tablet-st: 1.5;
       }
   
       @include tablet-style {
+        grid-column: 1 / 5;
         width: calc(343px * $tablet-st);
         top: 370px;
         left: 50%;
