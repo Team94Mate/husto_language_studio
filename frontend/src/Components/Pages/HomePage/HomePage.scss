@@ -52,7 +52,7 @@ $tablet-st: 1.5;
    gap: 25px;
 
    @include phone-style {
-    grid-template-columns: repeat(4, 73px);
+    grid-template-columns: repeat(4, 74px);
     gap: 16px;
     background-position: top left;
     background-size: 234%;
