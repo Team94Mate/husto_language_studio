@@ -6,6 +6,7 @@ A Django RESTful API for managing teachers, recourses, contact messages, and rev
 ### Main Features:
 - **Purpose:** The API provides a robust backend for managing operations, including course management and user feedback.
 - **Admin Page:** Provides a user-friendly interface for managing courses, contact messages, reviews, and teachers.
+- **Email Notifications**: Sends automated email notifications when a user submits a question, with the ability to extend functionality using brokers like RabbitMQ for background task processing.
 - **Testing:** Comprehensive test suite ensuring functionality and reliability of the API.
 
 
