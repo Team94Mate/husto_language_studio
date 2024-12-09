@@ -157,6 +157,13 @@ $tablet-st: 1.5;
       font-size: 88px;
       left: 48px;
       top: 21px;
+
+
+      @supports (-webkit-touch-callout: none) {
+        &__husto {
+            font-size: 88px;
+        }
+    }
     }
   
     @include laptop-style {
