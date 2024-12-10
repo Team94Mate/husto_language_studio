@@ -30,7 +30,7 @@ export const useSwipe = (options?: SwipeOptions) => {
     }
   };
 
-  const SWIPE_THRESHOLD = 50;
+  const SWIPE_THRESHOLD = 10;
 
   const handleTouchEnd = () => {
     if (sliderRef.current) {

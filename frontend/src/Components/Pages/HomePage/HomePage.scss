@@ -216,7 +216,6 @@ $tablet-st: 1.5;
       content: '';
       width: 254px;
       height: 220px;
-      position: absolute;
       top: 63%;
       left: 20%;
       grid-column: 4 / 7;
@@ -268,7 +267,7 @@ $tablet-st: 1.5;
 
     @include phone-style {
       grid-column: 1 / 5;
-      letter-spacing: 0;
+      letter-spacing: 0.2px;
       font-size: 17px;
       top: 115px;
       text-align: end;
@@ -300,15 +299,15 @@ $tablet-st: 1.5;
       grid-column: 1 / 3;
       width: 89px;
       height: 58px;
-      left: 2px;
-      top: 35px
+      top: 36px;
+      left: -14px;
     }
   
     @include laptop-style {
       width: calc(244px / $laptop-st);
       height: calc(244px / $laptop-st);
       top: 15%;
-      left: -28%;
+      left: -27%;
       letter-spacing: 0;
     }
   
@@ -316,8 +315,8 @@ $tablet-st: 1.5;
       grid-column: 1 / 3;
       width: calc(89px * $tablet-st);   
       height: calc(78px * $tablet-st); 
-      top: 52px;
-      left: 6px;
+      top: 37px;
+      left: -20px;
     }
   }
 
@@ -332,9 +331,9 @@ $tablet-st: 1.5;
 
 
     @include phone-style {
-      background-image: url('../../../../public/images/CutedHeader.png');
-      background-position: inherit;
-      background-size: 58%;
+      // background-image: url('../../../../public/images/CutedHeader.png');
+      // background-position: inherit;
+      // background-size: 58%;
       background-repeat: no-repeat;
     }
   }
