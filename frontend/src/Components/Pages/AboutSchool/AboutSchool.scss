@@ -75,6 +75,11 @@ $laptop-st: 1.3;
     margin-bottom: 16px;
     background: $white-100;
 
+    @supports (-webkit-touch-callout: none) {
+      /* стилі для Safari на iOS */
+      font-weight: normal;
+    }
+
     @include laptop-style {
       font-size: calc(40px / $laptop-st); 
       margin-bottom: calc(40px / $laptop-st);

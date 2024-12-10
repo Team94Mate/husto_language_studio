@@ -146,7 +146,8 @@ $tablet-st: 1.2;
     }
 
     @include tablet-style {
-      font-size: calc(24px * $tablet-st);
+      height: calc(99px * $tablet-st);
+      font-size: 24px;
       margin-bottom: calc(16px * $tablet-st);
     }
   }
