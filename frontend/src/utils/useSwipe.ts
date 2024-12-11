@@ -30,19 +30,19 @@ export const useSwipe = (options?: SwipeOptions) => {
     }
   };
 
-  const SWIPE_THRESHOLD = 10;
-
   const handleTouchEnd = () => {
     if (sliderRef.current) {
       const slider = sliderRef.current;
       const cardWidth = slider.offsetWidth;
 
-      const movedDistance = slider.scrollLeft - scrollLeft;
+      // const movedDistance = slider.scrollLeft - scrollLeft;
 
-      const newIndex =
-        Math.abs(movedDistance) > SWIPE_THRESHOLD
-          ? Math.round(slider.scrollLeft / cardWidth)
-          : currentCardIndex;
+      // const newIndex =
+      //   Math.abs(movedDistance) > SWIPE_THRESHOLD
+      //     ? Math.round(slider.scrollLeft / cardWidth)
+      //     : currentCardIndex;
+
+      const newIndex = Math.round(slider.scrollLeft / cardWidth);
 
       slider.scrollTo({
         left: newIndex * cardWidth,
