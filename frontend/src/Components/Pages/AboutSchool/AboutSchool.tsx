@@ -1,28 +1,24 @@
-// import { useEffect, useRef, useState } from 'react';
+/* eslint-disable max-len */
 import './AboutSchool.scss';
 import classNames from 'classnames';
 import { useSwipe } from '../../../utils/useSwipe';
-import { useRef } from 'react';
 
 export const AboutSchool = () => {
-  const firstSliderRef = useRef<HTMLDivElement | null>(null);
-  const secondSliderRef = useRef<HTMLDivElement | null>(null);
+  const {
+    currentSlideIndex: cardSlideIndex,
+    handleTouchStart: handleCardTouchStart,
+    handleTouchMove: handleCardTouchMove,
+    handleTouchEnd: handleCardTouchEnd,
+    setCurrentSlideIndex: setCardSlideIndex,
+  } = useSwipe({ slideCount: 5 });
 
   const {
-    currentCardIndex: firstIndex,
-    handleTouchStart: firstTouchStart,
-    handleTouchMove: firstTouchMove,
-    handleTouchEnd: firstTouchEnd,
-    handleDotClick: firstDotClick,
-  } = useSwipe({ ref: firstSliderRef });
-
-  const {
-    currentCardIndex: secondIndex,
-    handleTouchStart: secondTouchStart,
-    handleTouchMove: secondTouchMove,
-    handleTouchEnd: secondTouchEnd,
-    handleDotClick: secondDotClick,
-  } = useSwipe({ ref: secondSliderRef });
+    currentSlideIndex: hwSlideIndex,
+    handleTouchStart: handleHwTouchStart,
+    handleTouchMove: handleHwTouchMove,
+    handleTouchEnd: handleHwTouchEnd,
+    setCurrentSlideIndex: setHwSlideIndex,
+  } = useSwipe({ slideCount: 4 });
 
   return (
     <div className="aboutSchool" id="aboutSchool">
@@ -51,14 +47,18 @@ export const AboutSchool = () => {
 
           <div
             className="aboutSchool__cards"
-            onTouchStart={firstTouchStart}
-            onTouchMove={firstTouchMove}
-            onTouchEnd={firstTouchEnd}
-            ref={firstSliderRef}
+            onTouchStart={handleCardTouchStart}
+            onTouchMove={handleCardTouchMove}
+            onTouchEnd={handleCardTouchEnd}
           >
             <div
-              className="aboutSchool__card 
-              aboutSchool__card--1 animation left"
+              className={classNames(
+                'aboutSchool__card aboutSchool__card--1 animation left',
+                {
+                  'aboutSchool__card--active': cardSlideIndex === 0,
+                  'aboutSchool__card--inactive': cardSlideIndex !== 0,
+                },
+              )}
             >
               <img
                 className="aboutSchool__card-img1"
@@ -75,8 +75,13 @@ export const AboutSchool = () => {
               </p>
             </div>
             <div
-              className="aboutSchool__card 
-              aboutSchool__card--2 animation top"
+              className={classNames(
+                'aboutSchool__card aboutSchool__card--2 animation top',
+                {
+                  'aboutSchool__card--active': cardSlideIndex === 1,
+                  'aboutSchool__card--inactive': cardSlideIndex !== 1,
+                },
+              )}
             >
               <p className="aboutSchool__card-p">
                 Враховуємо унікальні <br />
@@ -86,8 +91,13 @@ export const AboutSchool = () => {
               </p>
             </div>
             <div
-              className="aboutSchool__card 
-              aboutSchool__card--3 animation right"
+              className={classNames(
+                'aboutSchool__card aboutSchool__card--3 animation right',
+                {
+                  'aboutSchool__card--active': cardSlideIndex === 2,
+                  'aboutSchool__card--inactive': cardSlideIndex !== 2,
+                },
+              )}
             >
               <div className="aboutSchool__card-imgBox">
                 <img
@@ -106,8 +116,13 @@ export const AboutSchool = () => {
               </p>
             </div>
             <div
-              className="aboutSchool__card 
-              aboutSchool__card--4 animation left"
+              className={classNames(
+                'aboutSchool__card aboutSchool__card--4 animation left',
+                {
+                  'aboutSchool__card--active': cardSlideIndex === 3,
+                  'aboutSchool__card--inactive': cardSlideIndex !== 3,
+                },
+              )}
             >
               <div className="aboutSchool__hidden">
                 <div className="aboutSchool__card-type">
@@ -202,8 +217,13 @@ export const AboutSchool = () => {
               </p>
             </div>
             <div
-              className="aboutSchool__card 
-              aboutSchool__card--5 animation right"
+              className={classNames(
+                'aboutSchool__card aboutSchool__card--5 animation right',
+                {
+                  'aboutSchool__card--active': cardSlideIndex === 4,
+                  'aboutSchool__card--inactive': cardSlideIndex !== 4,
+                },
+              )}
             >
               <p className="aboutSchool__card-p">
                 Персоналізовані програми <br /> для <br />
@@ -219,9 +239,9 @@ export const AboutSchool = () => {
               <div
                 key={index}
                 className={classNames('aboutSchool__dot', {
-                  'is-active': firstIndex === index,
+                  'is-active': cardSlideIndex === index,
                 })}
-                onClick={() => firstDotClick(index)}
+                onClick={() => setCardSlideIndex(index)}
               />
             ))}
           </div>
@@ -306,12 +326,19 @@ export const AboutSchool = () => {
             </h1>
             <div
               className="aboutSchool__how-works-cards"
-              onTouchStart={secondTouchStart}
-              onTouchMove={secondTouchMove}
-              onTouchEnd={secondTouchEnd}
-              ref={secondSliderRef}
+              onTouchStart={handleHwTouchStart}
+              onTouchMove={handleHwTouchMove}
+              onTouchEnd={handleHwTouchEnd}
             >
-              <div className="aboutSchool__how-works-card  animation left">
+              <div
+                className={classNames(
+                  'aboutSchool__how-works-card  animation left',
+                  {
+                    'aboutSchool__how-works-card--active': hwSlideIndex === 0,
+                    'aboutSchool__how-works-card--inactive': hwSlideIndex !== 0,
+                  },
+                )}
+              >
                 <p
                   className="aboutSchool__how-works-p 
               aboutSchool__how-works-card--1"
@@ -321,15 +348,25 @@ export const AboutSchool = () => {
               </div>
 
               <div
-                className="aboutSchool__how-works-card 
-              aboutSchool__how-works-card--2 animation right"
+                className={classNames(
+                  'aboutSchool__how-works-card aboutSchool__how-works-card--2 animation right',
+                  {
+                    'aboutSchool__how-works-card--active': hwSlideIndex === 1,
+                    'aboutSchool__how-works-card--inactive': hwSlideIndex !== 1,
+                  },
+                )}
               >
                 <p className="aboutSchool__how-works-p">Вибір вчителя</p>
               </div>
 
               <div
-                className="aboutSchool__how-works-card 
-              aboutSchool__how-works-card--3 animation left"
+                className={classNames(
+                  'aboutSchool__how-works-card aboutSchool__how-works-card--3 animation left',
+                  {
+                    'aboutSchool__how-works-card--active': hwSlideIndex === 2,
+                    'aboutSchool__how-works-card--inactive': hwSlideIndex !== 2,
+                  },
+                )}
               >
                 <p className="aboutSchool__how-works-p">
                   {' '}
@@ -338,8 +375,13 @@ export const AboutSchool = () => {
               </div>
 
               <div
-                className="aboutSchool__how-works-card
-              aboutSchool__how-works-card--4  animation right"
+                className={classNames(
+                  'aboutSchool__how-works-card aboutSchool__how-works-card--4  animation right',
+                  {
+                    'aboutSchool__how-works-card--active': hwSlideIndex === 3,
+                    'aboutSchool__how-works-card--inactive': hwSlideIndex !== 3,
+                  },
+                )}
               >
                 <p className="aboutSchool__how-works-p">
                   Визначення <br /> персональної програми <br /> для навчання
@@ -352,9 +394,9 @@ export const AboutSchool = () => {
                 <div
                   key={index}
                   className={classNames('aboutSchool__dot', {
-                    'is-active': secondIndex === index,
+                    'is-active': hwSlideIndex === index,
                   })}
-                  onClick={() => secondDotClick(index)}
+                  onClick={() => setHwSlideIndex(index)}
                 />
               ))}
             </div>

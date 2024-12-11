@@ -376,7 +376,7 @@ $tablet-st: 1.5;
     @include phone-style {
       display: flex; 
       height: 44px;
-      margin-bottom: 24px;
+      margin-bottom: 0;
 
       &--hw {
         margin-bottom: 0;
@@ -393,7 +393,7 @@ $tablet-st: 1.5;
   &__dot {
     width: 8px;
     height: 8px;
-    background-color: $grey-80;
+    background-color: rgba($color: #232323, $alpha: 0.3);
     border-radius: 50px;
 
     &.is-active {

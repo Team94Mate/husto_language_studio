@@ -1,89 +1,50 @@
-import { useRef, useState, useEffect, RefObject } from 'react';
+import { useState, useRef } from 'react';
 
-type SwipeOptions = {
-  ref?: RefObject<HTMLDivElement>;
-  onSwipeEnd?: (newIndex: number) => void;
-};
+interface UseSwipeProps {
+  slideCount: number;
+}
 
-export const useSwipe = (options?: SwipeOptions) => {
-  const { ref: externalRef, onSwipeEnd } = options || {};
-  const internalRef = useRef<HTMLDivElement | null>(null);
-  const sliderRef = externalRef || internalRef;
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+interface UseSwipeReturn {
+  currentSlideIndex: number;
+  handleTouchStart: (e: React.TouchEvent) => void;
+  handleTouchMove: (e: React.TouchEvent) => void;
+  handleTouchEnd: () => void;
+  setCurrentSlideIndex: React.Dispatch<React.SetStateAction<number>>;
+}
 
-  let startX = 0;
-  let scrollLeft = 0;
-  let isSwiping = false;
+export const useSwipe = ({ slideCount }: UseSwipeProps): UseSwipeReturn => {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const touchStartRef = useRef(0);
+  const touchEndRef = useRef(0);
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    startX = e.touches[0].pageX;
-    scrollLeft = sliderRef.current?.scrollLeft || 0;
-    isSwiping = true;
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartRef.current = e.touches[0].clientX;
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (sliderRef.current && isSwiping) {
-      const touchX = e.touches[0].pageX;
-      const moveDistance = startX - touchX;
-
-      sliderRef.current.scrollLeft = scrollLeft + moveDistance;
-    }
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndRef.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    if (sliderRef.current) {
-      const slider = sliderRef.current;
-      const cardWidth = slider.offsetWidth;
+    const distance = touchStartRef.current - touchEndRef.current;
+    const threshold = 50;
 
-      // const movedDistance = slider.scrollLeft - scrollLeft;
-
-      // const newIndex =
-      //   Math.abs(movedDistance) > SWIPE_THRESHOLD
-      //     ? Math.round(slider.scrollLeft / cardWidth)
-      //     : currentCardIndex;
-
-      const newIndex = Math.round(slider.scrollLeft / cardWidth);
-
-      slider.scrollTo({
-        left: newIndex * cardWidth,
-      });
-
-      setCurrentCardIndex(newIndex);
-      if (onSwipeEnd) {
-        onSwipeEnd(newIndex);
-      }
-    }
-
-    isSwiping = false;
-  };
-
-  const handleDotClick = (index: number) => {
-    if (sliderRef.current) {
-      const cardWidth = sliderRef.current.offsetWidth;
-
-      sliderRef.current.scrollTo({
-        left: index * cardWidth,
-      });
-
-      setCurrentCardIndex(index);
-      if (onSwipeEnd) {
-        onSwipeEnd(index);
-      }
+    if (distance > threshold) {
+      setCurrentSlideIndex(prevIndex =>
+        prevIndex < slideCount - 1 ? prevIndex + 1 : prevIndex,
+      );
+    } else if (distance < -threshold) {
+      setCurrentSlideIndex(prevIndex =>
+        prevIndex > 0 ? prevIndex - 1 : prevIndex,
+      );
     }
   };
-
-  useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft = 0;
-    }
-  }, [sliderRef]);
 
   return {
-    sliderRef,
-    currentCardIndex,
+    currentSlideIndex,
     handleTouchStart,
     handleTouchMove,
     handleTouchEnd,
-    handleDotClick,
+    setCurrentSlideIndex,
   };
 };

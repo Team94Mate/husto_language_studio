@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './ToggleButton.scss';
 import { StorageContext } from '../../storage/StorageContext';
 import cn from 'classnames';
@@ -49,15 +49,13 @@ export const ToggleButton = () => {
     getCourses().then(setCurses);
   }, []);
 
-  const sliderRef = useRef<HTMLDivElement | null>(null);
-
   const {
-    handleTouchStart: touchStart,
-    handleTouchMove: touchMove,
-    handleTouchEnd: touchEnd,
-    currentCardIndex: dotIndex,
-    handleDotClick: dotClick,
-  } = useSwipe({ ref: sliderRef });
+    currentSlideIndex,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    setCurrentSlideIndex,
+  } = useSwipe({ slideCount: 3 });
 
   return (
     <div className="toggleButton">
@@ -83,13 +81,18 @@ export const ToggleButton = () => {
       {toggleButton === 'en' ? (
         <div
           className="toggleButton__content"
-          onTouchStart={touchStart}
-          onTouchMove={touchMove}
-          onTouchEnd={touchEnd}
-          ref={sliderRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {enCourses.map(cours => (
-            <div className="toggleButton__card" key={cours.price}>
+          {enCourses.map((cours, index) => (
+            <div
+              className={classNames('toggleButton__card', {
+                'teachers__card--active': currentSlideIndex === index,
+                'teachers__card--inactive': currentSlideIndex !== index,
+              })}
+              key={cours.price}
+            >
               <h1 className="toggleButton__card-title">{cours.title}</h1>
               <h1 className="toggleButton__card-subtitle">
                 {cours.course_type}
@@ -152,13 +155,18 @@ export const ToggleButton = () => {
       ) : (
         <div
           className="toggleButton__content"
-          onTouchStart={touchStart}
-          onTouchMove={touchMove}
-          onTouchEnd={touchEnd}
-          ref={sliderRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {uaCourses.map(course => (
-            <div className="toggleButton__card" key={course.price}>
+          {uaCourses.map((course, index) => (
+            <div
+              className={classNames('toggleButton__card', {
+                'teachers__card--active': currentSlideIndex === index,
+                'teachers__card--inactive': currentSlideIndex !== index,
+              })}
+              key={course.price}
+            >
               <h1 className="toggleButton__card-title">{course.title} </h1>
               <h1 className="toggleButton__card-subtitle">
                 {course.course_type}
@@ -222,14 +230,14 @@ export const ToggleButton = () => {
         </div>
       )}
 
-      <div className="toggleButton__dots toggleButton__dots--hw">
+      <div className="toggleButton__dots">
         {[...Array(3)].map((_, index) => (
           <div
             key={index}
             className={classNames('toggleButton__dot', {
-              'is-active': dotIndex === index,
+              'is-active': currentSlideIndex === index,
             })}
-            onClick={() => dotClick(index)}
+            onClick={() => setCurrentSlideIndex(index)}
           />
         ))}
       </div>

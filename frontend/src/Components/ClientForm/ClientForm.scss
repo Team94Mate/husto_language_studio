@@ -130,6 +130,13 @@ $tablet-st: 1.2;
     color: $secondary-color;
     margin-bottom: 24px;
     background: transparent;
+    font-weight: bold;
+
+    
+    @supports (-webkit-touch-callout: none) {
+      /* стилі для Safari на iOS */
+      font-weight: normal;
+    }
     
 
     @include laptop-style {

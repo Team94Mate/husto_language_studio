@@ -131,7 +131,7 @@ $tablet-st: 1.5;
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin-bottom: 58px;
+      margin-bottom: 52.5px;
      }
  
      @include laptop-style {
@@ -462,7 +462,7 @@ $tablet-st: 1.5;
   &__dot {
     width: 8px;
     height: 8px;
-    background-color: $gray-30;
+    background-color: rgba($color: #232323, $alpha: 0.3);
     border-radius: 50px;
 
     &.is-active {
