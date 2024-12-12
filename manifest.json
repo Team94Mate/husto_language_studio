@@ -3,17 +3,17 @@
   "name": "Husto-language-studio",
   "icons": [
     {
-      "src": "images/husto-logo-044.svg",
+      "src": "favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "images/husto-logo-044.svg",
+      "src": "favicon.png",
       "type": "image/svg",
       "sizes": "192x192"
     },
     {
-      "src": "images/husto-logo-044.svg",
+      "src": "favicon.png",
       "type": "image/svg",
       "sizes": "512x512"
     }
