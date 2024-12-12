@@ -415,32 +415,28 @@ $tablet-st: 1.2;
     width: 367px;
     height: 44px;
     cursor: pointer;
-    justify-content: end;
-    gap: 110px;
-    padding-right: 4px;
+    padding-left: 130px;
 
     @include laptop-style {
       width: calc(367px / $laptop-st);
       height: calc(44px / $laptop-st);
-      gap: calc(110px / $laptop-st);
       padding-right: calc(4px / $laptop-st);
+      padding-left: calc(130px / $laptop-st);
       font-size: calc(16px / $laptop-st);
     }
 
     @include phone-style {
       width: 295px;
       height: 40px;
-      justify-content: end;
-      gap: 90px;
+      padding-left: 90px;;
       padding-right: 4px; 
     }
 
     @include tablet-style {
       width: calc(295px * $tablet-st);
       height: calc(40px * $tablet-st);
-      justify-content: end;
-      gap: calc(90px * $tablet-st);
       padding-right: calc(4px) * $tablet-st; 
+      padding-left: calc(90px * $tablet-st) ;
     }
   }
 
