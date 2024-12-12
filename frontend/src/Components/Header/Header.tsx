@@ -18,7 +18,7 @@ export const Header = () => {
         <div className="header__icon-box">
           <img
             className="header__image"
-            src="images/Header.svg"
+            src="images/Husto-photo-Header.svg"
             alt="Compony Name Logo"
           />
         </div>
