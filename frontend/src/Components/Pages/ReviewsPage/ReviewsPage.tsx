@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ReviewsPage.scss';
 import cn from 'classnames';
 import classNames from 'classnames';
@@ -6,6 +6,7 @@ import { addMessageData, getReviews } from '../../../api/api';
 import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
 import { ContactData } from '../../../types/ContactData';
 import { Review } from '../../../types/Review';
+import { useSwipe } from '../../../utils/useSwipe';
 
 export const ReviewsPage = () => {
   const [isClicked, setIsClicked] = useState<Record<number, boolean>>({});
@@ -21,32 +22,13 @@ export const ReviewsPage = () => {
     }));
   };
 
-  const [currentReviewsIndex, setCurrentReviewsIndex] = useState(0);
-  const touchStartRef = useRef(0);
-  const touchEndRef = useRef(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const distance = touchStartRef.current - touchEndRef.current;
-    const threshold = 50;
-
-    if (distance > threshold) {
-      setCurrentReviewsIndex(prevIndex =>
-        prevIndex < reviewsData.length - 1 ? prevIndex + 1 : prevIndex,
-      );
-    } else if (distance < -threshold) {
-      setCurrentReviewsIndex(prevIndex =>
-        prevIndex > 0 ? prevIndex - 1 : prevIndex,
-      );
-    }
-  };
+  const {
+    currentSlideIndex: currentReviewsIndex,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    setCurrentSlideIndex: setCurrentReviewsIndex,
+  } = useSwipe({ slideCount: reviewsData.length });
 
   const [username, setUsername] = useState('');
   const [quest, setQuestion] = useState('');

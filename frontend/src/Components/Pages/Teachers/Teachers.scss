@@ -8,7 +8,7 @@ $laptop-st: 1.3;
   padding: 72px 43px;
 
   @include phone-style {
-    padding: 24px 16px 16px 24px;
+    padding: 24px 16px 16px;
   }
 
   @include laptop-style {

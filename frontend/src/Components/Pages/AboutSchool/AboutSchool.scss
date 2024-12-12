@@ -148,6 +148,7 @@ $laptop-st: 1.3;
   }
 
   &__phar {
+    width: 780px;
     position: absolute;
     font-family: ComicSansRegular, sans-serif;
     font-size: 32px;
@@ -164,6 +165,7 @@ $laptop-st: 1.3;
     }
 
     @include laptop-style {
+      width: calc(780px / $laptop-st);
       font-size: calc(32px / $laptop-st);
     }
 

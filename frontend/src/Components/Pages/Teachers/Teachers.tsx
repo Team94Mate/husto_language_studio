@@ -1,41 +1,24 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { ToggleButton } from '../../ToggleButton/ToggleButton';
 import './Teachers.scss';
 import classNames from 'classnames';
 import { getTeachers } from '../../../api/api';
 import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
 import { TeacherProp } from '../../../types/Teachers';
+import { useSwipe } from '../../../utils/useSwipe';
 
 export const Teachers = () => {
-  const [currentTeacherIndex, setCurrentTeacherIndex] = useState(0);
-  const touchStartRef = useRef(0);
-  const touchEndRef = useRef(0);
   const [teachers, setTeachers] = useState<TeacherProp[]>([]);
 
   const sortedTeachers = teachers.sort((a, b) => a.id - b.id);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndRef.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const distance = touchStartRef.current - touchEndRef.current;
-    const threshold = 50;
-
-    if (distance > threshold) {
-      setCurrentTeacherIndex(prevIndex =>
-        prevIndex < teachers.length - 1 ? prevIndex + 1 : prevIndex,
-      );
-    } else if (distance < -threshold) {
-      setCurrentTeacherIndex(prevIndex =>
-        prevIndex > 0 ? prevIndex - 1 : prevIndex,
-      );
-    }
-  };
+  const {
+    currentSlideIndex: currentTeacherIndex,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    setCurrentSlideIndex: setCurrentTeacherIndex,
+  } = useSwipe({ slideCount: teachers.length });
 
   useEffect(() => {
     getTeachers().then(response => {

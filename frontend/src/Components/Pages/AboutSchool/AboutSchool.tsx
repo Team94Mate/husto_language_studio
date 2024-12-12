@@ -27,9 +27,8 @@ export const AboutSchool = () => {
           <div className="aboutSchool__text animation left">
             <h1 className="aboutSchool__title">
               <span className="aboutSchool__title-span">HUSTO</span> забезпечує
-              можливість майстерно опанувати
-              <br />
-              англійську мову та досягти високих результатів
+              можливість майстерно опанувати англійську мову та досягти високих
+              результатів
             </h1>
 
             <img
@@ -39,9 +38,8 @@ export const AboutSchool = () => {
             />
 
             <p className="aboutSchool__phar">
-              Ми використовуємо інтерактивні платформи, щоб <br />
-              прокачати всі скіли Wordwall, Quizlet <br />
-              Baamboozle, Kahoot, Test English
+              Ми використовуємо інтерактивні платформи, щоб прокачати всі скіли
+              Wordwall, Quizlet Baamboozle, Kahoot, Test English
             </p>
           </div>
 
