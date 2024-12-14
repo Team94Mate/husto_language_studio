@@ -3,19 +3,19 @@
   "name": "Husto-language-studio",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "/images/favicons/64x64.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "favicon.png",
-      "type": "image/svg",
+      "src": "/images/favicons/192x192.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
       "src": "favicon.png",
-      "type": "image/svg",
-      "sizes": "512x512"
+      "type": "image/png",
+      "sizes": "/images/favicons/512x512.png"
     }
   ],
   "start_url": ".",
