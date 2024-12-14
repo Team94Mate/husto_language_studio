@@ -41,6 +41,12 @@ export const AboutSchool = () => {
               Ми використовуємо інтерактивні платформи, щоб прокачати всі скіли
               Wordwall, Quizlet Baamboozle, Kahoot, Test English
             </p>
+
+            <p className="aboutSchool__phar-mob">
+              Ми використовуємо інтерактивні платформи, щоб прокачати всі скіли{' '}
+              <br />
+              Wordwall, Quizlet Baamboozle, Kahoot, Test English
+            </p>
           </div>
 
           <div
