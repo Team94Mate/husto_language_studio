@@ -1,21 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Husto-language-studio",
+  "short_name": "Husto School",
+  "name": "Husto Language Studio",
   "icons": [
     {
-      "src": "/images/favicons/64x64.png",
+      "src": "24x24.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "/images/favicons/192x192.png",
+      "src": "192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.png",
+      "src": "512x512.png",
       "type": "image/png",
-      "sizes": "/images/favicons/512x512.png"
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
