@@ -51,7 +51,6 @@ $laptop-st: 1.3;
 
     @include phone-style {
       font-size: 24px;
-      width: 343px;
       margin-bottom: 8px;
     };
 
@@ -82,7 +81,7 @@ $laptop-st: 1.3;
 
     @include tablet-style {
       width: 90%; 
-      margin-bottom: calc(41px * $tablet-st); 
+      margin-bottom: calc(24px * $tablet-st); 
     }
 
     @include laptop-style {
@@ -142,6 +141,8 @@ $laptop-st: 1.3;
     justify-content: center;
     align-items: center;
 
+    
+
     @include phone-style {
       display: flex;
       flex-direction: row;
@@ -197,14 +198,18 @@ $laptop-st: 1.3;
   }
 
   &__card {
+    width: 296px;
+    height: fit-content;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: end;
-    width: 296px;
-    height: fit-content;
+   
+    @include phone-style {
+      scroll-snap-align: center; 
+    }
 
-    &--active {
+    &--active {      
       @include phone-style {
         display: flex;
       }
@@ -255,6 +260,10 @@ $laptop-st: 1.3;
       grid-column: 2/4;
       margin-bottom: 72px;
 
+      @include phone-style {
+        scroll-snap-align: start;
+      }
+
       @include laptop-style {
         margin-bottom: calc(72px / $laptop-st);
       }
@@ -276,6 +285,10 @@ $laptop-st: 1.3;
     &--3 {
       grid-column: 9/11;
       top: -5%;
+
+      @include phone-style {
+        top: 0;
+      }
     }
 
     &--4 {
