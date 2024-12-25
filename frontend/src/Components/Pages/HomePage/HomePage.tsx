@@ -45,7 +45,6 @@ export const HomePage = () => {
       <button className="homePage__mob-button" onClick={handleClick}>
         <img className="homePage__mob-image" src="images/HeadericonMenu.svg" />
       </button>
-      {/* <div className="homePage__wrapper"> */}
       <div className="homePage__container">
         <h1 className="homePage__title animation left">
           Твій успіх - наша мета
@@ -133,7 +132,6 @@ export const HomePage = () => {
           </span>
         </a>
       </div>
-      {/* </div> */}
     </div>
   );
 };
