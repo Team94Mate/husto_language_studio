@@ -38,41 +38,52 @@ $tablet-st: 1.5;
   
   &__container {
    width: 100%;
+
+  //  height: 100%;
    position: relative;
    height: 725px;
    background-color: $primary-color;
-
-   background-image: url('../../../../public/images/FrameNet\(1\).svg');
-   background-position: top center;
-   background-repeat: no-repeat;
-   background-size: 100%;
 
    display: grid;
    grid-template-columns: repeat(12, 90px);
    gap: 25px;
 
+   justify-content: center;
+
+   background-image: url('../../../../public/images/FrameNet\(1\).svg');
+   background-position: top center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+   margin: 0 42px 0 43px;
+
    @include phone-style {
+    width: calc(100% - 32px);
+    height: 354px;
     grid-template-columns: repeat(4, 74px);
     gap: 16px;
     background-position: top left;
     background-size: 234%;
-    height: 100%;
-    margin: 0;
+
+    // height: 100%;
+    margin: 0 16px;
    }
 
    @include laptop-style {
       height: calc(725px / $laptop-st);
       grid-template-columns: repeat(12, calc(90px / $laptop-st));
       gap: calc(25px / $laptop-st);
+      margin: 0 calc(42px / $laptop-st) 0 calc(43px / $laptop-st);
+      
    }
 
    @include tablet-style {
-    width: 100%;
+    width: calc(100% - (32px * $tablet-st));
+    height: 100%;
     grid-template-columns: repeat(4, calc(73px * $tablet-st));
     gap: calc(16px * $tablet-st);
     background-position: top left;
     background-size: 293%;
-    margin: 0;
+    margin: 0 calc(16px * $tablet-st);
    }
   }
 
@@ -581,6 +592,7 @@ $tablet-st: 1.5;
         height: 40px;
         left: 0;
         top: 232px;
+        grid-column: 1 / 5;
       }
   
       @include tablet-style {
