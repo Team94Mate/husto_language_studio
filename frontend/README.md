@@ -8,7 +8,8 @@
 
 In this project, I developed a website for an online English language school using modern web development technologies:   
 
-- **React**: Utilized React to build a dynamic and responsive user interfacey.    
+- **React**: Utilized React to build a dynamic and responsive user interfacey.  
+- **TypeScript**: Integrated TypeScript for type safety and improved code quality, enhancing the development experience with better tooling and error checking.   
 - **Context API**: Employed the Context API for state management, ensuring a predictable and consistent application state across different components.  
 - **Fetch API**: function is a built-in JavaScript API for making HTTP requests. It’s used in the request function to send requests to the specified BASE_URL and handle responses. 
 - **SCSS**: Styled the application using SCSS for modular and maintainable CSS, allowing for better organization and reuse of styles.  
