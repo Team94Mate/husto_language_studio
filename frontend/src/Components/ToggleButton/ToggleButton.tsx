@@ -5,7 +5,6 @@ import cn from 'classnames';
 import classNames from 'classnames';
 import { getCourses } from '../../api/api';
 import { useSwipe } from '../../utils/useSwipe';
-import React from 'react';
 
 export interface CursProp {
   id: number;
