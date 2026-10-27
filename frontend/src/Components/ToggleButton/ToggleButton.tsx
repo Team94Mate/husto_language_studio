@@ -5,6 +5,7 @@ import cn from 'classnames';
 import classNames from 'classnames';
 import { getCourses } from '../../api/api';
 import { useSwipe } from '../../utils/useSwipe';
+import React from 'react';
 
 export interface CursProp {
   id: number;
@@ -22,12 +23,22 @@ export const ToggleButton = () => {
   const { showForm, setShowForm } = useContext(StorageContext);
   const [card, setCard] = useState<number>(0);
   const [curses, setCurses] = useState<CursProp[]>([]);
-  const sortedCourses = curses.sort((a, b) => a.price - b.price);
+  const newestCourse = curses.reduce<CursProp | undefined>(
+    (newest, course) => (!newest || course.id > newest.id ? course : newest),
+    undefined,
+  );
+  const existingCourses = curses.filter(
+    course => course.id !== newestCourse?.id,
+  );
+  const sortedCourses = [...existingCourses].sort((a, b) => a.price - b.price);
   const mid = Math.floor(sortedCourses.length / 2);
   const enCourses = sortedCourses
     .slice(0, mid)
     .sort((a, b) => b.price - a.price);
-  const uaCourses = sortedCourses.slice(mid).sort((a, b) => b.price - a.price);
+  const uaCourses = [
+    ...(newestCourse ? [newestCourse] : []),
+    ...sortedCourses.slice(mid).sort((a, b) => b.price - a.price),
+  ];
 
   const convTime = (value: string) => {
     let convertedValue;
@@ -66,7 +77,7 @@ export const ToggleButton = () => {
           })}
           onClick={() => setToggleButton('uk')}
         >
-          Український викладач
+          Ukrainian teachers
         </button>
         <button
           className={cn('toggleButton__en', {
@@ -74,7 +85,7 @@ export const ToggleButton = () => {
           })}
           onClick={() => setToggleButton('en')}
         >
-          Англомовний викладач
+          English-teacher
         </button>
       </div>
 
@@ -178,7 +189,9 @@ export const ToggleButton = () => {
                   alt="hash"
                 />
                 <p className="toggleButton__card-p">
-                  Тривалість: {convTime(course.lesson_duration)} хвилин
+                  {course === newestCourse ? 'Duration' : 'Тривалість'}:{' '}
+                  {convTime(course.lesson_duration)}{' '}
+                  {course === newestCourse ? 'minutes' : 'хвилин'}
                 </p>
               </div>
               <div className="toggleButton__card-pbox">
@@ -188,7 +201,8 @@ export const ToggleButton = () => {
                   alt="hash"
                 />
                 <p className="toggleButton__card-p">
-                  Заняття: {course.classes}
+                  {course === newestCourse ? 'Classes' : 'Заняття'}:{' '}
+                  {course.classes}
                 </p>
               </div>
               <div className="toggleButton__card-pbox">
@@ -198,13 +212,19 @@ export const ToggleButton = () => {
                   alt="hash"
                 />
                 <p className="toggleButton__card-p">
-                  Кількість занять: {course.number_of_classes}
+                  {course === newestCourse
+                    ? 'Number of lessons'
+                    : 'Кількість занять'}
+                  : {course.number_of_classes}
                 </p>
               </div>
 
               <div className="toggleButton__card-price">
-                ₴{convPrice(course.price)}
-                <span className="toggleButton__card-span">/міс.</span>
+                {course === newestCourse ? '$' : '₴'}
+                {convPrice(course.price)}
+                <span className="toggleButton__card-span">
+                  {course === newestCourse ? '/month' : '/міс.'}
+                </span>
               </div>
               <button
                 className="toggleButton__button button"
@@ -213,7 +233,7 @@ export const ToggleButton = () => {
                   setCard(1);
                 }}
               >
-                Приєднатись
+                {course === newestCourse ? 'Join' : 'Приєднатись'}
                 <span className="toggleButton__button2">
                   <img
                     className={classNames('toggleButton__button-img', {

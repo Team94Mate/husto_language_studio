@@ -148,17 +148,17 @@ $tablet-st: 1.5;
 
   &__content {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
     gap: 82px;
 
 
     @include phone-style {
-      width: 343px;
+      width: min(343px, calc(100vw - 32px));
       overflow-x: hidden;
       justify-content: flex-start;
-      flex-flow: row nowrap;
+      flex-wrap: nowrap;
       scroll-snap-type: x mandatory; 
       -webkit-overflow-scrolling: touch;
       margin-bottom: 8px;
@@ -171,7 +171,10 @@ $tablet-st: 1.5;
 
   &__card {
     width: 320px;
-    height: 414px;
+    min-width: 0;
+    min-height: 414px;
+    box-sizing: border-box;
+    flex: 0 0 320px;
     background-color: $card-color;
     padding: 32px 24px;
     display: flex;
@@ -184,15 +187,16 @@ $tablet-st: 1.5;
 
 
     @include phone-style {
-      width: 343px;
-      height: 349px;
-      padding: 16px 48px;
-      flex: 0 0 auto;
+      width: 100%;
+      min-height: 349px;
+      padding: 16px 24px;
+      flex-basis: 100%;
     }
 
     @include laptop-style {
       width: calc(318px / $laptop-st);
-      height: calc(414px / $laptop-st);
+      min-height: calc(414px / $laptop-st);
+      flex-basis: calc(318px / $laptop-st);
       padding: calc(32px / $laptop-st)calc( 24px / $laptop-st);
       border-radius: calc(24px / $laptop-st);
     }
@@ -405,5 +409,30 @@ $tablet-st: 1.5;
       height: calc(8px * $tablet-st);
     }
   }
-  
+
+  &__content .toggleButton__card {
+    overflow-wrap: anywhere;
+
+    .toggleButton__card-title,
+    .toggleButton__card-subtitle {
+      max-width: 100%;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .toggleButton__card-pbox {
+      width: 100%;
+      gap: 4px;
+    }
+
+    .toggleButton__card-p {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .toggleButton__card-inf {
+      width: 100%;
+      overflow-wrap: anywhere;
+    }
+  }
 }
