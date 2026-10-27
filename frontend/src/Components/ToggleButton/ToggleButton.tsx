@@ -38,6 +38,8 @@ export const ToggleButton = () => {
     ...(newestCourse ? [newestCourse] : []),
     ...sortedCourses.slice(mid).sort((a, b) => b.price - a.price),
   ];
+  const activeCourseCount =
+    toggleButton === 'en' ? enCourses.length : uaCourses.length;
 
   const convTime = (value: string) => {
     let convertedValue;
@@ -65,7 +67,7 @@ export const ToggleButton = () => {
     handleTouchMove,
     handleTouchEnd,
     setCurrentSlideIndex,
-  } = useSwipe({ slideCount: 3 });
+  } = useSwipe({ slideCount: activeCourseCount });
 
   return (
     <div className="toggleButton">
@@ -74,7 +76,10 @@ export const ToggleButton = () => {
           className={cn('toggleButton__uk', {
             'toggleButton__uk--active': toggleButton === 'uk',
           })}
-          onClick={() => setToggleButton('uk')}
+          onClick={() => {
+            setToggleButton('uk');
+            setCurrentSlideIndex(0);
+          }}
         >
           Ukrainian teachers
         </button>
@@ -82,7 +87,10 @@ export const ToggleButton = () => {
           className={cn('toggleButton__en', {
             'toggleButton__en--active': toggleButton === 'en',
           })}
-          onClick={() => setToggleButton('en')}
+          onClick={() => {
+            setToggleButton('en');
+            setCurrentSlideIndex(0);
+          }}
         >
           English-teacher
         </button>
@@ -250,7 +258,7 @@ export const ToggleButton = () => {
       )}
 
       <div className="toggleButton__dots">
-        {[...Array(3)].map((_, index) => (
+        {[...Array(activeCourseCount)].map((_, index) => (
           <div
             key={index}
             className={classNames('toggleButton__dot', {
