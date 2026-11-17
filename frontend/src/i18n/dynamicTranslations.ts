@@ -9,7 +9,10 @@ export interface ReviewItem {
 
 const TEACHERS_EN: Record<
   number,
-  Pick<TeacherProp, 'name' | 'specialization' | 'teacher_level' | 'description_lines'>
+  Pick<
+    TeacherProp,
+    'name' | 'specialization' | 'teacher_level' | 'description_lines'
+  >
 > = {
   1: {
     name: 'Olha',
@@ -60,7 +63,10 @@ const TEACHERS_EN: Record<
 
 const COURSES_EN: Record<
   number,
-  Pick<CursProp, 'title' | 'course_type' | 'classes' | 'number_of_classes' | 'trial_info'>
+  Pick<
+    CursProp,
+    'title' | 'course_type' | 'classes' | 'number_of_classes' | 'trial_info'
+  >
 > = {
   2: {
     title: 'SplitDual',
@@ -139,7 +145,10 @@ const REVIEWS_EN: Record<number, Pick<ReviewItem, 'name' | 'description'>> = {
   },
 };
 
-export function localizeTeacher(teacher: TeacherProp, lang: string): TeacherProp {
+export function localizeTeacher(
+  teacher: TeacherProp,
+  lang: string,
+): TeacherProp {
   if (lang !== 'en' || !TEACHERS_EN[teacher.id]) {
     return teacher;
   }
@@ -155,7 +164,10 @@ export function localizeCourse(course: CursProp, lang: string): CursProp {
   return { ...course, ...COURSES_EN[course.id] };
 }
 
-export function localizeReview<T extends ReviewItem>(review: T, lang: string): T {
+export function localizeReview<T extends ReviewItem>(
+  review: T,
+  lang: string,
+): T {
   if (lang !== 'en' || !REVIEWS_EN[review.id]) {
     return review;
   }

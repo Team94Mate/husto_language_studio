@@ -43,10 +43,7 @@ export const LegalModal: React.FC = () => {
       aria-labelledby="legal-modal-title"
       onClick={() => setLegalModal(null)}
     >
-      <div
-        className="LegalModal__window"
-        onClick={e => e.stopPropagation()}
-      >
+      <div className="LegalModal__window" onClick={e => e.stopPropagation()}>
         <div className="LegalModal__header">
           <div>
             <h2 id="legal-modal-title" className="LegalModal__title">
@@ -73,9 +70,7 @@ export const LegalModal: React.FC = () => {
         </div>
 
         <div className="LegalModal__body">
-          {doc.notice && (
-            <p className="LegalModal__notice">{doc.notice}</p>
-          )}
+          {doc.notice && <p className="LegalModal__notice">{doc.notice}</p>}
 
           {doc.sections.map(section => (
             <section key={section.title} className="LegalModal__section">

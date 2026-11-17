@@ -1,5 +1,5 @@
-@import "/src/Global";
- 
+@import '/src/Global';
+
 .Midia {
   @include phone-style {
     display: none !important;
@@ -13,7 +13,7 @@
   transform: translateY(-50%);
   height: 0;
   width: 0;
-  
+
   &__list {
     display: flex;
     flex-direction: column;

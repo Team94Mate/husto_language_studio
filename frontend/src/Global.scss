@@ -1,15 +1,15 @@
-$primary-color: #006C68;
-$secondary-color: #ADFF00;
+$primary-color: #006c68;
+$secondary-color: #adff00;
 $grey-100: #232323;
-$grey-80: #3E4C59;
+$grey-80: #3e4c59;
 $gray-60: #748495;
-$gray-30: #C8CFD7;
-$gray-20: #DCE0E9;
-$gray-10: #F5F7FA;
-$gray-03: #F2F2F2;
-$white-100: #FFF;
+$gray-30: #c8cfd7;
+$gray-20: #dce0e9;
+$gray-10: #f5f7fa;
+$gray-03: #f2f2f2;
+$white-100: #fff;
 $black-5: hsl(0deg, 0%, 5%);
-$card-color: #1D8A86;
+$card-color: #1d8a86;
 
 @font-face {
   src: url('./fonts/NeueMontreal-Bold.ttf');
@@ -61,25 +61,25 @@ $card-color: #1D8A86;
 }
 
 @mixin button-image {
-    width: 10px;
-    height: 10px;
-    color: $white-100;
+  width: 10px;
+  height: 10px;
+  color: $white-100;
 }
 
 @mixin laptop-style {
   @media screen and (min-width: 962px) and (max-width: 1399px) {
     @content;
   }
-};
+}
 
-@mixin  phone-style {
+@mixin phone-style {
   @media screen and (max-width: 961px) {
     @content;
   }
-};
+}
 
 @mixin tablet-style {
   @media screen and (min-width: 576px) and (max-width: 961px) {
     @content;
   }
-};
+}

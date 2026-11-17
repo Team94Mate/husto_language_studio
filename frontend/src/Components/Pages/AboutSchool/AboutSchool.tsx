@@ -249,8 +249,8 @@ export const AboutSchool = () => {
               )}
             >
               <p className="aboutSchool__card-p">
-                {t('aboutSchool.card5Line1')} <br /> {t('aboutSchool.card5Line2')}{' '}
-                <br />
+                {t('aboutSchool.card5Line1')} <br />{' '}
+                {t('aboutSchool.card5Line2')} <br />
                 <span className="aboutSchool__span">
                   {t('aboutSchool.card5Highlight')}
                 </span>

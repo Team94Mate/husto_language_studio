@@ -82,12 +82,17 @@ export const Teachers = () => {
                 <div className="teachers__name">{teacher.name}</div>
                 <div className="teachers__role">{teacher.specialization}</div>
                 <div className="teachers__exp">
-                  {t('teachers.experience', { years: teacher.experience_years })}
+                  {t('teachers.experience', {
+                    years: teacher.experience_years,
+                  })}
                 </div>
                 <div className="teachers__spec">{teacher.teacher_level}</div>
 
                 {teacher.description_lines.map((comment, idx) => (
-                  <div className="teachers__coment" key={`${teacher.id}-${idx}`}>
+                  <div
+                    className="teachers__coment"
+                    key={`${teacher.id}-${idx}`}
+                  >
                     {comment}
                   </div>
                 ))}
@@ -125,9 +130,7 @@ export const Teachers = () => {
             className="teachers__prise-hash"
           />
 
-          <h1 className="teachers__prise-h1">
-            {t('teachers.priceSubtitle')}
-          </h1>
+          <h1 className="teachers__prise-h1">{t('teachers.priceSubtitle')}</h1>
         </div>
 
         <div className="teachers__prise-content animation right">

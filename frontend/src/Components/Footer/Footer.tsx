@@ -64,7 +64,7 @@ export const Footer = () => {
             <img className="footer__icon" src="images/Vector-footTik.svg" />
             <h3 className="footer__p">Tiktok</h3>
           </a>
-         <a
+          <a
             className="footer__link"
             href={WHATSAPP_URL}
             target="_blank"

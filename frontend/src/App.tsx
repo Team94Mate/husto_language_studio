@@ -25,8 +25,8 @@ export const App: React.FC = () => {
       <StorageProvider>
         <ClientForm />
 
-        <LegalModal/>
-        
+        <LegalModal />
+
         <BurgerMenu />
 
         <header className="header">

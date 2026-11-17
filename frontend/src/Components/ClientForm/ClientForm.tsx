@@ -14,7 +14,6 @@ export const ClientForm = () => {
   const { t } = useTranslation();
   const { setLegalModal } = useContext(StorageContext);
 
-
   const { showForm, setShowForm } = useContext(StorageContext);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -132,10 +131,7 @@ export const ClientForm = () => {
       </button>
       <div className="ClientForm__container">
         <h1 className="ClientForm__title">
-          <img
-            className="ClientForm__hash"
-            src="images/hash(1).svg"
-          />
+          <img className="ClientForm__hash" src="images/hash(1).svg" />
           {t('clientForm.title')}
         </h1>
         <div className="ClientForm__items">
