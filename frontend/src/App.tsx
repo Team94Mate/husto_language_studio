@@ -14,6 +14,7 @@ import { Midia } from './Components/Midia/Midia';
 import { Footer } from './Components/Footer/Footer';
 import { useScrollEffect } from './hooks/useScrollEffect';
 import { useAnimationEffect } from './hooks/useAnimationEffect';
+import { LegalModal } from './Components/LegalModal/LegalModal';
 
 export const App: React.FC = () => {
   useScrollEffect();
@@ -24,6 +25,8 @@ export const App: React.FC = () => {
       <StorageProvider>
         <ClientForm />
 
+        <LegalModal/>
+        
         <BurgerMenu />
 
         <header className="header">

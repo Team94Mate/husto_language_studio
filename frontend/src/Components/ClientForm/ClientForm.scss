@@ -43,7 +43,7 @@ $tablet-st: 1.2;
 
   &__container {
     width: 1125px;
-    height: 504px;
+    min-height: 504px; height: auto;
     border-radius: 70px;
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@ $tablet-st: 1.2;
 
     @include laptop-style {
       width: calc(1125px / $laptop-st);
-      height: calc(504px / $laptop-st);
+      min-height: calc(504px / $laptop-st);
       border-radius: calc(70px / $laptop-st);
       padding: calc(32px / $laptop-st) calc(42px / $laptop-st) calc(47px / $laptop-st) calc(56px / $laptop-st);
     }
@@ -66,14 +66,15 @@ $tablet-st: 1.2;
     @include phone-style {
       position: relative;
       width: 343px;
-      height: 532px;
+      min-height: 532px;
       border-radius: 24px;
       padding: 12px 24px 16px;
     }
 
     @include tablet-style {
       width: calc(343px * $tablet-st);
-      height: calc(532px * $tablet-st);
+      min-height: calc(532px * $tablet-st);
+      height: auto;
       border-radius: calc(24px * $tablet-st);
       padding: calc(12px * $tablet-st) calc(24px * $tablet-st) calc(16px * $tablet-st) calc(24px * $tablet-st);
     }
@@ -237,6 +238,7 @@ $tablet-st: 1.2;
   &__icon {
     width: 100%;
     height: 100%;
+    object-fit: contain;
     background: transparent;
   }
 
@@ -347,7 +349,7 @@ $tablet-st: 1.2;
 
   &__textarea {
     width: 367px;
-    height: 170px;
+    height: 95px;
     background-color: $white-100;
     border-radius: 32px;
     padding: 24px;
@@ -381,7 +383,7 @@ $tablet-st: 1.2;
 
     @include laptop-style {
       width: calc(367px / $laptop-st);
-      height: calc(170px / $laptop-st);
+      height: calc(95px / $laptop-st);
       border-radius: calc( 32px / $laptop-st);
       padding: calc(24px / $laptop-st);
     }
@@ -398,13 +400,13 @@ $tablet-st: 1.2;
 
     @include phone-style {
       width: 295px;
-      height: 170px;
+      height: 95px;
       margin-bottom: 16px;
     }
 
     @include tablet-style {
       width: calc(295px * $tablet-st);
-      height: calc(170px * $tablet-st);
+      height: calc(62px * $tablet-st);
       margin-bottom: calc(16px * $tablet-st);
     }
   }
@@ -463,6 +465,46 @@ $tablet-st: 1.2;
 
     &--rotate {
       transform: rotate(45deg);
+    }
+  }
+  &__consent {
+    width: 367px;
+    margin: 12px 0 0;
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+
+    @include laptop-style {
+      width: calc(367px / $laptop-st);
+      margin-top: calc(12px / $laptop-st);
+      font-size: calc(12px / $laptop-st);
+    }
+
+    @include phone-style {
+      width: 295px;
+      margin-top: 8px;
+    }
+
+    @include tablet-style {
+      width: calc(295px * $tablet-st);
+      margin-top: calc(8px * $tablet-st);
+    }
+  }
+
+  &__consent-link {
+    display: inline;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #a6ff00;
     }
   }
 }

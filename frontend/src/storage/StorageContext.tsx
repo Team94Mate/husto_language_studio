@@ -1,3 +1,7 @@
+import React, { useMemo, useState } from 'react';
+
+export type LegalDocumentType = 'offer' | 'privacy' | null;
+
 interface Props {
   showForm: boolean;
   setShowForm: (someData: boolean) => void;
@@ -5,18 +9,19 @@ interface Props {
   setBurger: (someData: boolean) => void;
   setPageHeight: (pageHeight: number) => void;
   pageHeight: number;
+  legalModal: LegalDocumentType;
+  setLegalModal: (doc: LegalDocumentType) => void;
 }
-
-import React, { useMemo, useState } from 'react';
 
 export const StorageContext = React.createContext<Props>({
   showForm: false,
   setShowForm: () => {},
   showBurger: false,
   setBurger: () => {},
-
   setPageHeight: () => {},
   pageHeight: 0,
+  legalModal: null,
+  setLegalModal: () => {},
 });
 
 type Prop = {
@@ -27,6 +32,7 @@ export const StorageProvider: React.FC<Prop> = ({ children }) => {
   const [showForm, setShowForm] = useState(false);
   const [showBurger, setBurger] = useState(false);
   const [pageHeight, setPageHeight] = useState(100);
+  const [legalModal, setLegalModal] = useState<LegalDocumentType>(null);
 
   const value = useMemo(
     () => ({
@@ -36,8 +42,10 @@ export const StorageProvider: React.FC<Prop> = ({ children }) => {
       setBurger,
       pageHeight,
       setPageHeight,
+      legalModal,
+      setLegalModal,
     }),
-    [showForm, showBurger, pageHeight],
+    [showForm, showBurger, pageHeight, legalModal],
   );
 
   return (
