@@ -35,7 +35,7 @@ $tablet-st: 1.5;
     cursor: pointer;
 
     &::after {
-      content: 'Український викладач';
+      content: attr(data-label);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -94,7 +94,7 @@ $tablet-st: 1.5;
     cursor: pointer;
   
     &::after {
-      content: 'Англомовний викладач';
+      content: attr(data-label);
       display: flex;
       align-items: center;
       justify-content: center;

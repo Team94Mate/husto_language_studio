@@ -321,6 +321,60 @@ $tablet-st: 1.5;
       font-size: calc(18px * $tablet-st);
     }
   }
+&__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 14px;
+    background: transparent;
+
+    @include laptop-style {
+      gap: calc(16px / $laptop-st);
+      margin-top: calc(10px / $laptop-st);
+    }
+
+    @include phone-style {
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    @include tablet-style {
+      gap: calc(16px * $tablet-st);
+      margin-top: calc(14px * $tablet-st);
+    }
+  }
+
+  &__legal-link {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      color: #a6ff00;
+    }
+
+    @include laptop-style {
+      font-size: calc(14px / $laptop-st);
+    }
+
+    @include phone-style {
+      font-size: 13px;
+    }
+
+    @include tablet-style {
+      font-size: calc(14px * $tablet-st);
+    }
+  }
 }
 
 

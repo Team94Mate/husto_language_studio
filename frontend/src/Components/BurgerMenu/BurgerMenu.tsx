@@ -1,4 +1,5 @@
 import { useContext, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import './BurgerMenu.scss';
 import classNames from 'classnames';
 import { StorageContext } from '../../storage/StorageContext';
@@ -6,6 +7,8 @@ import { StorageContext } from '../../storage/StorageContext';
 export const BurgerMenu = () => {
   const { setPageHeight } = useContext(StorageContext);
   const { showBurger, setBurger } = useContext(StorageContext);
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language?.startsWith('en') ? 'en' : 'uk';
 
   const burgerMenuRef = useRef<HTMLDivElement>(null);
 
@@ -17,19 +20,41 @@ export const BurgerMenu = () => {
       })}
     >
       <div className="burgerMenu__back">
-        <img
-          className="burgerMenu__arrow"
-          src="images/Chevron.svg"
-          alt="arrow back"
-        />
         <div
-          className="burgerMenu__back-text"
+          className="burgerMenu__back-box"
           onClick={() => {
             setBurger(false);
             setPageHeight(100);
           }}
         >
-          Back
+          <img
+            className="burgerMenu__arrow"
+            src="images/Chevron.svg"
+            alt="arrow back"
+          />
+          <div className="burgerMenu__back-text">{t('nav.back')}</div>
+        </div>
+
+        <div className="burgerMenu__lang">
+          <button
+            type="button"
+            className={classNames('burgerMenu__lang-btn', {
+              'burgerMenu__lang-btn--active': currentLang === 'uk',
+            })}
+            onClick={() => i18n.changeLanguage('uk')}
+          >
+            UA
+          </button>
+          <span className="burgerMenu__lang-divider">|</span>
+          <button
+            type="button"
+            className={classNames('burgerMenu__lang-btn', {
+              'burgerMenu__lang-btn--active': currentLang === 'en',
+            })}
+            onClick={() => i18n.changeLanguage('en')}
+          >
+            EN
+          </button>
         </div>
       </div>
 
@@ -42,7 +67,7 @@ export const BurgerMenu = () => {
             setBurger(false);
           }}
         >
-          Головна
+          {t('nav.home')}
         </a>
         <a
           className="header__link burgerMenu__link"
@@ -51,7 +76,7 @@ export const BurgerMenu = () => {
             setBurger(false);
           }}
         >
-          Про нас
+          {t('nav.about')}
         </a>
         <a
           className="header__link burgerMenu__link"
@@ -60,7 +85,7 @@ export const BurgerMenu = () => {
             setBurger(false);
           }}
         >
-          Для кого
+          {t('nav.forWho')}
         </a>
         <a
           className="header__link burgerMenu__link"
@@ -69,7 +94,7 @@ export const BurgerMenu = () => {
             setBurger(false);
           }}
         >
-          Вчителі
+          {t('nav.teachers')}
         </a>
         <a
           className="header__link burgerMenu__link"
@@ -78,7 +103,7 @@ export const BurgerMenu = () => {
             setBurger(false);
           }}
         >
-          Види навчання{' '}
+          {t('nav.learningTypes')}{' '}
         </a>
         <a
           className="header__link burgerMenu__link"
@@ -87,7 +112,7 @@ export const BurgerMenu = () => {
             setBurger(false);
           }}
         >
-          Відгуки
+          {t('nav.reviews')}
         </a>
       </nav>
 

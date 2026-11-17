@@ -321,7 +321,7 @@ $laptop-st: 1.3;
     z-index: 10;
 
     ::after {
-      content: 'Простір вашого розвитку';
+      content: attr(data-label);
       width: 217px;
       height: 50px;
       position: absolute;
@@ -449,7 +449,7 @@ $laptop-st: 1.3;
     }
 
     &::after {
-      content: 'Інтеграція знань у практику';
+      content: attr(data-label);
       width: 237px;
       height: 50px;
       position: absolute;
@@ -507,7 +507,7 @@ $laptop-st: 1.3;
   }
 
   &__card--5::after {
-    content: 'Гнучкий графік занять';
+    content: attr(data-label);
     width: 198px;
     height: 50px;
     position: absolute;

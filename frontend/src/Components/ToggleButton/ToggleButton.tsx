@@ -5,6 +5,8 @@ import cn from 'classnames';
 import classNames from 'classnames';
 import { getCourses } from '../../api/api';
 import { useSwipe } from '../../utils/useSwipe';
+import { useTranslation } from 'react-i18next';
+import { localizeCourse } from '../../i18n/dynamicTranslations';
 
 export interface CursProp {
   id: number;
@@ -18,6 +20,7 @@ export interface CursProp {
 }
 
 export const ToggleButton = () => {
+  const { t, i18n } = useTranslation();
   const [toggleButton, setToggleButton] = useState('uk');
   const { showForm, setShowForm } = useContext(StorageContext);
   const [card, setCard] = useState<number>(0);
@@ -73,6 +76,7 @@ export const ToggleButton = () => {
     <div className="toggleButton">
       <div className="toggleButton__buttons">
         <button
+          data-label={t('courses.ukTeacherTab')}
           className={cn('toggleButton__uk', {
             'toggleButton__uk--active': toggleButton === 'uk',
           })}
@@ -81,9 +85,10 @@ export const ToggleButton = () => {
             setCurrentSlideIndex(0);
           }}
         >
-          Ukrainian teachers
+          {t('courses.ukTeacherTab')}
         </button>
         <button
+          data-label={t('courses.enTeacherTab')}
           className={cn('toggleButton__en', {
             'toggleButton__en--active': toggleButton === 'en',
           })}
@@ -92,7 +97,7 @@ export const ToggleButton = () => {
             setCurrentSlideIndex(0);
           }}
         >
-          English-teacher
+          {t('courses.enTeacherTab')}
         </button>
       </div>
 
@@ -103,72 +108,81 @@ export const ToggleButton = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {enCourses.map((cours, index) => (
-            <div
-              className={classNames('toggleButton__card', {
-                'teachers__card--active': currentSlideIndex === index,
-                'teachers__card--inactive': currentSlideIndex !== index,
-              })}
-              key={cours.price}
-            >
-              <h1 className="toggleButton__card-title">{cours.title}</h1>
-              <h1 className="toggleButton__card-subtitle">
-                {cours.course_type}
-              </h1>
-              <div className="toggleButton__card-pbox">
-                <img
-                  className="toggleButton__card-img"
-                  src="images/hash(1).svg"
-                  alt="hash"
-                />
-                <p className="toggleButton__card-p">
-                  Тривалість: {convTime(cours.lesson_duration)} хвилин
-                </p>
-              </div>
-              <div className="toggleButton__card-pbox">
-                <img
-                  className="toggleButton__card-img"
-                  src="images/hash(1).svg"
-                  alt="hash"
-                />
-                <p className="toggleButton__card-p">Заняття: {cours.classes}</p>
-              </div>
-              <div className="toggleButton__card-pbox">
-                <img
-                  className="toggleButton__card-img"
-                  src="images/hash(1).svg"
-                  alt="hash"
-                />
-                <p className="toggleButton__card-p">
-                  Кількість занять: {cours.number_of_classes}
-                </p>
-              </div>
+          {enCourses.map((rawCourse, index) => {
+            const cours = localizeCourse(rawCourse, i18n.language);
 
-              <div className="toggleButton__card-price">
-                ${convPrice(cours.price)}
-                <span className="toggleButton__card-span">/міс.</span>
-              </div>
-              <button
-                className="toggleButton__button button"
-                onClick={() => {
-                  setShowForm(!showForm);
-                  setCard(1);
-                }}
+            return (
+              <div
+                className={classNames('toggleButton__card', {
+                  'teachers__card--active': currentSlideIndex === index,
+                  'teachers__card--inactive': currentSlideIndex !== index,
+                })}
+                key={cours.id ?? cours.price}
               >
-                Приєднатись
-                <span className="toggleButton__button2">
+                <h1 className="toggleButton__card-title">{cours.title}</h1>
+                <h1 className="toggleButton__card-subtitle">
+                  {cours.course_type}
+                </h1>
+                <div className="toggleButton__card-pbox">
                   <img
-                    className={classNames('toggleButton__button-img', {
-                      'toggleButton__button-img--rotate':
-                        card === 1 && showForm,
-                    })}
-                    src="images/Vector(6).svg"
+                    className="toggleButton__card-img"
+                    src="images/hash(1).svg"
+                    alt="hash"
                   />
-                </span>
-              </button>
-              <div className="toggleButton__card-inf">{cours.trial_info}</div>
-            </div>
-          ))}
+                  <p className="toggleButton__card-p">
+                    {t('courses.duration')}: {convTime(cours.lesson_duration)}{' '}
+                    {t('courses.minutes')}
+                  </p>
+                </div>
+                <div className="toggleButton__card-pbox">
+                  <img
+                    className="toggleButton__card-img"
+                    src="images/hash(1).svg"
+                    alt="hash"
+                  />
+                  <p className="toggleButton__card-p">
+                    {t('courses.classes')}: {cours.classes}
+                  </p>
+                </div>
+                <div className="toggleButton__card-pbox">
+                  <img
+                    className="toggleButton__card-img"
+                    src="images/hash(1).svg"
+                    alt="hash"
+                  />
+                  <p className="toggleButton__card-p">
+                    {t('courses.numberOfClasses')}: {cours.number_of_classes}
+                  </p>
+                </div>
+
+                <div className="toggleButton__card-price">
+                  ${convPrice(cours.price)}
+                  <span className="toggleButton__card-span">
+                    {t('courses.perMonth')}
+                  </span>
+                </div>
+                <button
+                  className="toggleButton__button button"
+                  onClick={() => {
+                    setShowForm(!showForm);
+                    setCard(1);
+                  }}
+                >
+                  {t('courses.join')}
+                  <span className="toggleButton__button2">
+                    <img
+                      className={classNames('toggleButton__button-img', {
+                        'toggleButton__button-img--rotate':
+                          card === 1 && showForm,
+                      })}
+                      src="images/Vector(6).svg"
+                    />
+                  </span>
+                </button>
+                <div className="toggleButton__card-inf">{cours.trial_info}</div>
+              </div>
+            );
+          })}
         </div>
       ) : (
         <div
@@ -177,83 +191,86 @@ export const ToggleButton = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {uaCourses.map((course, index) => (
-            <div
-              className={classNames('toggleButton__card', {
-                'teachers__card--active': currentSlideIndex === index,
-                'teachers__card--inactive': currentSlideIndex !== index,
-              })}
-              key={course.price}
-            >
-              <h1 className="toggleButton__card-title">{course.title} </h1>
-              <h1 className="toggleButton__card-subtitle">
-                {course.course_type}
-              </h1>
-              <div className="toggleButton__card-pbox">
-                <img
-                  className="toggleButton__card-img"
-                  src="images/hash(1).svg"
-                  alt="hash"
-                />
-                <p className="toggleButton__card-p">
-                  {course === newestCourse ? 'Duration' : 'Тривалість'}:{' '}
-                  {convTime(course.lesson_duration)}{' '}
-                  {course === newestCourse ? 'minutes' : 'хвилин'}
-                </p>
-              </div>
-              <div className="toggleButton__card-pbox">
-                <img
-                  className="toggleButton__card-img"
-                  src="images/hash(1).svg"
-                  alt="hash"
-                />
-                <p className="toggleButton__card-p">
-                  {course === newestCourse ? 'Classes' : 'Заняття'}:{' '}
-                  {course.classes}
-                </p>
-              </div>
-              <div className="toggleButton__card-pbox">
-                <img
-                  className="toggleButton__card-img"
-                  src="images/hash(1).svg"
-                  alt="hash"
-                />
-                <p className="toggleButton__card-p">
-                  {course === newestCourse
-                    ? 'Number of lessons'
-                    : 'Кількість занять'}
-                  : {course.number_of_classes}
-                </p>
-              </div>
+          {uaCourses.map((rawCourse, index) => {
+            const course = localizeCourse(rawCourse, i18n.language);
 
-              <div className="toggleButton__card-price">
-                {course === newestCourse ? '$' : '₴'}
-                {convPrice(course.price)}
-                <span className="toggleButton__card-span">
-                  {course === newestCourse ? '/month' : '/міс.'}
-                </span>
-              </div>
-              <button
-                className="toggleButton__button button"
-                onClick={() => {
-                  setShowForm(!showForm);
-                  setCard(1);
-                }}
+            return (
+              <div
+                className={classNames('toggleButton__card', {
+                  'teachers__card--active': currentSlideIndex === index,
+                  'teachers__card--inactive': currentSlideIndex !== index,
+                })}
+                key={course.id ?? course.price}
               >
-                {course === newestCourse ? 'Join' : 'Приєднатись'}
-                <span className="toggleButton__button2">
+                <h1 className="toggleButton__card-title">{course.title} </h1>
+                <h1 className="toggleButton__card-subtitle">
+                  {course.course_type}
+                </h1>
+                <div className="toggleButton__card-pbox">
                   <img
-                    className={classNames('toggleButton__button-img', {
-                      'toggleButton__button-img--rotate':
-                        card === 1 && showForm,
-                    })}
-                    src="images/Vector(6).svg"
+                    className="toggleButton__card-img"
+                    src="images/hash(1).svg"
+                    alt="hash"
                   />
-                </span>
-              </button>
-              <div className="toggleButton__card-inf">{course.trial_info}</div>
-            </div>
-          ))}
+                  <p className="toggleButton__card-p">
+                    {t('courses.duration')}: {convTime(course.lesson_duration)}{' '}
+                    {t('courses.minutes')}
+                  </p>
+                </div>
+                <div className="toggleButton__card-pbox">
+                  <img
+                    className="toggleButton__card-img"
+                    src="images/hash(1).svg"
+                    alt="hash"
+                  />
+                  <p className="toggleButton__card-p">
+                    {t('courses.classes')}: {course.classes}
+                  </p>
+                </div>
+                <div className="toggleButton__card-pbox">
+                  <img
+                    className="toggleButton__card-img"
+                    src="images/hash(1).svg"
+                    alt="hash"
+                  />
+                  <p className="toggleButton__card-p">
+                    {t('courses.numberOfClasses')}: {course.number_of_classes}
+                  </p>
+                </div>
+
+                <div className="toggleButton__card-price">
+                  {rawCourse === newestCourse ? '$' : '₴'}
+                  {convPrice(course.price)}
+                  <span className="toggleButton__card-span">
+                    {rawCourse === newestCourse
+                      ? t('courses.perCourse')
+                      : t('courses.perMonth')}
+                  </span>
+                </div>
+                <button
+                  className="toggleButton__button button"
+                  onClick={() => {
+                    setShowForm(!showForm);
+                    setCard(1);
+                  }}
+                >
+                  {t('courses.join')}
+                  <span className="toggleButton__button2">
+                    <img
+                      className={classNames('toggleButton__button-img', {
+                        'toggleButton__button-img--rotate':
+                          card === 1 && showForm,
+                      })}
+                      src="images/Vector(6).svg"
+                    />
+                  </span>
+                </button>
+                <div className="toggleButton__card-inf">
+                  {course.trial_info}
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
 

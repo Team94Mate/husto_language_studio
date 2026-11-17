@@ -6,11 +6,17 @@ import { getTeachers } from '../../../api/api';
 import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
 import { TeacherProp } from '../../../types/Teachers';
 import { useSwipe } from '../../../utils/useSwipe';
+import { useTranslation } from 'react-i18next';
+import { localizeTeacher } from '../../../i18n/dynamicTranslations';
 
 export const Teachers = () => {
+  const { t, i18n } = useTranslation();
   const [teachers, setTeachers] = useState<TeacherProp[]>([]);
 
-  const sortedTeachers = teachers.sort((a, b) => a.id - b.id);
+  const sortedTeachers = [...teachers].sort((a, b) => a.id - b.id);
+  const localizedTeachers = sortedTeachers.map(item =>
+    localizeTeacher(item, i18n.language),
+  );
 
   const {
     currentSlideIndex: currentTeacherIndex,
@@ -32,7 +38,7 @@ export const Teachers = () => {
     <div className="teachers" id="teachers">
       <div className="teachers__container">
         <h1 className="teachers__title  animation left">
-          Викладачі, які допомагають досягати результатів
+          {t('teachers.title')}
         </h1>
 
         <div className="teachers__phar-box">
@@ -42,9 +48,7 @@ export const Teachers = () => {
             alt="hash"
           />
           <p className="teachers__par  animation right">
-            З нашими викладачами ви навчитесь англійської під керівництвом
-            справжніх професіоналів. Досвід і професійний підхід забезпечують
-            якість навчання та допоможуть досягти ваших мовних цілей
+            {t('teachers.description')}
           </p>
         </div>
 
@@ -54,7 +58,7 @@ export const Teachers = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {sortedTeachers.map((teacher, index) => (
+          {localizedTeachers.map((teacher, index) => (
             <div
               className={classNames(
                 `teachers__card  teachers__card--${teacher.id} animation`,
@@ -77,11 +81,13 @@ export const Teachers = () => {
               <div className="teachers__inform">
                 <div className="teachers__name">{teacher.name}</div>
                 <div className="teachers__role">{teacher.specialization}</div>
-                <div className="teachers__exp">{`Досвід викладання ${teacher.experience_years} років`}</div>
+                <div className="teachers__exp">
+                  {t('teachers.experience', { years: teacher.experience_years })}
+                </div>
                 <div className="teachers__spec">{teacher.teacher_level}</div>
 
-                {teacher.description_lines.map(comment => (
-                  <div className="teachers__coment" key={teacher.id}>
+                {teacher.description_lines.map((comment, idx) => (
+                  <div className="teachers__coment" key={`${teacher.id}-${idx}`}>
                     {comment}
                   </div>
                 ))}
@@ -106,7 +112,7 @@ export const Teachers = () => {
            teachers__prise-title animation left"
           id="types-of-learning"
         >
-          Освіта — найкраща інвестиція у твоє майбутнє
+          {t('teachers.priceTitle')}
         </h1>
 
         <div
@@ -120,7 +126,7 @@ export const Teachers = () => {
           />
 
           <h1 className="teachers__prise-h1">
-            Обирай пакет навчання та крокуй до своїх цілей впевнено!
+            {t('teachers.priceSubtitle')}
           </h1>
         </div>
 

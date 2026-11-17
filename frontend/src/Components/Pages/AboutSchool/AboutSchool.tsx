@@ -2,8 +2,10 @@
 import './AboutSchool.scss';
 import classNames from 'classnames';
 import { useSwipe } from '../../../utils/useSwipe';
-
+import { useTranslation } from 'react-i18next';
 export const AboutSchool = () => {
+  const { t } = useTranslation();
+
   const {
     currentSlideIndex: cardSlideIndex,
     handleTouchStart: handleCardTouchStart,
@@ -26,9 +28,8 @@ export const AboutSchool = () => {
         <div className="aboutSchool__container">
           <div className="aboutSchool__text animation left">
             <h1 className="aboutSchool__title">
-              <span className="aboutSchool__title-span">HUSTO</span> забезпечує
-              можливість майстерно опанувати англійську мову та досягти високих
-              результатів
+              <span className="aboutSchool__title-span">HUSTO</span>{' '}
+              {t('aboutSchool.title')}
             </h1>
 
             <img
@@ -38,14 +39,12 @@ export const AboutSchool = () => {
             />
 
             <p className="aboutSchool__phar">
-              Ми використовуємо інтерактивні платформи, щоб прокачати всі скіли
-              Wordwall, Quizlet Baamboozle, Kahoot, Test English
+              {t('aboutSchool.platforms')} {t('aboutSchool.platformsList')}
             </p>
 
             <p className="aboutSchool__phar-mob">
-              Ми використовуємо інтерактивні платформи, щоб прокачати всі скіли{' '}
-              <br />
-              Wordwall, Quizlet Baamboozle, Kahoot, Test English
+              {t('aboutSchool.platforms')} <br />
+              {t('aboutSchool.platformsList')}
             </p>
           </div>
 
@@ -56,6 +55,7 @@ export const AboutSchool = () => {
             onTouchEnd={handleCardTouchEnd}
           >
             <div
+              data-label={t('aboutSchool.card1Badge')}
               className={classNames(
                 'aboutSchool__card aboutSchool__card--1 animation left',
                 {
@@ -68,14 +68,17 @@ export const AboutSchool = () => {
                 className="aboutSchool__card-img1"
                 src="images/hash(1).svg"
               />
-              <p className="aboutSchool__card-p">
-                Усі викладачі{' '}
+              <p
+                className="aboutSchool__card-p"
+                data-label={t('aboutSchool.card1Badge')}
+              >
+                {t('aboutSchool.card1Line1')}{' '}
                 <span className="aboutSchool__span aboutSchool__span--1">
                   HUSTO
                 </span>
                 <br />
-                мають педагогічну освіту <br />
-                та значний досвід викладання
+                {t('aboutSchool.card1Line2')} <br />
+                {t('aboutSchool.card1Line3')}
               </p>
             </div>
             <div
@@ -88,13 +91,22 @@ export const AboutSchool = () => {
               )}
             >
               <p className="aboutSchool__card-p">
-                Враховуємо унікальні <br />
-                <span className="aboutSchool__span"> потреби </span> та {''}
-                <span className="aboutSchool__span"> цілі</span> <br />
-                кожного учня
+                {t('aboutSchool.card2Line1')} <br />
+                <span className="aboutSchool__span">
+                  {' '}
+                  {t('aboutSchool.card2Needs')}{' '}
+                </span>{' '}
+                {t('aboutSchool.card2And')} {''}
+                <span className="aboutSchool__span">
+                  {' '}
+                  {t('aboutSchool.card2Goals')}
+                </span>{' '}
+                <br />
+                {t('aboutSchool.card2Line3')}
               </p>
             </div>
             <div
+              data-label={t('aboutSchool.card3Badge')}
               className={classNames(
                 'aboutSchool__card aboutSchool__card--3 animation right',
                 {
@@ -112,7 +124,7 @@ export const AboutSchool = () => {
               </div>
 
               <p className="aboutSchool__card-p">
-                Працюємо з усіма рівнями{' '}
+                {t('aboutSchool.card3Text')}{' '}
                 <span className="aboutSchool__span aboutSchool__span-spec">
                   <span className="aboutSchool__span-beginner">Beginner</span>
                   <span className="aboutSchool__span-adv">Advanced</span>
@@ -210,17 +222,24 @@ export const AboutSchool = () => {
                     alt="ashtag"
                   />
                   <span className="aboutSchool__card-typeSpan">HUSTO</span>
+                  <img
+                    className="aboutSchool__card-typeImg"
+                    src="images/hash(1).svg"
+                    alt="ashtag"
+                  />
+                  <span className="aboutSchool__card-typeSpan">HUSTO</span>
                 </div>
               </div>
 
               <p className="aboutSchool__card-p">
-                Мотивуємо учнів <br />
+                {t('aboutSchool.card4Line1')} <br />
                 <span className="aboutSchool__span">
-                  розкрити свій потенціал
+                  {t('aboutSchool.card4Highlight')}
                 </span>
               </p>
             </div>
             <div
+              data-label={t('aboutSchool.card5Badge')}
               className={classNames(
                 'aboutSchool__card aboutSchool__card--5 animation right',
                 {
@@ -230,9 +249,10 @@ export const AboutSchool = () => {
               )}
             >
               <p className="aboutSchool__card-p">
-                Персоналізовані програми <br /> для <br />
+                {t('aboutSchool.card5Line1')} <br /> {t('aboutSchool.card5Line2')}{' '}
+                <br />
                 <span className="aboutSchool__span">
-                  максимального результату
+                  {t('aboutSchool.card5Highlight')}
                 </span>
               </p>
             </div>
@@ -253,7 +273,8 @@ export const AboutSchool = () => {
           <div className="aboutSchool__open-for">
             <div className="aboutSchool__block">
               <h1 className="aboutSchool__heading">
-                Відкрий для себе <br /> нові можливості з
+                {t('aboutSchool.openTitleLine1')} <br />{' '}
+                {t('aboutSchool.openTitleLine2')}
               </h1>
               <p className="aboutSchool__heading2">HUSTO</p>
             </div>
@@ -264,7 +285,8 @@ export const AboutSchool = () => {
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
 
               <p className="aboutSchool__par aboutSchool__par--1">
-                Впевнено спілкуватись <br /> англійською
+                {t('aboutSchool.benefit1Line1')} <br />{' '}
+                {t('aboutSchool.benefit1Line2')}
               </p>
             </div>
 
@@ -274,7 +296,8 @@ export const AboutSchool = () => {
             >
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--2">
-                Стати більш впевненою <br /> версією себе
+                {t('aboutSchool.benefit2Line1')} <br />{' '}
+                {t('aboutSchool.benefit2Line2')}
               </p>
             </div>
 
@@ -284,9 +307,9 @@ export const AboutSchool = () => {
             >
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--3">
-                Прокачаєш знання <br />
-                з індивідуальним підходом <br />
-                від компетентних викладачів
+                {t('aboutSchool.benefit3Line1')} <br />
+                {t('aboutSchool.benefit3Line2')} <br />
+                {t('aboutSchool.benefit3Line3')}
               </p>
             </div>
 
@@ -297,7 +320,8 @@ export const AboutSchool = () => {
             >
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--4">
-                Подорожувати <br /> без обмежень
+                {t('aboutSchool.benefit4Line1')} <br />{' '}
+                {t('aboutSchool.benefit4Line2')}
               </p>
             </div>
 
@@ -307,7 +331,8 @@ export const AboutSchool = () => {
             >
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--5">
-                Отримати престижну <br /> роботу
+                {t('aboutSchool.benefit5Line1')} <br />{' '}
+                {t('aboutSchool.benefit5Line2')}
               </p>
             </div>
 
@@ -317,16 +342,16 @@ export const AboutSchool = () => {
             >
               <img className="aboutSchool__open-img" src="images/hash(1).svg" />
               <p className="aboutSchool__par aboutSchool__par--6">
-                Дивитись улюблені <br />
-                фільми та серіали <br />
-                англійською без субтитрів
+                {t('aboutSchool.benefit6Line1')} <br />
+                {t('aboutSchool.benefit6Line2')} <br />
+                {t('aboutSchool.benefit6Line3')}
               </p>
             </div>
           </div>
 
           <div className="aboutSchool__how-works">
             <h1 className="aboutSchool__how-works-title animation left">
-              Як це працює:
+              {t('aboutSchool.howWorksTitle')}
             </h1>
             <div
               className="aboutSchool__how-works-cards"
@@ -347,7 +372,8 @@ export const AboutSchool = () => {
                   className="aboutSchool__how-works-p 
               aboutSchool__how-works-card--1"
                 >
-                  Визначення рівня <br /> знань учня
+                  {t('aboutSchool.step1Line1')} <br />{' '}
+                  {t('aboutSchool.step1Line2')}
                 </p>
               </div>
 
@@ -360,7 +386,9 @@ export const AboutSchool = () => {
                   },
                 )}
               >
-                <p className="aboutSchool__how-works-p">Вибір вчителя</p>
+                <p className="aboutSchool__how-works-p">
+                  {t('aboutSchool.step2')}
+                </p>
               </div>
 
               <div
@@ -374,7 +402,8 @@ export const AboutSchool = () => {
               >
                 <p className="aboutSchool__how-works-p">
                   {' '}
-                  Проведення пробного <br /> заняття
+                  {t('aboutSchool.step3Line1')} <br />{' '}
+                  {t('aboutSchool.step3Line2')}
                 </p>
               </div>
 
@@ -388,7 +417,9 @@ export const AboutSchool = () => {
                 )}
               >
                 <p className="aboutSchool__how-works-p">
-                  Визначення <br /> персональної програми <br /> для навчання
+                  {t('aboutSchool.step4Line1')} <br />{' '}
+                  {t('aboutSchool.step4Line2')} <br />
+                  {t('aboutSchool.step4Line3')}
                 </p>
               </div>
             </div>

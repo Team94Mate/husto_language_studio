@@ -3,8 +3,9 @@ import './HomePage.scss';
 import classNames from 'classnames';
 import { StorageContext } from '../../../storage/StorageContext';
 import { useAnimationEffect } from '../../../hooks/useAnimationEffect';
-
+import { useTranslation } from 'react-i18next';
 export const HomePage = () => {
+  const { t } = useTranslation();
   const [isClicked, setIsClicked] = useState<number[]>([]);
   const [currentHash, setCurrentHash] = useState(window.location.hash);
   const { setBurger, setPageHeight } = useContext(StorageContext);
@@ -47,7 +48,7 @@ export const HomePage = () => {
       </button>
       <div className="homePage__container">
         <h1 className="homePage__title animation left">
-          Твій успіх - наша мета
+          {t('homePage.topTitle')}
         </h1>
         <p className="homePage__from animation right">From</p>
         <img
@@ -77,12 +78,12 @@ export const HomePage = () => {
           className="homePage__dog2 animation right"
         />
         <h1 className="homePage__h1 animation right">
-          Мовна школа яка змінить тебе!
+          {t('homePage.mainTitle')}
         </h1>
         <p className="homePage__p animation left">
-          Індивідуальні, парні та групові онлайн курси <br />
-          на інтерактивній платформі <br />
-          з досвідченими викладачами <br />
+          {t('homePage.descLine1')} <br />
+          {t('homePage.descLine2')} <br />
+          {t('homePage.descLine3')} <br />
         </p>
 
         <a
@@ -97,7 +98,7 @@ export const HomePage = () => {
           }
           rel="noreferrer"
         >
-          <h3 className="homePage__button-text1"> Безкоштовний марафон</h3>
+          <h3 className="homePage__button-text1">{t('homePage.freeMarathon')}</h3>
           <span className="homePage__button2 homePage__button2--phone">
             <img
               className={classNames('homePage__button-img', {
@@ -119,7 +120,7 @@ export const HomePage = () => {
           }
           rel="noreferrer"
         >
-          <h3 className="homePage__button-text2">Безкоштовне тестування</h3>
+          <h3 className="homePage__button-text2">{t('homePage.freeTest')}</h3>
 
           <span className="homePage__button2 homePage__button2--phone">
             <img
