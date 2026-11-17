@@ -1,4 +1,4 @@
-@import "/src/Global";
+@import '/src/Global';
 
 $laptop-st: 1.5;
 $tablet-st: 1.5;
@@ -22,51 +22,51 @@ $tablet-st: 1.5;
     align-items: center;
     height: calc(440px * $tablet-st);
   }
-  
+
   &__container {
-   width: 100%;
-   position: relative;
-   height: 725px;
-   background-color: $primary-color;
+    width: 100%;
+    position: relative;
+    height: 725px;
+    background-color: $primary-color;
 
-   display: grid;
-   grid-template-columns: repeat(12, 90px);
-   gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(12, 90px);
+    gap: 25px;
 
-   justify-content: center;
+    justify-content: center;
 
-   background-image: url('../../../../public/images/FrameNet\(1\).svg');
-   background-position: top center;
-   background-repeat: no-repeat;
-   background-size: 100%;
-   margin: 0 42px 0 43px;
+    background-image: url('../../../../public/images/FrameNet\(1\).svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0 42px 0 43px;
 
-   @include phone-style {
-    width: calc(100% - 32px);
-    height: 354px;
-    grid-template-columns: repeat(4, 74px);
-    gap: 16px;
-    background-position: top left;
-    background-size: 234%;
-    margin: 0 16px;
-   }
+    @include phone-style {
+      width: calc(100% - 32px);
+      height: 354px;
+      grid-template-columns: repeat(4, 74px);
+      gap: 16px;
+      background-position: top left;
+      background-size: 234%;
+      margin: 0 16px;
+    }
 
-   @include laptop-style {
+    @include laptop-style {
       height: calc(725px / $laptop-st);
       grid-template-columns: repeat(12, calc(90px / $laptop-st));
       gap: calc(25px / $laptop-st);
       margin: 0 calc(42px / $laptop-st) 0 calc(43px / $laptop-st);
-   }
+    }
 
-   @include tablet-style {
-    width: calc(100% - (32px * $tablet-st));
-    height: 100%;
-    grid-template-columns: repeat(4, calc(73px * $tablet-st));
-    gap: calc(16px * $tablet-st);
-    background-position: top left;
-    background-size: 293%;
-    margin: 0 calc(16px * $tablet-st);
-   }
+    @include tablet-style {
+      width: calc(100% - (32px * $tablet-st));
+      height: 100%;
+      grid-template-columns: repeat(4, calc(73px * $tablet-st));
+      gap: calc(16px * $tablet-st);
+      background-position: top left;
+      background-size: 293%;
+      margin: 0 calc(16px * $tablet-st);
+    }
   }
 
   &__mob-button {
@@ -88,7 +88,8 @@ $tablet-st: 1.5;
       display: block;
       width: calc(32px * $tablet-st);
       height: calc(32px * $tablet-st);
-      margin: calc(16px * $tablet-st) 0 calc(16px * $tablet-st) calc(16px * $tablet-st);
+      margin: calc(16px * $tablet-st) 0 calc(16px * $tablet-st)
+        calc(16px * $tablet-st);
     }
   }
 
@@ -113,7 +114,7 @@ $tablet-st: 1.5;
     }
 
     @include laptop-style {
-      font-size: calc(48px / $laptop-st) ;
+      font-size: calc(48px / $laptop-st);
     }
 
     @include tablet-style {
@@ -141,7 +142,7 @@ $tablet-st: 1.5;
     letter-spacing: -0.05em;
     background: transparent;
     z-index: 2;
-  
+
     @include phone-style {
       width: 275px;
       height: 105px;
@@ -150,7 +151,7 @@ $tablet-st: 1.5;
       left: 48px;
       top: 21px;
     }
-  
+
     @include laptop-style {
       width: calc(1125px / $laptop-st);
       height: calc(360px / $laptop-st);
@@ -158,12 +159,12 @@ $tablet-st: 1.5;
       left: -81px;
       top: calc(130px / $laptop-st);
     }
-  
+
     @include tablet-style {
       grid-column: 1 / 5;
       width: calc(274px * $tablet-st);
-      height: calc(105px * $tablet-st); 
-      font-size: calc(88px * $tablet-st); 
+      height: calc(105px * $tablet-st);
+      font-size: calc(88px * $tablet-st);
       left: 75px;
       top: 32.5px;
     }
@@ -176,7 +177,7 @@ $tablet-st: 1.5;
       top: 35%;
       left: 83%;
       transform: rotate(-19deg);
-    
+
       background-image: url('../../../../public/images/Header-aroow1(new).svg');
       background-size: cover;
       background-position: center;
@@ -190,19 +191,18 @@ $tablet-st: 1.5;
         top: 55%;
         left: 91%;
       }
-    
+
       @include laptop-style {
         width: calc(254px / $laptop-st);
         height: calc(220px / $laptop-st);
       }
-    
+
       @include tablet-style {
         width: calc(45px * $tablet-st);
         height: calc(39px * $tablet-st);
         transform: rotate(-18deg);
       }
     }
-
 
     &::after {
       position: absolute;
@@ -213,12 +213,11 @@ $tablet-st: 1.5;
       left: 20%;
       grid-column: 4 / 7;
       z-index: -1;
-    
+
       background-image: url('../../../../public/images/Header-arrow2\(1\).svg');
       background-position: center;
       background-repeat: no-repeat;
 
-    
       @include phone-style {
         width: 52px;
         height: 36px;
@@ -227,7 +226,7 @@ $tablet-st: 1.5;
         z-index: -1;
         background-size: cover;
       }
-    
+
       @include laptop-style {
         width: calc(254px / $laptop-st);
         height: calc(220px / $laptop-st);
@@ -235,7 +234,7 @@ $tablet-st: 1.5;
         top: 63%;
         left: 17%;
       }
-    
+
       @include tablet-style {
         width: calc(52px * $tablet-st);
         height: calc(36px * $tablet-st);
@@ -295,7 +294,7 @@ $tablet-st: 1.5;
       top: 36px;
       left: -14px;
     }
-  
+
     @include laptop-style {
       width: calc(244px / $laptop-st);
       height: calc(244px / $laptop-st);
@@ -303,11 +302,11 @@ $tablet-st: 1.5;
       left: -27%;
       letter-spacing: 0;
     }
-  
+
     @include tablet-style {
       grid-column: 1 / 3;
-      width: calc(89px * $tablet-st);   
-      height: calc(78px * $tablet-st); 
+      width: calc(89px * $tablet-st);
+      height: calc(78px * $tablet-st);
       top: 37px;
       left: -20px;
     }
@@ -322,7 +321,6 @@ $tablet-st: 1.5;
     background-size: 100%;
     background-repeat: no-repeat;
 
-
     @include phone-style {
       // background-image: url('../../../../public/images/CutedHeader.png');
       // background-position: inherit;
@@ -330,30 +328,30 @@ $tablet-st: 1.5;
       background-repeat: no-repeat;
     }
   }
-  
+
   &__dog1 {
     position: absolute;
     top: 11%;
     grid-column: 8 / 10;
     background: transparent;
     z-index: 3;
-  
+
     @include phone-style {
       display: none;
     }
-  
+
     @include laptop-style {
       width: calc(114px / $laptop-st);
       height: calc(128px / $laptop-st);
       top: 15%;
       left: 10%;
     }
-  
+
     @include tablet-style {
       display: none;
     }
   }
-  
+
   &__dog2 {
     width: 114px;
     height: 128px;
@@ -362,21 +360,21 @@ $tablet-st: 1.5;
     top: 12.5%;
     left: 39%;
     background: transparent;
-  
+
     @include phone-style {
       display: none;
     }
-  
+
     @include laptop-style {
       width: calc(114px / 1.7);
       height: calc(128px / 1.7);
     }
-  
+
     @include tablet-style {
       display: none;
     }
   }
-  
+
   &__from {
     grid-column: 8 / 9;
     position: absolute;
@@ -387,24 +385,24 @@ $tablet-st: 1.5;
     color: $secondary-color;
     background: transparent;
     z-index: 4;
-  
+
     @include phone-style {
       display: none;
     }
-  
+
     @include laptop-style {
       font-size: calc(24px / $laptop-st);
       top: 18%;
       left: -11%;
     }
-  
+
     @include tablet-style {
-      top: calc(15% * $tablet-st);      
+      top: calc(15% * $tablet-st);
       left: calc(-33% * $tablet-st);
       font-size: calc(24px * $tablet-st);
     }
   }
-  
+
   &__beginner {
     grid-column: 9 / 10;
     position: absolute;
@@ -416,21 +414,21 @@ $tablet-st: 1.5;
     color: $secondary-color;
     background: transparent;
     z-index: 4;
-  
+
     @include phone-style {
       display: none;
     }
-  
+
     @include laptop-style {
       font-size: calc(24px / $laptop-st);
       left: 0;
     }
-  
+
     @include tablet-style {
       display: none;
     }
   }
-  
+
   &__advanced {
     grid-column: 10 / 12;
     width: 205px;
@@ -443,16 +441,16 @@ $tablet-st: 1.5;
     z-index: 2;
     text-align: center;
     background: transparent;
-  
+
     @include phone-style {
       display: none;
     }
-  
+
     @include laptop-style {
       font-size: calc(24px / $laptop-st);
       left: -29%;
     }
-  
+
     @include tablet-style {
       display: none;
     }
@@ -461,25 +459,25 @@ $tablet-st: 1.5;
   &__box-to {
     grid-column: 10 / 11;
     position: absolute;
-    top: 13%; 
+    top: 13%;
     left: -24%;
     background: transparent;
-  
+
     @include phone-style {
       display: none;
     }
-  
+
     @include laptop-style {
       width: calc(72px / $laptop-st);
       height: calc(79px / $laptop-st);
     }
-  
+
     @include tablet-style {
       top: calc(13% * $tablet-st);
       left: calc(-24% * $tablet-st);
     }
   }
-  
+
   &__p {
     grid-column: 1 / 6;
     position: absolute;
@@ -492,40 +490,40 @@ $tablet-st: 1.5;
     font-size: 24px;
     line-height: 130%;
     color: $white-100;
-  
+
     @include phone-style {
       grid-column: 1 / 5;
       font-size: 16px;
       top: 146px;
       letter-spacing: 0;
     }
-  
+
     @include laptop-style {
       font-size: calc(24px / $laptop-st);
     }
-  
+
     @include tablet-style {
       grid-column: 1 / 5;
       font-size: calc(16px * $tablet-st);
-      top: 225.5px;   
-      letter-spacing: 0; 
+      top: 225.5px;
+      letter-spacing: 0;
     }
   }
-  
+
   &__button {
     height: 48px;
     width: 100%;
     grid-column: 1 / 5;
-  
+
     &--1 {
       width: 263px;
       grid-column: 7 / 10;
       position: absolute;
       left: 24%;
       bottom: 16%;
-      
+
       @include button;
-  
+
       @include phone-style {
         grid-column: 1 / 5;
         width: 343px;
@@ -536,7 +534,7 @@ $tablet-st: 1.5;
         color: $white-100;
         border: 1px solid $white-100;
       }
-  
+
       @include tablet-style {
         grid-column: 1 / 5;
         width: calc(343px * $tablet-st);
@@ -544,31 +542,31 @@ $tablet-st: 1.5;
         left: 50%;
         transform: translate(-50%);
       }
-  
+
       &:active {
         @include phone-style {
           color: $white-100;
         }
-  
+
         @include tablet-style {
           color: $white-100;
         }
       }
-  
+
       @include laptop-style {
         width: calc(263px / $laptop-st);
       }
     }
-  
+
     &--2 {
       width: 267px;
       grid-column: 10 / 12;
       position: absolute;
       left: 26%;
       bottom: 16%;
-      
+
       @include button;
-  
+
       @include phone-style {
         width: 343px;
         height: 40px;
@@ -576,7 +574,7 @@ $tablet-st: 1.5;
         top: 232px;
         grid-column: 1 / 5;
       }
-  
+
       @include tablet-style {
         grid-column: 1 / 5;
         width: calc(343px * $tablet-st);
@@ -585,14 +583,14 @@ $tablet-st: 1.5;
         transform: translate(-50%);
       }
     }
-  
+
     @include laptop-style {
       width: calc(267px / $laptop-st);
       height: calc(48px / $laptop-st);
     }
 
     @include phone-style {
-      padding-right: 4px; 
+      padding-right: 4px;
     }
 
     @include tablet-style {
@@ -603,66 +601,66 @@ $tablet-st: 1.5;
       font-size: calc(16px * $tablet-st);
     }
   }
-  
+
   &__button-text1 {
     width: 191px;
     text-align: center;
-  
+
     @include phone-style {
-      width: 90%; 
+      width: 90%;
       color: $white-100;
     }
-  
+
     @include tablet-style {
       width: 90%;
     }
-  
+
     @include laptop-style {
       width: calc(191px / $laptop-st);
       font-size: calc(16px / $laptop-st);
     }
   }
-  
+
   &__button-text2 {
     width: 200px;
     text-align: center;
-  
+
     @include phone-style {
       width: 90%;
     }
-  
+
     @include tablet-style {
       width: 90%;
     }
-  
+
     @include laptop-style {
       width: calc(200px / $laptop-st);
       font-size: calc(16px / $laptop-st);
     }
   }
-  
+
   &__button2 {
     @include circle-button;
-  
+
     &--phone {
       @include phone-style {
         border: 1px solid $white-100;
       }
-  
+
       @include tablet-style {
         border: 1px solid $white-100;
         width: calc(32px * $tablet-st);
         height: calc(32px * $tablet-st);
-        border-radius: calc(27px * $tablet-st); 
+        border-radius: calc(27px * $tablet-st);
       }
     }
-  
+
     @include laptop-style {
       width: calc(34px / $laptop-st);
       height: calc(34px / $laptop-st);
     }
   }
-  
+
   &__button-img {
     @include button-image;
 
@@ -670,11 +668,11 @@ $tablet-st: 1.5;
       width: calc(10px / $laptop-st);
       height: calc(10px / $laptop-st);
     }
-  
+
     &--clicked1 {
       transform: rotate(45deg);
     }
-  
+
     &--clicked2 {
       transform: rotate(45deg);
     }

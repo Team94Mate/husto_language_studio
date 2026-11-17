@@ -1,4 +1,4 @@
-@import "/src/Global";
+@import '/src/Global';
 
 * {
   margin: 0;
@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-.header, footer {
+.header,
+footer {
   width: 100%;
 }
 

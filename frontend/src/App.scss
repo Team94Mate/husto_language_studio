@@ -1,37 +1,38 @@
-@import "/src/Global";
+@import '/src/Global';
 
- .main {
+.main {
   position: relative;
   background-color: $primary-color;
   scroll-behavior: smooth !important;
   overflow: hidden;
- }
+}
 
- @media (min-width: 962px) {
+@media (min-width: 962px) {
   .animation {
-    opacity: 0; 
-    transition: transform 1s ease, opacity 1s ease;
-   }
+    opacity: 0;
+    transition:
+      transform 1s ease,
+      opacity 1s ease;
+  }
 
   .right {
-    transform: translateX(100%); 
+    transform: translateX(100%);
   }
-  
+
   .top {
-    transform: translateY(-100%); 
+    transform: translateY(-100%);
   }
-  
+
   .bottom {
     transform: translateY(100%);
   }
 
   .left {
-    transform: translateX(-100%); 
+    transform: translateX(-100%);
   }
-  
+
   .show {
     opacity: 1;
-    transform: translateX(0) translateY(0); 
+    transform: translateX(0) translateY(0);
   }
- }
- 
+}

@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import { localizeReview } from '../../../i18n/dynamicTranslations';
 import { StorageContext } from '../../../storage/StorageContext';
 
-
 const WHATSAPP_URL = 'https://wa.me/380631699824';
 const GMAIL_COMPOSE_URL =
   'https://mail.google.com/mail/?view=cm&fs=1&to=husto.language.studio@gmail.com';
@@ -396,16 +395,16 @@ export const ReviewsPage = () => {
                   />
                 </span>
               </button>
-            <p className="ClientForm__consent">
-              {t('legal.consentPrefix')}{' '}
-              <button
-                type="button"
-                className="ClientForm__consent-link"
-                onClick={() => setLegalModal('offer')}
-              >
-                {t('legal.offerLink')}
-              </button>{' '}
-            </p>
+              <p className="ClientForm__consent">
+                {t('legal.consentPrefix')}{' '}
+                <button
+                  type="button"
+                  className="ClientForm__consent-link"
+                  onClick={() => setLegalModal('offer')}
+                >
+                  {t('legal.offerLink')}
+                </button>{' '}
+              </p>
             </form>
           </div>
         </div>
@@ -419,9 +418,7 @@ export const ReviewsPage = () => {
             })}
           >
             <div className="reviewsPage__questionBox">
-              <div className="reviewsPage__question">
-                {t('reviews.faq1Q')}
-              </div>
+              <div className="reviewsPage__question">{t('reviews.faq1Q')}</div>
 
               <div
                 className="reviewsPage__questButton"
@@ -455,9 +452,7 @@ export const ReviewsPage = () => {
             })}
           >
             <div className="reviewsPage__questionBox">
-              <div className="reviewsPage__question">
-                {t('reviews.faq2Q')}
-              </div>
+              <div className="reviewsPage__question">{t('reviews.faq2Q')}</div>
 
               <div
                 className="reviewsPage__questButton"
@@ -488,9 +483,7 @@ export const ReviewsPage = () => {
             })}
           >
             <div className="reviewsPage__questionBox">
-              <div className="reviewsPage__question">
-                {t('reviews.faq3Q')}
-              </div>
+              <div className="reviewsPage__question">{t('reviews.faq3Q')}</div>
 
               <div
                 className="reviewsPage__questButton"
@@ -526,9 +519,7 @@ export const ReviewsPage = () => {
             })}
           >
             <div className="reviewsPage__questionBox">
-              <div className="reviewsPage__question">
-                {t('reviews.faq4Q')}
-              </div>
+              <div className="reviewsPage__question">{t('reviews.faq4Q')}</div>
 
               <div
                 className="reviewsPage__questButton"
@@ -561,9 +552,7 @@ export const ReviewsPage = () => {
             })}
           >
             <div className="reviewsPage__questionBox">
-              <div className="reviewsPage__question">
-                {t('reviews.faq5Q')}
-              </div>
+              <div className="reviewsPage__question">{t('reviews.faq5Q')}</div>
 
               <div
                 className="reviewsPage__questButton"
@@ -593,9 +582,7 @@ export const ReviewsPage = () => {
             })}
           >
             <div className="reviewsPage__questionBox">
-              <div className="reviewsPage__question">
-                {t('reviews.faq6Q')}
-              </div>
+              <div className="reviewsPage__question">{t('reviews.faq6Q')}</div>
 
               <div
                 className="reviewsPage__questButton"
@@ -655,9 +642,7 @@ export const ReviewsPage = () => {
         </p>
 
         <div className="reviewsPage__last-phar-box mob">
-          <p className="reviewsPage__phar2">
-            {t('reviews.faqContactPrompt')}
-          </p>
+          <p className="reviewsPage__phar2">{t('reviews.faqContactPrompt')}</p>
           <p className="reviewsPage__phar3">
             <span className="reviewsPage__email"> Email:</span>{' '}
             husto.language.studio@gmail.com

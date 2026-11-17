@@ -98,7 +98,9 @@ export const HomePage = () => {
           }
           rel="noreferrer"
         >
-          <h3 className="homePage__button-text1">{t('homePage.freeMarathon')}</h3>
+          <h3 className="homePage__button-text1">
+            {t('homePage.freeMarathon')}
+          </h3>
           <span className="homePage__button2 homePage__button2--phone">
             <img
               className={classNames('homePage__button-img', {
